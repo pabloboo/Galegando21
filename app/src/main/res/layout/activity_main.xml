@@ -38,6 +38,20 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/day02Button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryBlue"
+            android:gravity="center"
+            android:text="@string/day02_text"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 
