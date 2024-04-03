@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/resposta"/>
             <ImageButton
+                android:id="@+id/check_btn_pasagalego"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/check_icon"
