@@ -4,5 +4,8 @@
     <string name="day01_text">Día 1 - Pasagalego</string>
     <string name="pasagalego">PasaGalego</string>
     <string name="resposta">Resposta</string>
+    <string name="musica">Música</string>
+    <string name="day02_text">Día 2 - Música</string>
+    <string name="musica_description">Fixemos unha pequena selección de cancións en galego para ti! fai click na seguinte icona e descubre novas cancións en galego, engade as que máis che gusten á túa playlist favorita :)</string>
 
 </resources>
