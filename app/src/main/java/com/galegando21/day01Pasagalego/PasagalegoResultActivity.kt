@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
@@ -35,6 +36,14 @@ class PasagalegoResultActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Intent(this@PasagalegoResultActivity, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        })
 
     }
 }

@@ -8,7 +8,9 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import com.galegando21.BannerFragment
+import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.PasagalegoConstants
@@ -47,6 +49,14 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         }
 
         showNextQuestion()
+
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Intent(this@PasagalegoQuestionActivity, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
+        })
     }
 
     private fun showNextQuestion() {
