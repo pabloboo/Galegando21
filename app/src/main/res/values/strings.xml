@@ -7,5 +7,9 @@
     <string name="musica">Música</string>
     <string name="day02_text">Día 2 - Música</string>
     <string name="musica_description">Fixemos unha pequena selección de cancións en galego para ti! fai click na seguinte icona e descubre novas cancións en galego, engade as que máis che gusten á túa playlist favorita :)</string>
+    <string name="atrapame_se_podes_explicacion">Basado na serie da TVG co mesmo nome, este\nxogo consiste en unha serie de preguntas\nde cultura xeral nas que o primeiro xogador en \nchegar a 5 respostas correctas é o gañador.\n\nXoga ti só ou faino con un amigo para \nver quen é o máis erudito.</string>
+    <string name="atrapame_se_podes">Atrápame se podes</string>
+    <string name="comezar_a_xogar">Comezar a xogar</string>
+    <string name="day03_text">Día 3 - Atrápame se podes</string>
 
 </resources>

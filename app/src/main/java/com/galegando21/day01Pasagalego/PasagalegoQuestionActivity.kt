@@ -72,6 +72,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             Intent(this, PasagalegoResultActivity::class.java). also {
                 it.putExtra(PasagalegoConstants.SCORE, correctAnswers)
                 startActivity(it)
+                finish()
             }
         }
     }
