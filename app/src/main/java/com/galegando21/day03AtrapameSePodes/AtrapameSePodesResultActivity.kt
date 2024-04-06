@@ -13,6 +13,7 @@ import com.galegando21.utils.AtrapameSePodesConstants
 
 class AtrapameSePodesResultActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
+    private lateinit var stepsFragment: AtrapameSePodesStepsFragment
     private lateinit var atrapameSePodesResultTV: TextView
     private lateinit var atrapameSePodesFinishButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +27,12 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
         bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
         supportFragmentManager.beginTransaction().runOnCommit {
             bannerFragment.setBannerText(getString(R.string.atrapame_se_podes))
+        }.commit()
+
+        // Settear el steps fragment
+        stepsFragment = supportFragmentManager.findFragmentById(R.id.atrapame_se_podes_level_fragment_container_result) as AtrapameSePodesStepsFragment
+        supportFragmentManager.beginTransaction().runOnCommit {
+            stepsFragment.setStepsImage(5)
         }.commit()
 
         val score = intent.getIntExtra(AtrapameSePodesConstants.SCORE, 0)
