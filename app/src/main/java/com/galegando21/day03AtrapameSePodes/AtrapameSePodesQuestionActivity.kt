@@ -18,6 +18,7 @@ import kotlin.random.Random
 
 class AtrapameSePodesQuestionActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
+    private lateinit var stepsFragment: AtrapameSePodesStepsFragment
 
     private lateinit var questionTV: TextView
     private lateinit var userAnswerText: EditText
@@ -41,6 +42,8 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
             bannerFragment.setBannerText(getString(R.string.atrapame_se_podes))
         }.commit()
 
+        setStepsFragment(0)
+
         checkButton.setOnClickListener {
             checkButtonClickListener()
         }
@@ -62,6 +65,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
             val randomNumber = Random.nextInt(0, questionList.size)
             currentQuestionAtrapameSePodes = questionList[randomNumber]
             questionTV.text = currentQuestionAtrapameSePodes.question
+            setStepsFragment(correctAnswers)
         } else {
             Intent(this, AtrapameSePodesResultActivity::class.java).also {
                 it.putExtra(AtrapameSePodesConstants.SCORE, questionCounter)
@@ -81,5 +85,13 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         }
         userAnswerText.text.clear()
         showNextQuestion()
+    }
+
+    private fun setStepsFragment(level: Int) {
+        // Settear el stepsFragment
+        stepsFragment = supportFragmentManager.findFragmentById(R.id.atrapame_se_podes_level_fragment_container) as AtrapameSePodesStepsFragment
+        supportFragmentManager.beginTransaction().runOnCommit {
+            stepsFragment.setStepsImage(level)
+        }.commit()
     }
 }

@@ -14,6 +14,31 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/atrapame_se_podes_level_fragment_container"
+        android:name="com.galegando21.day03AtrapameSePodes.AtrapameSePodesStepsFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
+
+    <TextView
+        android:id="@+id/tv_atrapame_se_podes_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_level_fragment_container"
+        app:layout_constraintVertical_bias="0.518"
+        tools:text="Para que un bebé sexa muller, que letra se repite dúas
+        veces nos cromosomas sexuais?" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,21 +63,6 @@
             android:padding="10dp"
             android:src="@drawable/check_icon" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_atrapame_se_podes_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.184"
-        tools:text="Para que un bebé sexa muller, que letra se repite dúas
-        veces nos cromosomas sexuais?" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

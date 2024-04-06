@@ -14,6 +14,16 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/atrapame_se_podes_level_fragment_container_result"
+        android:name="com.galegando21.day03AtrapameSePodes.AtrapameSePodesStepsFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
+
     <TextView
         android:id="@+id/atrapame_se_podes_result_tv"
         android:layout_width="wrap_content"
@@ -21,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_level_fragment_container_result"
         tools:text="Acertaches un total de 14 palabras" />
 
     <Button
