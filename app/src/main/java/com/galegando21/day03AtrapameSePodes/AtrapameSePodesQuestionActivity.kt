@@ -61,7 +61,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
 
     private fun showNextQuestion() {
         if (correctAnswers < 5) {
-            val questionList = getAtrapameSePodesQuestions()
+            val questionList = getAtrapameSePodesQuestions(correctAnswers)
             val randomNumber = Random.nextInt(0, questionList.size)
             currentQuestionAtrapameSePodes = questionList[randomNumber]
             questionTV.text = currentQuestionAtrapameSePodes.question
