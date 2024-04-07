@@ -23,7 +23,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rosco_pasagalego"/>
+            android:src="@drawable/rosco_pasagalego" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -109,6 +109,14 @@
                 android:background="@color/secondaryBlue"
                 android:padding="10dp"
                 android:layout_marginLeft="20dp"/>
+            <ImageButton
+                android:id="@+id/pasapalabra_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pasapalabra_icon"
+                android:background="@color/secondaryBlue"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"/>
         </LinearLayout>
 
 

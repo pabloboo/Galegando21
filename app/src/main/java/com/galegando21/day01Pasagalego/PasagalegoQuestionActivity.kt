@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
+import android.util.Log
 import android.widget.Chronometer
 import android.widget.EditText
 import android.widget.ImageButton
@@ -15,8 +16,8 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.PasagalegoConstants
-import com.galegando21.utils.PasagalegoConstants.ALFABETO
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
+import java.lang.StringBuilder
 import kotlin.random.Random
 
 class PasagalegoQuestionActivity : AppCompatActivity() {
@@ -28,7 +29,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     private lateinit var chronometer: Chronometer
     private lateinit var userAnswerText : EditText
     private lateinit var checkButton : ImageButton
+    private lateinit var pasapalabraButton : ImageButton
 
+    private var letters = StringBuilder(PasagalegoConstants.ALFABETO)
     private var questionCounter = 0
     private var correctAnswers = 0
     private var errorAnswers = 0
@@ -45,6 +48,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         userAnswerText = findViewById(R.id.pasagalego_answer)
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_pasagalego)
+        pasapalabraButton = findViewById(R.id.pasapalabra_btn)
 
         // Settear banner
         bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
@@ -54,6 +58,10 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
+        }
+
+        pasapalabraButton.setOnClickListener {
+            pasapalabra()
         }
 
         errorAnswersTv.text = "0"
@@ -72,8 +80,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     }
 
     private fun showNextQuestion() {
-        if (questionCounter < ALFABETO.length) {
-            val letter = ALFABETO[questionCounter]
+        if (letters.isNotEmpty()) {
+            var position = questionCounter.mod(letters.length)
+            val letter = letters[position]
             // Obtener pregunta aleatoria
             val questionList = getPasagalegoQuestions(letter)
             val randomNumber = Random.nextInt(0, questionList.size)
@@ -95,7 +104,8 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     }
 
     private fun checkButtonClickListener() {
-        questionCounter++
+        letters = letters.deleteCharAt(questionCounter)
+        Log.d("LETTERS", "$letters")
         if (userAnswerText.text.toString() == currentQuestionPasagalego.answer) {
             correctAnswers++
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta correcta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
@@ -104,6 +114,14 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta incorrecta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
         }
         userAnswerText.text.clear()
+        showNextQuestion()
+    }
+
+    private fun pasapalabra() {
+        questionCounter++
+        if (questionCounter>=letters.length) {
+            questionCounter = 0
+        }
         showNextQuestion()
     }
 }
