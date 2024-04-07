@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
+import android.widget.Chronometer
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -22,11 +23,15 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
     private lateinit var letter_tv : TextView
     private lateinit var question_tv : TextView
+    private lateinit var correctAnswersTv : TextView
+    private lateinit var errorAnswersTv: TextView
+    private lateinit var chronometer: Chronometer
     private lateinit var userAnswerText : EditText
     private lateinit var checkButton : ImageButton
 
     private var questionCounter = 0
     private var correctAnswers = 0
+    private var errorAnswers = 0
     private lateinit var currentQuestionPasagalego : QuestionPasagalego
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
         letter_tv = findViewById(R.id.tv_pasagalego_letter)
         question_tv = findViewById(R.id.tv_pasagalego_question)
+        correctAnswersTv = findViewById(R.id.correct_answers_tv)
+        errorAnswersTv = findViewById(R.id.error_answers_tv)
+        chronometer = findViewById(R.id.chronometer)
         userAnswerText = findViewById(R.id.pasagalego_answer)
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_pasagalego)
@@ -47,6 +55,10 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         checkButton.setOnClickListener {
             checkButtonClickListener()
         }
+
+        errorAnswersTv.text = "0"
+        correctAnswersTv.text = "0"
+        chronometer.start()
 
         showNextQuestion()
 
@@ -68,9 +80,14 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             currentQuestionPasagalego = questionList[randomNumber]
             letter_tv.text = "Comeza pola letra '$letter'"
             question_tv.text = currentQuestionPasagalego.question
+            correctAnswersTv.text = correctAnswers.toString()
+            errorAnswersTv.text = errorAnswers.toString()
         } else {
+            chronometer.stop()
             Intent(this, PasagalegoResultActivity::class.java). also {
                 it.putExtra(PasagalegoConstants.SCORE, correctAnswers)
+                it.putExtra(PasagalegoConstants.ERRORS, errorAnswers)
+                it.putExtra(PasagalegoConstants.TIME, chronometer.text)
                 startActivity(it)
                 finish()
             }
@@ -83,6 +100,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             correctAnswers++
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta correcta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
         } else {
+            errorAnswers++
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta incorrecta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
         }
         userAnswerText.text.clear()

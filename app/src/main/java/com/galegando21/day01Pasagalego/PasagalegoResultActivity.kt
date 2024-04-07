@@ -29,7 +29,8 @@ class PasagalegoResultActivity : AppCompatActivity() {
         }.commit()
 
         val score = intent.getIntExtra(PasagalegoConstants.SCORE, 0)
-        pasagalegoResult_tv.text = "Acertaches un total de $score palabras"
+        val time = intent.getStringExtra(PasagalegoConstants.TIME)
+        pasagalegoResult_tv.text = "Acertaches un total de $score palabras en $time"
 
         pasagalegoFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
