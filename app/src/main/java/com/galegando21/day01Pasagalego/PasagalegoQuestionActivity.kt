@@ -72,7 +72,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@PasagalegoQuestionActivity, MainActivity::class.java).also {
+                Intent(this@PasagalegoQuestionActivity, PasagalegoInicioActivity::class.java).also {
                     startActivity(it)
                 }
             }

@@ -11,5 +11,6 @@
     <string name="atrapame_se_podes">Atrápame se podes</string>
     <string name="comezar_a_xogar">Comezar a xogar</string>
     <string name="day03_text">Día 3 - Atrápame se podes</string>
+    <string name="pasagalego_explicacion">Este xogo está basado no famoso programa\ntelevisivo ‘Pasapalabra’.\n\nPor cada letra do rosco terás que ler unha\ndefinición e responder unha palabra\nque comece por esa letra.\n\nResponde sempre sen usar tildes.</string>
 
 </resources>
