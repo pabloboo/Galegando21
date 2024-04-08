@@ -72,7 +72,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@PasagalegoQuestionActivity, MainActivity::class.java).also {
+                Intent(this@PasagalegoQuestionActivity, PasagalegoInicioActivity::class.java).also {
                     startActivity(it)
                 }
             }
@@ -104,6 +104,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     }
 
     private fun checkButtonClickListener() {
+        if (questionCounter>=letters.length) {
+            questionCounter = 0
+        }
         letters = letters.deleteCharAt(questionCounter)
         Log.d("LETTERS", "$letters")
         if (userAnswerText.text.toString() == currentQuestionPasagalego.answer) {

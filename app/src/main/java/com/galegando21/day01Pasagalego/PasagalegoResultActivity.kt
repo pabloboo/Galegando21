@@ -13,13 +13,17 @@ import com.galegando21.utils.PasagalegoConstants
 
 class PasagalegoResultActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
-    private lateinit var pasagalegoResult_tv : TextView
+    private lateinit var correctAnswersTv : TextView
+    private lateinit var timePasagalegoTv : TextView
+    private lateinit var errorAnswersTv : TextView
     private lateinit var pasagalegoFinishButton : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pasagalego_result)
 
-        pasagalegoResult_tv = findViewById(R.id.pasagalego_result_tv)
+        correctAnswersTv = findViewById(R.id.correct_answers_result_tv)
+        timePasagalegoTv = findViewById(R.id.time_pasagalego_tv)
+        errorAnswersTv = findViewById(R.id.error_answers_result_tv)
         pasagalegoFinishButton = findViewById(R.id.pasagalego_finish_btn)
 
         // Settear banner
@@ -30,7 +34,11 @@ class PasagalegoResultActivity : AppCompatActivity() {
 
         val score = intent.getIntExtra(PasagalegoConstants.SCORE, 0)
         val time = intent.getStringExtra(PasagalegoConstants.TIME)
-        pasagalegoResult_tv.text = "Acertaches un total de $score palabras en $time"
+        val errors = intent.getIntExtra(PasagalegoConstants.ERRORS, 0)
+
+        correctAnswersTv.text=score.toString()
+        timePasagalegoTv.text=time.toString()
+        errorAnswersTv.text=errors.toString()
 
         pasagalegoFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {

@@ -14,15 +14,92 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/pasagalego_result_tv"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/rosco_pasagalego"
+        app:layout_constraintBottom_toTopOf="@+id/pasagalego_result1_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        tools:text="Acertaches un total de 14 palabras" />
+        app:layout_constraintVertical_bias="0.633" />
+
+    <TextView
+        android:id="@+id/pasagalego_result1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Noraboa, completaches o rosco! \n estos son os teus resultados:"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintVertical_bias="0.548" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/pasagalego_finish_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pasagalego_result1_tv"
+        app:layout_constraintVertical_bias="0.269">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/correctGreen"
+            app:cardCornerRadius="90dp">
+
+            <TextView
+                android:id="@+id/correct_answers_result_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                tools:text="20" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/time_pasagalego_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            tools:text="1:23" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/errorRed"
+            app:cardCornerRadius="90dp">
+
+            <TextView
+                android:id="@+id/error_answers_result_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                tools:text="3" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pasagalego_result2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fai unha captura e comparteo \n na túa red social favorita"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/pasagalego_finish_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
         android:id="@+id/pasagalego_finish_btn"
@@ -32,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pasagalego_result_tv"
+        app:layout_constraintTop_toBottomOf="@+id/pasagalego_result2_tv"
         android:text="Finalizar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import com.galegando21.day01Pasagalego.PasagalegoQuestionActivity
 import com.galegando21.day02Musica.MusicaActivity
 import java.util.Calendar
 import android.view.View
+import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
 
 class MainActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }.commit()
 
         day01Button.setOnClickListener {
-            Intent(this@MainActivity, PasagalegoQuestionActivity::class.java). also {
+            Intent(this@MainActivity, PasagalegoInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }
