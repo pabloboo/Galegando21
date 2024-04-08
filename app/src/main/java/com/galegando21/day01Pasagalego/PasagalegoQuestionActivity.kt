@@ -104,6 +104,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     }
 
     private fun checkButtonClickListener() {
+        if (questionCounter>=letters.length) {
+            questionCounter = 0
+        }
         letters = letters.deleteCharAt(questionCounter)
         Log.d("LETTERS", "$letters")
         if (userAnswerText.text.toString() == currentQuestionPasagalego.answer) {
