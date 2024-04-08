@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".day03AtrapameSePodes.AtrapameSePodesInicioActivity">
+    tools:context=".day04AtrapaUnMillon.AtrapaUnMillonInicioActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"
@@ -15,20 +15,19 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/atrapame_se_podes_description_tv"
+        android:id="@+id/atrapa_un_millon_description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/atrapame_se_podes_explicacion"
+        android:text="@string/atrapa_un_millon_explicacion"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
         app:layout_constraintVertical_bias="0.301" />
 
     <Button
-        android:id="@+id/start_btn_atrapame_se_podes"
+        android:id="@+id/start_btn_atrapame_un_millon"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -37,6 +36,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_description_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
