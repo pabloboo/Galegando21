@@ -19,5 +19,6 @@
     <string name="aforcado_explicacion">O aforcado é un pasatempo no que o\nxogador intenta adiviñar unha palabra\nantes de que o boneco sexa debuxado\ncompletamente en unha forca.\n\nO xogador propón letras que cre que están\nna palabra oculta e o xogo revela se esas\nletras están presentes ou non.\n\nSe o xogador adiviña correctamente todas\nas letras antes de que o boneco sea debuxado\npor completo, gaña; no caso contrario, perde.</string>
     <string name="aforcado">Aforcado</string>
     <string name="day05_text">Día 5 - Aforcado</string>
+    <string name="letters_used">Letras usadas: %1$s</string>
 
 </resources>

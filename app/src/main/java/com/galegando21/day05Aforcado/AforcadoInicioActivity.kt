@@ -25,7 +25,7 @@ class AforcadoInicioActivity : AppCompatActivity() {
         comezarButton = findViewById(R.id.start_btn_aforcado)
 
         comezarButton.setOnClickListener {
-            Intent(this@AforcadoInicioActivity, MainActivity::class.java).also {
+            Intent(this@AforcadoInicioActivity, AforcadoGameActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
