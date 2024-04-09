@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day04AtrapaUnMillon.AtrapaUnMillonQuestionActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/cash_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            tools:text="1000000€"/>
+
+        <TextView
+            android:id="@+id/atrapa_un_millon_question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            tools:text="Que producimos no noso cerebro?" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ProgressBar
+                android:id="@+id/atrapa_un_millon_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:indeterminate="false"
+                android:max="8"
+                android:minHeight="50dp"
+                tools:progress="5" />
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                tools:text="5/8" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Choiva de meteoritos" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Correntes de aire" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Correntes eléctricas" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Ríos de lava" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/atrapa_un_millon_btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:text="@string/check"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

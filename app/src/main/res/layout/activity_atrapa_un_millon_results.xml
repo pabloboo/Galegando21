@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".day03AtrapameSePodes.AtrapameSePodesInicioActivity">
+    tools:context=".day04AtrapaUnMillon.AtrapaUnMillonResultsActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"
@@ -15,28 +15,28 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/atrapame_se_podes_description_tv"
+        android:id="@+id/atrapa_un_millon_results_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/atrapame_se_podes_explicacion"
         android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintVertical_bias="0.305"
+        tools:text="Parabéns! gañaches unha cantidade \n total de 650000€" />
 
     <Button
-        android:id="@+id/start_btn_atrapame_se_podes"
-        android:layout_width="300dp"
+        android:id="@+id/atrapa_un_millon_finish_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:backgroundTint="@color/secondaryBlue"
-        android:text="@string/comezar_a_xogar"
+        android:background="@color/secondaryBlue"
+        android:text="Finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_results_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

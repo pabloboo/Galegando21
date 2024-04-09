@@ -12,5 +12,9 @@
     <string name="comezar_a_xogar">Comezar a xogar</string>
     <string name="day03_text">Día 3 - Atrápame se podes</string>
     <string name="pasagalego_explicacion">Este xogo está basado no famoso programa\ntelevisivo ‘Pasapalabra’.\n\nPor cada letra do rosco terás que ler unha\ndefinición e responder unha palabra\nque comece por esa letra.\n\nResponde sempre sen usar tildes.</string>
+    <string name="atrapa_un_millon_explicacion">Basado no famoso programa televisivo,\nAtrapa un millón é un xogo no que o\nobxectivo é preservar a maior cantidade\nde diñeiro posible durante 8 preguntas.\n\nEn cada pregunta tes que introducir a cantidade\nde diñeiro que queres apostar a cada resposta,\nsó conservas o diñeiro da resposta correcta.</string>
+    <string name="atrapa_un_millon">Atrapa un millón</string>
+    <string name="day04_text">Día 4 - Atrapa un millón</string>
+    <string name="check">Comprobar</string>
 
 </resources>
