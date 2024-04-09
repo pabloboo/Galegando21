@@ -5,10 +5,14 @@ import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import com.galegando21.BannerFragment
@@ -26,16 +30,25 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
     private lateinit var textViewProgress: TextView
     private lateinit var textViewQuestion: TextView
 
+    private lateinit var linearLayoutOption1 : LinearLayout
+    private lateinit var linearLayoutOption2 : LinearLayout
+    private lateinit var linearLayoutOption3 : LinearLayout
+    private lateinit var linearLayoutOption4 : LinearLayout
+
     private lateinit var textViewOption1: TextView
     private lateinit var textViewOption2: TextView
     private lateinit var textViewOption3: TextView
     private lateinit var textViewOption4: TextView
 
+    private lateinit var editTextOption1 : EditText
+    private lateinit var editTextOption2 : EditText
+    private lateinit var editTextOption3 : EditText
+    private lateinit var editTextOption4 : EditText
+
     private lateinit var checkButton: Button
 
     private var questionsCounter = 1
     private lateinit var questionsList: MutableList<QuestionAtrapaUnMillon>
-    private var selectedAnswer = 0
     private lateinit var currentQuestion: QuestionAtrapaUnMillon
     private var answered = false
 
@@ -50,10 +63,18 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
         progressBar = findViewById(R.id.atrapa_un_millon_progress_bar)
         textViewProgress = findViewById(R.id.atrapa_un_millon_text_view_progress)
         textViewQuestion = findViewById(R.id.atrapa_un_millon_question_text_view)
+        linearLayoutOption1 = findViewById(R.id.atrapa_un_millon_linear_layout_option1)
+        linearLayoutOption2 = findViewById(R.id.atrapa_un_millon_linear_layout_option2)
+        linearLayoutOption3 = findViewById(R.id.atrapa_un_millon_linear_layout_option3)
+        linearLayoutOption4 = findViewById(R.id.atrapa_un_millon_linear_layout_option4)
         textViewOption1 = findViewById(R.id.atrapa_un_millon_text_view_option1)
         textViewOption2 = findViewById(R.id.atrapa_un_millon_text_view_option2)
         textViewOption3 = findViewById(R.id.atrapa_un_millon_text_view_option3)
         textViewOption4 = findViewById(R.id.atrapa_un_millon_text_view_option4)
+        editTextOption1 = findViewById(R.id.atrapa_un_millon_edittext_option1)
+        editTextOption2 = findViewById(R.id.atrapa_un_millon_edittext_option2)
+        editTextOption3 = findViewById(R.id.atrapa_un_millon_edittext_option3)
+        editTextOption4 = findViewById(R.id.atrapa_un_millon_edittext_option4)
         checkButton = findViewById(R.id.atrapa_un_millon_btn_check)
 
         // Settear el banner
@@ -62,10 +83,12 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
             bannerFragment.setBannerText(getString(R.string.atrapa_un_millon))
         }.commit()
 
-        textViewOption1.setOnClickListener(this)
-        textViewOption2.setOnClickListener(this)
-        textViewOption3.setOnClickListener(this)
-        textViewOption4.setOnClickListener(this)
+        //only accept numbers in editText
+        editTextOption1.inputType=InputType.TYPE_CLASS_NUMBER
+        editTextOption2.inputType=InputType.TYPE_CLASS_NUMBER
+        editTextOption3.inputType=InputType.TYPE_CLASS_NUMBER
+        editTextOption4.inputType=InputType.TYPE_CLASS_NUMBER
+
         checkButton.setOnClickListener(this)
 
         questionsList = getQuestions()
@@ -102,7 +125,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
 
     private fun showNextQuestion() {
 
-        if (questionsCounter < 8) {
+        if (questionsCounter < 8 && cash!=0) {
             checkButton.text = "Check"
 
             resetOptions()
@@ -138,100 +161,101 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
         for (option in options) {
             option.setTextColor(Color.parseColor("#7A8089"))
             option.typeface = Typeface.DEFAULT
+        }
+
+        val linearLayoutOptions = mutableListOf<LinearLayout>()
+        linearLayoutOptions.add(linearLayoutOption1)
+        linearLayoutOptions.add(linearLayoutOption2)
+        linearLayoutOptions.add(linearLayoutOption3)
+        linearLayoutOptions.add(linearLayoutOption4)
+        for (option in linearLayoutOptions) {
             option.background = ContextCompat.getDrawable(
                 this,
                 R.drawable.default_option_border_bg
             )
         }
-    }
 
-    private fun selectedOption(textView: TextView, selectedOptionNumber: Int) {
-        resetOptions()
-        selectedAnswer = selectedOptionNumber
-
-        textView.setTextColor(Color.parseColor("#363A43"))
-        textView.setTypeface(textView.typeface, Typeface.BOLD)
-        textView.background = ContextCompat.getDrawable(
-            this,
-            R.drawable.selected_option_border_bg
-        )
+        val editTextOptions = mutableListOf<EditText>()
+        editTextOptions.add(editTextOption1)
+        editTextOptions.add(editTextOption2)
+        editTextOptions.add(editTextOption3)
+        editTextOptions.add(editTextOption4)
+        for (option in editTextOptions) {
+            option.text.clear()
+        }
     }
 
     private fun showSolution() {
-        selectedAnswer = currentQuestion.correctAnswer
-        highlightAnswer(selectedAnswer)
+        highlightAnswer(currentQuestion.correctAnswer)
     }
 
     private fun checkAnswer() {
         answered = true
-        if (selectedAnswer == currentQuestion.correctAnswer) {
-            cash=cash
-            highlightAnswer(selectedAnswer)
-        } else {
-            cash /= 2
-            when (selectedAnswer) {
-                1 -> {
-                    textViewOption1.background =
-                        ContextCompat.getDrawable(
-                            this,
-                            R.drawable.wrong_option_border_bg
-                        )
+        val solution = currentQuestion.correctAnswer
+        when (solution) {
+            1 -> {
+                if (editTextOption1.text.isEmpty()) {
+                    cash = 0
+                } else {
+                    cash = editTextOption1.text.toString().toInt()
                 }
-
-                2 -> {
-                    textViewOption2.background =
-                        ContextCompat.getDrawable(
-                            this,
-                            R.drawable.wrong_option_border_bg
-                        )
+            }
+            2 -> {
+                if (editTextOption2.text.isEmpty()) {
+                    cash = 0
+                } else {
+                    cash = editTextOption2.text.toString().toInt()
                 }
-
-                3 -> {
-                    textViewOption3.background =
-                        ContextCompat.getDrawable(
-                            this,
-                            R.drawable.wrong_option_border_bg
-                        )
+            }
+            3 -> {
+                if (editTextOption3.text.isEmpty()) {
+                    cash = 0
+                } else {
+                    cash = editTextOption3.text.toString().toInt()
                 }
-
-                4 -> {
-                    textViewOption4.background =
-                        ContextCompat.getDrawable(
-                            this,
-                            R.drawable.wrong_option_border_bg
-                        )
+            }
+            4 -> {
+                if (editTextOption4.text.isEmpty()) {
+                    cash = 0
+                } else {
+                    cash = editTextOption4.text.toString().toInt()
                 }
             }
         }
+
         checkButton.text = "Seguinte"
         showSolution()
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.atrapa_un_millon_text_view_option1 -> {
-                selectedOption(textViewOption1, 1)
-            }
-
-            R.id.atrapa_un_millon_text_view_option2 -> {
-                selectedOption(textViewOption2, 2)
-            }
-
-            R.id.atrapa_un_millon_text_view_option3 -> {
-                selectedOption(textViewOption3, 3)
-            }
-
-            R.id.atrapa_un_millon_text_view_option4 -> {
-                selectedOption(textViewOption4, 4)
-            }
-
             R.id.atrapa_un_millon_btn_check -> {
+                var valueOption1 = 0
+                if (editTextOption1.text.isNotEmpty()) {
+                    valueOption1 = editTextOption1.text.toString().toInt()
+                }
+                var valueOption2 = 0
+                if (editTextOption2.text.isNotEmpty()) {
+                    valueOption2 = editTextOption2.text.toString().toInt()
+                }
+                var valueOption3 = 0
+                if (editTextOption3.text.isNotEmpty()) {
+                    valueOption3 = editTextOption3.text.toString().toInt()
+                }
+                var valueOption4 = 0
+                if (editTextOption4.text.isNotEmpty()) {
+                    valueOption4 = editTextOption4.text.toString().toInt()
+                }
+                val sum = valueOption1+valueOption2+valueOption3+valueOption4
                 if (!answered) {
-                    checkAnswer()
+                    if (sum===cash) {
+                        checkAnswer()
+                    } else {
+                        Toast.makeText(this@AtrapaUnMillonQuestionActivity, "Tes que sumar un total de $cash€", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     showNextQuestion()
                 }
-                selectedAnswer = 0
             }
         }
     }
@@ -239,7 +263,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
     private fun highlightAnswer(answer: Int) {
         when (answer) {
             1 -> {
-                textViewOption1.background =
+                linearLayoutOption1.background =
                     ContextCompat.getDrawable(
                         this,
                         R.drawable.correct_option_border_bg
@@ -247,7 +271,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
             }
 
             2 -> {
-                textViewOption2.background =
+                linearLayoutOption2.background =
                     ContextCompat.getDrawable(
                         this,
                         R.drawable.correct_option_border_bg
@@ -255,7 +279,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
             }
 
             3 -> {
-                textViewOption3.background =
+                linearLayoutOption3.background =
                     ContextCompat.getDrawable(
                         this,
                         R.drawable.correct_option_border_bg
@@ -263,7 +287,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
             }
 
             4 -> {
-                textViewOption4.background =
+                linearLayoutOption4.background =
                     ContextCompat.getDrawable(
                         this,
                         R.drawable.correct_option_border_bg

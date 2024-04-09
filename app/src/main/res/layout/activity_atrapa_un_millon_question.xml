@@ -72,53 +72,121 @@
                 tools:text="5/8" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <TextView
-            android:id="@+id/atrapa_un_millon_text_view_option1"
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:minHeight="50dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp"
-            tools:text="Choiva de meteoritos" />
+            android:background="@drawable/default_option_border_bg">
 
-        <TextView
-            android:id="@+id/atrapa_un_millon_text_view_option2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:minHeight="50dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp"
-            tools:text="Correntes de aire" />
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Choiva de meteoritos" />
 
-        <TextView
-            android:id="@+id/atrapa_un_millon_text_view_option3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:minHeight="50dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp"
-            tools:text="Correntes eléctricas" />
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
 
-        <TextView
-            android:id="@+id/atrapa_un_millon_text_view_option4"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:minHeight="50dp"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="20sp"
-            tools:text="Ríos de lava" />
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Correntes de aire" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Correntes eléctricas" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_linear_layout_option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/default_option_border_bg">
+
+            <TextView
+                android:id="@+id/atrapa_un_millon_text_view_option4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:minHeight="50dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                tools:text="Ríos de lava" />
+
+            <EditText
+                android:id="@+id/atrapa_un_millon_edittext_option4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end|center"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
+                tools:text="250000"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/atrapa_un_millon_btn_check"
