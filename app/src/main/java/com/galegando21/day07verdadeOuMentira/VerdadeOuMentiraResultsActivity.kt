@@ -13,12 +13,14 @@ import com.galegando21.utils.VerdadeOuMentiraConstants
 
 class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
+    private lateinit var verdadeOuMentiraCorrectAnswersResultTv : TextView
     private lateinit var verdadeOuMentiraResultsTv : TextView
     private lateinit var verdadeOuMentiraFinishButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verdade_ou_mentira_results)
 
+        verdadeOuMentiraCorrectAnswersResultTv = findViewById(R.id.verdade_ou_mentira_correct_answers_results_text_view)
         verdadeOuMentiraResultsTv = findViewById(R.id.verdade_ou_mentira_result_tv)
         verdadeOuMentiraFinishButton = findViewById(R.id.verdade_ou_mentira_finish_btn)
 
@@ -29,6 +31,7 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
         }.commit()
 
         val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
+        verdadeOuMentiraCorrectAnswersResultTv.text = score.toString()
         verdadeOuMentiraResultsTv.text = "Acertaches un total de $score preguntas seguidas."
 
         verdadeOuMentiraFinishButton.setOnClickListener {

@@ -18,6 +18,7 @@ import kotlin.random.Random
 
 class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var bannerFragment: BannerFragment
+    private lateinit var correctAnswersTextView: TextView
     private lateinit var textViewQuestion: TextView
     private lateinit var textViewVerdadeiro: TextView
     private lateinit var textViewFalso: TextView
@@ -34,6 +35,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verdade_ou_mentira_question)
 
+        correctAnswersTextView = findViewById(R.id.verdade_ou_mentira_correct_answers_text_view)
         textViewQuestion = findViewById(R.id.verdade_ou_mentira_question_text_view)
         textViewVerdadeiro = findViewById(R.id.verdade_ou_mentira_text_view_verdadeiro)
         textViewFalso = findViewById(R.id.verdade_ou_mentira_text_view_falso)
@@ -117,6 +119,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
         answered = true
         if (selectedAnswer == currentQuestion.correctAnswer) {
             correctAnswers++
+            correctAnswersTextView.text=correctAnswers.toString()
             highlightAnswer(selectedAnswer)
         } else {
             when (selectedAnswer) {
