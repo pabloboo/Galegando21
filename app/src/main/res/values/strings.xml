@@ -20,5 +20,8 @@
     <string name="aforcado">Aforcado</string>
     <string name="day05_text">Día 5 - Aforcado</string>
     <string name="letters_used">Letras usadas: %1$s</string>
+    <string name="conexions_explicacion">O obxectivo de ‘Conexións’ é encontrar\ngrupos de 4 elementos que teñen algo\nen común.\n\nPor exemplo salmón, troita, dourada e \nrodaballo son os catro peixes.\n\nAs categorías sempre van ser máis\nespecíficas que ‘palabras de 5 letras’,\n‘nomes’ ou ‘verbos’.\n\nCada puzle ten unha soa solución.</string>
+    <string name="conexions">Conexións</string>
+    <string name="day06_text">Día 6 - Conexións</string>
 
 </resources>
