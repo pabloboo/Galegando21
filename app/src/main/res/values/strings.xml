@@ -23,5 +23,8 @@
     <string name="conexions_explicacion">O obxectivo de ‘Conexións’ é encontrar\ngrupos de 4 elementos que teñen algo\nen común.\n\nPor exemplo salmón, troita, dourada e \nrodaballo son os catro peixes.\n\nAs categorías sempre van ser máis\nespecíficas que ‘palabras de 5 letras’,\n‘nomes’ ou ‘verbos’.\n\nCada puzle ten unha soa solución.</string>
     <string name="conexions">Conexións</string>
     <string name="day06_text">Día 6 - Conexións</string>
+    <string name="verdade_ou_mentira_explicacion">Verdade ou Mentira é un xogo de preguntas\nbasado no concurso da TVG ‘Atrápame se Podes’.\n\nTerás que responder unha serie de preguntas\ncon 2 opcións posibles: verdadeiro ou falso.\n\nCantas respostas correctas eres capaz\nde encadear?</string>
+    <string name="verdadeOuMentira">Verdade ou Mentira</string>
+    <string name="day07_text">Día 7 - Verdade ou Mentira</string>
 
 </resources>

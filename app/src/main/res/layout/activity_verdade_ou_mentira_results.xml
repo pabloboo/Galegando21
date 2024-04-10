@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day07verdadeOuMentira.VerdadeOuMentiraResultsActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/verdade_ou_mentira_correct_answers_results_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fire_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <TextView
+        android:id="@+id/verdade_ou_mentira_correct_answers_results_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toBottomOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
+        app:layout_constraintEnd_toEndOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
+        app:layout_constraintStart_toStartOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
+        app:layout_constraintTop_toTopOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
+        tools:text="7" />
+
+    <TextView
+        android:id="@+id/verdade_ou_mentira_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        tools:text="Acertaches un total de 14 preguntas" />
+
+    <Button
+        android:id="@+id/verdade_ou_mentira_finish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/secondaryBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verdade_ou_mentira_result_tv"
+        android:text="Finalizar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

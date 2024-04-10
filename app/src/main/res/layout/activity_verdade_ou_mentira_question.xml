@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day07verdadeOuMentira.VerdadeOuMentiraQuestionActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment">
+
+        <ImageView
+            android:id="@+id/verdade_ou_mentira_correct_answers_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fire_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.306" />
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_correct_answers_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toBottomOf="@+id/verdade_ou_mentira_correct_answers_icon"
+            app:layout_constraintEnd_toEndOf="@+id/verdade_ou_mentira_correct_answers_icon"
+            app:layout_constraintStart_toStartOf="@+id/verdade_ou_mentira_correct_answers_icon"
+            app:layout_constraintTop_toTopOf="@+id/verdade_ou_mentira_correct_answers_icon"
+            tools:text="7" />
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verdade_ou_mentira_correct_answers_icon"
+            app:layout_constraintVertical_bias="0.133"
+            tools:text="Ibai Llanos ofreceulle a Marcial Mouzo retransmitir o seu programa nocturno co nome 'Pensando en Twitch'" />
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_text_view_falso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="Falso"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/verdade_ou_mentira_text_view_verdadeiro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verdade_ou_mentira_question_text_view"
+            app:layout_constraintVertical_bias="0.62" />
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_text_view_verdadeiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="Verdadeiro"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/verdade_ou_mentira_btn_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verdade_ou_mentira_question_text_view"
+            app:layout_constraintVertical_bias="0.677" />
+
+        <Button
+            android:id="@+id/verdade_ou_mentira_btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verdade_ou_mentira_question_text_view"
+            app:layout_constraintVertical_bias="0.724" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
