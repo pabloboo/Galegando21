@@ -8,7 +8,6 @@ import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
-import com.galegando21.day01Pasagalego.PasagalegoQuestionActivity
 import com.galegando21.day02Musica.MusicaActivity
 import java.util.Calendar
 import android.view.View
@@ -17,7 +16,7 @@ import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
 import com.galegando21.day05Aforcado.AforcadoInicioActivity
 import com.galegando21.day06Conexions.ConexionsInicioActivity
-import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicio
+import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         day07Button.setOnClickListener {
-            Intent(this@MainActivity, VerdadeOuMentiraInicio::class.java). also {
+            Intent(this@MainActivity, VerdadeOuMentiraInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

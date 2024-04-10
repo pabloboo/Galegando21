@@ -9,7 +9,7 @@ import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 
-class VerdadeOuMentiraInicio : AppCompatActivity() {
+class VerdadeOuMentiraInicioActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
     private lateinit var comezarButton : Button
 
@@ -26,7 +26,7 @@ class VerdadeOuMentiraInicio : AppCompatActivity() {
         comezarButton = findViewById(R.id.start_btn_verdade_ou_mentira)
 
         comezarButton.setOnClickListener {
-            Intent(this@VerdadeOuMentiraInicio, MainActivity::class.java).also {
+            Intent(this@VerdadeOuMentiraInicioActivity, VerdadeOuMentiraQuestionActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
@@ -34,7 +34,7 @@ class VerdadeOuMentiraInicio : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@VerdadeOuMentiraInicio, MainActivity::class.java).also {
+                Intent(this@VerdadeOuMentiraInicioActivity, MainActivity::class.java).also {
                     startActivity(it)
                 }
             }

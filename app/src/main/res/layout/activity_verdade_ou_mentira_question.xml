@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day07verdadeOuMentira.VerdadeOuMentiraQuestionActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment">
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_question_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            android:gravity="center"
+            tools:text="Ibai Llanos ofreceulle a Marcial Mouzo retransmitir o seu programa nocturno co nome 'Pensando en Twitch'"/>
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_text_view_falso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:text="Falso"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <TextView
+            android:id="@+id/verdade_ou_mentira_text_view_verdadeiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:text="Verdadeiro"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <Button
+            android:id="@+id/verdade_ou_mentira_btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:text="@string/check"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
