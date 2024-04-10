@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -19,9 +20,15 @@ import kotlin.random.Random
 class ConexionsGameActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
     private lateinit var palabrasLayout: ConstraintLayout
+    private lateinit var deselectAllButton : Button
+    private lateinit var sendButton : Button
+    private lateinit var solutionGroup1Tv : TextView
+    private lateinit var solutionGroup2Tv : TextView
+    private lateinit var solutionGroup3Tv : TextView
+    private lateinit var solutionGroup4Tv : TextView
+
     private var selectedTextView = mutableListOf<TextView>()
     private lateinit var conexionsData : Conexions
-    private lateinit var sendButton : Button
 
     private var correctAnswers = 0
 
@@ -30,7 +37,12 @@ class ConexionsGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_conexions_game)
 
         palabrasLayout = findViewById(R.id.conexionsPalabrasLayout)
+        deselectAllButton = findViewById(R.id.deseleccionarConexionsButton)
         sendButton = findViewById(R.id.enviarConexionsButton)
+        solutionGroup1Tv = findViewById(R.id.solution_grupo1)
+        solutionGroup2Tv = findViewById(R.id.solution_grupo2)
+        solutionGroup3Tv = findViewById(R.id.solution_grupo3)
+        solutionGroup4Tv = findViewById(R.id.solution_grupo4)
 
         // Settear el banner
         bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
@@ -47,6 +59,10 @@ class ConexionsGameActivity : AppCompatActivity() {
                             selectTextView(wordTextView)
                         }
                     }
+        }
+
+        deselectAllButton.setOnClickListener {
+            deselectAll()
         }
 
         sendButton.setOnClickListener {
@@ -105,9 +121,22 @@ class ConexionsGameActivity : AppCompatActivity() {
             wordTextView.background = getDrawable(R.color.darkGray)
             wordTextView.setTextColor(resources.getColor(R.color.white, theme))
         } else {
-            selectedTextView.remove(wordTextView)
-            wordTextView.background = getDrawable(R.color.canela)
-            wordTextView.setTextColor(resources.getColor(R.color.black, theme))
+            unselectTextView(wordTextView)
+        }
+    }
+
+    private fun unselectTextView(wordTextView: TextView) {
+        selectedTextView.remove(wordTextView)
+        wordTextView.background = getDrawable(R.color.canela)
+        wordTextView.setTextColor(resources.getColor(R.color.black, theme))
+    }
+
+    private fun deselectAll() {
+        val selectedTextViewCopy = ArrayList(selectedTextView) // Copiar la lista
+        selectedTextView.clear() // Limpiar la lista original
+
+        for (textView in selectedTextViewCopy) {
+            unselectTextView(textView)
         }
     }
 
@@ -122,6 +151,10 @@ class ConexionsGameActivity : AppCompatActivity() {
                 conexionsData.grupo1.contains(selectedTextView[2].text) &&
                 conexionsData.grupo1.contains(selectedTextView[3].text)) {
                 saveSolution()
+
+                solutionGroup1Tv.visibility = View.VISIBLE
+                solutionGroup1Tv.text =
+                    conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.toString()
                 return
             }
 
@@ -130,6 +163,10 @@ class ConexionsGameActivity : AppCompatActivity() {
                 conexionsData.grupo2.contains(selectedTextView[2].text) &&
                 conexionsData.grupo2.contains(selectedTextView[3].text)) {
                 saveSolution()
+
+                solutionGroup2Tv.visibility = View.VISIBLE
+                solutionGroup2Tv.text =
+                    conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.toString()
                 return
             }
 
@@ -138,6 +175,10 @@ class ConexionsGameActivity : AppCompatActivity() {
                 conexionsData.grupo3.contains(selectedTextView[2].text) &&
                 conexionsData.grupo3.contains(selectedTextView[3].text)) {
                 saveSolution()
+
+                solutionGroup3Tv.visibility = View.VISIBLE
+                solutionGroup3Tv.text =
+                    conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.toString()
                 return
             }
 
@@ -146,6 +187,10 @@ class ConexionsGameActivity : AppCompatActivity() {
                 conexionsData.grupo4.contains(selectedTextView[2].text) &&
                 conexionsData.grupo4.contains(selectedTextView[3].text)) {
                 saveSolution()
+
+                solutionGroup4Tv.visibility = View.VISIBLE
+                solutionGroup4Tv.text =
+                    conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.toString()
                 return
             }
         } else {

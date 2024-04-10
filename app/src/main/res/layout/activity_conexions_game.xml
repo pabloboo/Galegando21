@@ -210,15 +210,76 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/enviarConexionsButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ConexionsLinearLayoutButtons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="32dp"
-        android:text="Enviar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/conexionsPalabrasLayout"
-        android:backgroundTint="@color/secondaryBlue"/>
+        app:layout_constraintTop_toBottomOf="@id/conexionsPalabrasLayout">
+
+        <Button
+            android:id="@+id/deseleccionarConexionsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deseleccionar todos"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"/>
+
+        <Button
+            android:id="@+id/enviarConexionsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:backgroundTint="@color/secondaryBlue"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/solution_grupo1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/ConexionsLinearLayoutButtons"
+        android:textAlignment="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Formas de preparar ovos: Ferver, Fritir, Escalfar, Revolto"/>
+
+    <TextView
+        android:id="@+id/solution_grupo2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/solution_grupo1"
+        android:textAlignment="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Formas de preparar ovos: Ferver, Fritir, Escalfar, Revolto"/>
+
+    <TextView
+        android:id="@+id/solution_grupo3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/solution_grupo2"
+        android:textAlignment="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Formas de preparar ovos: Ferver, Fritir, Escalfar, Revolto"/>
+
+    <TextView
+        android:id="@+id/solution_grupo4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/solution_grupo3"
+        android:textAlignment="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="Formas de preparar ovos: Ferver, Fritir, Escalfar, Revolto"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
