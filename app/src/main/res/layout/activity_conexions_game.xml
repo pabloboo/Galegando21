@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day06Conexions.ConexionsGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conexionsPalabrasLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            app:constraint_referenced_ids="conexionsTv1, conexionsTv2,
+            conexionsTv3, conexionsTv4, conexionsTv5, conexionsTv6, conexionsTv7,
+            conexionsTv8, conexionsTv9, conexionsTv10, conexionsTv11, conexionsTv12,
+            conexionsTv13, conexionsTv14, conexionsTv15, conexionsTv16"
+            app:flow_wrapMode="aligned"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Alboroto"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Agasallo"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Encoller"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Dardo"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Revolto"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Machado"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Prisa"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Anel"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Burbulla"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Ferradura"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Ferver"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Patada"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Corpo"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Fritir"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Emoción"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/conexionsTv16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/canela"
+            android:paddingHorizontal="10dp"
+            tools:text="Escalfar"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/enviarConexionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Enviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conexionsPalabrasLayout"
+        android:backgroundTint="@color/secondaryBlue"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

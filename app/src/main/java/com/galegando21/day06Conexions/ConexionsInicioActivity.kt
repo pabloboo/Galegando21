@@ -8,7 +8,6 @@ import androidx.activity.OnBackPressedCallback
 import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
-import com.galegando21.day05Aforcado.AforcadoGameActivity
 
 class ConexionsInicioActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
@@ -27,7 +26,7 @@ class ConexionsInicioActivity : AppCompatActivity() {
         comezarButton = findViewById(R.id.start_btn_conexions)
 
         comezarButton.setOnClickListener {
-            Intent(this@ConexionsInicioActivity, MainActivity::class.java).also {
+            Intent(this@ConexionsInicioActivity, ConexionsGameActivity::class.java).also {
                 startActivity(it)
                 finish()
             }
