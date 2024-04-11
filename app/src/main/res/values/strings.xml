@@ -26,5 +26,7 @@
     <string name="verdade_ou_mentira_explicacion">Verdade ou Mentira é un xogo de preguntas\nbasado no concurso da TVG ‘Atrápame se Podes’.\n\nTerás que responder unha serie de preguntas\ncon 2 opcións posibles: verdadeiro ou falso.\n\nCantas respostas correctas eres capaz\nde encadear?</string>
     <string name="verdadeOuMentira">Verdade ou Mentira</string>
     <string name="day07_text">Día 7 - Verdade ou Mentira</string>
+    <string name="onboarding_text">Galegando 21 ten o obxectivo de que\nincorpores o galego no teu día a día.\n\nDurante os seguintes 21 días irás\ndesbloqueando novos xogos e\ncontidos en galego.\n\nEntra cada día e completa o reto\ndiario.</string>
+    <string name="comezar">Comezar</string>
 
 </resources>
