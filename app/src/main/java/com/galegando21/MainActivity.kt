@@ -3,6 +3,7 @@ package com.galegando21
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
@@ -14,6 +15,7 @@ import android.view.View
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
+import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonQuestionActivity
 import com.galegando21.day05Aforcado.AforcadoInicioActivity
 import com.galegando21.day06Conexions.ConexionsInicioActivity
 import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
@@ -35,6 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPreferences = getSharedPreferences("onboarding_completed", MODE_PRIVATE)
+        val onboardingCompleted = sharedPreferences.getBoolean("is_onboarding_completed", false)
+        if (!onboardingCompleted) {
+            Intent(this@MainActivity, OnboardingActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
         updateButtonState()
 
@@ -130,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
         // Configurar la visibilidad de los botones según su estado de desbloqueo
         val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
-        for (i in 1..7) {
+        for (i in 2..7) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<Button>(buttonId)
@@ -139,7 +149,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun unlockAllButtons() {
-        for (i in 1..7) {
+        for (i in 2..7) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<Button>(buttonId)
