@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:gravity="top|center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/adivinha_escudo_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            tools:src="@drawable/escudo_o_pino"
+            android:layout_marginTop="15dp"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            android:layout_marginTop="15dp">
+
+            <ProgressBar
+                android:id="@+id/adivinha_escudo_progress_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="10"
+                android:minHeight="50dp"
+                android:indeterminate="false"
+                tools:progress="7"/>
+
+            <TextView
+                android:id="@+id/adivinha_escudo_text_view_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="7/10"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_gravity="center_vertical"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/adivinha_escudo_text_view_option1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            tools:text="O Pino"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <TextView
+            android:id="@+id/adivinha_escudo_text_view_option2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            tools:text="Oroso"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <TextView
+            android:id="@+id/adivinha_escudo_text_view_option3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            tools:text="Carballo"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <TextView
+            android:id="@+id/adivinha_escudo_text_view_option4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            tools:text="Ordes"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:minHeight="50dp"
+            android:background="@drawable/default_option_border_bg"/>
+
+        <Button
+            android:id="@+id/adivinha_escudo_button_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            android:minHeight="50dp"
+            android:layout_marginTop="10dp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,5 +31,8 @@
     <string name="day08_text">Día 8 - Wordle</string>
     <string name="wordle">Wordle</string>
     <string name="wordle_explicacion">Adiviña a palabra en 6 intentos\n\n Despois de cada intento, a cor das letras muda para amosar o preto que estás de acertar a palabra.</string>
+    <string name="adivinha_escudo">Adiviña o escudo</string>
+    <string name="day09_text">Día 9 - Adiviña o escudo</string>
+    <string name="adivinha_escudo_explicacion">Este xogo consiste en unha serie de 10 preguntas con catro opcións posibles nas que terás que adiviñar de que lugar é o escudo que se mostra na pantalla.</string>
 
 </resources>
