@@ -1,10 +1,11 @@
 package com.galegando21.model
 
 import android.util.Log
+import com.galegando21.utils.WordleConstants
 import kotlin.random.Random
 
 class WordleGameManager(
-    private var rowCount: Int = 7
+    private var rowCount: Int = 6
 ) {
     val IN_WORD = 0
     val IN_PLACE = 1
@@ -53,14 +54,6 @@ class WordleGameManager(
         setWord()
     }
 
-    fun getChar(row: Int, col: Int): Char {
-        if (row < 0 || row >= rowCount || col < 0 || col >= 5) {
-            return ' '
-        }
-
-        return rows[row][col]
-    }
-
     fun setNextChar(c: Char): Boolean {
         if (rows[curRow][curCol] == ' ') {
             rows[curRow][curCol] = c
@@ -70,13 +63,6 @@ class WordleGameManager(
             return true
         }
         return false
-    }
-
-    fun erase() {
-        if (curCol > 0 && rows[curRow][curCol] == ' ') {
-            curCol--
-        }
-        rows[curRow][curCol] = ' '
     }
 
     fun enter(): Boolean {
@@ -110,69 +96,7 @@ class WordleGameManager(
     }
 
     fun setWord() {
-        var words = listOf<String>(
-            "APPLE",
-            "TIGER",
-            "OCEAN",
-            "ROBOT",
-            "SNAIL",
-            "PANDA",
-            "IGLOO",
-            "LEMON",
-            "MOUSE",
-            "PIZZA",
-            "CHAIR",
-            "EARTH",
-            "PIANO",
-            "RIVER",
-            "EAGLE",
-            "ZEBRA",
-            "CLOWN",
-            "CLOUD",
-            "SPOON",
-            "TRAIN",
-            "CLOCK",
-            "SHOES",
-            "SOCKS",
-            "MAGIC",
-            "COMET",
-            "WHALE",
-            "JELLY",
-            "SHIRT",
-            "LEMON",
-            "SMILE",
-            "MOUSE",
-            "ANGEL",
-            "OCEAN",
-            "ROBOT",
-            "SWORD",
-            "SUSHI",
-            "HEART",
-            "GHOST",
-            "GRAPE",
-            "HONEY",
-            "MANGO",
-            "PEACH",
-            "SNACK",
-            "JELLY",
-            "PIZZA",
-            "EAGLE",
-            "ALARM",
-            "FAIRY",
-            "CLOUD",
-            "PHONE",
-            "PLANE",
-            "WATCH",
-            "CHAIR",
-            "GRASS",
-            "HOTEL",
-            "LEMON",
-            "TIGER",
-            "WATER",
-            "PAPER",
-            "FRUIT",
-            "SWING",
-        )
+        val words = WordleConstants.getWords()
         word = words[Random.nextInt(words.size)]
     }
 }

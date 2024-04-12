@@ -11,24 +11,32 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 
 class WordleGameActivity : AppCompatActivity() {
+    private lateinit var bannerFragment: BannerFragment
     private lateinit var texts:  MutableList<MutableList<TextView>>
-    private val rowCount = 7
+    private val rowCount = 6
     private val colCount = 5
     private var countGames = 0
     private var countWins = 0
     private lateinit var gameCore: WordleGameManager
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordle_game)
+
+        // Settear el banner
+        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
+        supportFragmentManager.beginTransaction().runOnCommit {
+            bannerFragment.setBannerText(getString(R.string.wordle))
+        }.commit()
 
         gameCore = WordleGameManager(rowCount)
         initTexts()
@@ -50,16 +58,21 @@ class WordleGameActivity : AppCompatActivity() {
         val editTextLetter = findViewById<EditText>(R.id.input_letter_editText_wordle)
         editTextLetter.filters = arrayOf(InputFilter.AllCaps())
         checkButtonLetter.setOnClickListener {
-            if (gameCore.isPouse()) {
-                gameCore.startOver()
-                newRound()
-            }
-            val row = gameCore.getCurRow()
-            var col = gameCore.getCurCol()
-            for (i in 0..4) {
-                if (gameCore.setNextChar(editTextLetter.text.toString()[i])) {
-                    texts[row][col].text = editTextLetter.text.toString()[i].toString()
-                    col++
+            val inputText = editTextLetter.text.toString()
+            if (inputText.length != colCount || inputText.contains(" ")) {
+                Toast.makeText(this@WordleGameActivity, "Introduce unha palabra con $colCount caracteres", Toast.LENGTH_SHORT).show()
+            } else {
+                if (gameCore.isPouse()) {
+                    gameCore.startOver()
+                    newRound()
+                }
+                val row = gameCore.getCurRow()
+                var col = gameCore.getCurCol()
+                for (i in 0..4) {
+                    if (gameCore.setNextChar(inputText[i])) {
+                        texts[row][col].text = inputText[i].toString()
+                        col++
+                    }
                 }
             }
         }
@@ -92,6 +105,7 @@ class WordleGameActivity : AppCompatActivity() {
                 if (gameCore.getResult()) {
                     countWins++
                 }
+                editTextLetter.text.clear()
             }
         }
     }
