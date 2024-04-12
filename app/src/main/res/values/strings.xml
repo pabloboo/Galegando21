@@ -28,5 +28,8 @@
     <string name="day07_text">Día 7 - Verdade ou Mentira</string>
     <string name="onboarding_text">Galegando 21 ten o obxectivo de que\nincorpores o galego no teu día a día.\n\nDurante os seguintes 21 días irás\ndesbloqueando novos xogos e\ncontidos en galego.\n\nEntra cada día e completa o reto\ndiario.</string>
     <string name="comezar">Comezar</string>
+    <string name="day08_text">Día 8 - Wordle</string>
+    <string name="wordle">Wordle</string>
+    <string name="wordle_explicacion">Adiviña a palabra en 6 intentos\n\n Despois de cada intento, a cor das letras muda para amosar o preto que estás de acertar a palabra.</string>
 
 </resources>
