@@ -20,6 +20,7 @@ import com.galegando21.day05Aforcado.AforcadoInicioActivity
 import com.galegando21.day06Conexions.ConexionsInicioActivity
 import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
 import com.galegando21.day08Wordle.WordleGameActivity
+import com.galegando21.day08Wordle.WordleInicioActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -116,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         day08Button.setOnClickListener {
-            Intent(this@MainActivity, WordleGameActivity::class.java). also {
+            Intent(this@MainActivity, WordleInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

@@ -30,5 +30,6 @@
     <string name="comezar">Comezar</string>
     <string name="day08_text">Día 8 - Wordle</string>
     <string name="wordle">Wordle</string>
+    <string name="wordle_explicacion">Adiviña a palabra en 6 intentos\n\n Despois de cada intento, a cor das letras muda para amosar o preto que estás de acertar a palabra.</string>
 
 </resources>

@@ -46,7 +46,7 @@ class WordleGameActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@WordleGameActivity, MainActivity::class.java).also {
+                Intent(this@WordleGameActivity, WordleInicioActivity::class.java).also {
                     startActivity(it)
                 }
             }
