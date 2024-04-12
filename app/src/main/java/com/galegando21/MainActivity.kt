@@ -21,6 +21,7 @@ import com.galegando21.day06Conexions.ConexionsInicioActivity
 import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
 import com.galegando21.day08Wordle.WordleGameActivity
 import com.galegando21.day08Wordle.WordleInicioActivity
+import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity
 
 class MainActivity : AppCompatActivity() {
@@ -127,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         day09Button.setOnClickListener {
-            Intent(this@MainActivity, AdivinhaEscudoQuestionActivity::class.java). also {
+            Intent(this@MainActivity, AdivinhaEscudoInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

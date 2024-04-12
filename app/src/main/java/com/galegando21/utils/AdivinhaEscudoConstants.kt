@@ -4,7 +4,6 @@ import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaEscudo
 
 object AdivinhaEscudoConstants {
-    const val TOTAL_QUESTIONS = "advinha_escudo_total_questions"
     const val SCORE = "adivinha_escudo_correct_answers"
 
     fun getQuestions() : MutableList<QuestionAdivinhaEscudo> {

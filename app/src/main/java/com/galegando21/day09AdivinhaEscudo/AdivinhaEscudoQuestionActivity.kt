@@ -74,7 +74,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@AdivinhaEscudoQuestionActivity, MainActivity::class.java).also {
+                Intent(this@AdivinhaEscudoQuestionActivity, AdivinhaEscudoInicioActivity::class.java).also {
                     startActivity(it)
                 }
             }
@@ -83,7 +83,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
 
     private fun showNextQuestion() {
 
-        if (questionsCounter < total_questions) {
+        if (questionsCounter <= total_questions) {
             checkButton.text = "Comprobar"
 
             resetOptions()
@@ -98,9 +98,8 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
             currentQuestion = question
         } else {
             checkButton.text = "Rematar"
-            Intent(this, MainActivity::class.java).also {
+            Intent(this, AdivinhaEscudoResultsActivity::class.java).also {
                 it.putExtra(AdivinhaEscudoConstants.SCORE, score)
-                it.putExtra(AdivinhaEscudoConstants.TOTAL_QUESTIONS, questionsList.size)
                 startActivity(it)
             }
         }
