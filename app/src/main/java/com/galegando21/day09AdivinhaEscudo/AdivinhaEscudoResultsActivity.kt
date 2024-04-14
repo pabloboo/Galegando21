@@ -45,6 +45,7 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 Intent(this@AdivinhaEscudoResultsActivity, AdivinhaEscudoInicioActivity::class.java).also {
                     startActivity(it)
+                    finish()
                 }
             }
         })

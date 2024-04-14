@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import com.galegando21.BannerFragment
@@ -20,6 +21,8 @@ import kotlin.random.Random
 
 class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
+    private lateinit var progressBar : ProgressBar
+    private lateinit var textViewProgress : TextView
     private lateinit var imageView : ImageView
     private lateinit var descriptionSolution : TextView
     private lateinit var yearSolution : Slider
@@ -37,6 +40,8 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adivinha_ano_foto_game)
 
+        progressBar = findViewById(R.id.adivinhaAnoFoto_progress_bar)
+        textViewProgress = findViewById(R.id.adivinhaAnoFoto_text_view_progress)
         imageView = findViewById(R.id.adivinhaAnoFoto_foto_ImageView)
         descriptionSolution = findViewById(R.id.adivinhaAnoFoto_solution_description_tv)
         yearSolution = findViewById(R.id.adivinhaAnoFoto_slider)
@@ -69,6 +74,8 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         if (questionsCounter <= total_questions) {
             val random = Random.nextInt(0, questionsList.size)
             currentQuestion = questionsList[random]
+            progressBar.progress = questionsCounter
+            textViewProgress.text = "$questionsCounter/$total_questions"
             imageView.setImageResource(currentQuestion.image)
             descriptionSolution.visibility = TextView.GONE
             yearSolution.clearFocus()
@@ -76,10 +83,9 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
             checkButton.text = getString(R.string.check)
             questionsCounter++
         } else {
-            Intent(this@AdivinhaAnoFotoGameActivity, MainActivity::class.java).also {
+            Intent(this@AdivinhaAnoFotoGameActivity, AdivinhaAnoFotoResultsActivity::class.java).also {
                 Log.d("SCORE", score.toString())
-                it.putExtra("SCORE", score)
-                it.putExtra("TOTAL_QUESTIONS", total_questions)
+                it.putExtra(AdivinhaAnoFotoConstants.SCORE, score)
                 startActivity(it)
                 finish()
             }
