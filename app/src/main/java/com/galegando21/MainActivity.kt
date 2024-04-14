@@ -25,6 +25,8 @@ import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
+import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.day11AgoraCaigo.AgoraCaigoQuestionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day08Button: Button
     private lateinit var day09Button: Button
     private lateinit var day10Button: Button
+    private lateinit var day11Button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         day08Button = findViewById(R.id.btnDay8)
         day09Button = findViewById(R.id.btnDay9)
         day10Button = findViewById(R.id.btnDay10)
+        day11Button = findViewById(R.id.btnDay11)
 
         // Asegurarse de que el fragmento esté agregado antes de llamar a setBannerText
         bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
@@ -145,6 +149,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        day11Button.setOnClickListener {
+            Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java). also {
+                startActivity(it)
+                finish()
+            }
+        }
+
         binding.fab.setOnClickListener { view ->
             unlockAllButtons() // Llama a la función para desbloquear todos los botones
             Snackbar.make(view, "Botóns desbloqueados", Snackbar.LENGTH_LONG)
@@ -173,7 +184,7 @@ class MainActivity : AppCompatActivity() {
 
         // Configurar la visibilidad de los botones según su estado de desbloqueo
         val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
-        for (i in 2..10) {
+        for (i in 2..11) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<Button>(buttonId)
@@ -182,7 +193,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun unlockAllButtons() {
-        for (i in 2..10) {
+        for (i in 2..11) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<Button>(buttonId)

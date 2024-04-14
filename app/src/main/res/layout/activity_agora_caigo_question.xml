@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day11AgoraCaigo.AgoraCaigoQuestionActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/agora_caigo_question_tv">
+
+        <ImageView
+            android:id="@+id/agora_caigo_comodin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/agora_caigo_comodin_on"/>
+
+        <ImageView
+            android:id="@+id/agora_caigo_comodin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/agora_caigo_comodin_on"/>
+
+        <ImageView
+            android:id="@+id/agora_caigo_comodin3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/agora_caigo_comodin_on"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/agora_caigo_question_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintVertical_bias="0.518"
+        tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
+
+    <LinearLayout
+        android:id="@+id/agora_caigo_hint_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_answer_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_question_tv" />
+
+
+    <LinearLayout
+        android:id="@+id/agora_caigo_answer_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_hint_tv">
+
+        <EditText
+            android:id="@+id/agora_caigo_answer_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/resposta" />
+
+        <ImageButton
+            android:id="@+id/check_btn_agora_caigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@color/secondaryBlue"
+            android:padding="10dp"
+            android:src="@drawable/check_icon" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
