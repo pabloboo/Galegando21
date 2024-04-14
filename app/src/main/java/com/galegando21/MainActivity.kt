@@ -24,6 +24,7 @@ import com.galegando21.day08Wordle.WordleInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity
+import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -138,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         day10Button.setOnClickListener {
-            Intent(this@MainActivity, AdivinhaAnoFotoGameActivity::class.java). also {
+            Intent(this@MainActivity, AdivinhaAnoFotoInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

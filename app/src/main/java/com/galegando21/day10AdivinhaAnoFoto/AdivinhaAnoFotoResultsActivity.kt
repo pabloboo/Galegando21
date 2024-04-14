@@ -43,7 +43,7 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Intent(this@AdivinhaAnoFotoResultsActivity, AdivinhaAnoFotoGameActivity::class.java).also {
+                Intent(this@AdivinhaAnoFotoResultsActivity, AdivinhaAnoFotoInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
