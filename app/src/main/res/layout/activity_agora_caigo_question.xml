@@ -60,11 +60,11 @@
         app:layout_constraintVertical_bias="0.518"
         tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
 
-    <TextView
-        android:id="@+id/agora_caigo_hint_tv"
+    <LinearLayout
+        android:id="@+id/agora_caigo_hint_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="C___TÁN"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/agora_caigo_answer_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

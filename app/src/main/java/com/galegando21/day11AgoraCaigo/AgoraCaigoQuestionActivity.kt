@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
+import android.util.TypedValue
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -21,7 +23,7 @@ import kotlin.random.Random
 class AgoraCaigoQuestionActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
     private lateinit var questionTV: TextView
-    private lateinit var hintTV: TextView
+    private lateinit var hintLayout: LinearLayout
     private lateinit var userAnswerET: EditText
     private lateinit var checkButton: ImageButton
 
@@ -38,7 +40,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_agora_caigo_question)
 
         questionTV = findViewById(R.id.agora_caigo_question_tv)
-        hintTV = findViewById(R.id.agora_caigo_hint_tv)
+        hintLayout = findViewById(R.id.agora_caigo_hint_ll)
         userAnswerET = findViewById(R.id.agora_caigo_answer_et)
         userAnswerET.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_agora_caigo)
@@ -70,10 +72,25 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
     }
 
     private fun showNextQuestion() {
+        hintLayout.removeAllViews()
         val random = Random.nextInt(0, questionList.size)
         currentQuestionAgoraCaigo = questionList[random]
         questionTV.text = currentQuestionAgoraCaigo.question
-        hintTV.text = currentQuestionAgoraCaigo.hint
+        val hintText = currentQuestionAgoraCaigo.hint
+        hintText.forEach { char ->
+            val textView = TextView(this).apply {
+                text = char.toString()
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 36f)
+                setBackgroundResource(R.color.canela)
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    setMargins(4, 4, 4, 4)
+                }
+            }
+            hintLayout.addView(textView)
+        }
         userAnswerET.text.clear()
     }
 
@@ -90,7 +107,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             if (errors < 4) {
                 showNextQuestion()
             } else {
-                Intent(this, MainActivity::class.java).also {
+                Intent(this, AgoraCaigoResultsActivity::class.java).also {
                     it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
                     startActivity(it)
                 }

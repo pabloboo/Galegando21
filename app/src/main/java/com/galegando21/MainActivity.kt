@@ -25,6 +25,7 @@ import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
+import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoQuestionActivity
 
 class MainActivity : AppCompatActivity() {
@@ -149,7 +150,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         day11Button.setOnClickListener {
-            Intent(this@MainActivity, AgoraCaigoQuestionActivity::class.java). also {
+            Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }
