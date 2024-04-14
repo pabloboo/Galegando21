@@ -34,5 +34,9 @@
     <string name="adivinha_escudo">Adiviña o escudo</string>
     <string name="day09_text">Día 9 - Adiviña o escudo</string>
     <string name="adivinha_escudo_explicacion">Este xogo consiste en unha serie de 10 preguntas con catro opcións posibles nas que terás que adiviñar de que lugar é o escudo que se mostra na pantalla.</string>
+    <string name="adivinha_ano_foto">Adiviña o ano da foto</string>
+    <string name="seguinte">Seguinte</string>
+    <string name="day10_text">Día 10 - Adiviña o ano da foto</string>
+    <string name="adivinhaAnoFoto_explicacion">Mostrarase unha foto e terás que adiviñar o ano no que foi tomada.\n\n Move o control ao ano no que cres que se tomou a foto e fai click en \'comprobar\'.\n\n Cada xogo ten 5 rondas e podes obter ata un total de 10 puntos por ronda.</string>
 
 </resources>
