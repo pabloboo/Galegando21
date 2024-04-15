@@ -12,6 +12,8 @@ import com.galegando21.databinding.ActivityMainBinding
 import com.galegando21.day02Musica.MusicaActivity
 import java.util.Calendar
 import android.view.View
+import android.widget.ImageButton
+import android.widget.TextView
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
@@ -32,17 +34,17 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var bannerFragment: BannerFragment
-    private lateinit var day01Button: Button
-    private lateinit var day02Button: Button
-    private lateinit var day03Button: Button
-    private lateinit var day04Button: Button
-    private lateinit var day05Button: Button
-    private lateinit var day06Button: Button
-    private lateinit var day07Button: Button
-    private lateinit var day08Button: Button
-    private lateinit var day09Button: Button
-    private lateinit var day10Button: Button
-    private lateinit var day11Button: Button
+    private lateinit var day01Button: ImageButton
+    private lateinit var day02Button: ImageButton
+    private lateinit var day03Button: ImageButton
+    private lateinit var day04Button: ImageButton
+    private lateinit var day05Button: ImageButton
+    private lateinit var day06Button: ImageButton
+    private lateinit var day07Button: ImageButton
+    private lateinit var day08Button: ImageButton
+    private lateinit var day09Button: ImageButton
+    private lateinit var day10Button: ImageButton
+    private lateinit var day11Button: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -187,8 +189,13 @@ class MainActivity : AppCompatActivity() {
         for (i in 2..11) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
-            val button = findViewById<Button>(buttonId)
-            button.visibility = if (i <= unlockedButtonCount) View.VISIBLE else View.INVISIBLE
+            val button = findViewById<ImageButton>(buttonId)
+            val textId = resources.getIdentifier("textDay$i", "id", packageName)
+            val text = findViewById<TextView>(textId)
+            if (i <= unlockedButtonCount) {
+                button.visibility = View.VISIBLE
+                text.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -196,8 +203,11 @@ class MainActivity : AppCompatActivity() {
         for (i in 2..11) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
-            val button = findViewById<Button>(buttonId)
+            val button = findViewById<ImageButton>(buttonId)
+            val textId = resources.getIdentifier("textDay$i", "id", packageName)
+            val text = findViewById<TextView>(textId)
             button.visibility = View.VISIBLE
+            text.visibility = View.VISIBLE
         }
     }
 
