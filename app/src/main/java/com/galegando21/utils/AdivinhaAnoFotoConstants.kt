@@ -17,6 +17,46 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_1,
+                "Matt Damon e Ben Affleck no estreno de 'Good Will Hunting'",
+                1997
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_2,
+                "Miley Cyrus baila no escenario con Robin Thicke nos MTV Video Music Awards",
+                2014
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_3,
+                "O elenco de \"Don't watching Darling\" no festival de cine de Valencia",
+                2022
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_4,
+                "Barack Obama e Michelle Obama encontranse xunto aos seus retratos despois da súa presentación no Smithsonian",
+                2018
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_5,
+                "Lee Radziwill e Truman Capote en branco e negro no Hotel Plaza",
+                1966
+            )
+        )
+
         return questions
     }
 }

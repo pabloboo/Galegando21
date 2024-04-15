@@ -15,33 +15,36 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/adivinhaAnoFoto_progress_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="10"
-        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_foto_ImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment">
 
         <ProgressBar
             android:id="@+id/adivinhaAnoFoto_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="false"
             android:max="5"
             android:minHeight="50dp"
-            android:indeterminate="false"
-            tools:progress="3"/>
+            tools:progress="3" />
 
         <TextView
             android:id="@+id/adivinhaAnoFoto_text_view_progress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="3/5"
-            android:textSize="15sp"
-            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_weight="1"
+            android:textSize="15sp"
+            tools:text="3/5" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <ImageView
@@ -51,9 +54,8 @@
         android:src="@drawable/presentacion_lucas_perez"
         app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_solution_description_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_progress_bar_layout"
         app:layout_constraintVertical_bias="0.713" />
 
     <TextView
@@ -64,11 +66,10 @@
         android:textAlignment="center"
         android:visibility="gone"
         tools:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_foto_ImageView"
+        app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_slider" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/adivinhaAnoFoto_slider"
