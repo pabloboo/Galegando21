@@ -88,76 +88,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        day02Button.setOnClickListener {
-            Intent(this@MainActivity, MusicaActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day03Button.setOnClickListener {
-            Intent(this@MainActivity, AtrapameSePodesInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day04Button.setOnClickListener {
-            Intent(this@MainActivity, AtrapaUnMillonInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day05Button.setOnClickListener {
-            Intent(this@MainActivity, AforcadoInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day06Button.setOnClickListener {
-            Intent(this@MainActivity, ConexionsInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day07Button.setOnClickListener {
-            Intent(this@MainActivity, VerdadeOuMentiraInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day08Button.setOnClickListener {
-            Intent(this@MainActivity, WordleInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day09Button.setOnClickListener {
-            Intent(this@MainActivity, AdivinhaEscudoInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day10Button.setOnClickListener {
-            Intent(this@MainActivity, AdivinhaAnoFotoInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
-        day11Button.setOnClickListener {
-            Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
-            }
-        }
-
         binding.fab.setOnClickListener { view ->
             unlockAllButtons() // Llama a la función para desbloquear todos los botones
             Snackbar.make(view, "Botóns desbloqueados", Snackbar.LENGTH_LONG)
@@ -190,11 +120,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<ImageButton>(buttonId)
-            val textId = resources.getIdentifier("textDay$i", "id", packageName)
-            val text = findViewById<TextView>(textId)
             if (i <= unlockedButtonCount) {
-                button.visibility = View.VISIBLE
-                text.visibility = View.VISIBLE
+                button.setOnClickListener {
+                    setOnClickListenerMain(buttonId)
+                }
+                button.background = getDrawable(R.drawable.main_activity_button_background)
             }
         }
     }
@@ -204,10 +134,75 @@ class MainActivity : AppCompatActivity() {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<ImageButton>(buttonId)
-            val textId = resources.getIdentifier("textDay$i", "id", packageName)
-            val text = findViewById<TextView>(textId)
-            button.visibility = View.VISIBLE
-            text.visibility = View.VISIBLE
+            button.setOnClickListener {
+                setOnClickListenerMain(buttonId)
+            }
+            button.background = getDrawable(R.drawable.main_activity_button_background)
+        }
+    }
+
+    private fun setOnClickListenerMain(id: Int) {
+        when (id) {
+            R.id.btnDay2 -> {
+                Intent(this@MainActivity, MusicaActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay3 -> {
+                Intent(this@MainActivity, AtrapameSePodesInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay4 -> {
+                Intent(this@MainActivity, AtrapaUnMillonInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay5 -> {
+                Intent(this@MainActivity, AforcadoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay6 -> {
+                Intent(this@MainActivity, ConexionsInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay7 -> {
+                Intent(this@MainActivity, VerdadeOuMentiraInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay8 -> {
+                Intent(this@MainActivity, WordleInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay9 -> {
+                Intent(this@MainActivity, AdivinhaEscudoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay10 -> {
+                Intent(this@MainActivity, AdivinhaAnoFotoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay11 -> {
+                Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
         }
     }
 

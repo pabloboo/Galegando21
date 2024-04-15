@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primaryBlue">#007ab5</color>
     <color name="secondaryBlue">#002b48</color>
+    <color name="inactiveBlue">#778899</color>
     <color name="correctGreen">#59C348</color>
     <color name="errorRed">#FF0000</color>
     <color name="canela">#EFF0E7</color>

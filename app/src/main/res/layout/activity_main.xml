@@ -68,11 +68,10 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    />
 
                 <TextView
                     android:id="@+id/textDay2"
@@ -80,8 +79,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day02_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -96,10 +93,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -108,8 +103,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day03_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -124,10 +117,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -136,8 +127,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day04_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -152,10 +141,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -164,8 +151,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day05_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -180,10 +165,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -192,8 +175,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day06_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -208,10 +189,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -220,8 +199,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day07_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -236,10 +213,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -248,8 +223,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day08_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -264,10 +237,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -276,8 +247,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day09_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -292,10 +261,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -304,8 +271,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day10_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -320,10 +285,8 @@
                     android:layout_height="60dp"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/main_activity_button_background"
+                    android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:textColor="@android:color/white" />
 
                 <TextView
@@ -332,8 +295,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/day11_text"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     android:layout_centerInParent="true"
                     android:textColor="@color/white"/>
             </RelativeLayout>
