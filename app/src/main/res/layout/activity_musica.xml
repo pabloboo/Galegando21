@@ -37,4 +37,16 @@
         app:layout_constraintTop_toBottomOf="@+id/music_description_tv"
         app:layout_constraintVertical_bias="0.199"
         app:srcCompat="@drawable/spotify_icon" />
+
+    <TextView
+        android:id="@+id/music_suxerencias_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/musica_suxerencias"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spotify_icon"
+        app:layout_constraintVertical_bias="0.287" />
 </androidx.constraintlayout.widget.ConstraintLayout>

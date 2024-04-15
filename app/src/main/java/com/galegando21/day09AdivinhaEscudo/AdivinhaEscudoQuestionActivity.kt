@@ -36,7 +36,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
 
     private var questionsCounter = 1
     private lateinit var questionsList: MutableList<QuestionAdivinhaEscudo>
-    private var selectedAnswer = 0
+    private var selectedAnswer = 1
     private lateinit var currentQuestion: QuestionAdivinhaEscudo
     private var answered = false
 
@@ -210,7 +210,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
                 } else {
                     showNextQuestion()
                 }
-                selectedAnswer = 0
+                selectedAnswer = 1
             }
         }
     }

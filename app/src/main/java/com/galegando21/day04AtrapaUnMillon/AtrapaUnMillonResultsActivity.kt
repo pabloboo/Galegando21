@@ -30,7 +30,11 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         }.commit()
 
         val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0).toString()
-        atrapaUnMillonResultsTv.text = "Parabéns! gañaches unha cantidade \n total de $cash€"
+        if (cash.toInt() == 0) {
+            atrapaUnMillonResultsTv.text = "Non gañaches nada. \n Mellor sorte a próxima vez!"
+        } else {
+            atrapaUnMillonResultsTv.text = "Parabéns! gañaches unha cantidade \n total de $cash€"
+        }
 
         atrapaUnMillonFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {

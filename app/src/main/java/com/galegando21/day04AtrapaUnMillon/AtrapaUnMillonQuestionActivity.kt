@@ -248,7 +248,9 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
                 }
                 val sum = valueOption1+valueOption2+valueOption3+valueOption4
                 if (!answered) {
-                    if (sum===cash) {
+                    if (questionsCounter == 8 && (valueOption1 != cash && valueOption2 != cash && valueOption3 != cash && valueOption4 != cash)) {
+                        Toast.makeText(this@AtrapaUnMillonQuestionActivity, "Tes que poñer todo o diñeiro en unha soa opción", Toast.LENGTH_SHORT).show()
+                    } else if (sum===cash) {
                         checkAnswer()
                     } else {
                         Toast.makeText(this@AtrapaUnMillonQuestionActivity, "Tes que sumar un total de $cash€", Toast.LENGTH_SHORT).show()
