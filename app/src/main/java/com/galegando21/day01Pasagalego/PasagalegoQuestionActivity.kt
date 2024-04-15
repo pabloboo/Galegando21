@@ -87,7 +87,11 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             val questionList = getPasagalegoQuestions(letter)
             val randomNumber = Random.nextInt(0, questionList.size)
             currentQuestionPasagalego = questionList[randomNumber]
-            letter_tv.text = "Comeza pola letra '$letter'"
+            if (letter.equals('Ñ')) {
+                letter_tv.text = "Contén a letra 'Ñ'"
+            } else {
+                letter_tv.text = "Comeza pola letra '$letter'"
+            }
             question_tv.text = currentQuestionPasagalego.question
             correctAnswersTv.text = correctAnswers.toString()
             errorAnswersTv.text = errorAnswers.toString()

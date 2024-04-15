@@ -17,8 +17,8 @@ class AforcadoGameManager {
         lettersUsed = ""
         currentTries = 0
         drawable = R.drawable.aforcado6
-        val randomIndex = Random.nextInt(0, AforcadoGameConstants.WORDS.size)
-        wordToGuess = AforcadoGameConstants.WORDS[randomIndex]
+        val randomIndex = Random.nextInt(0, AforcadoGameConstants.getWords().size)
+        wordToGuess = AforcadoGameConstants.getWords()[randomIndex]
         generateUnderscores(wordToGuess)
         return getGameState()
     }

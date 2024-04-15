@@ -30,6 +30,60 @@ object AtrapaUnMillonConstants {
             "Ríos de lava",
             3)
         )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Por que Santa Claus vai de vermello?",
+                "Pola marca 'Coca Cola'",
+                "Pola marca Sprite sabor a fresa",
+                "Porque o seu fillo se chama 'Rojo'",
+                "Para que se lle vexa pola noite",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cantas parellas de animais meteu Moisés na arca?",
+                "0",
+                "40",
+                "42",
+                "45",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal de estos nomes de xogadores de fútbol ten algo que ver con coser?",
+                "Puyol",
+                "Ronaldo",
+                "Piqué",
+                "Casillas",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal de estos nomes é un cereal?",
+                "Azufre",
+                "Centeno",
+                "Remolacha",
+                "Bifis",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Dos seguintes equipos cal é o que máis veces gañou o mundial?",
+                "Italia",
+                "Argentina",
+                "Francia",
+                "Brasil",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal ten sepia nos seus ingredientes?",
+                "Chocos fritos",
+                "Patatas bravas",
+                "Arroz con costra",
+                "Cañas",
+                1)
+        )
         return questions
     }
 
@@ -42,6 +96,24 @@ object AtrapaUnMillonConstants {
             "Remedios Cervantes",
             "-",
             1))
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que monumento tes que subir máis escalóns?",
+                "London Eye",
+                "Empire State",
+                "Big Ben",
+                "-",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que xogo de mesa es que conseguir a bandeira do enemigo?",
+                "Estratego",
+                "Risk",
+                "Captura a bandeira",
+                "-",
+                1)
+        )
         return questions
     }
 
@@ -54,6 +126,42 @@ object AtrapaUnMillonConstants {
             "-",
             "-",
             2))
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que existiu de verdade?",
+                "Rita a Cantaora",
+                "Perico dos palotes",
+                "-",
+                "-",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Según o record Guiness, que tivo un home durante 68 anos seguidos?",
+                "Ataque de risa",
+                "Ataque de hipo",
+                "-",
+                "-",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal foi antes unha característica distintiva dos autobuses de Londres?",
+                "Ter dous pisos",
+                "Ser vermellos",
+                "-",
+                "-",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal foi unha operación da segunda Guerra Mundial?",
+                "Cobra",
+                "Anaconda",
+                "-",
+                "-",
+                1)
+        )
         return questions
     }
 }
