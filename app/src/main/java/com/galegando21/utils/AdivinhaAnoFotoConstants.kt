@@ -57,6 +57,46 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_6,
+                "Suxeitador de Madonna con forma de cono",
+                1990
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_7,
+                "Voda do príncipe Harry e Meghan Markle",
+                2018
+                )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_8,
+                "Diana baila con John Travolta na Casa Blanca",
+                1985
+                )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_9,
+                "Matrimonio de Justing Bieber e Hailey Baldwin",
+                2019
+                )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_10,
+                "Espectáculo de medio tempo da SuperBowl",
+                2017
+                )
+        )
+
         return questions
     }
 }

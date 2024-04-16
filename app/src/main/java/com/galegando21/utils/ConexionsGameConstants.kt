@@ -89,6 +89,18 @@ object ConexionsGameConstants {
                 "Científicos pioneiros", listOf("Galileo Galilei", "Marie Curie", "Isaac Newton", "Charles Darwin")
             )
         )
+        conexionsList.add(
+            Conexions(
+                "Artículo", "Susto", "Medo", "Palco",
+                "Historia", "Balcón", "Informe", "Sorpresa",
+                "Choque", "Ao mesmo nivel", "Reportaxe", "Escenario",
+                "Orquestra", "Nivelado", "Plano", "Igual",
+                "Deixar sen fala", listOf("Susto", "Medo", "Choque", "Sorpresa"),
+                "Algo de periodismo", listOf("Artículo", "Reportaxe", "Informe", "Historia"),
+                "No mismo plano", listOf("Igual", "Plano", "Ao mesmo nivel", "Nivelado"),
+                "Seccións de un teatro", listOf("Balcón", "Palco", "Orquestra", "Escenario")
+            )
+        )
         return conexionsList
     }
 }

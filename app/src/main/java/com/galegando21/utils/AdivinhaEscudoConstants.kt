@@ -44,9 +44,9 @@ object AdivinhaEscudoConstants {
     )
 
     // Función para seleccionar tres opciones aleatorias de la lista de lugares
-    fun seleccionarOpcionesAleatorias(): List<String> {
+    fun seleccionarOpcionesAleatorias(): MutableList<String> {
         val opcionesAleatorias = lugares.shuffled().take(3)
-        return opcionesAleatorias
+        return opcionesAleatorias.toMutableList()
     }
 
     // Función para obtener preguntas
@@ -55,7 +55,12 @@ object AdivinhaEscudoConstants {
 
         lugares.forEach { lugar ->
             // Obtener tres opciones aleatorias
-            val opciones = seleccionarOpcionesAleatorias().toMutableList()
+            val opciones = seleccionarOpcionesAleatorias()
+            // Commprobar que la solución no se encuentra entre las opciones aleatorias
+            while (opciones.contains(lugar)) {
+                opciones.clear()
+                opciones.addAll(seleccionarOpcionesAleatorias())
+            }
 
             // Crear la pregunta y agregarla a la lista
             val randomPosition = Random.nextInt(1, 4)

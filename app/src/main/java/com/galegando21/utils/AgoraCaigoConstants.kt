@@ -42,7 +42,7 @@ object AgoraCaigoConstants {
             "BACKSTREET BOYS"))
         questions.add(QuestionAgoraCaigo(
             "Que título real ostenta Isabel II de Inglaterra en Australia?",
-            "R__N_",
+            "R__Ñ_",
             "RAÍÑA"))
         questions.add(QuestionAgoraCaigo(
             "Así se chamou o mercado negro en España durante o franquismo",
