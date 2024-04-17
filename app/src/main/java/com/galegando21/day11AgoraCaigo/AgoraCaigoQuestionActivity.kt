@@ -3,6 +3,7 @@ package com.galegando21.day11AgoraCaigo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.InputFilter
 import android.util.TypedValue
 import android.view.View
@@ -35,6 +36,9 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
     private var errors = 0
     private lateinit var questionList: List<QuestionAgoraCaigo>
     private lateinit var currentQuestionAgoraCaigo: QuestionAgoraCaigo
+
+    private lateinit var agoraCaigoTimerTv : TextView
+    private var countDownTimer: CountDownTimer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agora_caigo_question)
@@ -47,6 +51,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
         comodin1 = findViewById(R.id.agora_caigo_comodin1)
         comodin2 = findViewById(R.id.agora_caigo_comodin2)
         comodin3 = findViewById(R.id.agora_caigo_comodin3)
+        agoraCaigoTimerTv = findViewById(R.id.agora_caigo_timer_tv)
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
@@ -92,6 +97,30 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             hintLayout.addView(textView)
         }
         userAnswerET.text.clear()
+
+        // Cancelar el temporizador si está corriendo
+        countDownTimer?.cancel()
+        // Inicializar nuevo temporizador
+        countDownTimer = object : CountDownTimer(30000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val seconds = millisUntilFinished / 1000
+                agoraCaigoTimerTv.text = "$seconds:00"
+            }
+
+            override fun onFinish() {
+                errors++
+                hideComodines(errors)
+                Toast.makeText(this@AgoraCaigoQuestionActivity, "${currentQuestionAgoraCaigo.solution}, Incorrecto!", Toast.LENGTH_SHORT).show()
+                if (errors < 4) {
+                    showNextQuestion()
+                } else {
+                    Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
+                        it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
+                        startActivity(it)
+                    }
+                }
+            }
+        }.start()
     }
 
     private fun checkButtonClickListener() {
@@ -101,17 +130,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             Toast.makeText(this, "Correcto!", Toast.LENGTH_SHORT).show()
             showNextQuestion()
         } else {
-            errors++
-            hideComodines(errors)
-            Toast.makeText(this, "${currentQuestionAgoraCaigo.solution}, Incorrecto!", Toast.LENGTH_SHORT).show()
-            if (errors < 4) {
-                showNextQuestion()
-            } else {
-                Intent(this, AgoraCaigoResultsActivity::class.java).also {
-                    it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
-                    startActivity(it)
-                }
-            }
+            Toast.makeText(this, "Segue probando!", Toast.LENGTH_SHORT).show()
         }
     }
 

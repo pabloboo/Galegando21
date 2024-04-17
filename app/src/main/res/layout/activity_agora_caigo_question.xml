@@ -15,37 +15,50 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
+        android:id="@+id/linearLayoutComodinesAgoraCaigo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/agora_caigo_timer_tv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/agora_caigo_question_tv">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment">
 
         <ImageView
             android:id="@+id/agora_caigo_comodin1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/agora_caigo_comodin_on"/>
+            android:src="@drawable/agora_caigo_comodin_on" />
 
         <ImageView
             android:id="@+id/agora_caigo_comodin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/agora_caigo_comodin_on"/>
+            android:src="@drawable/agora_caigo_comodin_on" />
 
         <ImageView
             android:id="@+id/agora_caigo_comodin3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/agora_caigo_comodin_on"/>
+            android:src="@drawable/agora_caigo_comodin_on" />
 
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/agora_caigo_timer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:background="@drawable/agora_caigo_timer_background"
+        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_question_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutComodinesAgoraCaigo"
+        tools:text="30:00" />
 
     <TextView
         android:id="@+id/agora_caigo_question_tv"
@@ -56,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_timer_tv"
         app:layout_constraintVertical_bias="0.518"
         tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
 
@@ -79,7 +92,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_hint_tv">
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_hint_ll">
 
         <EditText
             android:id="@+id/agora_caigo_answer_et"
