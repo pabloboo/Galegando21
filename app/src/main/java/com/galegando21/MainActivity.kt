@@ -1,34 +1,32 @@
 package com.galegando21
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
-import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
 import com.galegando21.day02Musica.MusicaActivity
-import java.util.Calendar
-import android.view.View
 import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
-import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonQuestionActivity
 import com.galegando21.day05Aforcado.AforcadoInicioActivity
 import com.galegando21.day06Conexions.ConexionsInicioActivity
 import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
-import com.galegando21.day08Wordle.WordleGameActivity
 import com.galegando21.day08Wordle.WordleInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
-import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity
-import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
-import com.galegando21.day11AgoraCaigo.AgoraCaigoQuestionActivity
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +44,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day10Button: ImageButton
     private lateinit var day11Button: ImageButton
 
+    private val PERMISSION_REQUEST_CODE = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -60,7 +60,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        updateButtonState()
+        // Comprobar si ya se ha concedido el permiso
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // Si no se ha concedido, solicitar el permiso
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), PERMISSION_REQUEST_CODE)
+        }
+
+        // Programar el worker para que se ejecute cada 24 horas
+        val unlockButtonsWorkRequest = PeriodicWorkRequestBuilder<UnlockButtonsWorker>(15, TimeUnit.MINUTES).build()
+        WorkManager.getInstance(this).enqueue(unlockButtonsWorkRequest)
 
         day01Button = findViewById(R.id.btnDay1)
         day02Button = findViewById(R.id.btnDay2)
@@ -96,25 +104,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateButtonState()
+    }
+
     // Función para verificar y actualizar el estado de los botones
     private fun updateButtonState() {
-        val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
-        // Inicializar SharedPreferences para almacenar el estado de los botones desbloqueados
-        val sharedPreferences = getSharedPreferences("BotonesDesbloqueados", Context.MODE_PRIVATE)
-        // Obtener último día en el que se desbloqueó un botón
-        val lastDayUnlocked = sharedPreferences.getInt("lastDayUnlocked", -1)
-
-        if (currentDay != lastDayUnlocked) {
-            // Se desbloquea un nuevo botón cada día
-            val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
-            if (unlockedButtonCount < 21) {
-                sharedPreferences.edit().putInt("unlockedButtonCount", unlockedButtonCount + 1)
-                sharedPreferences.edit().putInt("lastDayUnlocked", currentDay)
-                sharedPreferences.edit().apply()
-            }
-        }
-
         // Configurar la visibilidad de los botones según su estado de desbloqueo
+        val sharedPreferences = getSharedPreferences("BotonesDesbloqueados", Context.MODE_PRIVATE)
         val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
         for (i in 2..11) {
             Log.d("DAY", "btnDay$i")
@@ -202,6 +200,21 @@ class MainActivity : AppCompatActivity() {
                     startActivity(it)
                     finish()
                 }
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            PERMISSION_REQUEST_CODE -> {
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                } else {
+                    Toast.makeText(this, "Sen este permiso non serás notificado dos novos contidos", Toast.LENGTH_SHORT).show()
+                }
+                return
+            }
+            else -> {
             }
         }
     }
