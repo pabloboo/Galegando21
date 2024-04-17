@@ -7,14 +7,14 @@ object ConexionsGameConstants {
         var conexionsList : MutableList<Conexions> = mutableListOf()
         conexionsList.add(
             Conexions(
-                "Alboroto", "Xenxibre", "Arroz", "Dardo",
+                "Gritar", "Xenxibre", "Arroz", "Dardo",
                 "Revolto", "Machado", "Prisa", "Anel",
                 "Algas", "Ferradura", "Ferver", "Patada",
                 "Sésamo", "Fritir", "Emoción", "Escalfar",
                 "Formas de preparar ovos", listOf("Ferver", "Fritir", "Escalfar", "Revolto"),
-                "Sentimento de euforia", listOf("Alboroto", "Patada", "Prisa", "Emoción"),
+                "Sentimento de euforia", listOf("Alboroto", "Gritar", "Prisa", "Emoción"),
                 "Lanzados en xogos de precisión", listOf("Machado", "Dardo", "Ferradura", "Anel"),
-                "Ingredintes de cociña asiática", listOf("Sésamo", "Algas", "Xenxibre", "Arroz")
+                "Ingredientes de cociña asiática", listOf("Sésamo", "Algas", "Xenxibre", "Arroz")
             )
         )
         conexionsList.add(
@@ -99,6 +99,18 @@ object ConexionsGameConstants {
                 "Algo de periodismo", listOf("Artículo", "Reportaxe", "Informe", "Historia"),
                 "No mismo plano", listOf("Igual", "Plano", "Ao mesmo nivel", "Nivelado"),
                 "Seccións de un teatro", listOf("Balcón", "Palco", "Orquestra", "Escenario")
+            )
+        )
+        conexionsList.add(
+            Conexions(
+                "Interés", "Observar", "Poste", "Secretos",
+                "Información", "Datos", "Acción", "Pilar",
+                "Intelixencia", "Manter en mente", "Porcentaxe", "Considerar",
+                "Seguir", "Columna", "Pata", "Participación",
+                "Apoio vertical", listOf("Columna", "Pilar", "Poste", "Pata"),
+                "Asignación", listOf("Interés", "Porcentaxe", "Participación", "Acción"),
+                "Recolectado por espías", listOf("Información", "Intelixencia", "Secretos", "Datos"),
+                "Prestar atención, como regras", listOf("Seguir", "Manter en mente", "Observar", "Considerar")
             )
         )
         return conexionsList

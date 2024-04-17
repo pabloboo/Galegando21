@@ -97,6 +97,46 @@ object AdivinhaAnoFotoConstants {
                 )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_11,
+                "Espectáculo de medio tempo da SuperBowl",
+                2016
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_12,
+                "Fran Sinatra prende un cigarro para a actriz Lauren Bacall en unha festa de estrea para 'Una estrella nace'",
+                1954
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_13,
+                "Pink Floyd publicou 'The Dark Side of the Moon'",
+                1973
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_14,
+                "Os cantantes Frank Sinatra e Nat King Cole asisten a un club de frailes de Nova York",
+                1950
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_15,
+                "Cardi B e Megan Thee Stallion no seu video musical 'WAP'",
+                2020
+            )
+        )
+
         return questions
     }
 }
