@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.VerdadeOuMentiraConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var verdadeOuMentiraCorrectAnswersResultTv : TextView
     private lateinit var verdadeOuMentiraResultsTv : TextView
     private lateinit var verdadeOuMentiraFinishButton: Button
@@ -24,11 +23,7 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
         verdadeOuMentiraResultsTv = findViewById(R.id.verdade_ou_mentira_result_tv)
         verdadeOuMentiraFinishButton = findViewById(R.id.verdade_ou_mentira_finish_btn)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.verdadeOuMentira))
-        }.commit()
+        setBanner(this, R.string.verdadeOuMentira)
 
         val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
         verdadeOuMentiraCorrectAnswersResultTv.text = score.toString()
@@ -41,12 +36,6 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@VerdadeOuMentiraResultsActivity, VerdadeOuMentiraInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, VerdadeOuMentiraInicioActivity::class.java)
     }
 }

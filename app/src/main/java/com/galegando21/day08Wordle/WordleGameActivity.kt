@@ -1,26 +1,20 @@
 package com.galegando21.day08Wordle
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.res.Resources.Theme
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
 import android.util.Log
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
-import com.galegando21.BannerFragment
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class WordleGameActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var texts:  MutableList<MutableList<TextView>>
     private val rowCount = 6
     private val colCount = 5
@@ -32,11 +26,7 @@ class WordleGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordle_game)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.wordle))
-        }.commit()
+        setBanner(this, R.string.wordle)
 
         gameCore = WordleGameManager(rowCount)
         initTexts()
@@ -44,13 +34,7 @@ class WordleGameActivity : AppCompatActivity() {
 
         newRound()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@WordleGameActivity, WordleInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, WordleInicioActivity::class.java)
     }
 
     private fun setEventListeners() {

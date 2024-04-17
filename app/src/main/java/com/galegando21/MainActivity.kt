@@ -27,12 +27,12 @@ import com.galegando21.day08Wordle.WordleInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.utils.setBanner
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var day01Button: ImageButton
     private lateinit var day02Button: ImageButton
     private lateinit var day03Button: ImageButton
@@ -87,12 +87,7 @@ class MainActivity : AppCompatActivity() {
         day10Button = findViewById(R.id.btnDay10)
         day11Button = findViewById(R.id.btnDay11)
 
-        // Asegurarse de que el fragmento esté agregado antes de llamar a setBannerText
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        // Llamar a setBannerText después de que el fragmento haya inflado su vista
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.app_name))
-        }.commit()
+        setBanner(this, R.string.app_name)
 
         day01Button.setOnClickListener {
             Intent(this@MainActivity, PasagalegoInicioActivity::class.java). also {

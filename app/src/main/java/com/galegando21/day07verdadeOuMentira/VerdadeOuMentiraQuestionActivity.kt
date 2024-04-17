@@ -8,16 +8,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
-import com.galegando21.BannerFragment
 import com.galegando21.R
 import com.galegando21.model.QuestionVerdadeOuMentira
 import com.galegando21.utils.VerdadeOuMentiraConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var correctAnswersTextView: TextView
     private lateinit var textViewQuestion: TextView
     private lateinit var textViewVerdadeiro: TextView
@@ -41,11 +40,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
         textViewFalso = findViewById(R.id.verdade_ou_mentira_text_view_falso)
         checkButton = findViewById(R.id.verdade_ou_mentira_btn_check)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.verdadeOuMentira))
-        }.commit()
+        setBanner(this, R.string.verdadeOuMentira)
 
         textViewVerdadeiro.setOnClickListener(this)
         textViewFalso.setOnClickListener(this)
@@ -55,13 +50,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
 
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@VerdadeOuMentiraQuestionActivity, VerdadeOuMentiraInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, VerdadeOuMentiraInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

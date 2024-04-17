@@ -1,24 +1,21 @@
 package com.galegando21.day05Aforcado
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
-import com.galegando21.BannerFragment
 import com.galegando21.R
 import com.galegando21.model.AforcadoGameState
 import com.galegando21.model.AforcadoGameManager
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class AforcadoGameActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
-
     private val gameManager = AforcadoGameManager()
 
     private lateinit var wordTextView: TextView
@@ -41,11 +38,7 @@ class AforcadoGameActivity : AppCompatActivity() {
         newGameButton = findViewById(R.id.novoXogoAforcadoButton)
         lettersLayout = findViewById(R.id.aforcadoLettersLayout)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.aforcado))
-        }.commit()
+        setBanner(this, R.string.aforcado)
 
         newGameButton.setOnClickListener {
             startNewGame()
@@ -65,13 +58,7 @@ class AforcadoGameActivity : AppCompatActivity() {
                 }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AforcadoGameActivity, AforcadoInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AforcadoInicioActivity::class.java)
     }
 
     private fun updateUI(gameState: AforcadoGameState) {

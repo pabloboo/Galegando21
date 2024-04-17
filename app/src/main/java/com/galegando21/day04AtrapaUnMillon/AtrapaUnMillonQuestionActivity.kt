@@ -13,18 +13,16 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
-import com.galegando21.BannerFragment
 import com.galegando21.R
 import com.galegando21.model.QuestionAtrapaUnMillon
 import com.galegando21.utils.AtrapaUnMillonConstants
 import com.galegando21.utils.AtrapaUnMillonConstants.getAtrapaUnMillonQuestions
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var bannerFragment: BannerFragment
-
     private lateinit var textViewCash : TextView
     private lateinit var progressBar: ProgressBar
     private lateinit var textViewProgress: TextView
@@ -77,11 +75,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
         editTextOption4 = findViewById(R.id.atrapa_un_millon_edittext_option4)
         checkButton = findViewById(R.id.atrapa_un_millon_btn_check)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.atrapa_un_millon))
-        }.commit()
+        setBanner(this, R.string.atrapa_un_millon)
 
         //only accept numbers in editText
         editTextOption1.inputType=InputType.TYPE_CLASS_NUMBER
@@ -94,13 +88,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
         questionsList = getQuestions()
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AtrapaUnMillonQuestionActivity, AtrapaUnMillonInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AtrapaUnMillonInicioActivity::class.java)
     }
 
     private fun getQuestions() : MutableList<QuestionAtrapaUnMillon> {

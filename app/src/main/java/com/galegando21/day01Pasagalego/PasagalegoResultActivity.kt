@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.PasagalegoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class PasagalegoResultActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var correctAnswersTv : TextView
     private lateinit var timePasagalegoTv : TextView
     private lateinit var errorAnswersTv : TextView
@@ -26,11 +25,7 @@ class PasagalegoResultActivity : AppCompatActivity() {
         errorAnswersTv = findViewById(R.id.error_answers_result_tv)
         pasagalegoFinishButton = findViewById(R.id.pasagalego_finish_btn)
 
-        // Settear banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.pasagalego))
-        }.commit()
+        setBanner(this, R.string.pasagalego)
 
         val score = intent.getIntExtra(PasagalegoConstants.SCORE, 0)
         val time = intent.getStringExtra(PasagalegoConstants.TIME)
@@ -47,13 +42,7 @@ class PasagalegoResultActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@PasagalegoResultActivity, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, PasagalegoInicioActivity::class.java)
 
     }
 }

@@ -4,20 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.galegando21.day01Pasagalego.PasagalegoQuestionActivity
+import com.galegando21.utils.setBanner
 
 class OnboardingActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var comezarButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.app_name))
-        }.commit()
+        setBanner(this, R.string.app_name)
 
         comezarButton = findViewById(R.id.start_btn_onboarding)
 

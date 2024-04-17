@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AtrapaUnMillonConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class AtrapaUnMillonResultsActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var atrapaUnMillonResultsTv : TextView
     private lateinit var atrapaUnMillonFinishButton : Button
 
@@ -23,11 +22,7 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         atrapaUnMillonResultsTv = findViewById(R.id.atrapa_un_millon_results_textView)
         atrapaUnMillonFinishButton = findViewById(R.id.atrapa_un_millon_finish_btn)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.atrapa_un_millon))
-        }.commit()
+        setBanner(this, R.string.atrapa_un_millon)
 
         val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0).toString()
         if (cash.toInt() == 0) {
@@ -43,12 +38,6 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AtrapaUnMillonResultsActivity, AtrapaUnMillonInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AtrapaUnMillonInicioActivity::class.java)
     }
 }

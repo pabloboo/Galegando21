@@ -8,16 +8,15 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.R
 import com.galegando21.model.QuestionAtrapameSePodes
 import com.galegando21.utils.AtrapameSePodesConstants
 import com.galegando21.utils.AtrapameSePodesConstants.getAtrapameSePodesQuestions
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class AtrapameSePodesQuestionActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var stepsFragment: AtrapameSePodesStepsFragment
 
     private lateinit var questionTV: TextView
@@ -36,11 +35,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_atrapame_se_podes)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.atrapame_se_podes))
-        }.commit()
+        setBanner(this, R.string.atrapame_se_podes)
 
         setStepsFragment(0)
 
@@ -50,13 +45,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
 
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AtrapameSePodesQuestionActivity, AtrapameSePodesInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AtrapameSePodesInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

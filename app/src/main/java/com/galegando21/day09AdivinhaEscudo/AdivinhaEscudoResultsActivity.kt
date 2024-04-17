@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AdivinhaEscudoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class AdivinhaEscudoResultsActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var AdivinhaEscudoCorrectAnswersResultTv : TextView
     private lateinit var AdivinhaEscudoResultsTv : TextView
     private lateinit var AdivinhaEscudoFinishButton: Button
@@ -24,11 +23,7 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
         AdivinhaEscudoResultsTv = findViewById(R.id.adivinha_escudo_result_tv)
         AdivinhaEscudoFinishButton = findViewById(R.id.adivinha_escudo_finish_btn)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.adivinha_escudo))
-        }.commit()
+        setBanner(this, R.string.adivinha_escudo)
 
         val score = intent.getIntExtra(AdivinhaEscudoConstants.SCORE, 0)
         AdivinhaEscudoCorrectAnswersResultTv.text = score.toString()
@@ -41,13 +36,6 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AdivinhaEscudoResultsActivity, AdivinhaEscudoInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-        })
+        setOnBackPressed(this, AdivinhaEscudoInicioActivity::class.java)
     }
 }

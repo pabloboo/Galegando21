@@ -10,18 +10,16 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import java.lang.StringBuilder
 import kotlin.random.Random
 
 class PasagalegoQuestionActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var letter_tv : TextView
     private lateinit var question_tv : TextView
     private lateinit var correctAnswersTv : TextView
@@ -50,11 +48,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         checkButton = findViewById(R.id.check_btn_pasagalego)
         pasapalabraButton = findViewById(R.id.pasapalabra_btn)
 
-        // Settear banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.pasagalego))
-        }.commit()
+        setBanner(this, R.string.pasagalego)
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
@@ -70,13 +64,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@PasagalegoQuestionActivity, PasagalegoInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, PasagalegoInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

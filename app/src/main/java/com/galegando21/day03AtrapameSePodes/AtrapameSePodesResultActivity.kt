@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AtrapameSePodesConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class AtrapameSePodesResultActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var stepsFragment: AtrapameSePodesStepsFragment
     private lateinit var atrapameSePodesResultTV: TextView
     private lateinit var atrapameSePodesFinishButton: Button
@@ -23,11 +22,7 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
         atrapameSePodesResultTV = findViewById(R.id.atrapame_se_podes_result_tv)
         atrapameSePodesFinishButton = findViewById(R.id.atrapame_se_podes_finish_btn)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.atrapame_se_podes))
-        }.commit()
+        setBanner(this, R.string.atrapame_se_podes)
 
         // Settear el steps fragment
         stepsFragment = supportFragmentManager.findFragmentById(R.id.atrapame_se_podes_level_fragment_container_result) as AtrapameSePodesStepsFragment
@@ -45,12 +40,6 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AtrapameSePodesResultActivity, AtrapameSePodesInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AtrapameSePodesInicioActivity::class.java)
     }
 }

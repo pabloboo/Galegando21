@@ -8,19 +8,17 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaAnoFoto
 import com.galegando21.utils.AdivinhaAnoFotoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import com.google.android.material.slider.Slider
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var progressBar : ProgressBar
     private lateinit var textViewProgress : TextView
     private lateinit var imageView : ImageView
@@ -47,11 +45,7 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         yearSolution = findViewById(R.id.adivinhaAnoFoto_slider)
         checkButton = findViewById(R.id.check_btn_AdivinhaAnoFoto)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.adivinha_ano_foto))
-        }.commit()
+        setBanner(this, R.string.adivinha_ano_foto)
 
         questionsList = AdivinhaAnoFotoConstants.getQuestions()
 
@@ -61,13 +55,7 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
 
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AdivinhaAnoFotoGameActivity, AdivinhaAnoFotoInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AdivinhaAnoFotoInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

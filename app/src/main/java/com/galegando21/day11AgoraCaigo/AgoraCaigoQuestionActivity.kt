@@ -13,16 +13,14 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionAgoraCaigo
 import com.galegando21.utils.AgoraCaigoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class AgoraCaigoQuestionActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var questionTV: TextView
     private lateinit var hintLayout: LinearLayout
     private lateinit var userAnswerET: EditText
@@ -61,19 +59,9 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
 
         showNextQuestion()
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.agora_caigo))
-        }.commit()
+        setBanner(this, R.string.agora_caigo)
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AgoraCaigoQuestionActivity, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AgoraCaigoInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

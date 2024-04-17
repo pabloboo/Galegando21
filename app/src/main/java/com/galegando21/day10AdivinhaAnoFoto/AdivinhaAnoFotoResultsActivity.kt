@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AdivinhaAnoFotoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var AdivinhaAnoFotoCorrectAnswersResultTv : TextView
     private lateinit var AdivinhaAnoFotoResultsTv : TextView
     private lateinit var AdivinhaAnoFotoFinishButton: Button
@@ -24,11 +23,7 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
         AdivinhaAnoFotoResultsTv = findViewById(R.id.adivinhaAnoFoto_result_tv)
         AdivinhaAnoFotoFinishButton = findViewById(R.id.adivinhaAnoFoto_finish_btn)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.adivinha_ano_foto))
-        }.commit()
+        setBanner(this, R.string.adivinha_ano_foto)
 
         val score = intent.getIntExtra(AdivinhaAnoFotoConstants.SCORE, 0)
         AdivinhaAnoFotoCorrectAnswersResultTv.text = score.toString()
@@ -41,13 +36,6 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
             }
         }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AdivinhaAnoFotoResultsActivity, AdivinhaAnoFotoInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-        })
+        setOnBackPressed(this, AdivinhaAnoFotoInicioActivity::class.java)
     }
 }

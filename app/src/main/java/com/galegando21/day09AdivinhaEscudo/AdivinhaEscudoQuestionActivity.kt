@@ -5,24 +5,20 @@ import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
-import com.galegando21.BannerFragment
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaEscudo
 import com.galegando21.utils.AdivinhaEscudoConstants
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var bannerFragment: BannerFragment
-
     private lateinit var progressBar: ProgressBar
     private lateinit var textViewProgress: TextView
     private lateinit var flagImage: ImageView
@@ -62,23 +58,13 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
         textViewOption4.setOnClickListener(this)
         checkButton.setOnClickListener(this)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.adivinha_escudo))
-        }.commit()
+        setBanner(this, R.string.adivinha_escudo)
 
         questionsList = AdivinhaEscudoConstants.getQuestions()
 
         showNextQuestion()
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@AdivinhaEscudoQuestionActivity, AdivinhaEscudoInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, AdivinhaEscudoInicioActivity::class.java)
     }
 
     private fun showNextQuestion() {

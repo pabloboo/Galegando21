@@ -8,17 +8,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
-import com.galegando21.BannerFragment
 import com.galegando21.R
 import com.galegando21.model.Conexions
 import com.galegando21.utils.ConexionsGameConstants.getConexions
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class ConexionsGameActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var palabrasLayout: ConstraintLayout
     private lateinit var deselectAllButton : Button
     private lateinit var sendButton : Button
@@ -44,11 +43,7 @@ class ConexionsGameActivity : AppCompatActivity() {
         solutionGroup3Tv = findViewById(R.id.solution_grupo3)
         solutionGroup4Tv = findViewById(R.id.solution_grupo4)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.conexions))
-        }.commit()
+        setBanner(this, R.string.conexions)
 
         initializeGame()
 
@@ -69,13 +64,7 @@ class ConexionsGameActivity : AppCompatActivity() {
             enviarGrupo()
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@ConexionsGameActivity, ConexionsInicioActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, ConexionsInicioActivity::class.java)
     }
 
     private fun initializeGame() {

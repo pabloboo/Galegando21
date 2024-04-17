@@ -5,13 +5,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.OnBackPressedCallback
-import com.galegando21.BannerFragment
 import com.galegando21.MainActivity
 import com.galegando21.R
+import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class MusicaActivity : AppCompatActivity() {
-    private lateinit var bannerFragment: BannerFragment
     private lateinit var spotifyIcon : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +18,7 @@ class MusicaActivity : AppCompatActivity() {
 
         spotifyIcon = findViewById(R.id.spotify_icon)
 
-        // Settear el banner
-        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            bannerFragment.setBannerText(getString(R.string.musica))
-        }.commit()
+        setBanner(this, R.string.musica)
 
         spotifyIcon.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
@@ -31,12 +26,6 @@ class MusicaActivity : AppCompatActivity() {
             startActivity(openURL)
         }
 
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Intent(this@MusicaActivity, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
-        })
+        setOnBackPressed(this, MainActivity::class.java)
     }
 }
