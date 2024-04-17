@@ -41,7 +41,7 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
 
         // Crear la notificación
         val notification = NotificationCompat.Builder(applicationContext, channelId)
-            .setSmallIcon(R.mipmap.ic_launcher_foreground)
+            .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Novo contido desbloqueado!")
             .setContentText("Fai click para ver o novo contido")
             .setContentIntent(pendingIntent)

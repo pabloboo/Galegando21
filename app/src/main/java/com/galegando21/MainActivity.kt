@@ -14,6 +14,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
@@ -68,7 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         // Programar el worker para que se ejecute cada 24 horas
         val unlockButtonsWorkRequest = PeriodicWorkRequestBuilder<UnlockButtonsWorker>(15, TimeUnit.MINUTES).build()
-        WorkManager.getInstance(this).enqueue(unlockButtonsWorkRequest)
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "UnlockButtonsWork",
+            ExistingPeriodicWorkPolicy.KEEP, // Esta política determina qué hacer si ya existe un trabajo periódico con el mismo nombre. KEEP significa que se mantendrá el trabajo existente y se ignorará el nuevo trabajo.
+            unlockButtonsWorkRequest
+        )
 
         day01Button = findViewById(R.id.btnDay1)
         day02Button = findViewById(R.id.btnDay2)
