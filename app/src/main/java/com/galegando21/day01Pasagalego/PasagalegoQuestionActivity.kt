@@ -34,6 +34,8 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     private var correctAnswers = 0
     private var errorAnswers = 0
     private lateinit var currentQuestionPasagalego : QuestionPasagalego
+
+    private var questionMap = mutableMapOf<Char, QuestionPasagalego>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pasagalego_question)
@@ -74,7 +76,10 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             // Obtener pregunta aleatoria
             val questionList = getPasagalegoQuestions(letter)
             val randomNumber = Random.nextInt(0, questionList.size)
-            currentQuestionPasagalego = questionList[randomNumber]
+            // Obtener pregunta para la letra actual si existe o generarla
+            currentQuestionPasagalego = questionMap.getOrPut(letter) {
+                questionList[randomNumber]
+            }
             if (letter.equals('Ñ')) {
                 letter_tv.text = "Contén a letra 'Ñ'"
             } else {
