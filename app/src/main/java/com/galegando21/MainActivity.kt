@@ -28,6 +28,7 @@ import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.utils.setBanner
+import com.galegando21.utils.showBannerMenu
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -107,6 +108,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         updateButtonState()
+        showBannerMenu(this)
     }
 
     // Función para verificar y actualizar el estado de los botones
