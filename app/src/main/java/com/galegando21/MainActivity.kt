@@ -212,7 +212,14 @@ class MainActivity : AppCompatActivity() {
             PERMISSION_REQUEST_CODE -> {
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 } else {
-                    Toast.makeText(this, "Sen este permiso non serás notificado dos novos contidos", Toast.LENGTH_SHORT).show()
+                    val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    val hasUserDeniedPermissionBefore = sharedPreferences.getBoolean("hasUserDeniedPermissionBefore", false)
+                    if (!hasUserDeniedPermissionBefore) {
+                        Toast.makeText(this, "Sen este permiso non serás notificado dos novos contidos", Toast.LENGTH_SHORT).show()
+                        editor.putBoolean("hasUserDeniedPermissionBefore", true)
+                        editor.apply()
+                    }
                 }
                 return
             }
