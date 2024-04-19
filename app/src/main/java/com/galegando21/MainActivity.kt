@@ -27,6 +27,7 @@ import com.galegando21.day08Wordle.WordleInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.showBannerMenu
 import java.util.concurrent.TimeUnit
@@ -116,7 +117,7 @@ class MainActivity : AppCompatActivity() {
         // Configurar la visibilidad de los botones según su estado de desbloqueo
         val sharedPreferences = getSharedPreferences("BotonesDesbloqueados", Context.MODE_PRIVATE)
         val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
-        for (i in 2..11) {
+        for (i in 2..NUMBER_OF_DAYS) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<ImageButton>(buttonId)
@@ -130,7 +131,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun unlockAllButtons() {
-        for (i in 2..11) {
+        for (i in 2..NUMBER_OF_DAYS) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
             val button = findViewById<ImageButton>(buttonId)
