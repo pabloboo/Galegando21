@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.AdivinhaAnoFotoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
     private lateinit var AdivinhaAnoFotoCorrectAnswersResultTv : TextView
@@ -57,5 +58,7 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("AdivinhaAnoFotoResultsActivity", "changeAdivinhaAnoFotoStatistics: ${sharedPreferences.getInt("adivinha_ano_foto_max_score", 0)}")
+
+        updateCurrentStreak(this)
     }
 }

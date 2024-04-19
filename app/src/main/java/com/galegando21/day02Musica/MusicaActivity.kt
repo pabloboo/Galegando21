@@ -9,6 +9,7 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class MusicaActivity : AppCompatActivity() {
     private lateinit var spotifyIcon : ImageView
@@ -21,6 +22,7 @@ class MusicaActivity : AppCompatActivity() {
         setBanner(this, R.string.musica)
 
         spotifyIcon.setOnClickListener {
+            updateCurrentStreak(this)
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://open.spotify.com/playlist/0ArqOLd6zTZpVqtTSXDTZC?si=4pA47GITQ8af7kJu3thHVQ")
             startActivity(openURL)

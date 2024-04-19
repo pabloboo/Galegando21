@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.AtrapameSePodesConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class AtrapameSePodesResultActivity : AppCompatActivity() {
     private lateinit var stepsFragment: AtrapameSePodesStepsFragment
@@ -64,5 +65,6 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
         }
         Log.d("AtrapameSePodesResultActivity", "Preguntas necesarias: ${sharedPreferences.getInt("atrapame_se_podes_questions", 999999999)}")
 
+        updateCurrentStreak(this)
     }
 }

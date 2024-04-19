@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class PasagalegoResultActivity : AppCompatActivity() {
     private lateinit var correctAnswersTv : TextView
@@ -87,6 +88,8 @@ class PasagalegoResultActivity : AppCompatActivity() {
         editor.putString("pasagalego_time", maxTime)
         editor.apply()
         Log.d("PASAGALEGO", "Correct answers: $maxCorrectAnswers, Errors: $maxErrors, Time: $maxTime")
+
+        updateCurrentStreak(this)
     }
 
     private fun timeToSeconds(time: String): Int {

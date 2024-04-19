@@ -7,6 +7,8 @@ import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
 class StatisticsActivity : AppCompatActivity() {
+    private lateinit var currentStreakStatistics : TextView
+
     private lateinit var correctAnswersPasagalego : TextView
     private lateinit var errorAnswersPasagalego : TextView
     private lateinit var timePasagalego : TextView
@@ -25,6 +27,7 @@ class StatisticsActivity : AppCompatActivity() {
         setBanner(this, R.string.estadisticas)
         setOnBackPressed(this, MainActivity::class.java)
 
+        currentStreakStatistics = findViewById(R.id.current_streak_statistics)
         correctAnswersPasagalego = findViewById(R.id.correct_answers_pasagalego_statistics)
         errorAnswersPasagalego = findViewById(R.id.error_answers_pasagalego_statistics)
         timePasagalego = findViewById(R.id.time_pasagalego_statistics)
@@ -36,6 +39,10 @@ class StatisticsActivity : AppCompatActivity() {
         agoraCaigoScore = findViewById(R.id.agora_caigo_correct_answers_statistics)
 
         val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+
+        val currentStreak = sharedPreferences.getInt("current_streak", 0)
+        currentStreakStatistics.text = "$currentStreak"
+
         correctAnswersPasagalego.text = sharedPreferences.getInt("pasagalego_correct_answers", 0).toString()
         errorAnswersPasagalego.text = sharedPreferences.getInt("pasagalego_error_answers", 0).toString()
         timePasagalego.text = sharedPreferences.getString("pasagalego_time", "00:00")

@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.VerdadeOuMentiraConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
     private lateinit var verdadeOuMentiraCorrectAnswersResultTv : TextView
@@ -57,5 +58,7 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("maxScore", sharedPreferences.getInt("verdade_ou_mentira_max_score", 0).toString())
+
+        updateCurrentStreak(this)
     }
 }

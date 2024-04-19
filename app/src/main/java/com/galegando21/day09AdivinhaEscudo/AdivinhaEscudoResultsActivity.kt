@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.AdivinhaEscudoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class AdivinhaEscudoResultsActivity : AppCompatActivity() {
     private lateinit var AdivinhaEscudoCorrectAnswersResultTv : TextView
@@ -57,5 +58,7 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("AdivinhaEscudoResultsActivity", "changeAdivinhaEscudoStatistics: ${sharedPreferences.getInt("adivinha_escudo_max_score", 0)}")
+
+        updateCurrentStreak(this)
     }
 }

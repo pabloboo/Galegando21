@@ -11,6 +11,7 @@ import com.galegando21.R
 import com.galegando21.utils.AgoraCaigoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class AgoraCaigoResultsActivity : AppCompatActivity() {
     private lateinit var AgoraCaigoCorrectAnswersResultTv : TextView
@@ -57,5 +58,7 @@ class AgoraCaigoResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("AgoraCaigoResultsActivity", "maxScore: ${sharedPreferences.getInt("agora_caigo_max_score", 0)}")
+
+        updateCurrentStreak(this)
     }
 }
