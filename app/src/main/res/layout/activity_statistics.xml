@@ -134,8 +134,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAtrapameSePodesStatistics">
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutAdivinhaEscudoStatistics"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAtrapaUnMillonStatistics">
 
         <TextView
             android:layout_width="wrap_content"
@@ -170,6 +170,121 @@
                 tools:text="7" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAdivinhaEscudoStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutAdivinhaAnoStatistics"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutVerdadeOuMentiraStatistics">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADIVIÑA O ESCUDO"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/adivinha_escudo_correct_answers_results_icon_statistics"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/trophy"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/adivinha_escudo_correct_answers_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon_statistics"
+                app:layout_constraintEnd_toEndOf="@+id/adivinha_escudo_correct_answers_results_icon_statistics"
+                app:layout_constraintStart_toStartOf="@+id/adivinha_escudo_correct_answers_results_icon_statistics"
+                app:layout_constraintTop_toTopOf="@+id/adivinha_escudo_correct_answers_results_icon_statistics"
+                tools:text="7" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAdivinhaAnoStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutAgoraCaigoStatistics"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAdivinhaEscudoStatistics">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADIVIÑA O ANO"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/adivinha_ano_foto_correct_answers_statistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            tools:text="44 pts." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAgoraCaigoStatistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAdivinhaAnoStatistics">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AGORA CAIGO"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/agora_caigo_answers_results_icon_statistics"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/agora_caigo_comodin_on"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/agora_caigo_correct_answers_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="@+id/agora_caigo_answers_results_icon_statistics"
+                app:layout_constraintEnd_toEndOf="@+id/agora_caigo_answers_results_icon_statistics"
+                app:layout_constraintStart_toStartOf="@+id/agora_caigo_answers_results_icon_statistics"
+                app:layout_constraintTop_toTopOf="@+id/agora_caigo_answers_results_icon_statistics"
+                tools:text="20" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

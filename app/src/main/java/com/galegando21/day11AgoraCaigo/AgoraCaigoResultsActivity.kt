@@ -3,6 +3,7 @@ package com.galegando21.day11AgoraCaigo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.galegando21.MainActivity
@@ -36,6 +37,25 @@ class AgoraCaigoResultsActivity : AppCompatActivity() {
             }
         }
 
+        changeAgoraCaigoStatistics()
+
         setOnBackPressed(this, AgoraCaigoInicioActivity::class.java)
+    }
+
+    private fun changeAgoraCaigoStatistics() {
+        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxScore = 0
+        if (sharedPreferences.contains("agora_caigo_max_score")) {
+            maxScore = sharedPreferences.getInt("agora_caigo_max_score", 0)
+        }
+
+        val score = intent.getIntExtra(AgoraCaigoConstants.SCORE, 0)
+        if (score > maxScore) {
+            editor.putInt("agora_caigo_max_score", score)
+            editor.apply()
+        }
+        Log.d("AgoraCaigoResultsActivity", "maxScore: ${sharedPreferences.getInt("agora_caigo_max_score", 0)}")
     }
 }

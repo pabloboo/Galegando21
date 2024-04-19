@@ -3,6 +3,7 @@ package com.galegando21.day09AdivinhaEscudo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.galegando21.MainActivity
@@ -36,6 +37,25 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
             }
         }
 
+        changeAdivinhaEscudoStatistics()
+
         setOnBackPressed(this, AdivinhaEscudoInicioActivity::class.java)
+    }
+
+    private fun changeAdivinhaEscudoStatistics() {
+        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxScore = 0
+        if (sharedPreferences.contains("adivinha_escudo_max_score")) {
+            maxScore = sharedPreferences.getInt("adivinha_escudo_max_score", 0)
+        }
+
+        val score = intent.getIntExtra(AdivinhaEscudoConstants.SCORE, 0)
+        if (score > maxScore) {
+            editor.putInt("adivinha_escudo_max_score", score)
+            editor.apply()
+        }
+        Log.d("AdivinhaEscudoResultsActivity", "changeAdivinhaEscudoStatistics: ${sharedPreferences.getInt("adivinha_escudo_max_score", 0)}")
     }
 }
