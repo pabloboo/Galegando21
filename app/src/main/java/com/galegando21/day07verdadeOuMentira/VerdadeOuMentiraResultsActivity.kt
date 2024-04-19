@@ -3,6 +3,7 @@ package com.galegando21.day07verdadeOuMentira
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.galegando21.MainActivity
@@ -36,6 +37,25 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
             }
         }
 
+        changeVerdadeOuMentiraStatistics()
+
         setOnBackPressed(this, VerdadeOuMentiraInicioActivity::class.java)
+    }
+
+    private fun changeVerdadeOuMentiraStatistics() {
+        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxScore = 0
+        if (sharedPreferences.contains("verdade_ou_mentira_max_score")) {
+            maxScore = sharedPreferences.getInt("verdade_ou_mentira_max_score", 0)
+        }
+
+        val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
+        if (score > maxScore) {
+            editor.putInt("verdade_ou_mentira_max_score", score)
+            editor.apply()
+        }
+        Log.d("maxScore", sharedPreferences.getInt("verdade_ou_mentira_max_score", 0).toString())
     }
 }

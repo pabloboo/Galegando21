@@ -13,6 +13,13 @@ fun setBanner(activity: FragmentActivity, bannerTextId: Int) {
     }.commit()
 }
 
+fun showBannerMenu(activity: FragmentActivity) {
+    val bannerFragment = activity.supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
+    activity.supportFragmentManager.beginTransaction().runOnCommit {
+        bannerFragment.showBannerMenu()
+    }.commit()
+}
+
 fun setOnBackPressed(activity: AppCompatActivity, destinationActivityClass: Class<*>) {
     activity.onBackPressedDispatcher.addCallback(activity, object: OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {

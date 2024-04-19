@@ -3,6 +3,7 @@ package com.galegando21.day04AtrapaUnMillon
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import com.galegando21.MainActivity
@@ -38,6 +39,25 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
             }
         }
 
+        changeAtrapaUnMillonStatistics()
+
         setOnBackPressed(this, AtrapaUnMillonInicioActivity::class.java)
+    }
+
+    private fun changeAtrapaUnMillonStatistics() {
+        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxCash = 0
+        if (sharedPreferences.contains("atrapa_un_millon_max_cash")) {
+            maxCash = sharedPreferences.getInt("atrapa_un_millon_max_cash", 0)
+        }
+
+        val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0)
+        if (cash > maxCash) {
+            editor.putInt("atrapa_un_millon_max_cash", cash)
+            editor.apply()
+        }
+        Log.d("AtrapaUnMillonResults", "Max cash: ${sharedPreferences.getInt("atrapa_un_millon_max_cash", 0)}")
     }
 }
