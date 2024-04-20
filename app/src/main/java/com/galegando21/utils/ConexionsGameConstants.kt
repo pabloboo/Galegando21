@@ -113,6 +113,18 @@ object ConexionsGameConstants {
                 "Prestar atención, como regras", listOf("Seguir", "Manter en mente", "Observar", "Considerar")
             )
         )
+        conexionsList.add(
+            Conexions(
+                "Tonterías", "Cornos", "Forca", "Xabalina",
+                "Oito", "Contos", "Poste", "Cola",
+                "Mariposa", "Martelo", "Estupidez", "Pescador",
+                "Testigo", "As de guía\"", "Queixo", "Bobadas",
+                "Disparate", listOf("Tonterías", "Contos", "Estupidez", "Bobadas"),
+                "Equipamento de pista e campo", listOf("Testigo", "Martelo", "Poste", "Xabalina"),
+                "Partes dun disfraz de demo", listOf("Cornos", "Forca", "Cola", "Queixo"),
+                "Tipos de nudos", listOf("Oito", "Mariposa", "As de guía", "Pescador")
+            )
+        )
         return conexionsList
     }
 }

@@ -137,6 +137,86 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_16,
+                "Atendados terroristas 11-M en España",
+                2004
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_17,
+                "Conferencia para a creación da UNESCO en Londres",
+                1945
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_18,
+                "Un empleado abandona a oficina de Lehman Brothers tras a súa quebra",
+                2008
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_19,
+                "Celebración icónica de Diego Maranoda contra Grecia",
+                1994
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_20,
+                "No seu título de peso pesado, Ali derrotou a Liston por knockout na primeira ronda",
+                1965
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_21,
+                "Wonder Woman, retratada pola actriz Lynda Carter",
+                1975
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_22,
+                "Mc Hammer Smash Hit 'Non podes tocar isto'",
+                1990
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_23,
+                "amazon.com foi iniciado como unha librería en liña por Jeff Bezos no seu garaxe",
+                1994
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_24,
+                "Estrela de fútbol O.J. Simpson é absolto do brutal dobre asesinato de 1994",
+                1995
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_25,
+                "Elizabeth Taylor e os seus fillos no set da dúa película Cleopatra",
+                1962
+            )
+        )
+
         return questions
     }
 }
