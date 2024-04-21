@@ -65,6 +65,13 @@ class WordleGameManager(
         return false
     }
 
+    fun deleteChar() {
+        if (curCol > 0 && rows[curRow][curCol] == ' ') {
+            curCol--
+        }
+        rows[curRow][curCol] = ' '
+    }
+
     fun enter(): Boolean {
         if (curCol == 4 && curRow <= rowCount) {
             curCol = 0

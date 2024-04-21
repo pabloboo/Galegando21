@@ -75,7 +75,7 @@
         android:id="@+id/adivinhaAnoFoto_slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:valueFrom="1950"
+        android:valueFrom="1945"
         android:valueTo="2024"
         android:stepSize="1"
         app:layout_constraintBottom_toTopOf="@+id/check_btn_AdivinhaAnoFoto"

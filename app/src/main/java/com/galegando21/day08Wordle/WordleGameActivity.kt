@@ -2,17 +2,15 @@ package com.galegando21.day08Wordle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputFilter
 import android.util.Log
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
     private lateinit var texts:  MutableList<MutableList<TextView>>
@@ -38,29 +36,32 @@ class WordleGameActivity : AppCompatActivity() {
     }
 
     private fun setEventListeners() {
-        val checkButtonLetter = findViewById<ImageButton>(R.id.check_btn_letter_wordle)
-        val editTextLetter = findViewById<EditText>(R.id.input_letter_editText_wordle)
-        editTextLetter.filters = arrayOf(InputFilter.AllCaps())
-        checkButtonLetter.setOnClickListener {
-            val inputText = editTextLetter.text.toString()
-            if (inputText.length != colCount || inputText.contains(" ")) {
-                Toast.makeText(this@WordleGameActivity, "Introduce unha palabra con $colCount caracteres", Toast.LENGTH_SHORT).show()
-            } else {
-                if (gameCore.isPouse()) {
-                    gameCore.startOver()
-                    newRound()
-                }
-                val row = gameCore.getCurRow()
-                var col = gameCore.getCurCol()
-                for (i in 0..4) {
-                    if (gameCore.setNextChar(inputText[i])) {
-                        texts[row][col].text = inputText[i].toString()
-                        col++
-                    }
+
+        //letters buttons
+        val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener {
+                if (letter == "nh") {
+                    texts[gameCore.getCurRow()][gameCore.getCurCol()].text = "Ñ"
+                    gameCore.setNextChar('Ñ')
+                } else {
+                    texts[gameCore.getCurRow()][gameCore.getCurCol()].text = letter.uppercase(Locale.ROOT)
+                    gameCore.setNextChar(letter.uppercase(Locale.ROOT)[0])
                 }
             }
         }
 
+        //backspace button
+        val btnBackspace = findViewById<ImageButton>(R.id.buttonBackspace)
+        btnBackspace.setOnClickListener {
+                if (gameCore.getCurCol() > 0) {
+                    gameCore.deleteChar()
+                    texts[gameCore.getCurRow()][gameCore.getCurCol()].text = " "
+                }
+            }
+
+        //check solution
         val btnEnter = findViewById<ImageButton>(R.id.buttonEnter)
         btnEnter.setOnClickListener {
             if (gameCore.isPouse()) {
@@ -89,7 +90,6 @@ class WordleGameActivity : AppCompatActivity() {
                 if (gameCore.getResult()) {
                     countWins++
                 }
-                editTextLetter.text.clear()
             }
         }
     }
