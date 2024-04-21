@@ -43,5 +43,7 @@
     <string name="agora_caigo_explicacion">En este xogo, basado no concurso televisivo \'Ahora caigo\', tes que acertar o máximo número de preguntas posibles, completando os ocos que faltan nas respostas.\n\n Podes fallar ata 4 veces.</string>
     <string name="musica_suxerencias">tes algunha suxerencia?\n\n podes propoñela enviando un correo a booiglesiaspablo@gmail.com</string>
     <string name="estadisticas">Estadísticas</string>
+    <string name="estadisticas_usuario">Estadísticas de %1$s</string>
+    <string name="anterior">Anterior</string>
 
 </resources>

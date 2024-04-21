@@ -7,7 +7,7 @@
     tools:context=".StatisticsActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
+        android:id="@+id/bannerFragmentStatistics"
         android:name="com.galegando21.BannerFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment">
+        app:layout_constraintTop_toBottomOf="@id/bannerFragmentStatistics">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

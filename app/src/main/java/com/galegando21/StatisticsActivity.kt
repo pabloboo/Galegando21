@@ -3,10 +3,11 @@ package com.galegando21
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
 class StatisticsActivity : AppCompatActivity() {
+    private lateinit var bannerFragment: BannerFragment
+
     private lateinit var currentStreakStatistics : TextView
 
     private lateinit var correctAnswersPasagalego : TextView
@@ -24,7 +25,16 @@ class StatisticsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics)
 
-        setBanner(this, R.string.estadisticas)
+        val sharedPreferencesOnboarding = getSharedPreferences("onboarding", MODE_PRIVATE)
+        var username = sharedPreferencesOnboarding.getString("name", "Xogador")
+        if (username?.isEmpty() == true) {
+            username = "Xogador"
+        }
+        bannerFragment = supportFragmentManager.findFragmentById(R.id.bannerFragmentStatistics) as BannerFragment
+        supportFragmentManager.beginTransaction().runOnCommit {
+            bannerFragment.setBannerText(getString(R.string.estadisticas_usuario, username))
+        }.commit()
+
         setOnBackPressed(this, MainActivity::class.java)
 
         currentStreakStatistics = findViewById(R.id.current_streak_statistics)

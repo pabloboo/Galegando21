@@ -27,6 +27,7 @@ import com.galegando21.day08Wordle.WordleInicioActivity
 import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.showBannerMenu
@@ -55,13 +56,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPreferences = getSharedPreferences("onboarding_completed", MODE_PRIVATE)
-        val onboardingCompleted = sharedPreferences.getBoolean("is_onboarding_completed", false)
-        if (!onboardingCompleted) {
-            Intent(this@MainActivity, OnboardingActivity::class.java).also {
-                startActivity(it)
-            }
-        }
+        checkIsOnboardingCompleted()
 
         // Comprobar si ya se ha concedido el permiso
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -225,6 +220,17 @@ class MainActivity : AppCompatActivity() {
                 return
             }
             else -> {
+            }
+        }
+    }
+
+    private fun checkIsOnboardingCompleted() {
+        val sharedPreferences = getSharedPreferences("onboarding", MODE_PRIVATE)
+        val isOnboardingCompleted = sharedPreferences.getBoolean("is_onboarding_completed", false)
+        Log.d("MainActivity", "is_onboarding_completed: $isOnboardingCompleted")
+        if (!isOnboardingCompleted) {
+            Intent(this@MainActivity, OnboardingActivity::class.java).also {
+                startActivity(it)
             }
         }
     }

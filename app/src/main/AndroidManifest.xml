@@ -64,8 +64,9 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".onboarding.OnboardingActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".day07verdadeOuMentira.VerdadeOuMentiraResultsActivity"
