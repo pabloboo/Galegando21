@@ -7,7 +7,7 @@ import com.galegando21.BannerFragment
 import com.galegando21.R
 import java.util.Calendar
 
-const val NUMBER_OF_DAYS = 11
+const val NUMBER_OF_DAYS = 12
 
 fun setBanner(activity: FragmentActivity, bannerTextId: Int) {
     val bannerFragment = activity.supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment

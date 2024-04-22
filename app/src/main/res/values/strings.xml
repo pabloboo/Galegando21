@@ -45,5 +45,7 @@
     <string name="estadisticas">Estadísticas</string>
     <string name="estadisticas_usuario">Estadísticas de %1$s</string>
     <string name="anterior">Anterior</string>
+    <string name="proba_velocidade">Proba de velocidade</string>
+    <string name="day12_text">Día 12 - Proba de Velocidade</string>
 
 </resources>
