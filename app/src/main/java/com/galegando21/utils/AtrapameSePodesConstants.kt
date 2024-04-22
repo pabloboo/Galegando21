@@ -27,6 +27,8 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "Cal é o produto polo que é máis coñecida a editorial italiana Panini", "CROMOS"))
         questions.add(QuestionAtrapameSePodes( "Dentro de que familia de instrumentos musicais encaixan as castañolas?", "PERCUSION"))
         questions.add(QuestionAtrapameSePodes( "Que deputación provincial outorga o premio ourensanía?", "OURENSE"))
+        questions.add(QuestionAtrapameSePodes("Que dúas provincias galegas limitan con Porgual", "PONTEVEDRA OURENSE"))
+        questions.add(QuestionAtrapameSePodes("Segundo a canción popular, que virxe parece unha rianxeira descalciña pola area", "VIRXE DE GUADALUPE"))
         return questions
     }
 
@@ -42,6 +44,8 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "En que profesión destaca Naomi Campbell", "MODELO"))
         questions.add(QuestionAtrapameSePodes( "Como se chama o principal río de Exipto?", "NILO"))
         questions.add(QuestionAtrapameSePodes( "Que roqueiro español conta cos éxitos 'Terriblemente Cruel', 'Lady Madrid' e 'La llamada' no seu repertorio", "LEIVA"))
+        questions.add(QuestionAtrapameSePodes("Cal é o único queixo galego afumado que conta coa Denominación de Orixe Protexida", "SAN SIMON"))
+        questions.add(QuestionAtrapameSePodes("Que dorsal tivo no F.C. Barcelona Gerard Piqué entre os anos 2008 e 2022?", "3"))
         return questions
     }
 
@@ -54,6 +58,10 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "En que cidade galega está o barrio de Vite?", "SANTIAGO"))
         questions.add(QuestionAtrapameSePodes( "Que eslovena, muller de Donald Trump, foi primeira dama dos EE.UU.?", "MELANIA"))
         questions.add(QuestionAtrapameSePodes( "En que cidade estadounidense se atopa o aeroporto internacional Jhon F. Kennedy", "NOVA YORK"))
+        questions.add(QuestionAtrapameSePodes("Por cantos membros está conformado o proxecto musical Baiuca?", "UN"))
+        questions.add(QuestionAtrapameSePodes("Cantos minutos dura un partido de rugby?", "80"))
+        questions.add(QuestionAtrapameSePodes("Que illa do parque nacional das Illas Atlánticas é famosa por ter un gran monte de loureiro", "CORTEGADA"))
+        questions.add(QuestionAtrapameSePodes("Segundo apelido do ourensán Vicente Martínez, autor da teoría 'Teoría do nacionalismo galego', publicada en 1920?", "RISCO"))
         return questions
     }
 
@@ -67,6 +75,11 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "Cal é o apelido da presentadora e actriz vasca que leva dende finais dos anos 90 á fronte do programa rosa 'Corazón' en TVE?", "IGARTIBURU"))
         questions.add(QuestionAtrapameSePodes( "Cal é o nome da actriz coa que casou o cómico galego Javier Veiga?", "MARTA"))
         questions.add(QuestionAtrapameSePodes( "Que cafetería madrileña acollía os faladoiros de membros da xeración do 27 e de figuras coma Benito Pérez Galdós ou o vilanovés Valle-Inclán", "CAFE GIJON"))
+        questions.add(QuestionAtrapameSePodes("Quen foi o arquitecto do fermoso edificio Chrysler de Nova York, exemplo de 'art déco'", "WILLIAM VAN ALEN"))
+        questions.add(QuestionAtrapameSePodes("Como se chama o personaxe interpretado por Humprey Bogart en 'Casablanca'", "RICK"))
+        questions.add(QuestionAtrapameSePodes("Que galego, expresidente de Banesto, foi o fundador en 2011 do partido político Sociedad Civil y Democracia?", "MARIO CONDE"))
+        questions.add(QuestionAtrapameSePodes("Que estrela internacional de orixe galega gravou un videoclip do tema 'Noche y día' en 2015 no mosteiro de Carboeiro, en Silleda?", "ENRIQUE IGLESIAS"))
+        questions.add(QuestionAtrapameSePodes("En que país mediterráneo tivo lugar en 2022 o festival de Eurovisión?", "ITALIA"))
         return questions
     }
 
@@ -78,6 +91,7 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "Cal é o apelido do mecánico madrileño que é un recoñecido perito xudicial e revela na rede defectos de coches para 3 millóns de seguidores?", "GAITAN"))
         questions.add(QuestionAtrapameSePodes( "Que enxeñeiro barcelonés é un famoso escritor e guionista con libros coma 'Lo mejor de ir es volver'?", "ALBERT ESPINOSA"))
         questions.add(QuestionAtrapameSePodes( "Que libro publicou en 1966 Ramón Sampedro?", "CARTAS DESDE EL INFIERNO"))
+        questions.add(QuestionAtrapameSePodes("Cal é o libro de Albert Camus que fai referencia a un gobernador romano?", "CALIGULA"))
         return questions
     }
 }

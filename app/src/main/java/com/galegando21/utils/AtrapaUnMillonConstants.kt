@@ -84,6 +84,60 @@ object AtrapaUnMillonConstants {
                 "Cañas",
                 1)
         )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é unha canción de ABBA?",
+                "Cuidadín",
+                "Help!",
+                "SOS",
+                "Vigila!",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que operaban os médicos musulmáns da Península Ibérica fai máis de 800 anos?",
+                "Cataratas",
+                "Peitos",
+                "Juanetes",
+                "Arrugas",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que dixo Mickey Mouse a primeira vez que o oímos falar?",
+                "Hot dogs",
+                "Fast food",
+                "Manteca colorá",
+                "Apple pies",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que animal nace sempre macho e pode volverse femia?",
+                "Paxaro carpinteiro",
+                "Araña lobo",
+                "Pez paiaso",
+                "Elefante africano",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama a noiva de Naranjito?",
+                "Clementina",
+                "Mandarina",
+                "Nectarina",
+                "Piña",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen lle poñía voz a Ruperta no concurso 'Un, dos, tres'?",
+                "Irmáns Hurtado",
+                "Paula Vázquez",
+                "Chicho Ibáñez Serrador",
+                "Mayra Gómez Kemp",
+                3)
+        )
         return questions
     }
 
@@ -111,6 +165,33 @@ object AtrapaUnMillonConstants {
                 "Estratego",
                 "Risk",
                 "Captura a bandeira",
+                "-",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que lle pasa aos astronautas que dormen no espazo?",
+                "Roncan menos",
+                "Dormen máis",
+                "Soñan con Angelina Jolie",
+                "-",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Para aforrar auga, canto recomenda a OMS que dure a ducha diaria?",
+                "Entre 3 e 5 minutos",
+                "Uns 13 minutos",
+                "Media hora",
+                "-",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que afirmación sobre o banco de España é mentira?",
+                "Foi unha cárcere",
+                "En caso de roubo, inundase",
+                "Alberga obras de arte",
                 "-",
                 1)
         )
@@ -161,6 +242,42 @@ object AtrapaUnMillonConstants {
                 "-",
                 "-",
                 1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é o nome do primeiro satélite radar español destinado a observar a Terra?",
+                "GUERRA",
+                "PAZ",
+                "-",
+                "-",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é un afluente do río Ebro?",
+                "Agujeta",
+                "Tirón",
+                "-",
+                "-",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen deseñou unha baralla de Tarot?",
+                "Dalí",
+                "Picasso",
+                "",
+                "-",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que alimento contén cianuro?",
+                "Cebola",
+                "Faba",
+                "-",
+                "-",
+                2)
         )
         return questions
     }

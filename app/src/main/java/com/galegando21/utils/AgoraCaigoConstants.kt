@@ -234,6 +234,186 @@ object AgoraCaigoConstants {
             "__MA__A_A",
             "TIMANFAYA"
         ))
+        questions.add(QuestionAgoraCaigo(
+            "Quen pasou á historia por decir no Congreso dos Deputados: 'España ha dejado de ser católica'?",
+            "_AN_EL A_A_A",
+            "MANUEL AZAÑA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Na fábula de Samaniego, a qué animal aconsella o cocodrilo que beba quieto na orilla do Nilo?",
+            "__N",
+            "CAN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que cargo político ten o personaxe de Paco Tous na serie 'Allí abajo' de Antena 3?",
+            "_L__L_E",
+            "ALCALDE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Nome que damos a unha multitude de abellas que deriba da palabra latina 'examen'.",
+            "__XA_BR_",
+            "ENXAMBRE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "As siglas LED traducense en español como 'diodo emisor de...'",
+            "__Z",
+            "LUZ"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que título nobiliario ten Draco, o personaxe de 'Barrio Sésamo'",
+            "__NDE",
+            "CONDE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que escritora é a autora de 'La magia de ser Sofía'?",
+            "_L___B_T _E_A__N_",
+            "ELISABET BENAVENT"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Segue a Alejandro Sanz: 'A la primera persona que no me quiera juzgar pienso entregarle caricias que yo...'",
+            "___ÍA ___R_A__S",
+            "TENÍA GUARDADAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Canción de Víctor Manuel inspirada en unha parella chamada Mariluz e Antonio",
+            "S_L_ P__NS_ _N T_",
+            "SOLO PIENSO EN TI"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Para un músico, catro negras equivalen a dúas de estas figuras musicais.",
+            "__A__AS",
+            "BRANCAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que edificios de culto construían os Maias no alto das súas pirámides?",
+            "T__PL__",
+            "TEMPLOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O tenente Pinkerton é un dos protagonistas de esta famosa ópera de Puccini.",
+            "___AMA _U_T_R___",
+            "MADAMA BUTTERFLY"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que novela de 1937 narra unha parte da vida da baronesa Karen Blixen, autora do libro?",
+            "M__OR_A_ _E _FR__A ",
+            "MEMORIAS DE ÁFRICA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que lexendario deseñador era coñecido como o Káiser da moda?",
+            "_AR_ _A__R__L_",
+            "KARL LAGERFELD"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que ratón cinematográfico pon voz Michael J. Fox na versión orixinal de unha película de 1999?",
+            "_T_A__ __TT_E",
+            "STUART LITTLE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Quen foi o artista máis escoitado en Spotify en España en 2018?",
+            "__UN_",
+            "OZUNA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Como está a 'Isla...' que titula o primeiro dos poemas de Gloria Fuertes?",
+            "__N_R_D_",
+            "IGNORADA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que título de soberano exipcio asumiu Hatshepsut cando morreu o seu marido?",
+            "F___ÓN",
+            "FARAÓN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Os catro elementos da natureza definidos na Antiga Grecia son a auga, o aire, a terra e o...",
+            "_OG_",
+            "FOGO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En unha das súas historias, Moriarty cae por unhas cataratas abrazado a estre outro personaxe de Conan Doyle.",
+            "S__R__C_ __LM__",
+            "SHERLOCK HOLMES"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A tarta nupcial que se serviu na boda de esta reina inglesa, celebrada en 1840, pesaba máis de 130 kilos.",
+            "R__Ñ_ _IC__R_A",
+            "RAÍÑA VICTORIA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que medalla gañou a Quinta de Cobi nas Olimpiadas de Barcelona 92?",
+            "__R_",
+            "OURO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que membro do clan Flores é a avoa materna de Noah Sierra?",
+            "___ITA",
+            "LOLITA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que profesión ten Jonathan Harker, na novela 'Drácula' de Bram Stoker?",
+            "A__G__O",
+            "AVOGADO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que cor da bandeira de Brasil simboliza o ceo e os ríos do país?",
+            "_Z__",
+            "AZUL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que tonalidade de azul debe o seu nome ás palabras latinas 'de la India' porque de ahí se traía?",
+            "_ND_G_",
+            "ÍNDIGO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Wim Vansevenant é o único ciclista que acabou último tres anos seguidos en esta famosa competición.",
+            "T__R D_ F__N_I_",
+            "TOUR DE FRANCIA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Con que nome é máis coñecida a International Business Machines Corporation?",
+            "_B_",
+            "IBM"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cantos dedos ten na man a marmota alpina",
+            "C____",
+            "CATRO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Con que disciplina artística relacionas a María de Ávila?",
+            "__N_A",
+            "DANZA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "'Post mortem' é unha locución latina que significa 'despois da...'",
+            "M_R_E",
+            "MORTE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que mítica serie dos 90 Luke Perry interpretaba a un adolescente guaperas chamado Dylan?",
+            "_E___C_Ó_ _E ____R",
+            "SENSACIÓN DE VIVIR"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En qué órgano do corpo está o tímpano?",
+            "O_D_",
+            "OÍDO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que outro nome reciben os municipios de Asturias?",
+            "_O_C___S",
+            "CONCEJOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que oscarizado actor por 'Leaving Las Vegas' protagoniza, xunto a Angelina Jolie, a película '60 segundos'?",
+            "___OLAS C_G_",
+            "NICOLAS CAGE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Baixo o mandato de que rei se acabou de construir o famoso faro de Alejandría?",
+            "_O__M_O _I",
+            "TOLOMEO II"
+        ))
 
         return questions
     }

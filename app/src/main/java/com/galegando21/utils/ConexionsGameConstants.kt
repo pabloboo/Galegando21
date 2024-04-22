@@ -118,11 +118,24 @@ object ConexionsGameConstants {
                 "Tonterías", "Cornos", "Forca", "Xabalina",
                 "Oito", "Contos", "Poste", "Cola",
                 "Mariposa", "Martelo", "Estupidez", "Pescador",
-                "Testigo", "As de guía\"", "Queixo", "Bobadas",
+                "Testigo", "As de guía" +
+                        "", "Queixo", "Bobadas",
                 "Disparate", listOf("Tonterías", "Contos", "Estupidez", "Bobadas"),
                 "Equipamento de pista e campo", listOf("Testigo", "Martelo", "Poste", "Xabalina"),
                 "Partes dun disfraz de demo", listOf("Cornos", "Forca", "Cola", "Queixo"),
                 "Tipos de nudos", listOf("Oito", "Mariposa", "As de guía", "Pescador")
+            )
+        )
+        conexionsList.add(
+            Conexions(
+                "Húmido", "Colega", "Frío", "Sombrio",
+                "Amigote", "Perilla", "Barba", "Compinche",
+                "Conta", "Panita", "Bigote", "Caixa",
+                "Oscuro", "Fondo", "Bote", "Candado",
+                "Xerga para amigo", listOf("Colega", "Panita", "Amigote", "Compinche"),
+                "Adxectivos para un sótano", listOf("Frío", "Húmido", "Oscuro", "Sombrio"),
+                "Tipos de barbas cortas", listOf("Barba", "Perilla", "Bigote", "Candado"),
+                "Colección de diñeiro", listOf("Fondo", "Caixa", "Bote", "Conta")
             )
         )
         return conexionsList

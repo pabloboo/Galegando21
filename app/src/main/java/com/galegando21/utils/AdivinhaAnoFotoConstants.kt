@@ -217,6 +217,78 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_26,
+                "Unha toma do vídeo 'Baby one more time' de Britney Spears",
+                1999
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_27,
+                "Leonardo di Caprio e Kate Winslet durante o estreno de Titanic",
+                1997
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_28,
+                "Hillary Clinton e Donald Trump danse a man despois do segundo debate presidencial",
+                2016
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_29,
+                "A fotografía Dalí Atomicus de Philippe Halsman",
+                1948
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_30,
+                "Introducción da nova moeda europea, o euro",
+                1999
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_31,
+                "Nacemento de Loise Brown, o primeiro bebé a partir de unha fecundación in vitro",
+                1978
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_32,
+                "Traballadores durante o accidente nuclear de Chernobyl",
+                1986
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_33,
+                "Selección Española no mundial de Qatar",
+                2022
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_34,
+                "Posta en marcha da primeira liña de AVE en España cuxo recorrido une Madrid e Sevilla",
+                1992
+            )
+        )
+
         return questions
     }
 }
