@@ -5,7 +5,9 @@ import com.galegando21.model.QuestionRuletaDaSorte
 object QuestionRuletaDaSorteConstants {
 
     const val PROBA_VELOCIDADE_QUESTIONS_NUMBER = 3
-    const val SCORE_PROBA_VELOCIDADE = "correct_answers_proba_velocidade"
+    const val MAX_CHARS_PER_LINE = 20
+    const val SCORE_PROBA_VELOCIDADE = "time_proba_velocidade"
+    const val SCORE_RULETA_DA_SORTE = "cash_ruleta_da_sorte"
 
     fun getQuestions(): MutableList<QuestionRuletaDaSorte> {
         var questions : MutableList<QuestionRuletaDaSorte> = mutableListOf()

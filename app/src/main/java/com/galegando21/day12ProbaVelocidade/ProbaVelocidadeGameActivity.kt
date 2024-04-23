@@ -12,10 +12,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
+import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -42,7 +42,6 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     private var letterViews: List<TextView> = listOf()
     private var revealedLetterIndices = mutableListOf<Int>()
 
-    private val MAX_CHARS_PER_LINE = 20
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
