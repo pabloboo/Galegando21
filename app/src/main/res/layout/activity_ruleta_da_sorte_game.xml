@@ -33,8 +33,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ruleta_sorte_board_ll"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ruletaDaSorteLettersLayout"
+        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_button"
         tools:text="PERSOA" />
+
+    <Button
+        android:id="@+id/ruleta_sorte_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIRAR RULETA"
+        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_cash_tv"
+        app:layout_constraintTop_toBottomOf="@id/ruleta_sorte_hint_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/secondaryBlue"/>
+    <TextView
+        android:id="@+id/ruleta_sorte_accion_ruleta_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="175"
+        tools:visibility="visible"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/ruleta_sorte_hint_tv"
+        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_cash_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/ruleta_sorte_cash_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="850€"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/ruletaDaSorteLettersLayout"
+        app:layout_constraintTop_toBottomOf="@id/ruleta_sorte_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ruletaDaSorteLettersLayout"
