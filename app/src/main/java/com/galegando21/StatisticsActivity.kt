@@ -20,6 +20,7 @@ class StatisticsActivity : AppCompatActivity() {
     private lateinit var adivinhaEscudoScore: TextView
     private lateinit var adivinhaAnoFotoScore: TextView
     private lateinit var agoraCaigoScore: TextView
+    private lateinit var probaVelocidadeScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,7 @@ class StatisticsActivity : AppCompatActivity() {
         adivinhaEscudoScore = findViewById(R.id.adivinha_escudo_correct_answers_statistics)
         adivinhaAnoFotoScore = findViewById(R.id.adivinha_ano_foto_correct_answers_statistics)
         agoraCaigoScore = findViewById(R.id.agora_caigo_correct_answers_statistics)
+        probaVelocidadeScore = findViewById(R.id.proba_velocidade_time_statistics)
 
         val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
 
@@ -70,6 +72,8 @@ class StatisticsActivity : AppCompatActivity() {
         adivinhaAnoFotoScore.text = sharedPreferences.getInt("adivinha_ano_foto_max_score", 0).toString() + " pts."
 
         agoraCaigoScore.text = sharedPreferences.getInt("agora_caigo_max_score", 0).toString()
+
+        probaVelocidadeScore.text = sharedPreferences.getInt("proba_velocidade_min_time", 0).toString()
 
     }
 }

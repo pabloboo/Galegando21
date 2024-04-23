@@ -16,10 +16,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/bannerFragmentStatistics">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -316,7 +315,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutProbaVelocidadeStatistics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutAdivinhaAnoStatistics">
@@ -353,6 +352,54 @@
                         app:layout_constraintStart_toStartOf="@+id/agora_caigo_answers_results_icon_statistics"
                         app:layout_constraintTop_toTopOf="@+id/agora_caigo_answers_results_icon_statistics"
                         tools:text="20" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutProbaVelocidadeStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutAgoraCaigoStatistics">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="PROBA DE VELOCIDADE"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/proba_velocidade_answers_results_icon_statistics"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/timer_icon_black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/proba_velocidade_time_statistics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/proba_velocidade_answers_results_icon_statistics"
+                        app:layout_constraintEnd_toEndOf="@+id/proba_velocidade_answers_results_icon_statistics"
+                        app:layout_constraintStart_toStartOf="@+id/proba_velocidade_answers_results_icon_statistics"
+                        app:layout_constraintTop_toTopOf="@+id/proba_velocidade_answers_results_icon_statistics"
+                        tools:text="230" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

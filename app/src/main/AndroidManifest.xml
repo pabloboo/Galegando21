@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,134 +16,144 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
-            android:name=".StatisticsActivity"
-            android:screenOrientation="portrait"
+            android:name=".day12ProbaVelocidade.ProbaVelocidadeInicioActivity"
             android:exported="false" />
+        <activity
+            android:name=".day12ProbaVelocidade.ProbaVelocidadeResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".day12ProbaVelocidade.ProbaVelocidadeGameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day11AgoraCaigo.AgoraCaigoInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day11AgoraCaigo.AgoraCaigoResultsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day11AgoraCaigo.AgoraCaigoQuestionActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoResultsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day09AdivinhaEscudo.AdivinhaEscudoResultsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day09AdivinhaEscudo.AdivinhaEscudoInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day08Wordle.WordleInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day08Wordle.WordleGameActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".onboarding.OnboardingActivity"
+            android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="false" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".day07verdadeOuMentira.VerdadeOuMentiraResultsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day07verdadeOuMentira.VerdadeOuMentiraQuestionActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day07verdadeOuMentira.VerdadeOuMentiraInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day06Conexions.ConexionsGameActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day06Conexions.ConexionsInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day05Aforcado.AforcadoGameActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day05Aforcado.AforcadoInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day04AtrapaUnMillon.AtrapaUnMillonResultsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day04AtrapaUnMillon.AtrapaUnMillonQuestionActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day04AtrapaUnMillon.AtrapaUnMillonInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day01Pasagalego.PasagalegoInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day03AtrapameSePodes.AtrapameSePodesResultActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day03AtrapameSePodes.AtrapameSePodesQuestionActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".day03AtrapameSePodes.AtrapameSePodesInicioActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day02Musica.MusicaActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day01Pasagalego.PasagalegoResultActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".day01Pasagalego.PasagalegoQuestionActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Galegando21">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
