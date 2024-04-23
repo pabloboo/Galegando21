@@ -3,6 +3,7 @@ package com.galegando21.day12ProbaVelocidade
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.InputFilter
 import android.util.Log
 import android.widget.EditText
@@ -21,8 +22,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.Timer
-import java.util.TimerTask
 import kotlin.random.Random
 
 class ProbaVelocidadeGameActivity : AppCompatActivity() {
@@ -39,7 +38,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     private lateinit var probaVelocidadeTimerTv : TextView
 
     private var seconds = 0
-    private var timer: Timer? = null
+    private var countDownTimer: CountDownTimer? = null
     private var letterViews: List<TextView> = listOf()
     private var revealedLetterIndices = mutableListOf<Int>()
 
@@ -71,25 +70,26 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     }
 
     private fun startTimer() {
-        timer = Timer()
-        timer?.scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
-                runOnUiThread {
-                    seconds++
-                    probaVelocidadeTimerTv.text = "$seconds:00"
-                    if (seconds % 5 == 0) {
-                        coroutineScope.launch {
-                            revealNextLetter()
-                        }
+        countDownTimer?.cancel() // Cancela el timer anterior si existe
+
+        countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                seconds++
+                probaVelocidadeTimerTv.text = "$seconds:00"
+                if (seconds % 2 == 0) {
+                    coroutineScope.launch {
+                        revealNextLetter()
                     }
                 }
             }
-        }, 0, 1000)
+
+            override fun onFinish() {}
+        }.start()
     }
 
     private fun showNextQuestion() {
         if (questionList.isEmpty() || correctAnswers == QuestionRuletaDaSorteConstants.PROBA_VELOCIDADE_QUESTIONS_NUMBER) {
-            Intent(this, MainActivity::class.java).apply {
+            Intent(this, ProbaVelocidadeResultsActivity::class.java).apply {
                 putExtra(QuestionRuletaDaSorteConstants.SCORE_PROBA_VELOCIDADE, totalTime)
                 Log.d("ProbaVelocidadeGameActivity", "Total time: $totalTime")
                 startActivity(this)
@@ -136,7 +136,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
         userAnswerTv.text.clear()
         revealedLetterIndices.clear()
 
-        timer?.cancel()
+        countDownTimer?.cancel()
         seconds=0
         startTimer()
     }
