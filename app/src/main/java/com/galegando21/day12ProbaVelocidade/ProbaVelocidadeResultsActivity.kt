@@ -25,7 +25,7 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
         probaVelocidadeFinishButton = findViewById(R.id.proba_velocidade_finish_btn)
 
         setBanner(this, R.string.proba_velocidade)
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, ProbaVelocidadeInicioActivity::class.java)
 
         val score = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_PROBA_VELOCIDADE, 0)
         probaVelocidadeCorrectAnswersResultTv.text = score.toString()

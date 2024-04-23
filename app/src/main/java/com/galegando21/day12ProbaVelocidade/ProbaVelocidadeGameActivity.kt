@@ -66,7 +66,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
         setBanner(this, R.string.proba_velocidade)
 
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, ProbaVelocidadeInicioActivity::class.java)
     }
 
     private fun startTimer() {
