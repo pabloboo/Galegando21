@@ -251,9 +251,9 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
                 letterView.setOnClickListener {
                     playLetter((letterView).text[0])
                     if (isGameWon()) {
-                        Intent(this, MainActivity::class.java).apply {
-                            putExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, 1)
-                            Log.d("RuletaDaSorteGameActivity", "Score: 1")
+                        Intent(this, RuletaDaSorteResultsActivity::class.java).apply {
+                            putExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, cash)
+                            Log.d("RuletaDaSorteGameActivity", "$cash")
                             startActivity(this)
                             finish()
                         }
