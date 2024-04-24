@@ -66,8 +66,11 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
 
     private fun showNextQuestion() {
         hintLayout.removeAllViews()
-        val random = Random.nextInt(0, questionList.size)
-        currentQuestionAgoraCaigo = questionList[random]
+        if (questionList.isEmpty()) { // Si se han acabado las preguntas volver a obtenerlas
+            questionList = AgoraCaigoConstants.getQuestions()
+        }
+        currentQuestionAgoraCaigo = questionList.random()
+        questionList = questionList - currentQuestionAgoraCaigo // Eliminar la pregunta de la lista
         questionTV.text = currentQuestionAgoraCaigo.question
         val hintText = currentQuestionAgoraCaigo.hint
         hintText.forEach { char ->

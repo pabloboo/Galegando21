@@ -93,19 +93,15 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
 
     private fun getQuestions() : MutableList<QuestionAtrapaUnMillon> {
         var questions = mutableListOf<QuestionAtrapaUnMillon>()
+        var questionsAux = mutableListOf<QuestionAtrapaUnMillon>()
         for (i in 1..total_questions) {
-            var questionsAux = mutableListOf<QuestionAtrapaUnMillon>()
-            when (i) {
+            when (i) { // cambiar la lista de preguntas sólo cuando cambia la dificultad.
                 1 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.EASY_LEVEL)
-                2 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.EASY_LEVEL)
-                3 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.EASY_LEVEL)
-                4 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.EASY_LEVEL)
                 5 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.MEDIUM_LEVEL)
-                6 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.MEDIUM_LEVEL)
-                7 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.MEDIUM_LEVEL)
                 8 -> questionsAux = getAtrapaUnMillonQuestions(AtrapaUnMillonConstants.HARD_LEVEL)
             }
-            var questionAux : QuestionAtrapaUnMillon = questionsAux[Random.nextInt(0, questionsAux.size)]
+            var questionAux : QuestionAtrapaUnMillon = questionsAux.random()
+            questionsAux = (questionsAux - questionAux).toMutableList()
             questions.add(questionAux)
         }
         return questions

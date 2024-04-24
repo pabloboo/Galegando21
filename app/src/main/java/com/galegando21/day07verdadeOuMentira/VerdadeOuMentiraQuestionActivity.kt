@@ -58,9 +58,14 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
         if (!questionFailed) {
             checkButton.text = "Comprobar"
             resetOptions()
-            val question = questionList[Random.nextInt(0, questionList.size)]
+
+            if (questionList.isEmpty()) { // si se ha acabado la lista de preguntas volver a cogerlas todas
+                questionList = VerdadeOuMentiraConstants.getQuestions()
+            }
+            val question = questionList.random()
             textViewQuestion.text = question.question
             currentQuestion = question
+            questionList = (questionList - currentQuestion).toMutableList() //eliminar la pregunta de la lista
         } else {
             checkButton.text="Finalizar"
             Intent(this, VerdadeOuMentiraResultsActivity::class.java).also {

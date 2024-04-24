@@ -60,8 +60,8 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
 
     private fun showNextQuestion() {
         if (questionsCounter <= total_questions) {
-            val random = Random.nextInt(0, questionsList.size)
-            currentQuestion = questionsList[random]
+            currentQuestion = questionsList.random()
+            questionsList = (questionsList - currentQuestion).toMutableList() // Eliminar la pregunta de la lista
             progressBar.progress = questionsCounter
             textViewProgress.text = "$questionsCounter/$total_questions"
             imageView.setImageResource(currentQuestion.image)

@@ -27,7 +27,7 @@ object AtrapameSePodesConstants {
         questions.add(QuestionAtrapameSePodes( "Cal é o produto polo que é máis coñecida a editorial italiana Panini", "CROMOS"))
         questions.add(QuestionAtrapameSePodes( "Dentro de que familia de instrumentos musicais encaixan as castañolas?", "PERCUSION"))
         questions.add(QuestionAtrapameSePodes( "Que deputación provincial outorga o premio ourensanía?", "OURENSE"))
-        questions.add(QuestionAtrapameSePodes("Que dúas provincias galegas limitan con Porgual", "PONTEVEDRA OURENSE"))
+        questions.add(QuestionAtrapameSePodes("De oeste a este, que dúas provincias galegas limitan con Porgual?", "PONTEVEDRA OURENSE"))
         questions.add(QuestionAtrapameSePodes("Segundo a canción popular, que virxe parece unha rianxeira descalciña pola area", "VIRXE DE GUADALUPE"))
         return questions
     }

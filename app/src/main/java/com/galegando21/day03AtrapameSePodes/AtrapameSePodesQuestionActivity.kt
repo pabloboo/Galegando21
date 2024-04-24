@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -23,6 +24,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
     private lateinit var userAnswerText: EditText
     private lateinit var checkButton: ImageButton
 
+    private var questionList = mutableListOf<QuestionAtrapameSePodes>()
     private var questionCounter = 0
     private var correctAnswers = 0
     private lateinit var currentQuestionAtrapameSePodes: QuestionAtrapameSePodes
@@ -48,11 +50,15 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         setOnBackPressed(this, AtrapameSePodesInicioActivity::class.java)
     }
 
-    private fun showNextQuestion() {
+    private fun showNextQuestion(sameLevel: Boolean = false) {
         if (correctAnswers < 5) {
-            val questionList = getAtrapameSePodesQuestions(correctAnswers)
-            val randomNumber = Random.nextInt(0, questionList.size)
-            currentQuestionAtrapameSePodes = questionList[randomNumber]
+            if (sameLevel) {
+                questionList = (questionList - currentQuestionAtrapameSePodes).toMutableList()
+            }
+            if (!sameLevel || questionList.isEmpty()) {
+                questionList = getAtrapameSePodesQuestions(correctAnswers)
+            }
+            currentQuestionAtrapameSePodes = questionList.random()
             questionTV.text = currentQuestionAtrapameSePodes.question
             setStepsFragment(correctAnswers)
         } else {
@@ -69,11 +75,13 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         if (userAnswerText.text.toString() == currentQuestionAtrapameSePodes.answer) {
             correctAnswers++
             Toast.makeText(this@AtrapameSePodesQuestionActivity, "Resposta correcta, ${currentQuestionAtrapameSePodes.answer}", Toast.LENGTH_SHORT).show()
+            userAnswerText.text.clear()
+            showNextQuestion()
         } else {
             Toast.makeText(this@AtrapameSePodesQuestionActivity, "Resposta incorrecta, ${currentQuestionAtrapameSePodes.answer}", Toast.LENGTH_SHORT).show()
+            userAnswerText.text.clear()
+            showNextQuestion(true)
         }
-        userAnswerText.text.clear()
-        showNextQuestion()
     }
 
     private fun setStepsFragment(level: Int) {
