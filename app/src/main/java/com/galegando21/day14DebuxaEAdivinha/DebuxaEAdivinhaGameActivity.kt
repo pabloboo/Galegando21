@@ -50,7 +50,7 @@ class DebuxaEAdivinhaGameActivity : AppCompatActivity() {
         drawPath = findViewById(R.id.drawPathDebuxaEAdivinha)
 
         setBanner(this, R.string.debuxa_e_adivinha)
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, DebuxaEAdivinhaInicioActivity::class.java)
 
         clearButton.setOnClickListener {
             // Clear the drawing
