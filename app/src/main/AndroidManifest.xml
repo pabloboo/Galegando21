@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
+            android:name=".day13RuletaDaSorte.RuletaDaSorteInicioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".day13RuletaDaSorte.RuletaDaSorteResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".day13RuletaDaSorte.RuletaDaSorteGameActivity"
+            android:exported="false" />
+        <activity
             android:name=".day12ProbaVelocidade.ProbaVelocidadeInicioActivity"
             android:exported="false" />
         <activity

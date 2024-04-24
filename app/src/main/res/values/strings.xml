@@ -48,5 +48,8 @@
     <string name="proba_velocidade">Proba de velocidade</string>
     <string name="day12_text">Día 12 - Proba de Velocidade</string>
     <string name="proba_velocidade_explicacion">Basado en unha proba co mesmo nome do concurso televisivo \'La ruleta de la suerte\' este xogo consiste en adiviñar os paneis o máis rápido posible.\n\n Empezas con un panel en branco e unha pista e cada 2 segundos revelase unha letra.\n\n Escribe o panel completo e fai click en comprobar para pasar ao seguinte panel.</string>
+    <string name="ruleta_da_sorte">Ruleta da Sorte</string>
+    <string name="day13_text">Día 13 - Ruleta da Sorte</string>
+    <string name="ruleta_da_sorte_explicacion">A ruleta da sorte é un xogo basado no concurso televisivo co mesmo nome.\n\n Preme o botón \'TIRAR RULETA\' para comezar a primeira tirada. Cando a ruleta se pare aparecerá en pantalla unha das accións que determinará o diñeiro que gañarás. Elixe unha letra tendo en conta que o número de veces que se repita esa letra será o multiplicador da cantidade recibida na ruleta.\n\n Tamén hai accións especiais como \'BOTE\' ou \'QUEBRA\'. Repite tiradas da ruleta e letras ata que completes o panel.</string>
 
 </resources>
