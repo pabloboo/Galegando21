@@ -14,7 +14,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
@@ -52,7 +51,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         startGame()
 
         setBanner(this, R.string.ruleta_da_sorte)
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, RuletaDaSorteInicioActivity::class.java)
     }
 
     private fun startGame() {
@@ -157,7 +156,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
 
     private fun playRuleta() {
         // Tirar la ruleta
-        val acciones = listOf<String>("0", "25", "50", "75", "100", "150", "bote", "quiebra")
+        val acciones = listOf<String>("0", "25", "50", "75", "100", "150", "bote", "quebra")
         val random = Random.nextInt(1, 100)
         val accion = when {
             random <= 5 -> acciones[0]
@@ -217,13 +216,13 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
                 nextMultiplicadorAccion = 150
             }
             "bote" -> {
-                ruletaAccionTextView.text = "¡Bote!"
+                ruletaAccionTextView.text = "Bote!"
                 nextMultiplicadorAccion = 0
                 cash+=2000
 
             }
-            "quiebra" -> {
-                ruletaAccionTextView.text = "¡Quiebra!"
+            "quebra" -> {
+                ruletaAccionTextView.text = "Quebra!"
                 nextMultiplicadorAccion = 0
                 cash=0
             }

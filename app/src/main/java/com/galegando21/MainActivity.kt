@@ -28,7 +28,7 @@ import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
 import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.day12ProbaVelocidade.ProbaVelocidadeInicioActivity
-import com.galegando21.day13RuletaDaSorte.RuletaDaSorteGameActivity
+import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.setBanner
@@ -212,7 +212,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay13 -> {
-                Intent(this@MainActivity, RuletaDaSorteGameActivity::class.java).also {
+                Intent(this@MainActivity, RuletaDaSorteInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }

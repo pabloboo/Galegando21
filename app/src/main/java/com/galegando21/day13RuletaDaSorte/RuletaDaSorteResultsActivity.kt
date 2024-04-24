@@ -25,7 +25,7 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
         ruletaDaSorteFinishButton = findViewById(R.id.ruleta_sorte_finish_btn)
 
         setBanner(this, R.string.ruleta_da_sorte)
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, RuletaDaSorteInicioActivity::class.java)
 
         val cash = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, 0)
         ruletaDaSorteCashResultTv.text = cash.toString()
