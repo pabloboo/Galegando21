@@ -51,5 +51,7 @@
     <string name="ruleta_da_sorte">Ruleta da Sorte</string>
     <string name="day13_text">Día 13 - Ruleta da Sorte</string>
     <string name="ruleta_da_sorte_explicacion">A ruleta da sorte é un xogo basado no concurso televisivo co mesmo nome.\n\n Preme o botón \'TIRAR RULETA\' para comezar a primeira tirada. Cando a ruleta se pare aparecerá en pantalla unha das accións que determinará o diñeiro que gañarás. Elixe unha letra tendo en conta que o número de veces que se repita esa letra será o multiplicador da cantidade recibida na ruleta.\n\n Tamén hai accións especiais como \'BOTE\' ou \'QUEBRA\'. Repite tiradas da ruleta e letras ata que completes o panel.</string>
+    <string name="day14_text">Día 14 - Debuxa e Adiviña</string>
+    <string name="debuxa_e_adivinha">Debuxa e Adiviña</string>
 
 </resources>
