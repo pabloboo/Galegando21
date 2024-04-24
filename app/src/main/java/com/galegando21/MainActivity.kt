@@ -29,6 +29,7 @@ import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
 import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.day12ProbaVelocidade.ProbaVelocidadeInicioActivity
 import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
+import com.galegando21.day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.setBanner
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day11Button: ImageButton
     private lateinit var day12Button: ImageButton
     private lateinit var day13Button: ImageButton
+    private lateinit var day14Button: ImageButton
 
     private val PERMISSION_REQUEST_CODE = 1
 
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         day11Button = findViewById(R.id.btnDay11)
         day12Button = findViewById(R.id.btnDay12)
         day13Button = findViewById(R.id.btnDay13)
+        day14Button = findViewById(R.id.btnDay14)
 
         setBanner(this, R.string.app_name)
 
@@ -213,6 +216,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.btnDay13 -> {
                 Intent(this@MainActivity, RuletaDaSorteInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay14 -> {
+                Intent(this@MainActivity, DebuxaEAdivinhaInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
