@@ -1,0 +1,26 @@
+package com.galegando21.utils
+
+object SharedPreferencesKeys {
+    const val ONBOARDING = "onboarding"
+    const val IS_ONBOARDING_COMPLETED = "is_onboarding_completed"
+    const val NOME = "name"
+    const val APP_PREFERENCES = "app_preferences"
+    const val HAS_USER_DENIED_PERMISSIONS_BEFORE = "hasUserDeniedPermissionBefore"
+    const val UNLOCKED_BUTTONS = "BotonesDesbloqueados"
+    const val UNLOCKED_BUTTON_COUNT = "unlockedButtonCount"
+    const val STATISTICS = "statistics"
+    const val CURRENT_STREAK = "current_streak"
+    const val LAST_DAY_CURRENT_STREAK_UPDATED = "last_day_current_streak_updated"
+    const val LAST_YEAR_CURRENT_STREAK_UPDATED = "last_year_current_streak_updated"
+    const val PASAGALEGO_CORRECT_ANSWERS = "pasagalego_correct_answers"
+    const val PASAGALEGO_ERROR_ANSWERS = "pasagalego_error_answers"
+    const val PASAGALEGO_TIME = "pasagalego_time"
+    const val ATRAPAME_SE_PODES_QUESTIONS_NEEDED = "atrapame_se_podes_questions_needed"
+    const val ATRAPA_UN_MILLON_MAX_CASH = "atrapa_un_millon_max_cash"
+    const val VERDADE_OU_MENTIRA_MAX_SCORE = "verdade_ou_mentira_max_score"
+    const val ADIVINHA_ESCUDO_MAX_SCORE = "adivinha_escudo_max_score"
+    const val ADIVINHA_ANO_FOTO_MAX_SCORE = "adivinha_ano_foto_max_score"
+    const val AGORA_CAIGO_MAX_SCORE = "agora_caigo_max_score"
+    const val PROBA_VELOCIDADE_MIN_TIME = "proba_velocidade_min_time"
+    const val RULETA_DA_SORTE_MAX_CASH = "ruleta_da_sorte_max_cash"
+}

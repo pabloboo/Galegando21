@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
@@ -42,19 +43,19 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
     }
 
     private fun changeProbaVelocidadeStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var minTime = 0
-        if (sharedPreferences.contains("proba_velocidade_min_time")) {
-            minTime = sharedPreferences.getInt("proba_velocidade_min_time", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME)) {
+            minTime = sharedPreferences.getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0)
         }
 
         val score = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_PROBA_VELOCIDADE, 0)
         if (minTime == 0 || score < minTime) {
-            editor.putInt("proba_velocidade_min_time", score)
+            editor.putInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, score)
             editor.apply()
         }
-        Log.d("ProbaVelocidadeResultsActivity", "minTime: ${sharedPreferences.getInt("proba_velocidade_min_time", 0)}")
+        Log.d("ProbaVelocidadeResultsActivity", "minTime: ${sharedPreferences.getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0)}")
     }
 }

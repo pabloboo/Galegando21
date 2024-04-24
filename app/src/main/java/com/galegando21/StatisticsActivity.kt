@@ -3,6 +3,7 @@ package com.galegando21
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setOnBackPressed
 
 class StatisticsActivity : AppCompatActivity() {
@@ -27,8 +28,8 @@ class StatisticsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics)
 
-        val sharedPreferencesOnboarding = getSharedPreferences("onboarding", MODE_PRIVATE)
-        var username = sharedPreferencesOnboarding.getString("name", "Xogador")
+        val sharedPreferencesOnboarding = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
+        var username = sharedPreferencesOnboarding.getString(SharedPreferencesKeys.NOME, "Xogador")
         if (username?.isEmpty() == true) {
             username = "Xogador"
         }
@@ -52,32 +53,32 @@ class StatisticsActivity : AppCompatActivity() {
         probaVelocidadeScore = findViewById(R.id.proba_velocidade_time_statistics)
         ruletaDaSorteCash = findViewById(R.id.ruleta_da_sorte_cash_statistics)
 
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
-        val currentStreak = sharedPreferences.getInt("current_streak", 0)
+        val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
         currentStreakStatistics.text = "$currentStreak"
 
-        correctAnswersPasagalego.text = sharedPreferences.getInt("pasagalego_correct_answers", 0).toString()
-        errorAnswersPasagalego.text = sharedPreferences.getInt("pasagalego_error_answers", 0).toString()
-        timePasagalego.text = sharedPreferences.getString("pasagalego_time", "00:00")
+        correctAnswersPasagalego.text = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS, 0).toString()
+        errorAnswersPasagalego.text = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS, 0).toString()
+        timePasagalego.text = sharedPreferences.getString(SharedPreferencesKeys.PASAGALEGO_TIME, "00:00")
 
-        val questionsNeededAtrapameSePodesValue = sharedPreferences.getInt("atrapame_se_podes_questions_needed", 0).toString()
+        val questionsNeededAtrapameSePodesValue = sharedPreferences.getInt(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED, 0).toString()
         questionsNeededAtrapameSePodes.text = "Necesitaches un total de $questionsNeededAtrapameSePodesValue preguntas."
 
-        val cashAtrapaUnMillonValue = sharedPreferences.getInt("atrapa_un_millon_max_cash", 0).toString()
+        val cashAtrapaUnMillonValue = sharedPreferences.getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0).toString()
         cashAtrapaUnMillon.text = "$cashAtrapaUnMillonValue€"
 
-        verdadeOuMentiraScore.text = sharedPreferences.getInt("verdade_ou_mentira_max_score", 0).toString()
+        verdadeOuMentiraScore.text = sharedPreferences.getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0).toString()
 
-        adivinhaEscudoScore.text = sharedPreferences.getInt("adivinha_escudo_max_score", 0).toString()
+        adivinhaEscudoScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ESCUDO_MAX_SCORE, 0).toString()
 
-        adivinhaAnoFotoScore.text = sharedPreferences.getInt("adivinha_ano_foto_max_score", 0).toString() + " pts."
+        adivinhaAnoFotoScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, 0).toString() + " pts."
 
-        agoraCaigoScore.text = sharedPreferences.getInt("agora_caigo_max_score", 0).toString()
+        agoraCaigoScore.text = sharedPreferences.getInt(SharedPreferencesKeys.AGORA_CAIGO_MAX_SCORE, 0).toString()
 
-        probaVelocidadeScore.text = sharedPreferences.getInt("proba_velocidade_min_time", 0).toString()
+        probaVelocidadeScore.text = sharedPreferences.getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0).toString()
 
-        ruletaDaSorteCash.text = sharedPreferences.getInt("ruleta_da_sorte_max_cash", 0).toString()
+        ruletaDaSorteCash.text = sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0).toString()
 
     }
 }

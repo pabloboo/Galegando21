@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.PasagalegoConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
@@ -51,7 +52,7 @@ class PasagalegoResultActivity : AppCompatActivity() {
     }
 
     private fun changePasagalegoStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var currentCorrectAnswers = correctAnswersTv.text.toString().toInt()
@@ -61,14 +62,14 @@ class PasagalegoResultActivity : AppCompatActivity() {
         var maxCorrectAnswers = 0
         var maxErrors = 0
         var maxTime = "999999:59"
-        if (sharedPreferences.contains("pasagalego_correct_answers")) {
-            maxCorrectAnswers = sharedPreferences.getInt("pasagalego_correct_answers", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS)) {
+            maxCorrectAnswers = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS, 0)
         }
-        if (sharedPreferences.contains("pasagalego_error_answers")) {
-            maxErrors = sharedPreferences.getInt("pasagalego_error_answers", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS)) {
+            maxErrors = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS, 0)
         }
-        if (sharedPreferences.contains("pasagalego_time")) {
-            maxTime = sharedPreferences.getString("pasagalego_time", "00:00").toString()
+        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_TIME)) {
+            maxTime = sharedPreferences.getString(SharedPreferencesKeys.PASAGALEGO_TIME, "00:00").toString()
         }
 
         if (currentCorrectAnswers > maxCorrectAnswers) { // Cambiar estadísticas si tiene más aciertos
@@ -83,9 +84,9 @@ class PasagalegoResultActivity : AppCompatActivity() {
             }
         }
 
-        editor.putInt("pasagalego_correct_answers", maxCorrectAnswers)
-        editor.putInt("pasagalego_error_answers", maxErrors)
-        editor.putString("pasagalego_time", maxTime)
+        editor.putInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS, maxCorrectAnswers)
+        editor.putInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS, maxErrors)
+        editor.putString(SharedPreferencesKeys.PASAGALEGO_TIME, maxTime)
         editor.apply()
         Log.d("PASAGALEGO", "Correct answers: $maxCorrectAnswers, Errors: $maxErrors, Time: $maxTime")
 

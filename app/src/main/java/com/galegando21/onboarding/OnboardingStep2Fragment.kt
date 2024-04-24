@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.galegando21.MainActivity
 import com.galegando21.R
+import com.galegando21.utils.SharedPreferencesKeys
 
 class OnboardingStep2Fragment : Fragment() {
     private lateinit var anteriorButton: Button
@@ -38,14 +39,14 @@ class OnboardingStep2Fragment : Fragment() {
         }
 
         comezarButton.setOnClickListener {
-            val sharedPreferences = requireActivity().getSharedPreferences("onboarding", AppCompatActivity.MODE_PRIVATE)
+            val sharedPreferences = requireActivity().getSharedPreferences(SharedPreferencesKeys.ONBOARDING, AppCompatActivity.MODE_PRIVATE)
             with(sharedPreferences.edit()) {
-                putBoolean("is_onboarding_completed", true)
-                putString("name", editTextNome.text.toString())
+                putBoolean(SharedPreferencesKeys.IS_ONBOARDING_COMPLETED, true)
+                putString(SharedPreferencesKeys.NOME, editTextNome.text.toString())
                 commit()
             }
 
-            val isOnboardingCompleted = sharedPreferences.getBoolean("is_onboarding_completed", false)
+            val isOnboardingCompleted = sharedPreferences.getBoolean(SharedPreferencesKeys.IS_ONBOARDING_COMPLETED, false)
             Log.d("OnboardingStep2Fragment", "is_onboarding_completed: $isOnboardingCompleted")
 
             val intent = Intent(activity, MainActivity::class.java)

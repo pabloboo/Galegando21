@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AtrapameSePodesConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
@@ -50,17 +51,17 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
     }
 
     private fun changeAtrapameSePodesStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var minQuestionsNeeded = 999999999
-        if (sharedPreferences.contains("atrapame_se_podes_questions_needed")) {
-            minQuestionsNeeded = sharedPreferences.getInt("atrapame_se_podes_questions_needed", 999999999)
+        if (sharedPreferences.contains(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED)) {
+            minQuestionsNeeded = sharedPreferences.getInt(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED, 999999999)
         }
 
         var currentQuestionsNeeded = score
         if (currentQuestionsNeeded < minQuestionsNeeded) {
-            editor.putInt("atrapame_se_podes_questions_needed", currentQuestionsNeeded)
+            editor.putInt(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED, currentQuestionsNeeded)
             editor.apply()
         }
         Log.d("AtrapameSePodesResultActivity", "Preguntas necesarias: ${sharedPreferences.getInt("atrapame_se_podes_questions", 999999999)}")

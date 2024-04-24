@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AdivinhaAnoFotoConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
@@ -44,20 +45,20 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
     }
 
     private fun changeAdivinhaAnoFotoStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var maxScore = 0
-        if (sharedPreferences.contains("adivinha_ano_foto_max_score")) {
-            maxScore = sharedPreferences.getInt("adivinha_ano_foto_max_score", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE)) {
+            maxScore = sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, 0)
         }
 
         val score = intent.getIntExtra(AdivinhaAnoFotoConstants.SCORE, 0)
         if (score > maxScore) {
-            editor.putInt("adivinha_ano_foto_max_score", score)
+            editor.putInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, score)
             editor.apply()
         }
-        Log.d("AdivinhaAnoFotoResultsActivity", "changeAdivinhaAnoFotoStatistics: ${sharedPreferences.getInt("adivinha_ano_foto_max_score", 0)}")
+        Log.d("AdivinhaAnoFotoResultsActivity", "changeAdivinhaAnoFotoStatistics: ${sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, 0)}")
 
         updateCurrentStreak(this)
     }

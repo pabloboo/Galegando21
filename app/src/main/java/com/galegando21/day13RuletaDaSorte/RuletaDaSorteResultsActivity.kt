@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
@@ -42,19 +43,19 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
     }
 
     private fun changeRuletaDaSorteStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var maxCash = 0
-        if (sharedPreferences.contains("ruleta_da_sorte_max_cash")) {
-            maxCash = sharedPreferences.getInt("ruleta_da_sorte_max_cash", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH)) {
+            maxCash = sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)
         }
 
         val cash = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, 0)
         if (cash > maxCash) {
-            editor.putInt("ruleta_da_sorte_max_cash", cash)
+            editor.putInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, cash)
             editor.apply()
         }
-        Log.d("RuletaDaSorteResultsActivity", "maxCash: ${sharedPreferences.getInt("ruleta_da_sorte_max_cash", 0)}")
+        Log.d("RuletaDaSorteResultsActivity", "maxCash: ${sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)}")
     }
 }

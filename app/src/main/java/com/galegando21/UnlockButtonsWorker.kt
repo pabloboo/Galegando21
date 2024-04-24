@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -15,15 +16,16 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.galegando21.utils.NUMBER_OF_DAYS
+import com.galegando21.utils.SharedPreferencesKeys
 
 class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
     Worker(appContext, workerParams) {
 
     // Cada vez que se ejecuta la función se desbloquea un botón
     override fun doWork(): Result {
-        val sharedPreferences = applicationContext.getSharedPreferences("BotonesDesbloqueados", Context.MODE_PRIVATE)
-        val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
-        sharedPreferences.edit().putInt("unlockedButtonCount", unlockedButtonCount + 1).apply()
+        val sharedPreferences = applicationContext.getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
+        val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, unlockedButtonCount + 1).apply()
 
         // Si aún no se han desbloqueado todos los botones, crear y enviar la notificación
         if (unlockedButtonCount < NUMBER_OF_DAYS) {
@@ -78,8 +80,8 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
         val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent,
             PendingIntent.FLAG_IMMUTABLE)
 
-        val sharedPreferencesStatistics = applicationContext.getSharedPreferences("statistics", AppCompatActivity.MODE_PRIVATE)
-        val currentStreak = sharedPreferencesStatistics.getInt("current_streak", 0)
+        val sharedPreferencesStatistics = applicationContext.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
+        val currentStreak = sharedPreferencesStatistics.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
 
         // Crear la notificación
         val notification = NotificationCompat.Builder(applicationContext, channelId)

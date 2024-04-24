@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.VerdadeOuMentiraConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
@@ -44,20 +45,20 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
     }
 
     private fun changeVerdadeOuMentiraStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var maxScore = 0
-        if (sharedPreferences.contains("verdade_ou_mentira_max_score")) {
-            maxScore = sharedPreferences.getInt("verdade_ou_mentira_max_score", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE)) {
+            maxScore = sharedPreferences.getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0)
         }
 
         val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
         if (score > maxScore) {
-            editor.putInt("verdade_ou_mentira_max_score", score)
+            editor.putInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, score)
             editor.apply()
         }
-        Log.d("maxScore", sharedPreferences.getInt("verdade_ou_mentira_max_score", 0).toString())
+        Log.d("maxScore", sharedPreferences.getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0).toString())
 
         updateCurrentStreak(this)
     }

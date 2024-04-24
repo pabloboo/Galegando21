@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AtrapaUnMillonConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
@@ -46,20 +47,20 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
     }
 
     private fun changeAtrapaUnMillonStatistics() {
-        val sharedPreferences = getSharedPreferences("statistics", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         var maxCash = 0
-        if (sharedPreferences.contains("atrapa_un_millon_max_cash")) {
-            maxCash = sharedPreferences.getInt("atrapa_un_millon_max_cash", 0)
+        if (sharedPreferences.contains(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH)) {
+            maxCash = sharedPreferences.getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0)
         }
 
         val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0)
         if (cash > maxCash) {
-            editor.putInt("atrapa_un_millon_max_cash", cash)
+            editor.putInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, cash)
             editor.apply()
         }
-        Log.d("AtrapaUnMillonResults", "Max cash: ${sharedPreferences.getInt("atrapa_un_millon_max_cash", 0)}")
+        Log.d("AtrapaUnMillonResults", "Max cash: ${sharedPreferences.getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0)}")
 
         updateCurrentStreak(this)
     }

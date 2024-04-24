@@ -32,6 +32,7 @@ import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
 import com.galegando21.day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.showBannerMenu
 import java.util.concurrent.TimeUnit
@@ -119,8 +120,8 @@ class MainActivity : AppCompatActivity() {
     // Función para verificar y actualizar el estado de los botones
     private fun updateButtonState() {
         // Configurar la visibilidad de los botones según su estado de desbloqueo
-        val sharedPreferences = getSharedPreferences("BotonesDesbloqueados", Context.MODE_PRIVATE)
-        val unlockedButtonCount = sharedPreferences.getInt("unlockedButtonCount", 0)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
+        val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
         for (i in 2..NUMBER_OF_DAYS) {
             Log.d("DAY", "btnDay$i")
             val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
@@ -235,12 +236,12 @@ class MainActivity : AppCompatActivity() {
             PERMISSION_REQUEST_CODE -> {
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 } else {
-                    val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+                    val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.APP_PREFERENCES, MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
-                    val hasUserDeniedPermissionBefore = sharedPreferences.getBoolean("hasUserDeniedPermissionBefore", false)
+                    val hasUserDeniedPermissionBefore = sharedPreferences.getBoolean(SharedPreferencesKeys.HAS_USER_DENIED_PERMISSIONS_BEFORE, false)
                     if (!hasUserDeniedPermissionBefore) {
                         Toast.makeText(this, "Sen este permiso non serás notificado dos novos contidos", Toast.LENGTH_SHORT).show()
-                        editor.putBoolean("hasUserDeniedPermissionBefore", true)
+                        editor.putBoolean(SharedPreferencesKeys.HAS_USER_DENIED_PERMISSIONS_BEFORE, true)
                         editor.apply()
                     }
                 }
@@ -252,8 +253,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkIsOnboardingCompleted() {
-        val sharedPreferences = getSharedPreferences("onboarding", MODE_PRIVATE)
-        val isOnboardingCompleted = sharedPreferences.getBoolean("is_onboarding_completed", false)
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
+        val isOnboardingCompleted = sharedPreferences.getBoolean(SharedPreferencesKeys.IS_ONBOARDING_COMPLETED, false)
         Log.d("MainActivity", "is_onboarding_completed: $isOnboardingCompleted")
         if (!isOnboardingCompleted) {
             Intent(this@MainActivity, OnboardingActivity::class.java).also {
