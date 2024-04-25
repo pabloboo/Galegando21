@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainLayoutMastermind"
+    tools:context=".day15mastermind.MastermindGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_mastermind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintBottom_toTopOf="@id/solution_zone_mastermind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/solution_zone_mastermind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/darker_gray"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view_mastermind"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutButtonsMastermind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- Los colores soltados se añadirán aquí -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutButtonsMastermind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/solution_zone_mastermind"
+        app:layout_constraintBottom_toTopOf="@id/pistas_mastermind_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/clear_btn_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limpar"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:id="@+id/enviar_resposta_button_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar resposta"
+            android:backgroundTint="@color/secondaryBlue" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pistas_mastermind_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pistas"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutButtonsMastermind"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutFinishButtonsMastermind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFinishButtonsMastermind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/pistas_mastermind_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/xogar_de_novo_button_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xogar de novo"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white" />
+
+        <Button
+            android:id="@+id/finalizar_button_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:backgroundTint="@color/secondaryBlue" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

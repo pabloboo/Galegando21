@@ -10,4 +10,6 @@
     <color name="canela">#EFF0E7</color>
     <color name="darkGray">#5A5A4E</color>
     <color name="yellow">#FFFF00</color>
+    <color name="orange">#FFA500</color>
+    <color name="pink">#FFC0CB</color>
 </resources>
