@@ -54,5 +54,7 @@
     <string name="day14_text">Día 14 - Debuxa e Adiviña</string>
     <string name="debuxa_e_adivinha">Debuxa e Adiviña</string>
     <string name="debuxa_e_adivinha_explicacion">\'Debuxa e adiviña\' disfrutaralo máis con un amigo ou familiar. Na pantalla aparecerá unha palabra que só poderá ver quen vai debuxar.\n\nA persoa que vai debuxar preme o botón de ocultar palabra e comeza a facer o debuxo necesario para que a outra persoa adiviñe cal é a palabra oculta.</string>
+    <string name="mastermind">Mastermind</string>
+    <string name="day15_text">Día 15 - Mastermind</string>
 
 </resources>

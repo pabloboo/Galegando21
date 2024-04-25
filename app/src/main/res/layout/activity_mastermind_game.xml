@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day15mastermind.MastermindGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/colores_disponibles_mastermind_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Cores dispoñibles"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintBottom_toTopOf="@id/resposta_usuario_mastermind_et"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/resposta_usuario_mastermind_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa as iniciais das letras aquí"
+        app:layout_constraintTop_toBottomOf="@id/colores_disponibles_mastermind_tv"
+        app:layout_constraintBottom_toTopOf="@id/enviar_resposta_button_mastermind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/enviar_resposta_button_mastermind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar suposición"
+        android:backgroundTint="@color/secondaryBlue"
+        app:layout_constraintTop_toBottomOf="@id/resposta_usuario_mastermind_et"
+        app:layout_constraintBottom_toTopOf="@id/pistas_mastermind_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/pistas_mastermind_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pistas"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/enviar_resposta_button_mastermind"
+        app:layout_constraintBottom_toTopOf="@id/finalizar_button_mastermind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/finalizar_button_mastermind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finalizar"
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:backgroundTint="@color/secondaryBlue"
+        app:layout_constraintTop_toBottomOf="@id/pistas_mastermind_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
