@@ -76,21 +76,40 @@
         android:text="Pistas"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutButtonsMastermind"
-        app:layout_constraintBottom_toTopOf="@id/finalizar_button_mastermind"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutFinishButtonsMastermind"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/finalizar_button_mastermind"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutFinishButtonsMastermind"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Finalizar"
-        tools:visibility="visible"
-        android:visibility="gone"
-        android:backgroundTint="@color/secondaryBlue"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/pistas_mastermind_tv"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/xogar_de_novo_button_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xogar de novo"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white" />
+
+        <Button
+            android:id="@+id/finalizar_button_mastermind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:backgroundTint="@color/secondaryBlue" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

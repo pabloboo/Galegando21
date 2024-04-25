@@ -30,7 +30,7 @@ import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.day12ProbaVelocidade.ProbaVelocidadeInicioActivity
 import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
 import com.galegando21.day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
-import com.galegando21.day15mastermind.MastermindGameActivity
+import com.galegando21.day15mastermind.MastermindInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -231,7 +231,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay15 -> {
-                Intent(this@MainActivity, MastermindGameActivity::class.java).also {
+                Intent(this@MainActivity, MastermindInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }

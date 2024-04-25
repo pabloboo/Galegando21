@@ -27,6 +27,7 @@ class MastermindGameActivity : AppCompatActivity() {
     private lateinit var clearBtn: Button
     private lateinit var enviarRespostaBtn: Button
     private lateinit var pistasTv: TextView
+    private lateinit var xogarDeNovoBtn: Button
     private lateinit var finalizarBtn: Button
 
     val colorMap: Map<Int, Char> = mapOf(
@@ -53,10 +54,11 @@ class MastermindGameActivity : AppCompatActivity() {
         clearBtn = findViewById(R.id.clear_btn_mastermind)
         enviarRespostaBtn = findViewById(R.id.enviar_resposta_button_mastermind)
         pistasTv = findViewById(R.id.pistas_mastermind_tv)
+        xogarDeNovoBtn = findViewById(R.id.xogar_de_novo_button_mastermind)
         finalizarBtn = findViewById(R.id.finalizar_button_mastermind)
 
         setBanner(this, R.string.mastermind)
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, MastermindInicioActivity::class.java)
 
         // Inicializar RecyclerView y establecer su adaptador
         val colors = colorMap.keys.toList()
@@ -79,6 +81,10 @@ class MastermindGameActivity : AppCompatActivity() {
 
         enviarRespostaBtn.setOnClickListener {
             enviarResposta()
+        }
+
+        xogarDeNovoBtn.setOnClickListener {
+            xogarDeNovo()
         }
 
         finalizarBtn.setOnClickListener {
@@ -117,12 +123,14 @@ class MastermindGameActivity : AppCompatActivity() {
             } else {
                 pistasTv.text = "Síntoo, agotaches os teus $intentosMaximos intentos. Podes ver a combinación segreda na zona de solución."
                 mostrarCombinacionSecreta()
+                xogarDeNovoBtn.visibility = View.VISIBLE
                 finalizarBtn.visibility = View.VISIBLE
             }
         }
 
         if (ganado) {
             pistasTv.text = "Felicidades! Adiviñaches a combinación segreda en $intentos intentos."
+            xogarDeNovoBtn.visibility = View.VISIBLE
             finalizarBtn.visibility = View.VISIBLE
         }
     }
@@ -160,9 +168,17 @@ class MastermindGameActivity : AppCompatActivity() {
         return Pair(correctos, malColocados)
     }
 
+    fun xogarDeNovo() {
+        Intent(this, MastermindGameActivity::class.java).also {
+            startActivity(it)
+            finish()
+        }
+    }
+
     fun finalizarPartida() {
         Intent(this, MainActivity::class.java).also {
             startActivity(it)
+            finish()
         }
     }
 
