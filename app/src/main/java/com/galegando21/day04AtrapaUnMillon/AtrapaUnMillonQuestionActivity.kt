@@ -128,6 +128,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
             Intent(this, AtrapaUnMillonResultsActivity::class.java).also {
                 it.putExtra(AtrapaUnMillonConstants.SCORE, cash)
                 startActivity(it)
+                finish()
             }
         }
 

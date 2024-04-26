@@ -74,6 +74,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
 
             resetOptions()
             val question = questionsList[Random.nextInt(0, questionsList.size)]
+            questionsList = (questionsList - question).toMutableList()
             flagImage.setImageResource(question.image)
             progressBar.progress = questionsCounter
             textViewProgress.text = "$questionsCounter/${progressBar.max}"
@@ -87,6 +88,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
             Intent(this, AdivinhaEscudoResultsActivity::class.java).also {
                 it.putExtra(AdivinhaEscudoConstants.SCORE, score)
                 startActivity(it)
+                finish()
             }
         }
 

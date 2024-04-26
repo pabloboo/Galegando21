@@ -28,6 +28,7 @@ fun setOnBackPressed(activity: AppCompatActivity, destinationActivityClass: Clas
         override fun handleOnBackPressed() {
             Intent(activity, destinationActivityClass).also {
                 activity.startActivity(it)
+                activity.finish()
             }
         }
     })

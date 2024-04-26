@@ -64,6 +64,12 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
         setOnBackPressed(this, AgoraCaigoInicioActivity::class.java)
     }
 
+    override fun onPause() {
+        super.onPause()
+        // Si la actividad no está en primer plano cancelar el timer
+        countDownTimer?.cancel()
+    }
+
     private fun showNextQuestion() {
         hintLayout.removeAllViews()
         if (questionList.isEmpty()) { // Si se han acabado las preguntas volver a obtenerlas
@@ -108,6 +114,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
                     Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
                         it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
                         startActivity(it)
+                        finish()
                     }
                 }
             }

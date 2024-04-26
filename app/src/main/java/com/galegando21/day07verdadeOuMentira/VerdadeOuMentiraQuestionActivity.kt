@@ -71,6 +71,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity(), View.OnClickListen
             Intent(this, VerdadeOuMentiraResultsActivity::class.java).also {
                 it.putExtra(VerdadeOuMentiraConstants.SCORE, correctAnswers)
                 startActivity(it)
+                finish()
             }
         }
         answered = false

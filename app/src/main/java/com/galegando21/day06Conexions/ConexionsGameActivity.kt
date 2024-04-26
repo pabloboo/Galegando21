@@ -205,6 +205,7 @@ class ConexionsGameActivity : AppCompatActivity() {
         sendButton.setOnClickListener {
             Intent(this@ConexionsGameActivity, ConexionsGameActivity::class.java).also {
                 startActivity(it)
+                finish()
             }
         }
     }
