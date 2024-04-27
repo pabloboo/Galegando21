@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_Galegando21)
         super.onCreate(savedInstanceState)
 
         installSplashScreen()
