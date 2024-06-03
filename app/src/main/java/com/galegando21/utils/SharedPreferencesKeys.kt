@@ -17,6 +17,7 @@ object SharedPreferencesKeys {
     const val PASAGALEGO_TIME = "pasagalego_time"
     const val ATRAPAME_SE_PODES_QUESTIONS_NEEDED = "atrapame_se_podes_questions_needed"
     const val ATRAPA_UN_MILLON_MAX_CASH = "atrapa_un_millon_max_cash"
+    const val AFORCADO_MAX_STREAK = "aforcado_max_streak"
     const val VERDADE_OU_MENTIRA_MAX_SCORE = "verdade_ou_mentira_max_score"
     const val ADIVINHA_ESCUDO_MAX_SCORE = "adivinha_escudo_max_score"
     const val ADIVINHA_ANO_FOTO_MAX_SCORE = "adivinha_ano_foto_max_score"

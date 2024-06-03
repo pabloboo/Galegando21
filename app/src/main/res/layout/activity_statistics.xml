@@ -166,7 +166,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayoutVerdadeOuMentiraStatistics"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutAforcadoStatistics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutAtrapameSePodesStatistics">
@@ -188,6 +188,35 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayoutAforcadoStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutVerdadeOuMentiraStatistics"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutAtrapaUnMillonStatistics">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AFORCADO"
+                    android:layout_marginRight="20dp"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/aforcado_streak_statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="Racha : 4" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/linearLayoutVerdadeOuMentiraStatistics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -197,7 +226,7 @@
                 app:layout_constraintBottom_toTopOf="@id/linearLayoutAdivinhaEscudoStatistics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayoutAtrapaUnMillonStatistics">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutAforcadoStatistics">
 
                 <TextView
                     android:layout_width="wrap_content"

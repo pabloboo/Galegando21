@@ -17,6 +17,7 @@ class StatisticsActivity : AppCompatActivity() {
 
     private lateinit var questionsNeededAtrapameSePodes : TextView
     private lateinit var cashAtrapaUnMillon : TextView
+    private lateinit var aforcadoMaxStreak : TextView
     private lateinit var verdadeOuMentiraScore : TextView
     private lateinit var adivinhaEscudoScore: TextView
     private lateinit var adivinhaAnoFotoScore: TextView
@@ -46,6 +47,8 @@ class StatisticsActivity : AppCompatActivity() {
         timePasagalego = findViewById(R.id.time_pasagalego_statistics)
         questionsNeededAtrapameSePodes = findViewById(R.id.questions_needed_atrapame_se_podes_statistics)
         cashAtrapaUnMillon = findViewById(R.id.cash_atrapa_un_millon_statistics)
+        aforcadoMaxStreak = findViewById(R.id.aforcado_streak_statistics)
+
         verdadeOuMentiraScore = findViewById(R.id.verdade_ou_mentira_correct_answers_statistics)
         adivinhaEscudoScore = findViewById(R.id.adivinha_escudo_correct_answers_statistics)
         adivinhaAnoFotoScore = findViewById(R.id.adivinha_ano_foto_correct_answers_statistics)
@@ -67,6 +70,9 @@ class StatisticsActivity : AppCompatActivity() {
 
         val cashAtrapaUnMillonValue = sharedPreferences.getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0).toString()
         cashAtrapaUnMillon.text = "$cashAtrapaUnMillonValue€"
+
+        val aforcadoMaxStreakValue = sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK, 0).toString()
+        aforcadoMaxStreak.text = "Racha: $aforcadoMaxStreakValue"
 
         verdadeOuMentiraScore.text = sharedPreferences.getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0).toString()
 
