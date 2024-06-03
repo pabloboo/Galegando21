@@ -269,4 +269,172 @@ object PasagalegoConstants {
         return questions
     }
 
+    fun getPasagalegoQuestionsNivelFacil(letter: Char) : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        when (letter) {
+            'A' -> questions = getPasagalegoQuestionsAFaciles()
+            'B' -> questions = getPasagalegoQuestionsBFaciles()
+            'C' -> questions = getPasagalegoQuestionsCFaciles()
+            'D' -> questions = getPasagalegoQuestionsDFaciles()
+            'E' -> questions = getPasagalegoQuestionsEFaciles()
+            'F' -> questions = getPasagalegoQuestionsFFaciles()
+            'G' -> questions = getPasagalegoQuestionsGFaciles()
+            'H' -> questions = getPasagalegoQuestionsHFaciles()
+            'I' -> questions = getPasagalegoQuestionsIFaciles()
+            'L' -> questions = getPasagalegoQuestionsLFaciles()
+            'M' -> questions = getPasagalegoQuestionsMFaciles()
+            'N' -> questions = getPasagalegoQuestionsNFaciles()
+            'Ñ' -> questions = getPasagalegoQuestionsÑFaciles()
+            'O' -> questions = getPasagalegoQuestionsOFaciles()
+            'P' -> questions = getPasagalegoQuestionsPFaciles()
+            'Q' -> questions = getPasagalegoQuestionsQFaciles()
+            'R' -> questions = getPasagalegoQuestionsRFaciles()
+            'S' -> questions = getPasagalegoQuestionsSFaciles()
+            'T' -> questions = getPasagalegoQuestionsTFaciles()
+            'U' -> questions = getPasagalegoQuestionsUFaciles()
+            'V' -> questions = getPasagalegoQuestionsVFaciles()
+            'X' -> questions = getPasagalegoQuestionsXFaciles()
+            'Z' -> questions = getPasagalegoQuestionsZFaciles()
+        }
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsAFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Ciencia que trata dos astros, do seu movemento e das leis que as rexen", "ASTRONOMIA"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsBFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Persoa que ten por oficio extinguir incendios e realiz outras labores de salvamento", "BOMBEIRO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsCFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Décimo signo do zodiaco cuxo símbolo é unha cabra", "CAPRICORNIO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsDFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Comercialización e reparto de un produto desde a súa saída de produción ata que chega ao vendedor", "DISTRIBUCION"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsEFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Superficie brillante que reflexa imaxes", "ESPELLO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsFFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Mecha de pelo que cae sobre a fronte", "FLEQUILLO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsGFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Ave doméstica da familia dos fasiánidos, femia do galo, con crista pequena e vermella e peteiro curto, que se cría para aproveitar os seus ovos e a súa carne para a alimentación", "GALIÑA"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsHFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Conxunto de bens que se reciben tras o falecemento do seu posedor, por disposición testamentaria ou legal", "HERDANZA"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsIFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Vivenda hemisférica, feita con bloques de xeo, que os esquimós constrúen no inverno", "IGLU"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsLFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Símbolo gráfico que serve como emblema dunha empresa ou entidade, dunha marca ou dun produto", "LOGOTIPO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsMFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Ensalada de froitas", "MACEDONIA"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsNFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Natural da comunidade autónoma con capital en Pamplona", "NAVARRO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsÑFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Natural do norte de un país", "NORTEÑO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsOFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Realizar unha operación quirúrxica", "OPERAR"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsPFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Sustancia, xeralmente líquida, que se utiliza para dar bo olor", "PERFUME"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsQFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Ter cariño ou amor a [alguén].", "QUERER"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsRFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Camiño establecido ou planificado para unha expedición ou viaxe", "RUTA"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsSFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("En tenis e outros deportes similares, saque", "SERVICIO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsTFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Mechón de pelo que se leva levantado sobre a frente", "TUPE"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsUFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Xerundio do verbo untar", "UNTANDO"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsVFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Traspasar a alguén polo precio convido a propiedade do que se posee", "VENDER"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsXFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Microorganismo que pode causar ou propagar enfermidades", "XERMEN"))
+        return questions
+    }
+
+    private fun getPasagalegoQuestionsZFaciles() : MutableList<QuestionPasagalego> {
+        var questions : MutableList<QuestionPasagalego> = mutableListOf()
+        questions.add(QuestionPasagalego("Persoa que fabrica, repara ou vende zapatos", "ZAPATEIRO"))
+        return questions
+    }
+
 }

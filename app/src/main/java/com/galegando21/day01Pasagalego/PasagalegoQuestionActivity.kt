@@ -14,8 +14,8 @@ import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
+import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestionsNivelFacil
 import com.galegando21.utils.removeAccents
-import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import java.lang.StringBuilder
 import kotlin.random.Random
@@ -38,6 +38,8 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     private lateinit var currentQuestionPasagalego : QuestionPasagalego
 
     private var questionMap = mutableMapOf<Char, QuestionPasagalego>()
+
+    private var dificultade = "facil"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pasagalego_question)
@@ -52,6 +54,8 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_pasagalego)
         pasapalabraButton = findViewById(R.id.pasapalabra_btn)
+
+        dificultade = intent.getStringExtra("dificultade")  ?: "facil"
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
@@ -76,7 +80,12 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             val letter = letters[position]
             roscoView.setCurrentLetter(letter)
             // Obtener pregunta aleatoria
-            val questionList = getPasagalegoQuestions(letter)
+            var questionList: MutableList<QuestionPasagalego>
+            if (dificultade == "facil") {
+                questionList = getPasagalegoQuestionsNivelFacil(letter)
+            } else {
+                questionList = getPasagalegoQuestions(letter)
+            }
             val randomNumber = Random.nextInt(0, questionList.size)
             // Obtener pregunta para la letra actual si existe o generarla
             currentQuestionPasagalego = questionMap.getOrPut(letter) {
