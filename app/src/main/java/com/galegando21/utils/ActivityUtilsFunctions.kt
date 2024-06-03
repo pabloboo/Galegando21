@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.galegando21.BannerFragment
 import com.galegando21.R
+import java.text.Normalizer
 import java.util.Calendar
 
 const val NUMBER_OF_DAYS = 15
@@ -54,4 +55,10 @@ fun updateCurrentStreak(activity: AppCompatActivity) {
         sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_DAY_CURRENT_STREAK_UPDATED, currentDay).apply()
         sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_YEAR_CURRENT_STREAK_UPDATED, currentYear).apply()
     }
+}
+
+fun removeAccents(input: String): String {
+    val normalized = Normalizer.normalize(input, Normalizer.Form.NFD)
+    val accentRemoved = Regex("(?![ñÑ])[\\u0300-\\u036F]").replace(normalized, "")
+    return accentRemoved.replace("ñ", "ñ").replace("Ñ", "Ñ")
 }

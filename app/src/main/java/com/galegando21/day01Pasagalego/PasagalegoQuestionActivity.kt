@@ -14,6 +14,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
+import com.galegando21.utils.removeAccents
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import java.lang.StringBuilder
@@ -105,7 +106,8 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         if (questionCounter>=letters.length) {
             questionCounter = 0
         }
-        if (userAnswerText.text.toString() == currentQuestionPasagalego.answer) {
+
+        if (removeAccents(userAnswerText.text.toString()) == currentQuestionPasagalego.answer) {
             correctAnswers++
             roscoView.setLetterStatus(letters[questionCounter], LetterStatus.CORRECT)
         } else {
