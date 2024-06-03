@@ -99,7 +99,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
                 }
                 val currentAmount = droppedText.text.toString().toIntOrNull() ?: 0
                 if (currentAmount > 0) {
-                    droppedText.text = (currentAmount - 100000).toString()
+                    droppedText.text = (currentAmount - cash/4).toString()
                     v.startDragAndDrop(data, shadowBuilder, v, 0)
                     true
                 } else {
@@ -126,7 +126,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
                             else -> return@OnDragListener true
                         }
                         val currentAmount = droppedText.text.toString().toIntOrNull() ?: 0
-                        droppedText.text = (currentAmount + 100000).toString()
+                        droppedText.text = (currentAmount + cash/4).toString()
                     }
                 }
             }
