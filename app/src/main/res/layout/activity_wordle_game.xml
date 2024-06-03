@@ -16,7 +16,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutEstadisticasWordle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
@@ -29,14 +29,29 @@
             android:id="@+id/games"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xogos: "
-            android:layout_marginRight="50dp"/>
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="40dp"
+            android:text="Xogos: " />
 
         <TextView
             android:id="@+id/wins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:text="Victorias: " />
+
+        <ImageButton
+            android:id="@+id/helpButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="end"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:src="@drawable/help_icon" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

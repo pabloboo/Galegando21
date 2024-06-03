@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
@@ -13,6 +15,8 @@ import com.galegando21.utils.setOnBackPressed
 import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
+    private lateinit var helpImageButton: ImageButton
+
     private lateinit var texts:  MutableList<MutableList<TextView>>
     private val rowCount = 6
     private val colCount = 5
@@ -33,6 +37,11 @@ class WordleGameActivity : AppCompatActivity() {
         setEventListeners()
 
         newRound()
+
+        helpImageButton = findViewById(R.id.helpButton)
+        helpImageButton.setOnClickListener {
+            showHelpDialog()
+        }
 
         setOnBackPressed(this, WordleInicioActivity::class.java)
     }
@@ -129,8 +138,8 @@ class WordleGameActivity : AppCompatActivity() {
     }
 
     fun updateLetterColor(letter: Char, state: Int) {
-        val letterId = resources.getIdentifier(letter.lowercase().toString(), "id", packageName)
-        val letterTextView = findViewById<TextView>(letterId)
+        val letterId = resources.getIdentifier(letter.lowercase(), "id", packageName)
+        val letterTextView = findViewById<TextView>(letterId) ?: return
 
         val currentState = lettersPaintedStates[letter]
         if (currentState == gameCore.IN_PLACE) {
@@ -161,5 +170,18 @@ class WordleGameActivity : AppCompatActivity() {
             val letterTextView = findViewById<TextView>(letterId)
             letterTextView.background = ContextCompat.getDrawable(this, R.color.primaryBlue)
         }
+    }
+
+    private fun showHelpDialog() {
+        val imageView = ImageView(this)
+        imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.wordle_explicacion))
+
+        AlertDialog.Builder(this)
+            .setTitle("Como xogar")
+            .setView(imageView)
+            .setPositiveButton("Cerrar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }
