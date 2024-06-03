@@ -14,9 +14,9 @@ import com.galegando21.utils.AdivinhaAnoFotoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.google.android.material.slider.Slider
+import com.google.android.material.snackbar.Snackbar
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
-import kotlin.random.Random
 
 class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
     private lateinit var progressBar : ProgressBar
@@ -98,14 +98,19 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
 
     fun calculateScore(guessedYear: Int, correctAnswerYear: Int) : Int {
         val difference = (guessedYear - correctAnswerYear).absoluteValue
+        var score = 0
         when (difference) {
-            in 0..0 -> return 10
-            in 1 .. 1 -> return 8
-            in 2..3 -> return 6
-            in 4..5 -> return 4
-            in 6 .. 10 -> return 2
-            in 11 .. 20 -> return 1
-            else -> return 0
+            in 0..0 -> score = 10
+            in 1 .. 1 -> score = 8
+            in 2..3 -> score = 6
+            in 4..5 -> score = 4
+            in 6 .. 10 -> score = 2
+            in 11 .. 20 -> score = 1
+            else -> score = 0
         }
+
+        // Mostrar score en un snackbar
+        Snackbar.make(findViewById(android.R.id.content), "Puntuación obtida: $score", Snackbar.LENGTH_SHORT).show()
+        return score
     }
 }
