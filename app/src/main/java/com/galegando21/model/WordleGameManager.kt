@@ -1,6 +1,5 @@
 package com.galegando21.model
 
-import android.util.Log
 import com.galegando21.utils.WordleConstants
 import kotlin.random.Random
 
@@ -84,14 +83,42 @@ class WordleGameManager(
         return false
     }
 
-    fun validateChar(row: Int, col: Int): Int {
-        Log.d("TAG", "validateChar: $word, ${rows[row][col]}")
-        if (rows[row][col] == word[col]) {
-            return IN_PLACE
-        } else if (rows[row][col] in word) {
-            return IN_WORD
+    fun countLetterOccurrences(word: String): Map<Char, Int> {
+        val occurrences = mutableMapOf<Char, Int>()
+        for (char in word) {
+            val count = occurrences[char]
+            if (count != null) {
+                occurrences[char] = count + 1
+            } else {
+                occurrences[char] = 1
+            }
         }
-        return NOT_IN
+        return occurrences
+    }
+
+    fun validateWord(row: Int): List<Pair<Char, Int>> {
+        val letterOcurrences = countLetterOccurrences(word).toMutableMap()
+
+        val result = mutableListOf<Pair<Char, Int>>()
+        val attempt = rows[row].joinToString(separator="")
+        for (col in 0 until attempt.length) {
+            val char = attempt[col]
+            if (char == word[col]) {
+                result.add(Pair(char, IN_PLACE))
+                letterOcurrences[char] = letterOcurrences[char]!! - 1
+            } else {
+                result.add(Pair(char, NOT_IN))
+            }
+        }
+
+        // Marcar las letras en amarillo si no están marcadas en verde
+        for (col in 0 until attempt.length) {
+            val char = attempt[col]
+            if ((char != word[col]) && (char in word) && (letterOcurrences[char]!! > 0)) {
+                result[col] = Pair(char, IN_WORD)
+            }
+        }
+        return result
     }
 
     fun getCurRow(): Int {

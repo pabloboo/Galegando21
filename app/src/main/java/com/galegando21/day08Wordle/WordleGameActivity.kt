@@ -20,6 +20,8 @@ class WordleGameActivity : AppCompatActivity() {
     private var countWins = 0
     private lateinit var gameCore: WordleGameManager
 
+    private val lettersPaintedStates = mutableMapOf<Char, Int>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordle_game)
@@ -70,8 +72,9 @@ class WordleGameActivity : AppCompatActivity() {
             }
             val row = gameCore.getCurRow()
             if (gameCore.enter()) {
+                val result: List<Pair<Char, Int>> = gameCore.validateWord(row)
                 for (col in 0 until colCount) {
-                    val id = when (gameCore.validateChar(row, col)) {
+                    val id = when (result[col].second) {
                         gameCore.IN_WORD -> {
                             R.drawable.letter_in_word
                         }
@@ -86,6 +89,7 @@ class WordleGameActivity : AppCompatActivity() {
                     }
 
                     texts[row][col].background = ContextCompat.getDrawable(this, id)
+                    updateLetterColor(result[col].first, result[col].second)
                 }
                 if (gameCore.getResult()) {
                     countWins++
@@ -113,6 +117,7 @@ class WordleGameActivity : AppCompatActivity() {
                 texts[row][col].text = " "
             }
         }
+        resetAllLetterColors()
         val textGames = findViewById<TextView>(R.id.games)
         val textWins = findViewById<TextView>(R.id.wins)
 
@@ -121,5 +126,40 @@ class WordleGameActivity : AppCompatActivity() {
         countGames++
 
         Log.e("Word", "=============---- ${gameCore.getFinalWord()}")
+    }
+
+    fun updateLetterColor(letter: Char, state: Int) {
+        val letterId = resources.getIdentifier(letter.lowercase().toString(), "id", packageName)
+        val letterTextView = findViewById<TextView>(letterId)
+
+        val currentState = lettersPaintedStates[letter]
+        if (currentState == gameCore.IN_PLACE) {
+            // La letra ya ha sido marcada de verde
+            return
+        }
+
+        val drawableId = when (state) {
+            gameCore.IN_WORD -> R.drawable.letter_in_word
+            gameCore.IN_PLACE -> R.drawable.letter_in_place
+            gameCore.NOT_IN -> R.drawable.letter_not_in
+            else -> R.drawable.letter_not_in
+        }
+
+        if (currentState == gameCore.IN_WORD && drawableId == gameCore.NOT_IN) {
+            // Si la letra ya ha sido marcada de amarillo y no se ha acertado
+            return
+        }
+
+        letterTextView.background = ContextCompat.getDrawable(this, drawableId)
+        lettersPaintedStates[letter] = state
+    }
+
+    fun resetAllLetterColors() {
+        val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
+        for (letter in letters) {
+            val letterId = resources.getIdentifier(letter, "id", packageName)
+            val letterTextView = findViewById<TextView>(letterId)
+            letterTextView.background = ContextCompat.getDrawable(this, R.color.primaryBlue)
+        }
     }
 }
