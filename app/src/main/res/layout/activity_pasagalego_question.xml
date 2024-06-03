@@ -6,32 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".day01Pasagalego.PasagalegoQuestionActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <LinearLayout
+        android:id="@+id/pasagalego_question_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
         android:gravity="center">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rosco_pasagalego" />
+        <com.galegando21.day01Pasagalego.RoscoView
+            android:id="@+id/roscoView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:elevation="40dp"
-            app:cardCornerRadius="8dp"
-            android:layout_margin="16dp">
+            app:cardCornerRadius="8dp">
             <TextView
                 android:id="@+id/tv_pasagalego_letter"
                 android:layout_width="wrap_content"
@@ -42,7 +39,7 @@
 
         <TextView
             android:id="@+id/tv_pasagalego_question"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
             tools:text="Separación das partes dun todo para

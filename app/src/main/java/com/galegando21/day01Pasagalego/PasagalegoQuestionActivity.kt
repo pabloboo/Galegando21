@@ -20,6 +20,7 @@ import java.lang.StringBuilder
 import kotlin.random.Random
 
 class PasagalegoQuestionActivity : AppCompatActivity() {
+    private lateinit var roscoView: RoscoView
     private lateinit var letter_tv : TextView
     private lateinit var question_tv : TextView
     private lateinit var correctAnswersTv : TextView
@@ -40,6 +41,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pasagalego_question)
 
+        roscoView = findViewById(R.id.roscoView)
         letter_tv = findViewById(R.id.tv_pasagalego_letter)
         question_tv = findViewById(R.id.tv_pasagalego_question)
         correctAnswersTv = findViewById(R.id.correct_answers_tv)
@@ -49,8 +51,6 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_pasagalego)
         pasapalabraButton = findViewById(R.id.pasapalabra_btn)
-
-        setBanner(this, R.string.pasagalego)
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
@@ -73,6 +73,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         if (letters.isNotEmpty()) {
             var position = questionCounter.mod(letters.length)
             val letter = letters[position]
+            roscoView.setCurrentLetter(letter)
             // Obtener pregunta aleatoria
             val questionList = getPasagalegoQuestions(letter)
             val randomNumber = Random.nextInt(0, questionList.size)
@@ -104,15 +105,16 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         if (questionCounter>=letters.length) {
             questionCounter = 0
         }
-        letters = letters.deleteCharAt(questionCounter)
-        Log.d("LETTERS", "$letters")
         if (userAnswerText.text.toString() == currentQuestionPasagalego.answer) {
             correctAnswers++
-            Toast.makeText(this@PasagalegoQuestionActivity, "Resposta correcta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
+            roscoView.setLetterStatus(letters[questionCounter], LetterStatus.CORRECT)
         } else {
             errorAnswers++
+            roscoView.setLetterStatus(letters[questionCounter], LetterStatus.INCORRECT)
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta incorrecta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
         }
+        letters = letters.deleteCharAt(questionCounter)
+        Log.d("LETTERS", "$letters")
         userAnswerText.text.clear()
         showNextQuestion()
     }
