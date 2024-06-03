@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -13,9 +12,9 @@ import com.galegando21.R
 import com.galegando21.model.QuestionAtrapameSePodes
 import com.galegando21.utils.AtrapameSePodesConstants
 import com.galegando21.utils.AtrapameSePodesConstants.getAtrapameSePodesQuestions
+import com.galegando21.utils.removeAccents
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
-import kotlin.random.Random
 
 class AtrapameSePodesQuestionActivity : AppCompatActivity() {
     private lateinit var stepsFragment: AtrapameSePodesStepsFragment
@@ -72,9 +71,9 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
 
     private fun checkButtonClickListener() {
         questionCounter++
-        if (userAnswerText.text.toString() == currentQuestionAtrapameSePodes.answer) {
+
+        if (removeAccents(userAnswerText.text.toString()) == currentQuestionAtrapameSePodes.answer) {
             correctAnswers++
-            Toast.makeText(this@AtrapameSePodesQuestionActivity, "Resposta correcta, ${currentQuestionAtrapameSePodes.answer}", Toast.LENGTH_SHORT).show()
             userAnswerText.text.clear()
             showNextQuestion()
         } else {
