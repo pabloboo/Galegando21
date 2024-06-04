@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
+            android:name=".day16OndeEstan.OndeEstanResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".day16OndeEstan.OndeEstanInicioActivity"
+            android:exported="false" />
+        <activity
             android:name=".day16OndeEstan.OndeEstanGameActivity"
             android:exported="false" />
         <activity

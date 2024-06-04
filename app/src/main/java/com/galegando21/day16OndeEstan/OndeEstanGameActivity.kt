@@ -1,14 +1,16 @@
 package com.galegando21.day16OndeEstan
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.utils.AforcadoGameConstants
-import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 
 class OndeEstanGameActivity : AppCompatActivity() {
     private lateinit var palabraActualTextView: TextView
@@ -21,10 +23,12 @@ class OndeEstanGameActivity : AppCompatActivity() {
     private lateinit var palabra7TextView: TextView
     private lateinit var palabra8TextView: TextView
     private lateinit var palabra9TextView: TextView
+    private lateinit var ondeEstanTimerTv: TextView
 
     private lateinit var palabras: List<String>
     private lateinit var palabrasOrdenCorrecto: List<String>
     private var aciertos = 0
+    private var countDownTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
         palabra7TextView = findViewById(R.id.palabra7)
         palabra8TextView = findViewById(R.id.palabra8)
         palabra9TextView = findViewById(R.id.palabra9)
+        ondeEstanTimerTv = findViewById(R.id.onde_estan_timer_tv)
 
         palabra1TextView.setOnClickListener {
             checkAnswer(palabra1TextView, palabras[0])
@@ -73,6 +78,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
 
         initializeGame()
 
+        setOnBackPressed(this, OndeEstanInicioActivity::class.java)
     }
 
     private fun checkAnswer(textView: TextView, palabra: String) {
@@ -80,7 +86,8 @@ class OndeEstanGameActivity : AppCompatActivity() {
             mostrarPalabra(textView, palabra)
             aciertos++
             if (aciertos == 9) {
-                Toast.makeText(this, "Gañaches!", Toast.LENGTH_SHORT).show()
+                countDownTimer?.cancel()
+                goResultsActivity(this, true)
             } else {
                 palabraActualTextView.text = palabrasOrdenCorrecto[aciertos]
             }
@@ -99,6 +106,20 @@ class OndeEstanGameActivity : AppCompatActivity() {
         Log.d("OndeEstan", palabras.toString())
 
         ocultarPalabras()
+
+        // Inicializar timer
+        countDownTimer = object : CountDownTimer(90000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val seconds = millisUntilFinished / 1000
+                ondeEstanTimerTv.text = "$seconds:00"
+            }
+
+            override fun onFinish() {
+                Toast.makeText(this@OndeEstanGameActivity, "Tempo esgotado!", Toast.LENGTH_SHORT).show()
+                goResultsActivity(this@OndeEstanGameActivity, false)
+                ocultarPalabras()
+            }
+        }.start()
     }
 
     private fun mostrarPalabra(textView: TextView, palabra: String) {
@@ -132,5 +153,15 @@ class OndeEstanGameActivity : AppCompatActivity() {
         palabra9TextView.setBackgroundResource(R.drawable.ellipse_background)
         palabraActualTextView.text = palabrasOrdenCorrecto[0]
         aciertos = 0
+    }
+
+    private fun goResultsActivity(activity: AppCompatActivity, xogoGañado: Boolean = false) {
+        Intent(activity, OndeEstanResultsActivity::class.java).apply {
+            if (xogoGañado) {
+                putExtra("SCORE_ONDE_ESTAN", 90 - ondeEstanTimerTv.text.toString().split(":")[0].toInt())
+            }
+            startActivity(this)
+            finish()
+        }
     }
 }

@@ -35,7 +35,7 @@
         android:layout_marginTop="16dp"
         android:columnCount="3"
         app:layout_constraintTop_toBottomOf="@id/palabraActualOndeEstanTextView"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="@id/onde_estan_timer_tv">
 
         <TextView
             android:id="@+id/palabra1"
@@ -138,5 +138,17 @@
             tools:text="Palabra 9" />
 
     </GridLayout>
+
+    <TextView
+        android:id="@+id/onde_estan_timer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:background="@drawable/agora_caigo_timer_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridOndeEstan"
+        tools:text="90:00" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

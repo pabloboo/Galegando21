@@ -59,5 +59,6 @@
     <string name="mastermind_explicacion">Mastermind trátase de adiviñar unha combinación segreda de 4 cores en orden.\n\nPreme unha das cores durante 2 segundos e arrastraa ata a zona de solución (zona grisácea da pantalla). Cando teñas 4 cores na zona de solución preme o botón de \'Enviar resposta\'.\n\nMostraranseche como pistas o número de cores que colocaches correctamente e o número de cores que puxeches na solución pero non no orden correcto. Contas con un total de 10 intentos.</string>
     <string name="onde_estan">Onde están?</string>
     <string name="day16_text">Día 16 - Onde están?</string>
+    <string name="onde_estan_explicacion">Este xogo está badado en unha proba do concurso televisivo \'Pasapalabra\'.\n\nO obxectivo é encontrar a palabra que se mostra no recadro superior. Cando fas click en unha elipse revelase a palabra oculta correspondente a esa elipse. Se a palabra coincide coa que se mostra no recadro superior acertaches.\n\nO xogo continúa ata que encontres todas as palabras no orden correcto.</string>
 
 </resources>
