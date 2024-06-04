@@ -11,6 +11,7 @@ import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class RuletaDaSorteResultsActivity : AppCompatActivity() {
     private lateinit var ruletaDaSorteCashResultTv : TextView
@@ -57,5 +58,7 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("RuletaDaSorteResultsActivity", "maxCash: ${sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)}")
+
+        updateCurrentStreak(this)
     }
 }

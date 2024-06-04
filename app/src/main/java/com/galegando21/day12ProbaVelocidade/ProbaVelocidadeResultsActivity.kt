@@ -11,6 +11,7 @@ import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class ProbaVelocidadeResultsActivity : AppCompatActivity() {
     private lateinit var probaVelocidadeCorrectAnswersResultTv : TextView
@@ -57,5 +58,7 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
             editor.apply()
         }
         Log.d("ProbaVelocidadeResultsActivity", "minTime: ${sharedPreferences.getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0)}")
+
+        updateCurrentStreak(this)
     }
 }

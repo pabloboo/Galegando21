@@ -8,6 +8,7 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 
 class DebuxaEAdivinhaInicioActivity : AppCompatActivity() {
     private lateinit var comezarButton : Button
@@ -22,6 +23,7 @@ class DebuxaEAdivinhaInicioActivity : AppCompatActivity() {
 
         comezarButton.setOnClickListener {
             Intent(this@DebuxaEAdivinhaInicioActivity, DebuxaEAdivinhaGameActivity::class.java).also {
+                updateCurrentStreak(this)
                 startActivity(it)
                 finish()
             }
