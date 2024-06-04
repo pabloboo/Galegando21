@@ -99,6 +99,7 @@
             android:layout_height="wrap_content"
             android:minHeight="50dp"
             android:text="@string/check"
+            android:backgroundTint="@color/secondaryBlue"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

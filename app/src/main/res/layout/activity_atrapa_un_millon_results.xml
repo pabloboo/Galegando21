@@ -32,7 +32,7 @@
         android:id="@+id/atrapa_un_millon_finish_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/secondaryBlue"
+        android:backgroundTint="@color/secondaryBlue"
         android:text="Finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
