@@ -55,6 +55,16 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             checkButtonClickListener()
         }
 
+        comodin1.setOnClickListener {
+            usarComodin()
+        }
+        comodin2.setOnClickListener {
+            usarComodin()
+        }
+        comodin3.setOnClickListener {
+            usarComodin()
+        }
+
         questionList = AgoraCaigoConstants.getQuestions()
 
         showNextQuestion()
@@ -105,18 +115,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                errors++
-                hideComodines(errors)
-                Toast.makeText(this@AgoraCaigoQuestionActivity, "${currentQuestionAgoraCaigo.solution}, Incorrecto!", Toast.LENGTH_SHORT).show()
-                if (errors < 4) {
-                    showNextQuestion()
-                } else {
-                    Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
-                        it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
-                        startActivity(it)
-                        finish()
-                    }
-                }
+                usarComodin()
             }
         }.start()
     }
@@ -143,6 +142,21 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             3 -> {
                 comodin3.visibility = View.GONE
             } else -> {}
+        }
+    }
+
+    private fun usarComodin() {
+        errors++
+        hideComodines(errors)
+        Toast.makeText(this@AgoraCaigoQuestionActivity, "${currentQuestionAgoraCaigo.solution}, Incorrecto!", Toast.LENGTH_SHORT).show()
+        if (errors < 4) {
+            showNextQuestion()
+        } else {
+            Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
+                it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
+                startActivity(it)
+                finish()
+            }
         }
     }
 }

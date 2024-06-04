@@ -40,7 +40,7 @@
     <string name="adivinhaAnoFoto_explicacion">Mostrarase unha foto e terás que adiviñar o ano no que foi tomada.\n\n Move o control ao ano no que cres que se tomou a foto e fai click en \'comprobar\'.\n\n Cada xogo ten 5 rondas e podes obter ata un total de 10 puntos por ronda.</string>
     <string name="agora_caigo">Agora caigo</string>
     <string name="day11_text">Día 11 - Agora Caigo</string>
-    <string name="agora_caigo_explicacion">En este xogo, basado no concurso televisivo \'Ahora caigo\', tes que acertar o máximo número de preguntas posibles, completando os ocos que faltan nas respostas.\n\n Podes fallar ata 4 veces.</string>
+    <string name="agora_caigo_explicacion">En este xogo, basado no concurso televisivo \'Ahora caigo\', tes que acertar o máximo número de preguntas posibles, completando os ocos que faltan nas respostas.\n\n Toca en un comodín para usalo. Podes fallar ata 4 veces.</string>
     <string name="musica_suxerencias">tes algunha suxerencia?\n\n podes propoñela enviando un correo a booiglesiaspablo@gmail.com</string>
     <string name="estadisticas">Estadísticas</string>
     <string name="estadisticas_usuario">Estadísticas de %1$s</string>
