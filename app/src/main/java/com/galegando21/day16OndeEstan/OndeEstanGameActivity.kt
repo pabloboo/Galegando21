@@ -86,7 +86,6 @@ class OndeEstanGameActivity : AppCompatActivity() {
             mostrarPalabra(textView, palabra)
             aciertos++
             if (aciertos == 9) {
-                countDownTimer?.cancel()
                 goResultsActivity(this, true)
             } else {
                 palabraActualTextView.text = palabrasOrdenCorrecto[aciertos]
@@ -107,6 +106,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
 
         ocultarPalabras()
 
+        countDownTimer?.cancel() // Cancelar timer si ya estaba inicializado
         // Inicializar timer
         countDownTimer = object : CountDownTimer(90000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -156,6 +156,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
     }
 
     private fun goResultsActivity(activity: AppCompatActivity, xogoGañado: Boolean = false) {
+        countDownTimer?.cancel()
         Intent(activity, OndeEstanResultsActivity::class.java).apply {
             if (xogoGañado) {
                 putExtra("SCORE_ONDE_ESTAN", 90 - ondeEstanTimerTv.text.toString().split(":")[0].toInt())
