@@ -132,6 +132,12 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
             }
         }
 
+        //Si falló la letra no está pierde la partida
+        if (numAciertos == 0) {
+            cash = 0
+            finalizarRuletaDaSorte()
+        }
+
         // Actualizar el dinero acumulado
         cash += numAciertos * nextMultiplicadorAccion
         cashTv.text = "$cash€"
@@ -250,12 +256,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
                 letterView.setOnClickListener {
                     playLetter((letterView).text[0])
                     if (isGameWon()) {
-                        Intent(this, RuletaDaSorteResultsActivity::class.java).apply {
-                            putExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, cash)
-                            Log.d("RuletaDaSorteGameActivity", "$cash")
-                            startActivity(this)
-                            finish()
-                        }
+                        finalizarRuletaDaSorte()
                     }
                     letterView.visibility = View.GONE
                 }
@@ -270,6 +271,15 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
             if (letterView is TextView) {
                 letterView.setOnClickListener(null)
             }
+        }
+    }
+
+    private fun finalizarRuletaDaSorte() {
+        Intent(this, RuletaDaSorteResultsActivity::class.java).apply {
+            putExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, cash)
+            Log.d("RuletaDaSorteGameActivity", "$cash")
+            startActivity(this)
+            finish()
         }
     }
 }
