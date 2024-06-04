@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day16OndeEstan.OndeEstanResultsActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/onde_estan_correct_answers_results_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/timer_icon_black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <TextView
+        android:id="@+id/onde_estan_correct_answers_results_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/onde_estan_correct_answers_results_icon"
+        app:layout_constraintEnd_toEndOf="@+id/onde_estan_correct_answers_results_icon"
+        app:layout_constraintStart_toStartOf="@+id/onde_estan_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/onde_estan_correct_answers_results_icon"
+        tools:text="30" />
+
+    <TextView
+        android:id="@+id/onde_estan_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        tools:text="Tardaches un total de 30 segundos" />
+
+    <Button
+        android:id="@+id/onde_estan_finish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondaryBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onde_estan_result_tv"
+        android:text="Finalizar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

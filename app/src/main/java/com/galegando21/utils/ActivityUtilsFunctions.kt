@@ -8,7 +8,7 @@ import com.galegando21.R
 import java.text.Normalizer
 import java.util.Calendar
 
-const val NUMBER_OF_DAYS = 15
+const val NUMBER_OF_DAYS = 16
 
 fun setBanner(activity: FragmentActivity, bannerTextId: Int) {
     val bannerFragment = activity.supportFragmentManager.findFragmentById(R.id.bannerFragment) as BannerFragment
