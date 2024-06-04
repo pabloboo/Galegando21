@@ -65,15 +65,31 @@
             android:layout_height="wrap_content"
             android:hint="@string/resposta" />
 
-        <ImageButton
-            android:id="@+id/check_btn_proba_velocidade"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:background="@color/secondaryBlue"
-            android:padding="10dp"
-            android:src="@drawable/check_icon" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+            <ImageButton
+                android:id="@+id/check_btn_proba_velocidade"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@color/secondaryBlue"
+                android:padding="10dp"
+                android:src="@drawable/check_icon" />
+            <ImageButton
+                android:id="@+id/mic_btn_proba_velocidade"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@color/secondaryBlue"
+                android:src="@drawable/mic_icon"/>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

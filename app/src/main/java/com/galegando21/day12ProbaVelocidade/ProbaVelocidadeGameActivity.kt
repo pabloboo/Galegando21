@@ -1,9 +1,11 @@
 package com.galegando21.day12ProbaVelocidade
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.speech.RecognizerIntent
 import android.text.InputFilter
 import android.util.Log
 import android.widget.EditText
@@ -11,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
@@ -43,6 +46,8 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     private var revealedLetterIndices = mutableListOf<Int>()
 
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
+
+    private lateinit var micButton: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_proba_velocidade_game)
@@ -53,9 +58,13 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
         userAnswerTv.filters = arrayOf(InputFilter.AllCaps())
         checkButton = findViewById(R.id.check_btn_proba_velocidade)
         probaVelocidadeTimerTv = findViewById(R.id.proba_velocidade_timer_tv)
+        micButton = findViewById(R.id.mic_btn_proba_velocidade)
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
+        }
+        micButton.setOnClickListener {
+            promptSpeechInput()
         }
 
         questionList = QuestionRuletaDaSorteConstants.getQuestions()
@@ -163,4 +172,27 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
             Toast.makeText(this, "Segue intentandoo!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    //Grabación audio
+    private fun promptSpeechInput() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "gl-ES")
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Fala agora")
+
+        try {
+             getResult.launch(intent)
+        } catch (a: ActivityNotFoundException) {
+            Toast.makeText(applicationContext, "O teu dispositivo non soporta entrada de voz", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val getResult =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK && null != it.data) {
+                val result = it.data!!.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                userAnswerTv.setText(result?.get(0) ?: "")
+            }
+        }
 }
