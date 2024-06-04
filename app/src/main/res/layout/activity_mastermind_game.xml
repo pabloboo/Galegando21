@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:text="Limpar"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/canela"
             android:layout_marginRight="20dp"/>
 
         <Button
@@ -99,7 +99,7 @@
             tools:visibility="visible"
             android:visibility="gone"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white" />
+            android:backgroundTint="@color/canela" />
 
         <Button
             android:id="@+id/finalizar_button_mastermind"
