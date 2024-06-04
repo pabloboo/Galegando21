@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day17SopaLetras.SopaLetrasGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/sopaLetrasHintTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="hint"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        android:elevation="2dp"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <GridLayout
+        android:id="@+id/gridSopaLetras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintBottom_toTopOf="@+id/sopaLetrasBtnsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:columnCount="5"
+        android:rowCount="5"
+        android:layout_gravity="center"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/letter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/letter25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="A"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_square"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp" />
+
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/sopaLetrasBtnsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/gridSopaLetras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/xogar_de_novo_button_sopa_letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xogar de novo"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/canela" />
+        <Button
+            android:id="@+id/checkAnswerSopaLetrasBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comprobar"
+            android:backgroundTint="@color/secondaryBlue"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:elevation="4dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

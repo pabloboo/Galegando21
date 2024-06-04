@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import com.galegando21.R
-import com.galegando21.utils.PasagalegoConstants
+import com.galegando21.utils.ALFABETO
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -19,7 +19,7 @@ enum class LetterStatus {
 
 class RoscoView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private val paint = Paint()
-    private val letters = PasagalegoConstants.ALFABETO.toCharArray()
+    private val letters = ALFABETO.toCharArray()
     private var currentLetter: Char = 'A'
     private val letterStatus = mutableMapOf<Char, LetterStatus>()
 
