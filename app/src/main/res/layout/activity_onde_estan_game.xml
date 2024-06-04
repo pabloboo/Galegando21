@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day16OndeEstan.OndeEstanGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/palabraActualOndeEstanTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="50dp"
+        android:elevation="10dp"
+        tools:text="Palabra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+
+    <GridLayout
+        android:id="@+id/gridOndeEstan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="3"
+        app:layout_constraintTop_toBottomOf="@id/palabraActualOndeEstanTextView"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/palabra1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 1" />
+        <TextView
+            android:id="@+id/palabra2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 2" />
+        <TextView
+            android:id="@+id/palabra3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 3" />
+        <TextView
+            android:id="@+id/palabra4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 4" />
+        <TextView
+            android:id="@+id/palabra5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 5" />
+        <TextView
+            android:id="@+id/palabra6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 6" />
+        <TextView
+            android:id="@+id/palabra7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 7" />
+        <TextView
+            android:id="@+id/palabra8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 8" />
+        <TextView
+            android:id="@+id/palabra9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/ellipse_background"
+            android:textColor="@color/white"
+            android:gravity="center"
+            tools:text="Palabra 9" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
