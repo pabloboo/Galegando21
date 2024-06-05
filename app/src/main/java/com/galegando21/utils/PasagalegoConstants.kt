@@ -7,7 +7,6 @@ object PasagalegoConstants {
     const val SCORE = "correct_pasagalego_answers"
     const val ERRORS = "error_pasagalego_answers"
     const val TIME = "chronometer_final_time"
-    const val ALFABETO = "ABCDEFGHILMNÑOPQRSTUVXZ"
 
     fun getPasagalegoQuestions(letter: Char) : MutableList<QuestionPasagalego> {
         var questions : MutableList<QuestionPasagalego> = mutableListOf()

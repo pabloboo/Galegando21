@@ -25,6 +25,7 @@ class StatisticsActivity : AppCompatActivity() {
     private lateinit var probaVelocidadeScore: TextView
     private lateinit var ruletaDaSorteCash: TextView
     private lateinit var ondeEstanScore: TextView
+    private lateinit var sopaLetrasScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,7 @@ class StatisticsActivity : AppCompatActivity() {
         probaVelocidadeScore = findViewById(R.id.proba_velocidade_time_statistics)
         ruletaDaSorteCash = findViewById(R.id.ruleta_da_sorte_cash_statistics)
         ondeEstanScore = findViewById(R.id.onde_estan_time_statistics)
+        sopaLetrasScore = findViewById(R.id.sopa_letras_score_statistics)
 
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
@@ -89,6 +91,8 @@ class StatisticsActivity : AppCompatActivity() {
         ruletaDaSorteCash.text = sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0).toString()
 
         ondeEstanScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ONDE_ESTAN_MIN_TIME, 0).toString()
+
+        sopaLetrasScore.text = sharedPreferences.getInt(SharedPreferencesKeys.SOPA_LETRAS_MAX_SCORE, 0).toString()
 
     }
 }

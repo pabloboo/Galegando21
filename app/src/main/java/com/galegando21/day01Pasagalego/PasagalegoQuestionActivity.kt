@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
+import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestionsNivelFacil
@@ -31,7 +32,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     private lateinit var checkButton : ImageButton
     private lateinit var pasapalabraButton : ImageButton
 
-    private var letters = StringBuilder(PasagalegoConstants.ALFABETO)
+    private var letters = StringBuilder(ALFABETO)
     private var questionCounter = 0
     private var correctAnswers = 0
     private var errorAnswers = 0
