@@ -1,9 +1,12 @@
 package com.galegando21.day17SopaLetras
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Button
+import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,16 +21,20 @@ import kotlin.random.Random
 class SopaLetrasGameActivity : AppCompatActivity() {
     private lateinit var rachaActualTextView: TextView
     private lateinit var hintTextView: TextView
+    private lateinit var sopaLetrasTimerTv: TextView
+    private lateinit var gridSopaLetras: GridLayout
     private lateinit var checkAnswerButton: Button
     private lateinit var xogarDeNovoButton: Button
 
-    private val boardSize = 5
+    private var boardSize = 5
     private var board = Array(boardSize) { arrayOfNulls<Char>(boardSize) }
     private var words: MutableList<String> = mutableListOf()
     private val selectedLetters = mutableListOf<TextView>()
     private val correctTextViews = mutableListOf<TextView>()
     private val allTextViews = mutableListOf<TextView>()
     private var racha = 0
+    private var dificultade = SopaLetrasConstants.NIVEL_FACIL
+    private var countDownTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +42,14 @@ class SopaLetrasGameActivity : AppCompatActivity() {
 
         rachaActualTextView = findViewById(R.id.rachaActualTextView)
         hintTextView = findViewById(R.id.sopaLetrasHintTextView)
+        sopaLetrasTimerTv = findViewById(R.id.sopa_letras_timer_tv)
+        gridSopaLetras = findViewById(R.id.gridSopaLetras)
         checkAnswerButton = findViewById(R.id.checkAnswerSopaLetrasBtn)
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_button_sopa_letras)
 
         setBanner(this, R.string.sopa_de_letras)
+
+        dificultade = intent.getStringExtra("dificultade")  ?: SopaLetrasConstants.NIVEL_FACIL
 
         generateWords()
         generateBoard()
@@ -51,14 +62,57 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             novoXogo()
         }
 
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
     }
 
     private fun generateWords() {
+        // Cancelar el temporizador si está corriendo
+        countDownTimer?.cancel()
+
         words.clear()
-        val questionSopaLetras = SopaLetrasConstants.getSopasLetrasConPista().random()
-        words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
-        hintTextView.text = questionSopaLetras.hint
+
+        if (dificultade == SopaLetrasConstants.NIVEL_FACIL) {
+            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(4)
+            words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
+            hintTextView.text = words.joinToString(", ")
+        }
+        if (dificultade == SopaLetrasConstants.NIVEL_MEDIO) {
+            val questionSopaLetras = SopaLetrasConstants.getSopasLetrasConPista().random()
+            words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
+            hintTextView.text = questionSopaLetras.hint
+        } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
+            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(5)
+            words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
+            // Ampliar tablero a 6x6
+            boardSize = 6
+            board = Array(boardSize) { arrayOfNulls<Char>(boardSize) }
+            gridSopaLetras.columnCount = boardSize
+            gridSopaLetras.columnCount = boardSize
+            showTextViewsBoard6()
+
+            hintTextView.text = words.joinToString(", ")
+        }
+
+        // Iniciar temporizador si la dificultad es media o difícil
+        if (dificultade == SopaLetrasConstants.NIVEL_MEDIO || dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
+            // Inicializar nuevo temporizador
+            countDownTimer = object : CountDownTimer(60000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val seconds = millisUntilFinished / 1000
+                    sopaLetrasTimerTv.text = "$seconds:00"
+                }
+
+                override fun onFinish() {
+                    Log.d("SopaLetrasGameActivity", "$racha sopas de letras completadas")
+                    Intent(this@SopaLetrasGameActivity, MainActivity::class.java).also {
+                        startActivity(it)
+                        finish()
+                    }
+                }
+            }.start()
+        } else {
+            sopaLetrasTimerTv.visibility = TextView.GONE
+        }
     }
 
     private fun generateBoard() {
@@ -71,7 +125,13 @@ class SopaLetrasGameActivity : AppCompatActivity() {
 
             // Si las posiciones están ocupadas generar nuevas posiciones
             while (isOccupied) {
-                direction = Random.nextInt(6)
+                if (dificultade == SopaLetrasConstants.NIVEL_FACIL) {
+                    direction = Random.nextInt(2)
+                } else if (dificultade == SopaLetrasConstants.NIVEL_MEDIO) {
+                    direction = Random.nextInt(6)
+                } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
+                    direction = Random.nextInt(6)
+                }
                 startRow = if (direction == 0) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
                 startCol = if (direction == 1) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
 
@@ -256,6 +316,13 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         for (textView in allTextViews) {
             textView.setBackgroundColor(resources.getColor(R.color.primaryBlue, null))
             textView.text = null
+        }
+    }
+
+    private fun showTextViewsBoard6() {
+        for (i in 26 until 37) {
+            val textView = findViewById<TextView>(resources.getIdentifier("letter${i}", "id", packageName))
+            textView.visibility = TextView.VISIBLE
         }
     }
 

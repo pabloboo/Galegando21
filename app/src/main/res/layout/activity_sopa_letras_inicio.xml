@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day17SopaLetras.SopaLetrasInicioActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/sopa_letras_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintBottom_toTopOf="@id/explicacion_sopa_letras_image_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="150dp"
+        android:checkedButton="@id/sopa_letras_facil">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Nivel:"/>
+        <RadioButton
+            android:id="@+id/sopa_letras_facil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Fácil"/>
+        <RadioButton
+            android:id="@+id/sopa_letras_medio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Medio"/>
+        <RadioButton
+            android:id="@+id/sopa_letras_dificil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Difícil"/>
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/explicacion_sopa_letras_image_view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@+id/sopa_letras_radio_group"
+        app:layout_constraintBottom_toTopOf="@id/explicacion_sopa_letras_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/demo_sopa_letras_facil" />
+
+    <TextView
+        android:id="@+id/explicacion_sopa_letras_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/explicacion_sopa_letras_image_view"
+        app:layout_constraintBottom_toTopOf="@id/start_btn_sopa_letras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Busca as 3 palabras mostradas en un tableiro de 5x5. \n As palabras só están en dirección vertical ou horizontal."
+        android:textAlignment="center"/>
+
+
+
+    <Button
+        android:id="@+id/start_btn_sopa_letras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondaryBlue"
+        android:gravity="center"
+        android:text="@string/comezar_a_xogar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/explicacion_sopa_letras_text_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

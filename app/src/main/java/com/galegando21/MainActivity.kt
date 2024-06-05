@@ -32,7 +32,7 @@ import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
 import com.galegando21.day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.day15mastermind.MastermindInicioActivity
 import com.galegando21.day16OndeEstan.OndeEstanInicioActivity
-import com.galegando21.day17SopaLetras.SopaLetrasGameActivity
+import com.galegando21.day17SopaLetras.SopaLetrasInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -250,7 +250,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay17 -> {
-                Intent(this@MainActivity, SopaLetrasGameActivity::class.java).also {
+                Intent(this@MainActivity, SopaLetrasInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
