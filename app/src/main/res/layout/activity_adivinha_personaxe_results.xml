@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day19AdivinhaPersonaxe.AdivinhaPersonaxeResultsActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/adivinha_personaxe_correct_answers_results_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/trophy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
+
+    <TextView
+        android:id="@+id/adivinha_personaxe_correct_answers_results_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="75sp"
+        app:layout_constraintBottom_toBottomOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        app:layout_constraintEnd_toEndOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        app:layout_constraintStart_toStartOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        app:layout_constraintTop_toTopOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        tools:text="4" />
+
+    <TextView
+        android:id="@+id/adivinha_personaxe_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/adivinha_personaxe_finish_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
+        tools:text="Necesitaches 4 pistas para acertar o personaxe." />
+
+    <Button
+        android:id="@+id/adivinha_personaxe_finish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondaryBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adivinha_personaxe_result_tv"
+        android:text="Finalizar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

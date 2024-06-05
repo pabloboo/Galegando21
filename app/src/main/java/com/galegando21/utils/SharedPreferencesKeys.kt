@@ -27,4 +27,5 @@ object SharedPreferencesKeys {
     const val ONDE_ESTAN_MIN_TIME = "onde_estan_min_time"
     const val SOPA_LETRAS_MAX_SCORE = "sopa_letras_max_score"
     const val ANAGRAMAS_MAX_SCORE = "anagramas_max_score"
+    const val ADIVINHA_PERSONAXE_MAX_SCORE = "adivinha_personaxe_max_score"
 }

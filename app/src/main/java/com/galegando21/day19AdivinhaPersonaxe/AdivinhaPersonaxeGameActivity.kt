@@ -1,5 +1,6 @@
 package com.galegando21.day19AdivinhaPersonaxe
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputFilter
@@ -10,7 +11,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaPersonaxe
 import com.galegando21.utils.AdivinhaPersonaxeConstants
@@ -43,7 +43,7 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
 
         generatePersonaxeQuestion()
 
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, AdivinhaPersonaxeInicioActivity::class.java)
 
     }
 
@@ -113,7 +113,6 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
 
     private fun checkAnswer() {
         if (answerEditText.text.toString() == question.answer) {
-            Toast.makeText(this, "Resposta correcta!", Toast.LENGTH_SHORT).show()
             showAllLeftClues()
             finalizarXogo()
         } else {
@@ -122,5 +121,14 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
         }
     }
 
-    private fun finalizarXogo() {}
+    private fun finalizarXogo() {
+        checkAnswerButton.text = "Rematar"
+        checkAnswerButton.setOnClickListener {
+            Intent(this, AdivinhaPersonaxeResultsActivity::class.java).also {
+                it.putExtra(AdivinhaPersonaxeConstants.ADIVINHA_PERSONAXE_SCORE, currentClueIndex)
+                startActivity(it)
+                finish()
+            }
+        }
+    }
 }

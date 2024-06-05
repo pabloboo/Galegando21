@@ -3,6 +3,7 @@ package com.galegando21.utils
 import com.galegando21.model.QuestionAdivinhaPersonaxe
 
 object AdivinhaPersonaxeConstants {
+    const val ADIVINHA_PERSONAXE_SCORE = "ADIVINHA_PERSONAXE_SCORE"
 
     fun getQuestions() : MutableList<QuestionAdivinhaPersonaxe> {
         var questionsList: MutableList<QuestionAdivinhaPersonaxe> = mutableListOf()
