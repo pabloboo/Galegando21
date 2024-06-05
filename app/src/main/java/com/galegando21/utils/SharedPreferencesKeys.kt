@@ -26,4 +26,5 @@ object SharedPreferencesKeys {
     const val RULETA_DA_SORTE_MAX_CASH = "ruleta_da_sorte_max_cash"
     const val ONDE_ESTAN_MIN_TIME = "onde_estan_min_time"
     const val SOPA_LETRAS_MAX_SCORE = "sopa_letras_max_score"
+    const val ANAGRAMAS_MAX_SCORE = "anagramas_max_score"
 }
