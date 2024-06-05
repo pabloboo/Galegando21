@@ -16,6 +16,7 @@ import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class SopaLetrasGameActivity : AppCompatActivity() {
+    private lateinit var rachaActualTextView: TextView
     private lateinit var hintTextView: TextView
     private lateinit var checkAnswerButton: Button
     private lateinit var xogarDeNovoButton: Button
@@ -26,11 +27,13 @@ class SopaLetrasGameActivity : AppCompatActivity() {
     private val selectedLetters = mutableListOf<TextView>()
     private val correctTextViews = mutableListOf<TextView>()
     private val allTextViews = mutableListOf<TextView>()
+    private var racha = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sopa_letras_game)
 
+        rachaActualTextView = findViewById(R.id.rachaActualTextView)
         hintTextView = findViewById(R.id.sopaLetrasHintTextView)
         checkAnswerButton = findViewById(R.id.checkAnswerSopaLetrasBtn)
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_button_sopa_letras)
@@ -75,32 +78,32 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 isOccupied = false
                 for (i in word.indices) {
                     if (direction == 0) { // Horizontal
-                        if (board[startRow][startCol + i] != null) {
+                        if ((board[startRow][startCol + i] != null) && (board[startRow][startCol + i] != word[i])) {
                             isOccupied = true
                             break
                         }
                     } else if (direction == 1) { // Vertical
-                        if (board[startRow + i][startCol] != null) {
+                        if ((board[startRow + i][startCol] != null) && (board[startRow + i][startCol] != word[i])) {
                             isOccupied = true
                             break
                         }
                     } else if (direction == 2) { // Horizontal inversa
-                        if (board[startRow][(startCol - i).mod(boardSize)] != null) {
+                        if ((board[startRow][(startCol - i).mod(boardSize)] != null) && (board[startRow][(startCol - i).mod(boardSize)] != word[i])) {
                             isOccupied = true
                             break
                         }
                     } else if (direction == 3) { // Vertical inversa
-                        if (board[(startRow - i).mod(boardSize)][startCol] != null) {
+                        if ((board[(startRow - i).mod(boardSize)][startCol] != null) && (board[(startRow - i).mod(boardSize)][startCol] != word[i])){
                             isOccupied = true
                             break
                         }
                     } else if (direction == 4) { // Diagonal
-                        if (board[startRow + i][startCol + i] != null) {
+                        if ((board[startRow + i][startCol + i] != null) && (board[startRow + i][startCol + i] != word[i])) {
                             isOccupied = true
                             break
                         }
                     } else if (direction == 5) { // Diagonal inversa
-                        if (board[(startRow - i).mod(boardSize)][(startCol - i).mod(boardSize)] != null) {
+                        if ((board[(startRow - i).mod(boardSize)][(startCol - i).mod(boardSize)] != null) && (board[(startRow - i).mod(boardSize)][(startCol - i).mod(boardSize)] != word[i])) {
                             isOccupied = true
                             break
                         }
@@ -163,6 +166,8 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             // Comprobar si se han encontrado todas las palabras
             if (words.isEmpty()) {
                 Toast.makeText(this, "Felicidades! Encontraches todas as palabras", Toast.LENGTH_SHORT).show()
+                racha++
+                rachaActualTextView.text = "Racha actual: $racha"
                 xogarDeNovoButton.visibility = Button.VISIBLE
                 checkAnswerButton.visibility = Button.GONE
             }
