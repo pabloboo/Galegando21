@@ -25,4 +25,5 @@ object SharedPreferencesKeys {
     const val PROBA_VELOCIDADE_MIN_TIME = "proba_velocidade_min_time"
     const val RULETA_DA_SORTE_MAX_CASH = "ruleta_da_sorte_max_cash"
     const val ONDE_ESTAN_MIN_TIME = "onde_estan_min_time"
+    const val SOPA_LETRAS_MAX_SCORE = "sopa_letras_max_score"
 }

@@ -20,11 +20,13 @@ import kotlin.random.Random
 
 class SopaLetrasGameActivity : AppCompatActivity() {
     private lateinit var rachaActualTextView: TextView
+    private lateinit var scoreActualTextView: TextView
     private lateinit var hintTextView: TextView
     private lateinit var sopaLetrasTimerTv: TextView
     private lateinit var gridSopaLetras: GridLayout
     private lateinit var checkAnswerButton: Button
     private lateinit var xogarDeNovoButton: Button
+    private lateinit var finishButton: Button
 
     private var boardSize = 5
     private var board = Array(boardSize) { arrayOfNulls<Char>(boardSize) }
@@ -33,6 +35,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
     private val correctTextViews = mutableListOf<TextView>()
     private val allTextViews = mutableListOf<TextView>()
     private var racha = 0
+    private var puntuacion = 0
     private var dificultade = SopaLetrasConstants.NIVEL_FACIL
     private var countDownTimer: CountDownTimer? = null
 
@@ -41,11 +44,13 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sopa_letras_game)
 
         rachaActualTextView = findViewById(R.id.rachaActualTextView)
+        scoreActualTextView = findViewById(R.id.scoreActualTextView)
         hintTextView = findViewById(R.id.sopaLetrasHintTextView)
         sopaLetrasTimerTv = findViewById(R.id.sopa_letras_timer_tv)
         gridSopaLetras = findViewById(R.id.gridSopaLetras)
         checkAnswerButton = findViewById(R.id.checkAnswerSopaLetrasBtn)
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_button_sopa_letras)
+        finishButton = findViewById(R.id.finishGameSopaLetrasBtn)
 
         setBanner(this, R.string.sopa_de_letras)
 
@@ -60,6 +65,10 @@ class SopaLetrasGameActivity : AppCompatActivity() {
 
         xogarDeNovoButton.setOnClickListener {
             novoXogo()
+        }
+
+        finishButton.setOnClickListener {
+            finalizarXogo()
         }
 
         setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
@@ -103,11 +112,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 }
 
                 override fun onFinish() {
-                    Log.d("SopaLetrasGameActivity", "$racha sopas de letras completadas")
-                    Intent(this@SopaLetrasGameActivity, MainActivity::class.java).also {
-                        startActivity(it)
-                        finish()
-                    }
+                    finalizarXogo()
                 }
             }.start()
         } else {
@@ -227,8 +232,17 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             if (words.isEmpty()) {
                 Toast.makeText(this, "Felicidades! Encontraches todas as palabras", Toast.LENGTH_SHORT).show()
                 racha++
-                rachaActualTextView.text = "Racha actual: $racha"
+                if (dificultade == SopaLetrasConstants.NIVEL_FACIL) {
+                    puntuacion += 10
+                } else if (dificultade == SopaLetrasConstants.NIVEL_MEDIO) {
+                    puntuacion += 2 * sopaLetrasTimerTv.text.toString().split(":")[0].toInt()
+                } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
+                    puntuacion += 4 * sopaLetrasTimerTv.text.toString().split(":")[0].toInt()
+                }
+                rachaActualTextView.text = "Racha: $racha"
+                scoreActualTextView.text = "Puntos: $puntuacion"
                 xogarDeNovoButton.visibility = Button.VISIBLE
+                finishButton.visibility = Button.VISIBLE
                 checkAnswerButton.visibility = Button.GONE
             }
 
@@ -332,8 +346,19 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         selectedLetters.clear()
         correctTextViews.clear()
         xogarDeNovoButton.visibility = Button.GONE
+        finishButton.visibility = Button.GONE
         checkAnswerButton.visibility = Button.VISIBLE
         generateWords()
         generateBoard()
+    }
+
+    private fun finalizarXogo() {
+        Intent(this, SopaLetrasResultsActivity::class.java).also {
+            countDownTimer?.cancel()
+            it.putExtra(SopaLetrasConstants.TABLEIROS_ACERTADOS, racha)
+            it.putExtra(SopaLetrasConstants.SCORE, puntuacion)
+            startActivity(it)
+            finish()
+        }
     }
 }

@@ -3,6 +3,8 @@ package com.galegando21.utils
 import com.galegando21.model.QuestionSopaLetras
 
 object SopaLetrasConstants {
+    const val TABLEIROS_ACERTADOS = "tableiros_acertados_sopa_letras"
+    const val SCORE = "score_sopa_letras"
     const val NIVEL_FACIL = "facil"
     const val NIVEL_MEDIO = "medio"
     const val NIVEL_DIFICIL = "dificil"

@@ -57,7 +57,7 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
                 }
                 radioButtonMedio.id -> {
                     explicacionImageView.setImageResource(R.drawable.demo_sopa_letras_medio)
-                    explicacionTextView.text = "Busca 3 palabras, axudandote da pista dada, en un tabliero de 5x5, en menos de 1 minuto. \n As palabras poden estar en calquera dirección."
+                    explicacionTextView.text = "Busca 3 palabras, axudandote da pista dada, en un tableiro de 5x5, en menos de 1 minuto. \n As palabras poden estar en calquera dirección."
                 }
                 radioButtonDificil.id -> {
                     explicacionImageView.setImageResource(R.drawable.demo_sopa_letras_dificil)

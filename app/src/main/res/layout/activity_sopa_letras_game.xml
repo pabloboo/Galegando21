@@ -14,21 +14,40 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/rachaActualTextView"
+    <LinearLayout
+        android:id="@+id/estadisticasActualesSopaLetrasLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Racha: 0"
-        android:textColor="@color/black"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:padding="15dp"
-        android:layout_margin="5dp"
-        android:elevation="2dp"
-        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment"
         app:layout_constraintBottom_toTopOf="@id/sopa_letras_timer_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/rachaActualTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Racha: 0"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/scoreActualTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puntos: 0"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_margin="5dp"
+            android:elevation="2dp"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/sopa_letras_timer_tv"
@@ -39,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@+id/sopaLetrasHintTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rachaActualTextView"
+        app:layout_constraintTop_toBottomOf="@+id/estadisticasActualesSopaLetrasLayout"
         tools:text="30:00" />
 
     <TextView
@@ -541,6 +560,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Comprobar"
+            android:backgroundTint="@color/secondaryBlue"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:elevation="4dp"/>
+        <Button
+            android:id="@+id/finishGameSopaLetrasBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finalizar"
+            tools:visibility="visible"
+            android:visibility="gone"
             android:backgroundTint="@color/secondaryBlue"
             android:textColor="@color/white"
             android:layout_margin="10dp"
