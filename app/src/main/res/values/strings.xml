@@ -62,5 +62,8 @@
     <string name="onde_estan_explicacion">Este xogo está badado en unha proba do concurso televisivo \'Pasapalabra\'.\n\nO obxectivo é encontrar a palabra que se mostra no recadro superior. Cando fas click en unha elipse revelase a palabra oculta correspondente a esa elipse. Se a palabra coincide coa que se mostra no recadro superior acertaches.\n\nO xogo continúa ata que encontres todas as palabras no orden correcto.</string>
     <string name="day17_text">Día 17 - Sopa de Letras</string>
     <string name="sopa_de_letras">Sopa de Letras</string>
+    <string name="anagramas">Anagramas</string>
+    <string name="day18_text">Día 18 - Anagramas</string>
+    <string name="anagramas_explicacion">Mostraraseche unha palabra coas súas letras desordeadas.\n\nO obxectivo do xogo é reordear as letras de esa palabra correctamente. Escribea no campo de texto que verás en pantalla e preme \'Comprobar\' para introducir a resposta.</string>
 
 </resources>
