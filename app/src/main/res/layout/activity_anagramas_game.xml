@@ -26,9 +26,21 @@
         android:elevation="2dp"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment"
-        app:layout_constraintBottom_toTopOf="@+id/hintAnagramaTextView"
+        app:layout_constraintBottom_toTopOf="@+id/anagramas_timer_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/anagramas_timer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:background="@drawable/agora_caigo_timer_background"
+        app:layout_constraintBottom_toTopOf="@+id/hintAnagramaTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rachaActualAnagramasTextView"
+        tools:text="30:00" />
 
     <TextView
         android:id="@+id/hintAnagramaTextView"
@@ -39,7 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/answerAnagramaEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rachaActualAnagramasTextView" />
+        app:layout_constraintTop_toBottomOf="@id/anagramas_timer_tv" />
 
     <EditText
         android:id="@+id/answerAnagramaEditText"
@@ -49,23 +61,40 @@
         android:inputType="text"
         android:textSize="24sp"
         android:layout_marginHorizontal="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkAnswerAnagramasBtn"
+        app:layout_constraintBottom_toTopOf="@+id/checkAnswerAnagramasBtnLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hintAnagramaTextView" />
 
-    <Button
-        android:id="@+id/checkAnswerAnagramasBtn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/checkAnswerAnagramasBtnLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Comprobar"
-        android:backgroundTint="@color/secondaryBlue"
-        android:textColor="@color/white"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/answerAnagramaEditText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/checkAnswerAnagramasBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comprobar"
+            android:backgroundTint="@color/secondaryBlue"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:elevation="4dp" />
+        <Button
+            android:id="@+id/finishAnagramasBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rematar"
+            android:backgroundTint="@color/canela"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:elevation="4dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

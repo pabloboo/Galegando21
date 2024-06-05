@@ -535,7 +535,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/linearLayoutAnagramasStatistics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutOndeEstanStatistics">
@@ -573,6 +573,54 @@
                         app:layout_constraintStart_toStartOf="@+id/sopa_letras_results_icon_statistics"
                         app:layout_constraintTop_toTopOf="@+id/sopa_letras_results_icon_statistics"
                         tools:text="300" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAnagramasStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutSopaLetrasStatistics">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="ANAGRAMAS"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/anagramas_results_icon_statistics"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/fire_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/anagramas_score_statistics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/anagramas_results_icon_statistics"
+                        app:layout_constraintEnd_toEndOf="@+id/anagramas_results_icon_statistics"
+                        app:layout_constraintStart_toStartOf="@+id/anagramas_results_icon_statistics"
+                        app:layout_constraintTop_toTopOf="@+id/anagramas_results_icon_statistics"
+                        tools:text="5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
