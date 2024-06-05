@@ -61,41 +61,46 @@ class SopaLetrasGameActivity : AppCompatActivity() {
     private fun generateBoard() {
         // Insertar palabras en el tablero
         for (word in words) {
-            var direction = Random.nextInt(2)
-            var startRow = if (direction == 0) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
-            var startCol = if (direction == 1) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
-
-            // Comprobar si las posiciones ya están ocupadas
-            var isOccupied = false
-            for (i in word.indices) {
-                if (direction == 0) {
-                    if (board[startRow][startCol + i] != null) {
-                        isOccupied = true
-                        break
-                    }
-                } else {
-                    if (board[startRow + i][startCol] != null) {
-                        isOccupied = true
-                        break
-                    }
-                }
-            }
+            var direction = 0
+            var startRow = 0
+            var startCol = 0
+            var isOccupied = true
 
             // Si las posiciones están ocupadas generar nuevas posiciones
             while (isOccupied) {
-                direction = Random.nextInt(2)
+                direction = Random.nextInt(6)
                 startRow = if (direction == 0) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
                 startCol = if (direction == 1) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
 
                 isOccupied = false
                 for (i in word.indices) {
-                    if (direction == 0) {
+                    if (direction == 0) { // Horizontal
                         if (board[startRow][startCol + i] != null) {
                             isOccupied = true
                             break
                         }
-                    } else {
+                    } else if (direction == 1) { // Vertical
                         if (board[startRow + i][startCol] != null) {
+                            isOccupied = true
+                            break
+                        }
+                    } else if (direction == 2) { // Horizontal inversa
+                        if (board[startRow][(startCol - i).mod(boardSize)] != null) {
+                            isOccupied = true
+                            break
+                        }
+                    } else if (direction == 3) { // Vertical inversa
+                        if (board[(startRow - i).mod(boardSize)][startCol] != null) {
+                            isOccupied = true
+                            break
+                        }
+                    } else if (direction == 4) { // Diagonal
+                        if (board[startRow + i][startCol + i] != null) {
+                            isOccupied = true
+                            break
+                        }
+                    } else if (direction == 5) { // Diagonal inversa
+                        if (board[(startRow - i).mod(boardSize)][(startCol - i).mod(boardSize)] != null) {
                             isOccupied = true
                             break
                         }
@@ -107,8 +112,16 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             for (i in word.indices) {
                 if (direction == 0) {
                     board[startRow][startCol + i] = word[i]
-                } else {
+                } else if (direction == 1) { // Vertical
                     board[startRow + i][startCol] = word[i]
+                } else if (direction == 2) { // Horizontal inversa
+                    board[startRow][(startCol - i).mod(boardSize)] = word[i]
+                } else if (direction == 3) { // Vertical inversa
+                    board[(startRow - i).mod(boardSize)][startCol] = word[i]
+                } else if (direction == 4) { // Diagonal
+                    board[startRow + i][startCol + i] = word[i]
+                } else if (direction == 5) { // Diagonal inversa
+                    board[(startRow - i).mod(boardSize)][(startCol - i).mod(boardSize)] = word[i]
                 }
             }
         }
@@ -182,12 +195,15 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         val firstRow = allTextViews.indexOf(firstTextView) / boardSize
         val firstCol = allTextViews.indexOf(firstTextView) % boardSize
 
-        // Realizar un recorrido en anchura para comprobar si las letras seleccionadas están contiguas
         // Usar una cola para almacenar las celdas a visitar y visited para marcar las celdas visitadas
         val visited = Array(boardSize) { BooleanArray(boardSize) }
         val queue = mutableListOf<Pair<Int, Int>>()
         queue.add(Pair(firstRow, firstCol))
         visited[firstRow][firstCol] = true
+
+        // dirección (i,j) donde i es el cambio en la fila y j es el cambio en la columna
+        // posición relativa: (i,j) = (0,1) derecha, (0,-1) izquierda, (1,0) abajo, (-1,0) arriba
+        var direction: Pair<Int, Int>? = null
 
         // Mientras la cola no estea vacía comprobar si las letras seleccionadas están contiguas
         while (queue.isNotEmpty()) {
@@ -195,16 +211,22 @@ class SopaLetrasGameActivity : AppCompatActivity() {
 
             for (i in -1..1) {
                 for (j in -1..1) {
-                    if (i == 0 && j == 0) {
+                    if (i == 0 && j == 0) { // No visitar la celda actual
                         continue
                     }
 
-                    val newRow = row + i
-                    val newCol = col + j
+                    val newRow = (row + i + boardSize) % boardSize
+                    val newCol = (col + j + boardSize) % boardSize
 
-                    if (newRow in 0 until boardSize && newCol in 0 until boardSize && !visited[newRow][newCol]) {
+                    if (!visited[newRow][newCol]) {
+                        // Si la celda vecina es una letra seleccionada visitarla
                         val textView = allTextViews[newRow * boardSize + newCol]
                         if (selectedLetters.contains(textView)) {
+                            if (direction == null) {
+                                direction = Pair(i, j)
+                            } else if (direction != Pair(i, j)) {
+                                return false
+                            }
                             visited[newRow][newCol] = true
                             queue.add(Pair(newRow, newCol))
                         }
