@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +14,7 @@ import com.galegando21.databinding.ActivityMainBinding
 import com.galegando21.day02Musica.MusicaActivity
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.work.ExistingPeriodicWorkPolicy
@@ -62,6 +65,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day17Button: ImageButton
 
     private val PERMISSION_REQUEST_CODE = 1
+    private var backPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Galegando21)
@@ -118,6 +122,22 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Botóns desbloqueados", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (backPressedOnce) {
+                    finishAffinity()
+                    return
+                }
+
+                backPressedOnce = true
+                Toast.makeText(this@MainActivity, "Presiona de novo para sair", Toast.LENGTH_SHORT).show()
+
+                Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                    backPressedOnce = false
+                }, 2000)
+            }
+        })
 
     }
 
