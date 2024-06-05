@@ -583,7 +583,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutAdivinhaPersonaxeStatistics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayoutSopaLetrasStatistics">
@@ -623,6 +623,56 @@
                         tools:text="5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAdivinhaPersonaxeStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutAnagramasStatistics">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="ADIVIÑA O PERSONAXE"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/adivinha_personaxe_results_icon_statistics"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/adivinhar_personaxe_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/adivinha_personaxe_score_statistics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/adivinha_personaxe_results_icon_statistics"
+                        app:layout_constraintEnd_toEndOf="@+id/adivinha_personaxe_results_icon_statistics"
+                        app:layout_constraintStart_toStartOf="@+id/adivinha_personaxe_results_icon_statistics"
+                        app:layout_constraintTop_toTopOf="@+id/adivinha_personaxe_results_icon_statistics"
+                        tools:text="4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
