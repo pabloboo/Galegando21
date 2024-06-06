@@ -1,9 +1,12 @@
 package com.galegando21.model
 
+import android.content.Context
+import android.util.Log
 import com.galegando21.utils.WordleConstants
 import kotlin.random.Random
 
 class WordleGameManager(
+    private val context: Context,
     private var rowCount: Int = 6
 ) {
     val IN_WORD = 0
@@ -130,7 +133,7 @@ class WordleGameManager(
     }
 
     fun setWord() {
-        val words = WordleConstants.getWords()
+        val words = WordleConstants.getWords(context)
         word = words[Random.nextInt(words.size)]
     }
 }

@@ -32,7 +32,7 @@ class WordleGameActivity : AppCompatActivity() {
 
         setBanner(this, R.string.wordle)
 
-        gameCore = WordleGameManager(rowCount)
+        gameCore = WordleGameManager(this, rowCount)
         initTexts()
         setEventListeners()
 

@@ -1,5 +1,6 @@
 package com.galegando21.utils
 
+import android.content.Context
 import com.galegando21.model.QuestionSopaLetras
 
 object SopaLetrasConstants {
@@ -27,9 +28,9 @@ object SopaLetrasConstants {
         return sopasLetrasList
     }
 
-    fun getSopasLetras(maxWordLength: Int): QuestionSopaLetras {
+    fun getSopasLetras(context: Context, maxWordLength: Int): QuestionSopaLetras {
         // Obtener 3 palabras aleatorias de AforcadoConstants.getWords() que tengan máximo 5 letras
-        val words = AforcadoGameConstants.getWords()
+        val words = DigalegoConstants.getWords(context)
         val wordsFiltered = words.filter { it.length <= maxWordLength }
         val wordsRandom = wordsFiltered.shuffled().take(3)
         return QuestionSopaLetras(

@@ -51,7 +51,7 @@ class AforcadoGameActivity : AppCompatActivity() {
             startNewGame()
         }
 
-        val gameState = gameManager.startNewGame()
+        val gameState = gameManager.startNewGame(this)
         updateUI(gameState)
 
         lettersLayout.children.forEach {
@@ -104,7 +104,7 @@ class AforcadoGameActivity : AppCompatActivity() {
     private fun startNewGame() {
         gameLostTextView.visibility = View.GONE
         gameWonTextView.visibility = View.GONE
-        val gameState = gameManager.startNewGame()
+        val gameState = gameManager.startNewGame(this)
         lettersLayout.visibility = View.VISIBLE
         lettersLayout.children.forEach {
             letterView -> letterView.visibility = View.VISIBLE

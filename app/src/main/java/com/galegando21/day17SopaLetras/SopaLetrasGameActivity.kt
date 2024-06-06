@@ -81,7 +81,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         words.clear()
 
         if (dificultade == SopaLetrasConstants.NIVEL_FACIL) {
-            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(4)
+            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(this, 4)
             words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
             hintTextView.text = words.joinToString(", ")
         }
@@ -90,7 +90,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
             hintTextView.text = questionSopaLetras.hint
         } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
-            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(5)
+            val questionSopaLetras = SopaLetrasConstants.getSopasLetras(this,5)
             words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
             // Ampliar tablero a 6x6
             boardSize = 6

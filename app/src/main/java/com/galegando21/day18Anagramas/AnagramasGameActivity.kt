@@ -1,5 +1,6 @@
 package com.galegando21.day18Anagramas
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.galegando21.R
-import com.galegando21.utils.AforcadoGameConstants
+import com.galegando21.utils.DigalegoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
@@ -56,8 +57,8 @@ class AnagramasGameActivity : AppCompatActivity() {
 
     private fun getWord() {
         // Obtener 1 palabra aleatoria
-        val words = AforcadoGameConstants.getWords()
-        val wordsFiltered = words.filter { it.length >= 4 }
+        val words = DigalegoConstants.getWords(this)
+        val wordsFiltered = words.filter { it.length >= 4 && it.length <= 7 }
         val randomWord = wordsFiltered.shuffled().take(1)[0]
         solution = randomWord
         Log.d("AnagramasGameActivity", "Solution: $solution")
