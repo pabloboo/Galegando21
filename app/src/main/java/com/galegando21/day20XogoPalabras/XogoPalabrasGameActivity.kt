@@ -34,6 +34,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     var letras = mutableListOf<Char>()
     var centerLetter: Char = ' '
     var palabrasPosibles = mutableListOf<String>()
+    var palabrasEncontradas = mutableListOf<String>()
     var puntuacion = 0
     var puntuacionMax = 0
 
@@ -128,25 +129,35 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
 
     private fun comprobarPalabra() {
         val word = inputWordTextView.text.toString()
-        if (word.isNotEmpty() && word.contains(centerLetter) && word.length >= 4 && word.length <= 7 && palabrasPosibles.contains(word)) {
-            if (palabrasPosibles.contains(word)) {
-                palabrasPosibles.remove(word)
-                inputWordTextView.text = ""
+        var palabraValida = true
+        if (!word.contains(centerLetter)) {
+            Toast.makeText(this, "Non contén a letra central", Toast.LENGTH_SHORT).show()
+            palabraValida = false
+        } else if (word.length < 4 || word.length > 7) {
+            Toast.makeText(this, "Non ten a lonxitude adecuada", Toast.LENGTH_SHORT).show()
+            palabraValida = false
+        } else if (palabrasEncontradas.contains(word)) {
+            Toast.makeText(this, "Palabra xa encontrada", Toast.LENGTH_SHORT).show()
+            palabraValida = false
+        } else if (!palabrasPosibles.contains(word)) {
+            Toast.makeText(this, "Palabra non encontrada", Toast.LENGTH_SHORT).show()
+            palabraValida = false
+        }
 
-                // Calcular puntuación
-                puntuacion += calcularPuntuacion(word)
-                progressBar.progress = puntuacion
+        if (palabraValida) {
+            palabrasPosibles.remove(word)
+            inputWordTextView.text = ""
 
-                if (puntuacion == puntuacionMax) {
-                    rematarXogo()
-                } else {
-                    Toast.makeText(this, "Palabra válida, ${calcularPuntuacion(word)} ptos.", Toast.LENGTH_SHORT).show()
-                }
+            // Calcular puntuación
+            puntuacion += calcularPuntuacion(word)
+            progressBar.progress = puntuacion
+
+            if (puntuacion == puntuacionMax) {
+                rematarXogo()
             } else {
-                Toast.makeText(this, "Non existe a palabra", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Palabra válida, ${calcularPuntuacion(word)} ptos.", Toast.LENGTH_SHORT).show()
+                palabrasEncontradas.add(word)
             }
-        } else {
-            Toast.makeText(this, "Palabra inválida", Toast.LENGTH_SHORT).show()
         }
     }
 
