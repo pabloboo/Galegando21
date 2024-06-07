@@ -491,6 +491,30 @@
                     android:textColor="@color/white"/>
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/btnDay20"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/main_activity_button_background_inactive"
+                    android:gravity="center"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textDay20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/day20_text"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

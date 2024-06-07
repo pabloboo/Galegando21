@@ -28,6 +28,7 @@ class StatisticsActivity : AppCompatActivity() {
     private lateinit var sopaLetrasScore: TextView
     private lateinit var anagramasScore: TextView
     private lateinit var adivinhaPersonaxeScore: TextView
+    private lateinit var xogoPalabrasScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +64,7 @@ class StatisticsActivity : AppCompatActivity() {
         sopaLetrasScore = findViewById(R.id.sopa_letras_score_statistics)
         anagramasScore = findViewById(R.id.anagramas_score_statistics)
         adivinhaPersonaxeScore = findViewById(R.id.adivinha_personaxe_score_statistics)
+        xogoPalabrasScore = findViewById(R.id.xogo_palabras_score_statistics)
 
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
@@ -101,6 +103,8 @@ class StatisticsActivity : AppCompatActivity() {
         anagramasScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE, 0).toString()
 
         adivinhaPersonaxeScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_PERSONAXE_MAX_SCORE, 0).toString()
+
+        xogoPalabrasScore.text = sharedPreferences.getFloat(SharedPreferencesKeys.XOGO_PALABRAS_MAX_SCORE, 0F).toString()+"%"
 
     }
 }
