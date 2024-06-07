@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day20XogoPalabras.XogoPalabrasGameActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/input_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Palabra"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters_xogo_palabras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_letters_xogo_palabras"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toBottomOf="@id/input_word"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout_btns_xogo_palabras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Center letter -->
+        <TextView
+            android:id="@+id/center_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondoamarelo"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="A"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Top letter -->
+        <TextView
+            android:id="@+id/letter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="B"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/center_letter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Bottom letter -->
+        <TextView
+            android:id="@+id/letter4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="E"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/center_letter"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Top-left letter -->
+        <TextView
+            android:id="@+id/letter6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="G"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/letter5"
+            app:layout_constraintEnd_toStartOf="@id/center_letter"
+            app:layout_constraintTop_toTopOf="@+id/letter1" />
+
+        <!-- Top-right letter -->
+        <TextView
+            android:id="@+id/letter2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="C"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/letter3"
+            app:layout_constraintStart_toEndOf="@id/center_letter"
+            app:layout_constraintTop_toTopOf="@+id/letter1" />
+
+        <!-- Bottom-left letter -->
+        <TextView
+            android:id="@+id/letter5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="F"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/letter4"
+            app:layout_constraintEnd_toStartOf="@id/center_letter"
+            app:layout_constraintTop_toBottomOf="@id/letter6" />
+
+        <!-- Bottom-right letter -->
+        <TextView
+            android:id="@+id/letter3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/xogopalabrasfondogris"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="D"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/letter4"
+            app:layout_constraintStart_toEndOf="@id/center_letter"
+            app:layout_constraintTop_toBottomOf="@id/letter2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_btns_xogo_palabras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/constraint_layout_letters_xogo_palabras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn_delete_xogo_palabras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Borrar" />
+        <ImageButton
+            android:id="@+id/btn_delete_word_xogo_palabras"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="15dp"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/blue_circle"
+            android:src="@drawable/xogo_palabras_remove_icon"
+            android:backgroundTint="@color/secondaryBlue"/>
+        <Button
+            android:id="@+id/btn_enter_xogo_palabras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Comprobar" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

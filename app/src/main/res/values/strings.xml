@@ -68,5 +68,7 @@
     <string name="day19_text">Día 19 - Adiviña o Personaxe</string>
     <string name="adivinha_o_personaxe">Adiviña o Personaxe</string>
     <string name="adivinha_personaxe_explicacion">En este xogo, basado en unha proba do concurso televisivo \'Ahora Caigo\', o obxectivo é acertar o nome de un personaxe.\n\nPara conseguilo por cada intento que fagas mostraraseche unha nova pista. Acerta o personaxe antes de que se esgoten as pistas!</string>
+    <string name="xogo_de_palabras">Xogo de Palabras</string>
+    <string name="day20_text">Día 20 - Xogo de Palabras</string>
 
 </resources>
