@@ -1,12 +1,18 @@
 package com.galegando21.day20XogoPalabras
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DigalegoConstants
@@ -15,6 +21,7 @@ import kotlin.random.Random
 
 class XogoPalabrasGameActivity : AppCompatActivity() {
 
+    private lateinit var progressBar: ProgressBar
     private lateinit var inputWordTextView: TextView
     private lateinit var deleteLetterButton: Button
     private lateinit var deleteWordButton: ImageButton
@@ -25,13 +32,15 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     private val ALFABETO_CONSONANTE = ALFABETO.filter { it !in ALFABETO_VOCAL && it != 'Q'}
     var letras = mutableListOf<Char>()
     var centerLetter: Char = ' '
-    var palabras = mutableListOf<String>()
     var palabrasPosibles = mutableListOf<String>()
+    var puntuacion = 0
+    var puntuacionMax = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_xogo_palabras_game)
 
+        progressBar = findViewById(R.id.progress_bar_xogo_palabras)
         inputWordTextView = findViewById(R.id.input_word)
         deleteLetterButton = findViewById(R.id.btn_delete_xogo_palabras)
         deleteWordButton = findViewById(R.id.btn_delete_word_xogo_palabras)
@@ -45,6 +54,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
             val text = inputWordTextView.text.toString()
             if (text.isNotEmpty()) {
                 inputWordTextView.text = text.dropLast(1)
+                resaltarLetraCentral()
             }
         }
 
@@ -58,12 +68,15 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     }
 
     private fun iniciarXogo() {
-        palabras = DigalegoConstants.getWords(this).toMutableList()
         letras = seleccionarLetras()
         mostrarLetras(letras)
         centerLetter = letras[0]
         palabrasPosibles = palabrasPosibles().toMutableList()
         Log.d("XogoPalabras", palabrasPosibles.toString())
+
+        calcularPuntuacionMax()
+        progressBar.max = puntuacionMax
+        progressBar.progress = puntuacion
     }
 
     private fun seleccionarLetras(): MutableList<Char> {
@@ -99,6 +112,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
                 val text = inputWordTextView.text.toString()
                 if (text.length < 7) {
                     inputWordTextView.text = text + textView.text
+                    resaltarLetraCentral()
                 }
             }
         }
@@ -106,11 +120,20 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
 
     private fun comprobarPalabra() {
         val word = inputWordTextView.text.toString()
-        if (word.isNotEmpty() && word.contains(centerLetter) && word.length >= 4 && word.length <= 7 && palabras.contains(word)) {
-            if (palabras.contains(word)) {
-                palabras.remove(word)
+        if (word.isNotEmpty() && word.contains(centerLetter) && word.length >= 4 && word.length <= 7 && palabrasPosibles.contains(word)) {
+            if (palabrasPosibles.contains(word)) {
+                palabrasPosibles.remove(word)
                 inputWordTextView.text = ""
-                Toast.makeText(this, "Palabra correcta", Toast.LENGTH_SHORT).show()
+
+                // Calcular puntuación
+                puntuacion += calcularPuntuacion(word)
+                progressBar.progress = puntuacion
+
+                if (puntuacion == puntuacionMax) {
+                    rematarXogo()
+                } else {
+                    Toast.makeText(this, "Palabra válida, ${calcularPuntuacion(word)} ptos.", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Non existe a palabra", Toast.LENGTH_SHORT).show()
             }
@@ -120,12 +143,73 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     }
 
     private fun palabrasPosibles(): List<String> {
-        val resultados = mutableListOf<String>()
-        for (palabra in palabras) {
-            if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7) {
-                resultados.add(palabra)
+        val resultados = mutableSetOf<String>()
+
+        while(resultados.size == 0) {
+            val palabras = DigalegoConstants.getWords(this).toMutableList()
+            for (palabra in palabras) {
+                if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7) {
+                    resultados.add(palabra)
+                }
             }
         }
-        return resultados
+
+        return resultados.toList()
+    }
+
+    private fun calcularPuntuacion(palabra: String): Int {
+        val longitud = palabra.length
+        var puntuacion = when (longitud) {
+            4 -> 1
+            5 -> 2
+            6 -> 3
+            7 -> 5
+            else -> 0
+        }
+
+        // Si la palabra contiene todas y cada una de las letras de la variable letras, se le suma 10 puntos
+        var letrasAux = letras.toMutableList()
+        for (letra in palabra) {
+            letrasAux.remove(letra)
+        }
+        if (letrasAux.isEmpty()) {
+            puntuacion += 10
+        }
+
+        return puntuacion
+    }
+
+    private fun calcularPuntuacionMax() {
+        for (palabra in palabrasPosibles) {
+            puntuacionMax += calcularPuntuacion(palabra)
+        }
+        Log.d("XogoPalabras", "Puntuación máxima: $puntuacionMax")
+    }
+
+    private fun resaltarLetraCentral() {
+        val palabra = inputWordTextView.text.toString()
+        val spannable = SpannableString(palabra)
+
+        palabra.indices.forEach { indice ->
+            if (palabra[indice] == centerLetter) {
+                spannable.setSpan(
+                    ForegroundColorSpan(resources.getColor(R.color.yellow, null)),
+                    indice,
+                    indice + 1,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+        }
+
+        inputWordTextView.text = spannable
+    }
+
+    private fun rematarXogo() {
+        Toast.makeText(this, "Xogo rematado", Toast.LENGTH_SHORT).show()
+        Intent(this, MainActivity::class.java).apply {
+            putExtra("puntuacion", puntuacion)
+            putExtra("puntuacionMax", puntuacionMax)
+            startActivity(this)
+        }
     }
 }

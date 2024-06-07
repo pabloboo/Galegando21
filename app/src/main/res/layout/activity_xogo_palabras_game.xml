@@ -14,6 +14,22 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ProgressBar
+        android:id="@+id/progress_bar_xogo_palabras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/input_word"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_weight="9"
+        android:indeterminate="false"
+        tools:max="100"
+        android:minHeight="50dp"
+        tools:progress="20" />
+
     <TextView
         android:id="@+id/input_word"
         android:layout_width="match_parent"
@@ -21,7 +37,8 @@
         tools:text="Palabra"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar_xogo_palabras"
         app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters_xogo_palabras"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
