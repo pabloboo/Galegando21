@@ -12,12 +12,13 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DigalegoConstants
 import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
+import kotlin.math.round
 
 class XogoPalabrasGameActivity : AppCompatActivity() {
 
@@ -65,6 +66,13 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
         checkWordButton.setOnClickListener {
             comprobarPalabra()
         }
+
+        checkWordButton.setOnLongClickListener {
+            rematarXogo()
+            true
+        }
+
+        setOnBackPressed(this, XogoPalabrasInicioActivity::class.java)
     }
 
     private fun iniciarXogo() {
@@ -183,7 +191,6 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
         for (palabra in palabrasPosibles) {
             puntuacionMax += calcularPuntuacion(palabra)
         }
-        Log.d("XogoPalabras", "Puntuación máxima: $puntuacionMax")
     }
 
     private fun resaltarLetraCentral() {
@@ -206,9 +213,10 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
 
     private fun rematarXogo() {
         Toast.makeText(this, "Xogo rematado", Toast.LENGTH_SHORT).show()
-        Intent(this, MainActivity::class.java).apply {
-            putExtra("puntuacion", puntuacion)
-            putExtra("puntuacionMax", puntuacionMax)
+        Intent(this, XogoPalabrasResultsActivity::class.java).apply {
+            val porcentaxeAcerto = ((puntuacion.toFloat().div(puntuacionMax.toFloat())) * 100F)
+            val porcentaxeAcertoAproximado = round(porcentaxeAcerto * 100) / 100
+            putExtra("PORCENTAXE_ACERTO", porcentaxeAcertoAproximado)
             startActivity(this)
         }
     }

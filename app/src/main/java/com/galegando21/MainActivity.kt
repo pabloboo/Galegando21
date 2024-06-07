@@ -38,7 +38,7 @@ import com.galegando21.day16OndeEstan.OndeEstanInicioActivity
 import com.galegando21.day17SopaLetras.SopaLetrasInicioActivity
 import com.galegando21.day18Anagramas.AnagramasInicioActivity
 import com.galegando21.day19AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
-import com.galegando21.day20XogoPalabras.XogoPalabrasGameActivity
+import com.galegando21.day20XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -297,7 +297,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay20 -> {
-                Intent(this@MainActivity, XogoPalabrasGameActivity::class.java).also {
+                Intent(this@MainActivity, XogoPalabrasInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
