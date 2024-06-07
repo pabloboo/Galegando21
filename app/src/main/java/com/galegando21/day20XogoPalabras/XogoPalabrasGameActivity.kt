@@ -17,6 +17,10 @@ import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DigalegoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.random.Random
 import kotlin.math.round
 
@@ -37,6 +41,8 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     var palabrasEncontradas = mutableListOf<String>()
     var puntuacion = 0
     var puntuacionMax = 0
+
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,15 +83,20 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     }
 
     private fun iniciarXogo() {
-        letras = seleccionarLetras()
-        mostrarLetras(letras)
-        centerLetter = letras[0]
-        palabrasPosibles = palabrasPosibles().toMutableList()
-        Log.d("XogoPalabras", palabrasPosibles.toString())
+        coroutineScope.launch {
+            letras = seleccionarLetras()
+            mostrarLetras(letras)
+            centerLetter = letras[0]
 
-        calcularPuntuacionMax()
-        progressBar.max = puntuacionMax
-        progressBar.progress = puntuacion
+            palabrasPosibles = withContext(Dispatchers.Default) {
+                palabrasPosibles().toMutableList()
+            }
+            Log.d("XogoPalabras", palabrasPosibles.toString())
+
+            calcularPuntuacionMax()
+            progressBar.max = puntuacionMax
+            progressBar.progress = puntuacion
+        }
     }
 
     private fun seleccionarLetras(): MutableList<Char> {

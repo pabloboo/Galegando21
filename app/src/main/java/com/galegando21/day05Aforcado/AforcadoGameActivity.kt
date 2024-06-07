@@ -1,11 +1,14 @@
 package com.galegando21.day05Aforcado
 
+import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -17,6 +20,10 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AforcadoGameActivity : AppCompatActivity() {
     private val gameManager = AforcadoGameManager()
@@ -29,8 +36,11 @@ class AforcadoGameActivity : AppCompatActivity() {
     private lateinit var gameWonTextView: TextView
     private lateinit var newGameButton: Button
     private lateinit var lettersLayout: ConstraintLayout
+    private lateinit var progressLoadingBar: ProgressBar
 
     private var racha = 0
+
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +54,7 @@ class AforcadoGameActivity : AppCompatActivity() {
         gameWonTextView = findViewById(R.id.aforcadoWonTextView)
         newGameButton = findViewById(R.id.novoXogoAforcadoButton)
         lettersLayout = findViewById(R.id.aforcadoLettersLayout)
+        progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.aforcado)
 
@@ -51,8 +62,7 @@ class AforcadoGameActivity : AppCompatActivity() {
             startNewGame()
         }
 
-        val gameState = gameManager.startNewGame(this)
-        updateUI(gameState)
+        startNewGame()
 
         lettersLayout.children.forEach {
             letterView ->
@@ -102,14 +112,28 @@ class AforcadoGameActivity : AppCompatActivity() {
     }
 
     private fun startNewGame() {
-        gameLostTextView.visibility = View.GONE
-        gameWonTextView.visibility = View.GONE
-        val gameState = gameManager.startNewGame(this)
-        lettersLayout.visibility = View.VISIBLE
-        lettersLayout.children.forEach {
-            letterView -> letterView.visibility = View.VISIBLE
+        coroutineScope.launch {
+            // Deshabilitar los elementos de la interfaz de usuario
+            progressLoadingBar.visibility = View.VISIBLE
+            newGameButton.isEnabled = false
+            lettersLayout.children.forEach { it.isEnabled = false }
+
+            gameLostTextView.visibility = View.GONE
+            gameWonTextView.visibility = View.GONE
+            lettersLayout.visibility = View.VISIBLE
+            lettersLayout.children.forEach {
+                    letterView -> letterView.visibility = View.VISIBLE
+            }
+            val gameState = withContext(Dispatchers.Default) {
+                gameManager.startNewGame(this@AforcadoGameActivity)
+            }
+            updateUI(gameState)
+
+            // Habilitar los elementos de la interfaz de usuario
+            newGameButton.isEnabled = true
+            lettersLayout.children.forEach { it.isEnabled = true }
+            progressLoadingBar.visibility = View.GONE
         }
-        updateUI(gameState)
     }
 
     private fun changeAforcadoStatistics() {

@@ -3,47 +3,73 @@ package com.galegando21.day08Wordle
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
     private lateinit var helpImageButton: ImageButton
+    private lateinit var progressLoadingBar: ProgressBar
 
     private lateinit var texts:  MutableList<MutableList<TextView>>
     private val rowCount = 6
     private val colCount = 5
     private var countGames = 0
     private var countWins = 0
+    private var countCurrentTries = 0
     private lateinit var gameCore: WordleGameManager
 
     private val lettersPaintedStates = mutableMapOf<Char, Int>()
+
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordle_game)
 
+        helpImageButton = findViewById(R.id.helpButton)
+        progressLoadingBar = findViewById(R.id.loadingProgressBar)
+
         setBanner(this, R.string.wordle)
 
         gameCore = WordleGameManager(this, rowCount)
         initTexts()
-        setEventListeners()
 
         newRound()
 
-        helpImageButton = findViewById(R.id.helpButton)
         helpImageButton.setOnClickListener {
             showHelpDialog()
         }
 
         setOnBackPressed(this, WordleInicioActivity::class.java)
+    }
+
+    private fun unSetEventListeners() {
+        val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener(null)
+        }
+
+        val btnBackspace = findViewById<ImageButton>(R.id.buttonBackspace)
+        btnBackspace.setOnClickListener(null)
+
+        val btnEnter = findViewById<ImageButton>(R.id.buttonEnter)
+        btnEnter.setOnClickListener(null)
     }
 
     private fun setEventListeners() {
@@ -75,6 +101,7 @@ class WordleGameActivity : AppCompatActivity() {
         //check solution
         val btnEnter = findViewById<ImageButton>(R.id.buttonEnter)
         btnEnter.setOnClickListener {
+            countCurrentTries++
             if (gameCore.isPouse()) {
                 gameCore.startOver()
                 newRound()
@@ -102,6 +129,15 @@ class WordleGameActivity : AppCompatActivity() {
                 }
                 if (gameCore.getResult()) {
                     countWins++
+                    countCurrentTries = 0
+                    Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
+                    gameCore.startOver()
+                    newRound()
+                } else if (countCurrentTries == 6) {
+                    countCurrentTries = 0
+                    Toast.makeText(this, "Perdeches, a palabra era ${gameCore.getFinalWord()}", Toast.LENGTH_SHORT).show()
+                    gameCore.startOver()
+                    newRound()
                 }
             }
         }
@@ -119,10 +155,10 @@ class WordleGameActivity : AppCompatActivity() {
     }
 
     private fun newRound() {
-        gameCore.setWord()
         for (row in 0 until rowCount) {
             for (col in 0 until colCount) {
-                texts[row][col].background = ContextCompat.getDrawable(this,  R.drawable.letter_border)
+                texts[row][col].background =
+                    ContextCompat.getDrawable(this@WordleGameActivity, R.drawable.letter_border)
                 texts[row][col].text = " "
             }
         }
@@ -134,7 +170,16 @@ class WordleGameActivity : AppCompatActivity() {
         textWins.text = "Victorias: $countWins"
         countGames++
 
-        Log.e("Word", "=============---- ${gameCore.getFinalWord()}")
+        coroutineScope.launch {
+            progressLoadingBar.visibility = View.VISIBLE
+            unSetEventListeners()
+            withContext(Dispatchers.Default) {
+                gameCore.setWord()
+                Log.d("word", gameCore.getFinalWord())
+            }
+            setEventListeners()
+            progressLoadingBar.visibility = View.GONE
+        }
     }
 
     fun updateLetterColor(letter: Char, state: Int) {
