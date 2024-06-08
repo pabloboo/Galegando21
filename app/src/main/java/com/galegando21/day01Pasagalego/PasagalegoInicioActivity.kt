@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.setBanner
@@ -13,8 +14,9 @@ import com.galegando21.utils.setOnBackPressed
 
 class PasagalegoInicioActivity : AppCompatActivity() {
     private lateinit var radioGroup: RadioGroup
-    private lateinit var radioButtonFacil: RadioButton
-    private lateinit var radioButtonDificil: RadioButton
+    private lateinit var radioButtonDiccionario: RadioButton
+    private lateinit var radioButtonOrixinal: RadioButton
+    private lateinit var explicacionModoXogoTextView: TextView
     private lateinit var comezarButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,18 +25,30 @@ class PasagalegoInicioActivity : AppCompatActivity() {
         setBanner(this, R.string.pasagalego)
 
         radioGroup = findViewById(R.id.pasagalego_radio_group)
-        radioButtonFacil = findViewById(R.id.pasagalego_radio_btn_facil)
-        radioButtonDificil = findViewById(R.id.pasagalego_radio_btn_dificil)
+        radioButtonDiccionario = findViewById(R.id.pasagalego_radio_btn_diccionario)
+        radioButtonOrixinal = findViewById(R.id.pasagalego_radio_btn_orixinal)
+        explicacionModoXogoTextView = findViewById(R.id.modo_xogo_info_tv_pasagalego)
         comezarButton = findViewById(R.id.start_btn_pasagalego)
 
         comezarButton.setOnClickListener {
             Intent(this@PasagalegoInicioActivity, PasagalegoQuestionActivity::class.java).also {
                 when (radioGroup.checkedRadioButtonId) {
-                    radioButtonFacil.id -> it.putExtra("dificultade", "facil")
-                    radioButtonDificil.id -> it.putExtra("dificultade", "dificil")
+                    radioButtonDiccionario.id -> it.putExtra("modo", "diccionario")
+                    radioButtonOrixinal.id -> it.putExtra("modo", "orixinal")
                 }
                 startActivity(it)
                 finish()
+            }
+        }
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                radioButtonDiccionario.id -> {
+                    explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas do diccionario 'Digalego'."
+                }
+                radioButtonOrixinal.id -> {
+                    explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas do programa televisivo 'Pasapalabra'."
+                }
             }
         }
 

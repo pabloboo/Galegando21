@@ -13,9 +13,9 @@ import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.ALFABETO
+import com.galegando21.utils.DigalegoConstants
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
-import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestionsNivelFacil
 import com.galegando21.utils.removeAccents
 import com.galegando21.utils.setOnBackPressed
 import java.lang.StringBuilder
@@ -40,7 +40,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
     private var questionMap = mutableMapOf<Char, QuestionPasagalego>()
 
-    private var dificultade = "facil"
+    private var modo = "diccionario"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pasagalego_question)
@@ -56,7 +56,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         checkButton = findViewById(R.id.check_btn_pasagalego)
         pasapalabraButton = findViewById(R.id.pasapalabra_btn)
 
-        dificultade = intent.getStringExtra("dificultade")  ?: "facil"
+        initQuestions()
+
+        modo = intent.getStringExtra("modo")  ?: "diccionario"
 
         checkButton.setOnClickListener {
             checkButtonClickListener()
@@ -75,23 +77,45 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         setOnBackPressed(this, PasagalegoInicioActivity::class.java)
     }
 
+    private fun initQuestions() {
+        if (modo == "diccionario") {
+            initQuestionsDiccionario()
+        } else {
+            initQuestionsOrixinal()
+        }
+    }
+
+    private fun initQuestionsDiccionario() {
+        // Cargar todas las palabras
+        val allWords = DigalegoConstants.getWordDefinitions(this)
+
+        // Crear un mapa de letras a palabras
+        val wordsByLetter = allWords.groupBy { it.palabra.first() }
+
+        // Seleccionar una palabra aleatoria para cada letra
+        for (letter in ALFABETO) {
+            val wordsForLetter = wordsByLetter[letter]
+            if (!wordsForLetter.isNullOrEmpty()) {
+                val randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                questionMap[letter] = QuestionPasagalego(randomWord.definicion, randomWord.palabra)
+            }
+        }
+    }
+
+    private fun initQuestionsOrixinal() {
+        for (letter in ALFABETO) {
+            val questionList = getPasagalegoQuestions(letter)
+            val randomNumber = Random.nextInt(0, questionList.size)
+            questionMap[letter] = questionList[randomNumber]
+        }
+    }
+
     private fun showNextQuestion() {
         if (letters.isNotEmpty()) {
             var position = questionCounter.mod(letters.length)
             val letter = letters[position]
             roscoView.setCurrentLetter(letter)
-            // Obtener pregunta aleatoria
-            var questionList: MutableList<QuestionPasagalego>
-            if (dificultade == "facil") {
-                questionList = getPasagalegoQuestionsNivelFacil(letter)
-            } else {
-                questionList = getPasagalegoQuestions(letter)
-            }
-            val randomNumber = Random.nextInt(0, questionList.size)
-            // Obtener pregunta para la letra actual si existe o generarla
-            currentQuestionPasagalego = questionMap.getOrPut(letter) {
-                questionList[randomNumber]
-            }
+            currentQuestionPasagalego = questionMap.get(letter)!!
             if (letter.equals('Ñ')) {
                 letter_tv.text = "Contén a letra 'Ñ'"
             } else {

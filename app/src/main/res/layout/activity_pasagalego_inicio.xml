@@ -14,17 +14,6 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:id="@+id/pasagalego_image_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rosco_pasagalego"
-        app:layout_constraintBottom_toTopOf="@+id/pasagalego_description_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.713" />
-
     <TextView
         android:id="@+id/pasagalego_description_tv"
         android:layout_width="wrap_content"
@@ -34,7 +23,7 @@
         app:layout_constraintBottom_toTopOf="@id/pasagalego_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pasagalego_image_iv"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
         app:layout_constraintVertical_bias="0.609" />
 
     <RadioGroup
@@ -42,27 +31,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/pasagalego_description_tv"
-        app:layout_constraintBottom_toTopOf="@id/start_btn_pasagalego"
+        app:layout_constraintBottom_toTopOf="@id/modo_xogo_info_tv_pasagalego"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="150dp"
-        android:checkedButton="@id/pasagalego_radio_btn_facil">
+        android:layout_marginHorizontal="80dp"
+        android:checkedButton="@id/pasagalego_radio_btn_diccionario">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Nivel:"/>
+            android:text="Modo de xogo:"/>
         <RadioButton
-            android:id="@+id/pasagalego_radio_btn_facil"
+            android:id="@+id/pasagalego_radio_btn_diccionario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Fácil"/>
+            android:text="Diccionario"/>
         <RadioButton
-            android:id="@+id/pasagalego_radio_btn_dificil"
+            android:id="@+id/pasagalego_radio_btn_orixinal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Difícil"/>
+            android:text="Orixinal"/>
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/modo_xogo_info_tv_pasagalego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="En este modo de xogo as preguntas e definicións serán obtidas do diccionario 'Digalego'."
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/start_btn_pasagalego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pasagalego_radio_group"
+        app:layout_constraintVertical_bias="0.609" />
 
     <Button
         android:id="@+id/start_btn_pasagalego"
@@ -74,6 +75,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pasagalego_radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/modo_xogo_info_tv_pasagalego" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,10 @@ object DigalegoConstants {
         return wordDefinitions
     }
 
+    fun getWordDefinition(context: Context, word: String): WordDefinition? {
+        return getWordDefinitions(context).find { it.palabra == word }
+    }
+
     fun getWords(context: Context): List<String> {
         return getWordDefinitions(context).map { it.palabra }
     }
