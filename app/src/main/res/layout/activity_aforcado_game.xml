@@ -97,6 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/aforcadoLetrasUsadasTextView"
+        app:layout_constraintBottom_toTopOf="@+id/aforcadoLettersLayout"
         android:backgroundTint="@color/secondaryBlue"/>
 
     <ProgressBar
@@ -109,19 +110,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/aforcadoLettersLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/novoXogoAforcadoButton">
-
-        <androidx.constraintlayout.helper.widget.Flow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            app:constraint_referenced_ids="a, b, c, d, e, f, g, h, i, l, m, n, nh, o, p, q, r, s, t, u, v, x, z"
-            app:flow_wrapMode="aligned"/>
+        android:padding="16dp"
+        app:constraint_referenced_ids="q, e, r, t, u, i, o, p, a, s, d, f, g, h, l, nh, z, x, c, v, b, n, m"
+        app:flow_wrapMode="chain"
+        app:flow_horizontalStyle="packed"
+        app:flow_verticalStyle="packed"
+        app:flow_horizontalGap="10dp"
+        app:flow_verticalGap="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/novoXogoAforcadoButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/a"
@@ -352,8 +355,6 @@
             android:text="Z"
             android:textColor="@color/white"
             android:textSize="24dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

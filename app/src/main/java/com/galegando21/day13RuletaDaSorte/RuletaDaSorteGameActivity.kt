@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.galegando21.R
@@ -28,8 +27,8 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
     private lateinit var tirarRuletaButton: Button
     private lateinit var ruletaAccionTextView: TextView
     private lateinit var cashTv: TextView
-    private lateinit var lettersLayout: ConstraintLayout
 
+    val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
     private lateinit var questionList: List<QuestionRuletaDaSorte>
     private lateinit var question: QuestionRuletaDaSorte
     private var letterViews: List<TextView> = listOf()
@@ -45,7 +44,6 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         tirarRuletaButton = findViewById(R.id.ruleta_sorte_button)
         ruletaAccionTextView = findViewById(R.id.ruleta_sorte_accion_ruleta_tv)
         cashTv = findViewById(R.id.ruleta_sorte_cash_tv)
-        lettersLayout = findViewById(R.id.ruletaDaSorteLettersLayout)
 
         questionList = QuestionRuletaDaSorteConstants.getQuestions()
         startGame()
@@ -250,27 +248,23 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
 
     private fun setLettersOnClickListeners() {
         // Settear el onClickListener de las letras
-        lettersLayout.children.forEach {
-                letterView ->
-            if (letterView is TextView) {
-                letterView.setOnClickListener {
-                    playLetter((letterView).text[0])
-                    if (isGameWon()) {
-                        finalizarRuletaDaSorte()
-                    }
-                    letterView.visibility = View.GONE
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener {
+                playLetter((letterTextView).text[0])
+                if (isGameWon()) {
+                    finalizarRuletaDaSorte()
                 }
+                letterTextView.visibility = View.GONE
             }
         }
     }
 
     private fun hideLettersOnClickListeners() {
         // Ocultar el onClickListener de las letras
-        lettersLayout.children.forEach {
-                letterView ->
-            if (letterView is TextView) {
-                letterView.setOnClickListener(null)
-            }
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener{}
         }
     }
 

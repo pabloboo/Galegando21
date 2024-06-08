@@ -1,6 +1,5 @@
 package com.galegando21.day05Aforcado
 
-import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,11 +7,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.children
 import com.galegando21.R
 import com.galegando21.model.AforcadoGameState
 import com.galegando21.model.AforcadoGameManager
@@ -35,9 +31,9 @@ class AforcadoGameActivity : AppCompatActivity() {
     private lateinit var gameLostTextView: TextView
     private lateinit var gameWonTextView: TextView
     private lateinit var newGameButton: Button
-    private lateinit var lettersLayout: ConstraintLayout
     private lateinit var progressLoadingBar: ProgressBar
 
+    val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
     private var racha = 0
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
@@ -53,7 +49,6 @@ class AforcadoGameActivity : AppCompatActivity() {
         gameLostTextView = findViewById(R.id.aforcadoLostTextView)
         gameWonTextView = findViewById(R.id.aforcadoWonTextView)
         newGameButton = findViewById(R.id.novoXogoAforcadoButton)
-        lettersLayout = findViewById(R.id.aforcadoLettersLayout)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.aforcado)
@@ -64,18 +59,25 @@ class AforcadoGameActivity : AppCompatActivity() {
 
         startNewGame()
 
-        lettersLayout.children.forEach {
-            letterView ->
-                if (letterView is TextView) {
-                    letterView.setOnClickListener {
-                        val gameState = gameManager.playLetter((letterView).text[0])
-                        updateUI(gameState)
-                        letterView.visibility = View.GONE
-                    }
-                }
-        }
-
         setOnBackPressed(this, AforcadoInicioActivity::class.java)
+    }
+
+    private fun unSetLetterEventListeners() {
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener {}
+        }
+    }
+
+    private fun setLetterEventListeners() {
+        for (letter in letters) {
+            val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+            letterTextView.setOnClickListener {
+                val gameState = gameManager.playLetter((letterTextView).text[0])
+                updateUI(gameState)
+                letterTextView.visibility = View.GONE
+            }
+        }
     }
 
     private fun updateUI(gameState: AforcadoGameState) {
@@ -97,7 +99,7 @@ class AforcadoGameActivity : AppCompatActivity() {
         wordTextView.text = wordToGuess
         gameLostTextView.visibility = View.VISIBLE
         imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.aforcado6))
-        lettersLayout.visibility = View.GONE
+        unSetLetterEventListeners()
         racha = 0
         rachaTextView.text = "Racha actual: $racha"
     }
@@ -105,7 +107,7 @@ class AforcadoGameActivity : AppCompatActivity() {
     private fun showGameWon(wordToGuess: String) {
         wordTextView.text = wordToGuess
         gameWonTextView.visibility = View.VISIBLE
-        lettersLayout.visibility = View.GONE
+        unSetLetterEventListeners()
         racha++
         rachaTextView.text = "Racha actual: $racha"
         changeAforcadoStatistics()
@@ -116,14 +118,15 @@ class AforcadoGameActivity : AppCompatActivity() {
             // Deshabilitar los elementos de la interfaz de usuario
             progressLoadingBar.visibility = View.VISIBLE
             newGameButton.isEnabled = false
-            lettersLayout.children.forEach { it.isEnabled = false }
+            unSetLetterEventListeners()
 
             gameLostTextView.visibility = View.GONE
             gameWonTextView.visibility = View.GONE
-            lettersLayout.visibility = View.VISIBLE
-            lettersLayout.children.forEach {
-                    letterView -> letterView.visibility = View.VISIBLE
+            for (letter in letters) {
+                val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
+                letterTextView.visibility = View.VISIBLE
             }
+
             val gameState = withContext(Dispatchers.Default) {
                 gameManager.startNewGame(this@AforcadoGameActivity)
             }
@@ -131,7 +134,7 @@ class AforcadoGameActivity : AppCompatActivity() {
 
             // Habilitar los elementos de la interfaz de usuario
             newGameButton.isEnabled = true
-            lettersLayout.children.forEach { it.isEnabled = true }
+            setLetterEventListeners()
             progressLoadingBar.visibility = View.GONE
         }
     }
