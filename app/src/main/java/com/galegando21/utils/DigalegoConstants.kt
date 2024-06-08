@@ -20,19 +20,9 @@ object DigalegoConstants {
 
         for (i in 0 until jsonArray.length()) {
             val jsonObject = jsonArray.getJSONObject(i)
-
             var word = jsonObject.getString("palabra")
-            word = removeAccents(word)
-            word = word.split(" ")[0].uppercase()
-
-            // Comprobar si todos los caracteres de la palabra están en ALFABETO
-            if (word.all { it in ALFABETO }) {
-                var definition = if (jsonObject.isNull("definicion")) null else jsonObject.getString("definicion")
-                if (definition == "" || definition == ".") {
-                    definition = null
-                }
-                wordDefinitions.add(WordDefinition(word, definition))
-            }
+            var definition = jsonObject.getString("definicion")
+            wordDefinitions.add(WordDefinition(word, definition))
         }
 
         return wordDefinitions
