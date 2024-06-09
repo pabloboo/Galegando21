@@ -39,6 +39,7 @@ import com.galegando21.day17SopaLetras.SopaLetrasInicioActivity
 import com.galegando21.day18Anagramas.AnagramasInicioActivity
 import com.galegando21.day19AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
 import com.galegando21.day20XogoPalabras.XogoPalabrasInicioActivity
+import com.galegando21.day21ExplosionDePalabras.ExplosionPalabrasGameActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -69,6 +70,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day18Button: ImageButton
     private lateinit var day19Button: ImageButton
     private lateinit var day20Button: ImageButton
+    private lateinit var day21Button: ImageButton
 
     private val PERMISSION_REQUEST_CODE = 1
     private var backPressedOnce = false
@@ -116,6 +118,7 @@ class MainActivity : AppCompatActivity() {
         day18Button = findViewById(R.id.btnDay18)
         day19Button = findViewById(R.id.btnDay19)
         day20Button = findViewById(R.id.btnDay20)
+        day21Button = findViewById(R.id.btnDay21)
 
         setBanner(this, R.string.app_name)
 
@@ -298,6 +301,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.btnDay20 -> {
                 Intent(this@MainActivity, XogoPalabrasInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay21 -> {
+                Intent(this@MainActivity, ExplosionPalabrasGameActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }

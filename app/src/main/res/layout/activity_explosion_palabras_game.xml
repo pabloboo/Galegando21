@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day21ExplosionDePalabras.ExplosionPalabrasGameActivity">
+
+    <LinearLayout
+        android:id="@+id/lettersContainer"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:background="@color/canela" />
+
+    <EditText
+        android:id="@+id/wordInputExplosionPalabras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lettersContainer"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="10dp"
+        android:inputType="text"
+        android:hint="Introduce unha palabra" />
+
+    <Button
+        android:id="@+id/submitWordButtonExplosionPalabras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wordInputExplosionPalabras"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/secondaryBlue"
+        android:text="Comprobar" />
+
+</RelativeLayout>
