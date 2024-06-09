@@ -780,30 +780,47 @@
         android:id="@+id/linearLayoutWorldeButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flow_letters_wordle">
 
-        <ImageButton
-            android:id="@+id/buttonBackspace"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="setLetter"
-            android:padding="10dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="@color/errorRed"
-            android:src="@drawable/backspace_icon" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageButton
+                android:id="@+id/buttonBackspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="setLetter"
+                android:padding="10dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/errorRed"
+                android:src="@drawable/backspace_icon" />
 
-        <ImageButton
-            android:id="@+id/buttonEnter"
+            <ImageButton
+                android:id="@+id/buttonEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/secondaryBlue"
+                android:onClick="setLetter"
+                android:padding="10dp"
+                android:src="@drawable/check_icon" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/xogar_de_novo_wordle_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/secondaryBlue"
-            android:onClick="setLetter"
-            android:padding="10dp"
-            android:src="@drawable/check_icon" />
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Xogar de novo"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginLeft="20dp" />
 
     </LinearLayout>
 

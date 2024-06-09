@@ -116,6 +116,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             setOnBackPressed(this, SopaLetrasInicioActivity::class.java, countDownTimer)
         } else {
             sopaLetrasTimerTv.visibility = TextView.GONE
+            setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
         }
     }
 

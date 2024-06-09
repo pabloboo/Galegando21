@@ -59,7 +59,7 @@ class WordleGameManager(
     fun setNextChar(c: Char): Boolean {
         if (rows[curRow][curCol] == ' ') {
             rows[curRow][curCol] = c
-            if (curCol < 4) {
+            if (curCol < 5) {
                 curCol++
             }
             return true
@@ -68,14 +68,14 @@ class WordleGameManager(
     }
 
     fun deleteChar() {
-        if (curCol > 0 && rows[curRow][curCol] == ' ') {
+        if (curCol > 0) {
+            rows[curRow][curCol-1] = ' '
             curCol--
         }
-        rows[curRow][curCol] = ' '
     }
 
     fun enter(): Boolean {
-        if (curCol == 4 && curRow <= rowCount) {
+        if (curCol == 5 && curRow <= rowCount) {
             curCol = 0
             curRow++
             if (curRow == rowCount) {
@@ -135,5 +135,6 @@ class WordleGameManager(
     fun setWord() {
         val words = WordleConstants.getWords(context)
         word = words[Random.nextInt(words.size)]
+        Log.d("WordleGameManager", "Word: $word")
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -23,6 +24,7 @@ import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
     private lateinit var helpImageButton: ImageButton
+    private lateinit var xogarDeNovoButton: Button
     private lateinit var progressLoadingBar: ProgressBar
 
     private lateinit var texts:  MutableList<MutableList<TextView>>
@@ -42,6 +44,7 @@ class WordleGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_wordle_game)
 
         helpImageButton = findViewById(R.id.helpButton)
+        xogarDeNovoButton = findViewById(R.id.xogar_de_novo_wordle_btn)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.wordle)
@@ -53,6 +56,12 @@ class WordleGameActivity : AppCompatActivity() {
 
         helpImageButton.setOnClickListener {
             showHelpDialog()
+        }
+
+        xogarDeNovoButton.setOnClickListener {
+            gameCore.startOver()
+            newRound()
+            xogarDeNovoButton.visibility = View.GONE
         }
 
         setOnBackPressed(this, WordleInicioActivity::class.java)
@@ -83,6 +92,9 @@ class WordleGameActivity : AppCompatActivity() {
                     texts[gameCore.getCurRow()][gameCore.getCurCol()].text = "Ñ"
                     gameCore.setNextChar('Ñ')
                 } else {
+                    if (gameCore.getCurCol() == 5) {
+                        return@setOnClickListener
+                    }
                     texts[gameCore.getCurRow()][gameCore.getCurCol()].text = letter.uppercase(Locale.ROOT)
                     gameCore.setNextChar(letter.uppercase(Locale.ROOT)[0])
                 }
@@ -102,10 +114,6 @@ class WordleGameActivity : AppCompatActivity() {
         val btnEnter = findViewById<ImageButton>(R.id.buttonEnter)
         btnEnter.setOnClickListener {
             countCurrentTries++
-            if (gameCore.isPouse()) {
-                gameCore.startOver()
-                newRound()
-            }
             val row = gameCore.getCurRow()
             if (gameCore.enter()) {
                 val result: List<Pair<Char, Int>> = gameCore.validateWord(row)
@@ -126,18 +134,19 @@ class WordleGameActivity : AppCompatActivity() {
 
                     texts[row][col].background = ContextCompat.getDrawable(this, id)
                     updateLetterColor(result[col].first, result[col].second)
+                    Log.d("WordleGameActivity", "Updated letter: ${result[col].first}, State: ${result[col].second}")
                 }
                 if (gameCore.getResult()) {
                     countWins++
                     countCurrentTries = 0
                     Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
-                    gameCore.startOver()
-                    newRound()
+                    unSetEventListeners()
+                    xogarDeNovoButton.visibility = View.VISIBLE
                 } else if (countCurrentTries == 6) {
                     countCurrentTries = 0
                     Toast.makeText(this, "Perdeches, a palabra era ${gameCore.getFinalWord()}", Toast.LENGTH_SHORT).show()
-                    gameCore.startOver()
-                    newRound()
+                    unSetEventListeners()
+                    xogarDeNovoButton.visibility = View.VISIBLE
                 }
             }
         }
@@ -183,7 +192,11 @@ class WordleGameActivity : AppCompatActivity() {
     }
 
     fun updateLetterColor(letter: Char, state: Int) {
-        val letterId = resources.getIdentifier(letter.lowercase(), "id", packageName)
+        var letterId = resources.getIdentifier(letter.lowercase(), "id", packageName)
+        if (letter.lowercase() == "ñ") {
+            letterId = resources.getIdentifier("nh", "id", packageName)
+        }
+        Log.d("WordleGameActivity", "LetterId: $letterId")
         val letterTextView = findViewById<TextView>(letterId) ?: return
 
         val currentState = lettersPaintedStates[letter]
@@ -215,6 +228,7 @@ class WordleGameActivity : AppCompatActivity() {
             val letterTextView = findViewById<TextView>(letterId)
             letterTextView.background = ContextCompat.getDrawable(this, R.color.primaryBlue)
         }
+        lettersPaintedStates.clear()
     }
 
     private fun showHelpDialog() {
