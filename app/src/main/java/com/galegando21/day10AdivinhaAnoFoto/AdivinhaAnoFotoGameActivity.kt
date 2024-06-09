@@ -8,13 +8,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaAnoFoto
 import com.galegando21.utils.AdivinhaAnoFotoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.google.android.material.slider.Slider
-import com.google.android.material.snackbar.Snackbar
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -109,8 +109,8 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
             else -> score = 0
         }
 
-        // Mostrar score en un snackbar
-        Snackbar.make(findViewById(android.R.id.content), "Puntuación obtida: $score", Snackbar.LENGTH_SHORT).show()
+        // Mostrar score
+        Toast.makeText(this, "Puntuación obtida: $score", Toast.LENGTH_SHORT).show()
         return score
     }
 }

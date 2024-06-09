@@ -113,7 +113,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                usarComodin()
+                finalizarXogo()
             }
         }.start()
         setOnBackPressed(this, AgoraCaigoInicioActivity::class.java, countDownTimer)
@@ -151,11 +151,15 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
         if (errors < 4) {
             showNextQuestion()
         } else {
-            Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
-                it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
-                startActivity(it)
-                finish()
-            }
+            finalizarXogo()
+        }
+    }
+
+    private fun finalizarXogo() {
+        Intent(this@AgoraCaigoQuestionActivity, AgoraCaigoResultsActivity::class.java).also {
+            it.putExtra(AgoraCaigoConstants.SCORE, correctAnswers)
+            startActivity(it)
+            finish()
         }
     }
 }
