@@ -132,9 +132,10 @@ class WordleGameManager(
         return curCol
     }
 
-    fun setWord() {
+    fun setWord(): List<String> {
         val words = WordleConstants.getWords(context)
         word = words[Random.nextInt(words.size)]
         Log.d("WordleGameManager", "Word: $word")
+        return words
     }
 }

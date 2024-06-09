@@ -34,6 +34,7 @@ class WordleGameActivity : AppCompatActivity() {
     private var countWins = 0
     private var countCurrentTries = 0
     private lateinit var gameCore: WordleGameManager
+    private var words = mutableListOf<String>()
 
     private val lettersPaintedStates = mutableMapOf<Char, Int>()
 
@@ -115,6 +116,13 @@ class WordleGameActivity : AppCompatActivity() {
         btnEnter.setOnClickListener {
             countCurrentTries++
             val row = gameCore.getCurRow()
+            // Comprobar si la palabra existe en words
+            val inputWord = texts[row].joinToString("") { it.text.toString() }
+            if (!words.contains(inputWord)) {
+                Toast.makeText(this, "Non existe a palabra", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (gameCore.enter()) {
                 val result: List<Pair<Char, Int>> = gameCore.validateWord(row)
                 for (col in 0 until colCount) {
@@ -134,7 +142,6 @@ class WordleGameActivity : AppCompatActivity() {
 
                     texts[row][col].background = ContextCompat.getDrawable(this, id)
                     updateLetterColor(result[col].first, result[col].second)
-                    Log.d("WordleGameActivity", "Updated letter: ${result[col].first}, State: ${result[col].second}")
                 }
                 if (gameCore.getResult()) {
                     countWins++
@@ -183,7 +190,7 @@ class WordleGameActivity : AppCompatActivity() {
             progressLoadingBar.visibility = View.VISIBLE
             unSetEventListeners()
             withContext(Dispatchers.Default) {
-                gameCore.setWord()
+                words = gameCore.setWord().toMutableList()
                 Log.d("word", gameCore.getFinalWord())
             }
             setEventListeners()
@@ -196,7 +203,6 @@ class WordleGameActivity : AppCompatActivity() {
         if (letter.lowercase() == "ñ") {
             letterId = resources.getIdentifier("nh", "id", packageName)
         }
-        Log.d("WordleGameActivity", "LetterId: $letterId")
         val letterTextView = findViewById<TextView>(letterId) ?: return
 
         val currentState = lettersPaintedStates[letter]
