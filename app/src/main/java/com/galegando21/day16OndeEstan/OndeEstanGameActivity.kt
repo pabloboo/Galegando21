@@ -78,7 +78,6 @@ class OndeEstanGameActivity : AppCompatActivity() {
 
         initializeGame()
 
-        setOnBackPressed(this, OndeEstanInicioActivity::class.java)
     }
 
     private fun checkAnswer(textView: TextView, palabra: String) {
@@ -120,6 +119,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
                 ocultarPalabras()
             }
         }.start()
+        setOnBackPressed(this, OndeEstanInicioActivity::class.java, countDownTimer)
     }
 
     private fun mostrarPalabra(textView: TextView, palabra: String) {

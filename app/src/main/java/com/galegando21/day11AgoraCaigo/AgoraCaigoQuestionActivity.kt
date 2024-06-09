@@ -18,7 +18,6 @@ import com.galegando21.model.QuestionAgoraCaigo
 import com.galegando21.utils.AgoraCaigoConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
-import kotlin.random.Random
 
 class AgoraCaigoQuestionActivity : AppCompatActivity() {
     private lateinit var questionTV: TextView
@@ -71,7 +70,6 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
 
         setBanner(this, R.string.agora_caigo)
 
-        setOnBackPressed(this, AgoraCaigoInicioActivity::class.java)
     }
 
     override fun onPause() {
@@ -118,6 +116,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
                 usarComodin()
             }
         }.start()
+        setOnBackPressed(this, AgoraCaigoInicioActivity::class.java, countDownTimer)
     }
 
     private fun checkButtonClickListener() {

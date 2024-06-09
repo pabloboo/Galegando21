@@ -59,7 +59,6 @@ class AnagramasGameActivity : AppCompatActivity() {
             checkAnswer()
         }
 
-        setOnBackPressed(this, AnagramasInicioActivity::class.java)
     }
 
     private fun getWord() {
@@ -102,6 +101,7 @@ class AnagramasGameActivity : AppCompatActivity() {
                     finalizarXogo()
                 }
             }.start()
+            setOnBackPressed(this@AnagramasGameActivity, AnagramasInicioActivity::class.java, countDownTimer)
         }
     }
 

@@ -74,7 +74,6 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
         setBanner(this, R.string.proba_velocidade)
 
-        setOnBackPressed(this, ProbaVelocidadeInicioActivity::class.java)
     }
 
     private fun startTimer() {
@@ -93,6 +92,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
             override fun onFinish() {}
         }.start()
+        setOnBackPressed(this, ProbaVelocidadeInicioActivity::class.java, countDownTimer)
     }
 
     private fun showNextQuestion() {

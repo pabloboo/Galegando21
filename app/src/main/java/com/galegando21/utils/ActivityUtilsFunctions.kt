@@ -1,5 +1,6 @@
 package com.galegando21.utils
 import android.content.Intent
+import android.os.CountDownTimer
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
@@ -25,10 +26,11 @@ fun showBannerMenu(activity: FragmentActivity) {
     }.commit()
 }
 
-fun setOnBackPressed(activity: AppCompatActivity, destinationActivityClass: Class<*>) {
+fun setOnBackPressed(activity: AppCompatActivity, destinationActivityClass: Class<*>, timer: CountDownTimer? = null) {
     activity.onBackPressedDispatcher.addCallback(activity, object: OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             Intent(activity, destinationActivityClass).also {
+                timer?.cancel()
                 activity.startActivity(it)
                 activity.finish()
             }

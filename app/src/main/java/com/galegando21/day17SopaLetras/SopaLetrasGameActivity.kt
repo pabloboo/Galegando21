@@ -10,7 +10,6 @@ import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.SopaLetrasConstants
@@ -71,7 +70,6 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             finalizarXogo()
         }
 
-        setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
     }
 
     private fun generateWords() {
@@ -115,6 +113,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                     finalizarXogo()
                 }
             }.start()
+            setOnBackPressed(this, SopaLetrasInicioActivity::class.java, countDownTimer)
         } else {
             sopaLetrasTimerTv.visibility = TextView.GONE
         }
