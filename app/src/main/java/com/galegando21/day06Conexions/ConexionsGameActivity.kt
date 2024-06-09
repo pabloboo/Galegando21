@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
 import com.galegando21.R
 import com.galegando21.model.Conexions
@@ -18,7 +18,7 @@ import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 
 class ConexionsGameActivity : AppCompatActivity() {
-    private lateinit var palabrasLayout: ConstraintLayout
+    private lateinit var palabrasGrid: GridLayout
     private lateinit var deselectAllButton : Button
     private lateinit var sendButton : Button
     private lateinit var solutionGroup1Tv : TextView
@@ -35,7 +35,7 @@ class ConexionsGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conexions_game)
 
-        palabrasLayout = findViewById(R.id.conexionsPalabrasLayout)
+        palabrasGrid = findViewById(R.id.gridPalabrasConexions)
         deselectAllButton = findViewById(R.id.deseleccionarConexionsButton)
         sendButton = findViewById(R.id.enviarConexionsButton)
         solutionGroup1Tv = findViewById(R.id.solution_grupo1)
@@ -47,7 +47,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
         initializeGame()
 
-        palabrasLayout.children.forEach {
+        palabrasGrid.children.forEach {
                 wordTextView ->
                     if (wordTextView is TextView) {
                         wordTextView.setOnClickListener {
@@ -107,7 +107,7 @@ class ConexionsGameActivity : AppCompatActivity() {
     private fun selectTextView(wordTextView: TextView) {
         if (!selectedTextView.contains(wordTextView)) {
             selectedTextView.add(wordTextView)
-            wordTextView.background = getDrawable(R.color.darkGray)
+            wordTextView.background = getDrawable(R.drawable.conexions_textview_background_selected)
             wordTextView.setTextColor(resources.getColor(R.color.white, theme))
         } else {
             unselectTextView(wordTextView)
@@ -116,7 +116,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
     private fun unselectTextView(wordTextView: TextView) {
         selectedTextView.remove(wordTextView)
-        wordTextView.background = getDrawable(R.color.canela)
+        wordTextView.background = getDrawable(R.drawable.conexions_textview_background)
         wordTextView.setTextColor(resources.getColor(R.color.black, theme))
     }
 
@@ -189,7 +189,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
     private fun saveSolution() {
         for (wordTextView : TextView in selectedTextView) {
-            wordTextView.background = getDrawable(R.color.correctGreen)
+            wordTextView.background = getDrawable(R.drawable.conexions_textview_background_correct)
             wordTextView.setTextColor(resources.getColor(R.color.white, theme))
             wordTextView.setOnClickListener{}
         }
