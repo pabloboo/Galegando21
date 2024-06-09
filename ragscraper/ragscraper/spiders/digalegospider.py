@@ -25,7 +25,7 @@ class DigalegoSpider(scrapy.Spider):
         definicion = definicion.strip() if definicion else None
 
         # Procesamiento de la palabra y definición
-        palabra = unidecode.unidecode(palabra).upper()
+        palabra = self.custom_unidecode(palabra).upper()
         palabra = palabra.split(" ")[0]
 
         # Comprobar si todos los caracteres de la palabra están en ALFABETO
@@ -33,7 +33,7 @@ class DigalegoSpider(scrapy.Spider):
             if definicion is None or definicion == "" or definicion == "." or definicion[-1] != ".":
                 definicion = None
 
-            if definicion:
+            if definicion and len(palabra) > 1:
                 yield {
                     'palabra': palabra,
                     'definicion': definicion
@@ -59,3 +59,13 @@ class DigalegoSpider(scrapy.Spider):
             url_completa_tercer_enlace = response.urljoin(tercer_enlace)
             print(f"Tercer enlace: {url_completa_tercer_enlace}")
             yield Request(url_completa_tercer_enlace)
+
+    def custom_unidecode(self, input_string):
+        # Convertir la cadena de entrada a una lista de caracteres
+        characters = list(input_string)
+        for i in range(len(characters)):
+            # Solo desacentuar el carácter si no es 'ñ'
+            if characters[i] != 'ñ' and characters[i] != 'Ñ':
+                characters[i] = unidecode.unidecode(characters[i])
+        # Convertir la lista de caracteres de vuelta a una cadena
+        return ''.join(characters)

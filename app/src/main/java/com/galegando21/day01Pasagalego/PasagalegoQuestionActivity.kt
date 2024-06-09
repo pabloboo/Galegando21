@@ -90,7 +90,11 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         val allWords = DigalegoConstants.getWordDefinitions(this)
 
         // Crear un mapa de letras a palabras
-        val wordsByLetter = allWords.groupBy { it.palabra.first() }
+        val wordsByLetter = allWords.groupBy { it.palabra.first() }.toMutableMap()
+
+        // Crear una lista de palabras que contienen la letra 'Ñ'
+        val wordsWithNH = allWords.filter { it.palabra.contains('Ñ', ignoreCase = true) }
+        wordsByLetter['Ñ'] = wordsWithNH
 
         // Seleccionar una palabra aleatoria para cada letra
         for (letter in ALFABETO) {
