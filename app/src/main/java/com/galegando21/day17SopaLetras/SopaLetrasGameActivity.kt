@@ -110,7 +110,10 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 }
 
                 override fun onFinish() {
-                    finalizarXogo()
+                    markMissingWordsInRed()
+                    xogarDeNovoButton.visibility = Button.VISIBLE
+                    finishButton.visibility = Button.VISIBLE
+                    checkAnswerButton.visibility = Button.GONE
                 }
             }.start()
             setOnBackPressed(this, SopaLetrasInicioActivity::class.java, countDownTimer)
@@ -133,9 +136,9 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 if (dificultade == SopaLetrasConstants.NIVEL_FACIL) {
                     direction = Random.nextInt(2)
                 } else if (dificultade == SopaLetrasConstants.NIVEL_MEDIO) {
-                    direction = Random.nextInt(6)
+                    direction = Random.nextInt(5)
                 } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
-                    direction = Random.nextInt(6)
+                    direction = Random.nextInt(5)
                 }
                 startRow = if (direction == 0) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
                 startCol = if (direction == 1) Random.nextInt(boardSize) else Random.nextInt(boardSize - word.length)
@@ -244,6 +247,8 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 xogarDeNovoButton.visibility = Button.VISIBLE
                 finishButton.visibility = Button.VISIBLE
                 checkAnswerButton.visibility = Button.GONE
+                disableAllTextViews()
+                countDownTimer?.cancel()
             }
 
             for (textView in selectedLetters) {
@@ -348,6 +353,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         xogarDeNovoButton.visibility = Button.GONE
         finishButton.visibility = Button.GONE
         checkAnswerButton.visibility = Button.VISIBLE
+        enableAllTextViews()
         generateWords()
         generateBoard()
     }
@@ -359,6 +365,77 @@ class SopaLetrasGameActivity : AppCompatActivity() {
             it.putExtra(SopaLetrasConstants.SCORE, puntuacion)
             startActivity(it)
             finish()
+        }
+    }
+
+    private fun markMissingWordsInRed() {
+        for (word in words) {
+            for (i in 0 until boardSize) {
+                for (j in 0 until boardSize) {
+                    for (direction in 0..4) {
+                        var found = true
+                        for (k in word.indices) {
+                            val row = when (direction) {
+                                0 -> i
+                                1 -> (i + k) % boardSize
+                                2 -> i
+                                3 -> (i - k + boardSize) % boardSize
+                                4 -> (i + k) % boardSize
+                                else -> (i - k + boardSize) % boardSize
+                            }
+                            val col = when (direction) {
+                                0 -> (j + k) % boardSize
+                                1 -> j
+                                2 -> (j - k + boardSize) % boardSize
+                                3 -> j
+                                4 -> (j + k) % boardSize
+                                else -> (j - k + boardSize) % boardSize
+                            }
+                            if (board[row][col] != word[k]) {
+                                found = false
+                                break
+                            }
+                        }
+                        if (found) {
+                            for (k in word.indices) {
+                                val row = when (direction) {
+                                    0 -> i
+                                    1 -> (i + k) % boardSize
+                                    2 -> i
+                                    3 -> (i - k + boardSize) % boardSize
+                                    4 -> (i + k) % boardSize
+                                    else -> (i - k + boardSize) % boardSize
+                                }
+                                val col = when (direction) {
+                                    0 -> (j + k) % boardSize
+                                    1 -> j
+                                    2 -> (j - k + boardSize) % boardSize
+                                    3 -> j
+                                    4 -> (j + k) % boardSize
+                                    else -> (j - k + boardSize) % boardSize
+                                }
+                                val textView = allTextViews[row * boardSize + col]
+                                textView.setBackgroundColor(Color.RED)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        disableAllTextViews()
+    }
+
+    // Activar todos los textview del grid
+    private fun enableAllTextViews() {
+        for (textView in allTextViews) {
+            textView.isEnabled = true
+        }
+    }
+
+    // Desactivar todos los textview del grid
+    private fun disableAllTextViews() {
+        for (textView in allTextViews) {
+            textView.isEnabled = false
         }
     }
 }
