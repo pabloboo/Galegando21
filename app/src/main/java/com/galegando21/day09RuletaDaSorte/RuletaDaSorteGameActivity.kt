@@ -4,11 +4,13 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -24,7 +26,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
     private lateinit var boardLayout: LinearLayout
     private lateinit var hintTv: TextView
     private lateinit var tirarRuletaButton: Button
-    private lateinit var ruletaAccionTextView: TextView
+    private lateinit var ruletaAccionImageView: ImageView
     private lateinit var cashTv: TextView
 
     val letters = listOf("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "m", "n", "nh", "o", "p", "q", "r", "s", "t", "u", "v", "x", "z")
@@ -41,7 +43,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         boardLayout = findViewById(R.id.ruleta_sorte_board_ll)
         hintTv = findViewById(R.id.ruleta_sorte_hint_tv)
         tirarRuletaButton = findViewById(R.id.ruleta_sorte_button)
-        ruletaAccionTextView = findViewById(R.id.ruleta_sorte_accion_ruleta_tv)
+        ruletaAccionImageView = findViewById(R.id.ruleta_sorte_accion_ruleta_image_view)
         cashTv = findViewById(R.id.ruleta_sorte_cash_tv)
 
         questionList = QuestionRuletaDaSorteConstants.getQuestions()
@@ -159,6 +161,16 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
 
     private fun playRuleta() {
         // Tirar la ruleta
+        val accionesImagen = listOf<Drawable>(
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte1)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte2)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte3)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte4)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte5)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte6)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte7)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte8)!!,
+        )
         val acciones = listOf<String>("0", "25", "50", "75", "100", "150", "bote", "quebra")
         val random = Random.nextInt(1, 100)
         val accion = when {
@@ -179,7 +191,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         // Actualizar el texto de ruletaAccionTextView en cada actualización de la animación
         animator.addUpdateListener { animation ->
             val currentIndex = animation.animatedValue as Int
-            ruletaAccionTextView.text = acciones[currentIndex % acciones.size]
+            ruletaAccionImageView.setImageDrawable(accionesImagen[currentIndex % accionesImagen.size])
         }
         // Cuando la animación termine, establecer el texto final
         animator.addListener(object : AnimatorListenerAdapter() {
@@ -195,37 +207,37 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         // Realizar la acción de la ruleta
         when (accion) {
             "0" -> {
-                ruletaAccionTextView.text = "0"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte1)
                 nextMultiplicadorAccion = 0
             }
             "25" -> {
-                ruletaAccionTextView.text = "25"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte2)
                 nextMultiplicadorAccion = 25
             }
             "50" -> {
-                ruletaAccionTextView.text = "50"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte3)
                 nextMultiplicadorAccion = 50
             }
             "75" -> {
-                ruletaAccionTextView.text = "75"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte4)
                 nextMultiplicadorAccion = 75
             }
             "100" -> {
-                ruletaAccionTextView.text = "100"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte5)
                 nextMultiplicadorAccion = 100
             }
             "150" -> {
-                ruletaAccionTextView.text = "150"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte6)
                 nextMultiplicadorAccion = 150
             }
             "bote" -> {
-                ruletaAccionTextView.text = "Bote!"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte7)
                 nextMultiplicadorAccion = 0
                 cash+=2000
 
             }
             "quebra" -> {
-                ruletaAccionTextView.text = "Quebra!"
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte8)
                 nextMultiplicadorAccion = 0
                 cash=0
             }
@@ -236,11 +248,11 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         // Cambiar la visibilidad de los elementos de la pantalla
         if (isRuletaTirada) {
             tirarRuletaButton.visibility = View.INVISIBLE
-            ruletaAccionTextView.visibility = View.VISIBLE
+            ruletaAccionImageView.visibility = View.VISIBLE
             setLettersOnClickListeners()
         } else {
             tirarRuletaButton.visibility = View.VISIBLE
-            ruletaAccionTextView.visibility = View.GONE
+            ruletaAccionImageView.visibility = View.INVISIBLE
             hideLettersOnClickListeners()
         }
     }
