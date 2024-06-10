@@ -114,7 +114,6 @@ class WordleGameActivity : AppCompatActivity() {
         //check solution
         val btnEnter = findViewById<ImageButton>(R.id.buttonEnter)
         btnEnter.setOnClickListener {
-            countCurrentTries++
             val row = gameCore.getCurRow()
             // Comprobar si la palabra existe en words
             val inputWord = texts[row].joinToString("") { it.text.toString() }
@@ -124,6 +123,7 @@ class WordleGameActivity : AppCompatActivity() {
             }
 
             if (gameCore.enter()) {
+                countCurrentTries++
                 val result: List<Pair<Char, Int>> = gameCore.validateWord(row)
                 for (col in 0 until colCount) {
                     val id = when (result[col].second) {
