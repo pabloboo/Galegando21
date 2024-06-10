@@ -18,7 +18,7 @@
         android:id="@+id/verdade_ou_mentira_correct_answers_results_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/fire_icon"
+        android:src="@drawable/verdade_ou_mentira_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,11 +30,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="75sp"
+        android:textColor="@color/correctGreen"
         app:layout_constraintBottom_toBottomOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
         app:layout_constraintEnd_toEndOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
         app:layout_constraintTop_toTopOf="@+id/verdade_ou_mentira_correct_answers_results_icon"
-        tools:text="7" />
+        tools:text="14" />
 
     <TextView
         android:id="@+id/verdade_ou_mentira_result_tv"
