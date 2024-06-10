@@ -8,7 +8,6 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.InputFilter
-import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.Button
@@ -33,6 +32,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
     private lateinit var lettersDisplay: LinearLayout
     private lateinit var wordInput: EditText
     private lateinit var submitWordButton: Button
+    private lateinit var scoreTextView: TextView
 
     private var totalWidthLetters = 0
     private val fallingLetters = mutableListOf<String>()
@@ -65,6 +65,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         wordInput = findViewById(R.id.wordInputExplosionPalabras)
         wordInput.filters = arrayOf(InputFilter.AllCaps())
         submitWordButton = findViewById(R.id.submitWordButtonExplosionPalabras)
+        scoreTextView = findViewById(R.id.pointsCounterExplosionPalabras)
 
         words = DigalegoConstants.getWords(this)
 
@@ -101,8 +102,6 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                                 fallingLetters.add(letter)
                                 lettersDisplay.addView(newLetterTextView)
                                 startFallAnimation(newLetterTextView, 3000)
-                                Log.d("ExplosionPalabras", "Anchura total de las letras: $totalWidthLetters, Anchura del contenedor de letras: ${lettersDisplay.width}")
-                                Log.d("ExplosionPalabras", "Tamaño falling letters: ${fallingLetters.size}, Tamaño lettersDisplay: ${lettersDisplay.childCount}")
                             } else {
                                 Intent(this@ExplosionPalabrasGameActivity, MainActivity::class.java).apply {
                                     putExtra("score", score)
@@ -198,7 +197,6 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         var validWord = true
         for (letter in inputWord) {
             if (letter.toString() !in fallingLetters) {
-                Log.d("ExplosionPalabras", "La letra $letter no está en fallingLetters: $fallingLetters")
                 validWord = false
                 break
             }
@@ -230,7 +228,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                         i++
                     }
                 }
-                Toast.makeText(this, "Palabra válida! Puntuación: $score", Toast.LENGTH_SHORT).show()
+                scoreTextView.text = "Puntos: $score"
                 totalWidthLetters = recalculateTotalWidthLetters()
             } else {
                 Toast.makeText(this, "A palabra non existe", Toast.LENGTH_SHORT).show()
@@ -257,7 +255,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
     }
 
     fun startFallAnimation(view: View, duration: Long) {
-        val anim = ObjectAnimator.ofFloat(view, "translationY", 0f, lettersDisplay.height.toFloat() - view.height)
+        val anim = ObjectAnimator.ofFloat(view, "translationY", 0f, (lettersDisplay.height.toFloat()-(0.1*lettersDisplay.height)).toFloat())
         anim.duration = duration
         anim.repeatCount = 0
         anim.interpolator = LinearInterpolator()
