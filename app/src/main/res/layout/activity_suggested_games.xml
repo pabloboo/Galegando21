@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuggestedGamesActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/gameRecommendationsTitleCativos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Para os máis cativos"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gameRecommendationsCativos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:text="Os xogos que máis poden disfrutar son 'Aforcado', 'Debuxa e Adiviña' e os recursos do día 21." />
+
+            <TextView
+                android:id="@+id/gameRecommendationsTitleFaciles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Xogos fáciles"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gameRecommendationsFaciles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:text="Os xogos considerados máis sinxelos de xogar en canto a complexidade son 'Onde están?', 'Atrapa un millón', 'Adiviña o ano da foto', 'Sopa de Letras', 'Agora Caigo', 'Ruleta da Sorte', 'Adiviña o Personaxe', 'Adiviña o escudo' e 'Wordle'." />
+
+            <TextView
+                android:id="@+id/gameRecommendationsTitleDificiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Xogos difíciles"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gameRecommendationsDificiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="16sp"
+                android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Mastermind'." />
+        </LinearLayout>
+    </ScrollView>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>

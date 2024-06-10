@@ -74,5 +74,7 @@
     <string name="explosion_de_palabras">Explosión de Palabras</string>
     <string name="explosion_palabras_explicacion">Este xogo consiste en formar palabras coas letras que van caendo na pantalla. Se a lista de letras chega ata a parte dereita da imaxen perderás.\n\n Recibirás un punto por cada letra da palabra formada.</string>
     <string name="dias_co_galego_e_mais">21 días co galego e +</string>
+    <string name="xogos_suxeridos">Xogos suxeridos</string>
+    <string name="axustes">Axustes</string>
 
 </resources>

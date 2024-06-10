@@ -42,6 +42,16 @@ class BannerFragment : Fragment() {
                     startActivity(intent)
                     true
                 }
+                R.id.action_suggested_games -> {
+                    val intent = Intent(requireContext(), SuggestedGamesActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.action_settings -> {
+                    val intent = Intent(requireContext(), AxustesActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
                 else -> false
             }
         }
