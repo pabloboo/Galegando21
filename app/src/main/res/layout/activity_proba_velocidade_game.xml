@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".day12ProbaVelocidade.ProbaVelocidadeGameActivity">
+    tools:context=".day17ProbaVelocidade.ProbaVelocidadeGameActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"

@@ -77,10 +77,10 @@
                     android:id="@+id/textDay2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/day02_text"
-                    android:textStyle="bold"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/white"/>
+                    android:text="@string/day02_text"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -101,10 +101,10 @@
                     android:id="@+id/textDay3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/day03_text"
-                    android:textStyle="bold"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/white"/>
+                    android:text="@string/day03_text"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout

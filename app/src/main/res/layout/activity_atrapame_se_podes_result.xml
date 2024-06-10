@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".day03AtrapameSePodes.AtrapameSePodesResultActivity">
+    tools:context=".day11AtrapameSePodes.AtrapameSePodesResultActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"
@@ -16,7 +16,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/atrapame_se_podes_level_fragment_container_result"
-        android:name="com.galegando21.day03AtrapameSePodes.AtrapameSePodesStepsFragment"
+        android:name="com.galegando21.day11AtrapameSePodes.AtrapameSePodesStepsFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

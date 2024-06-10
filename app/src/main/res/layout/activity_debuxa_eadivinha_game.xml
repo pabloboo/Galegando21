@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/canela"
-    tools:context=".day14DebuxaEAdivinha.DebuxaEAdivinhaGameActivity">
+    tools:context=".day20DebuxaEAdivinha.DebuxaEAdivinhaGameActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"
@@ -108,7 +108,7 @@
     </LinearLayout>
     </LinearLayout>
 
-    <com.galegando21.day14DebuxaEAdivinha.DrawPath
+    <com.galegando21.day20DebuxaEAdivinha.DrawPath
         android:id="@+id/drawPathDebuxaEAdivinha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

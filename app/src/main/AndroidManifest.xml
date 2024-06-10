@@ -16,115 +16,115 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
-            android:name=".day21ExplosionDePalabras.ExplosionPalabrasInicioActivity"
+            android:name=".day10ExplosionDePalabras.ExplosionPalabrasInicioActivity"
             android:exported="false" />
         <activity
-            android:name=".day21ExplosionDePalabras.ExplosionPalabrasResultsActivity"
+            android:name=".day10ExplosionDePalabras.ExplosionPalabrasResultsActivity"
             android:exported="false" />
         <activity
-            android:name=".day21ExplosionDePalabras.ExplosionPalabrasGameActivity"
+            android:name=".day10ExplosionDePalabras.ExplosionPalabrasGameActivity"
             android:exported="false" />
         <activity
-            android:name=".day20XogoPalabras.XogoPalabrasInicioActivity"
+            android:name=".day03XogoPalabras.XogoPalabrasInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day20XogoPalabras.XogoPalabrasResultsActivity"
+            android:name=".day03XogoPalabras.XogoPalabrasResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day20XogoPalabras.XogoPalabrasGameActivity"
+            android:name=".day03XogoPalabras.XogoPalabrasGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day19AdivinhaPersonaxe.AdivinhaPersonaxeResultsActivity"
+            android:name=".day12AdivinhaPersonaxe.AdivinhaPersonaxeResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day19AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity"
+            android:name=".day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day19AdivinhaPersonaxe.AdivinhaPersonaxeGameActivity"
+            android:name=".day12AdivinhaPersonaxe.AdivinhaPersonaxeGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day18Anagramas.AnagramasResultsActivity"
+            android:name=".day16Anagramas.AnagramasResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day18Anagramas.AnagramasInicioActivity"
+            android:name=".day16Anagramas.AnagramasInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day18Anagramas.AnagramasGameActivity"
+            android:name=".day16Anagramas.AnagramasGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day17SopaLetras.SopaLetrasResultsActivity"
+            android:name=".day06SopaLetras.SopaLetrasResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day17SopaLetras.SopaLetrasInicioActivity"
+            android:name=".day06SopaLetras.SopaLetrasInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day17SopaLetras.SopaLetrasGameActivity"
+            android:name=".day06SopaLetras.SopaLetrasGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day16OndeEstan.OndeEstanResultsActivity"
+            android:name=".day02OndeEstan.OndeEstanResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day16OndeEstan.OndeEstanInicioActivity"
+            android:name=".day02OndeEstan.OndeEstanInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day16OndeEstan.OndeEstanGameActivity"
+            android:name=".day02OndeEstan.OndeEstanGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day15mastermind.MastermindInicioActivity"
+            android:name=".day18Mastermind.MastermindInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day15mastermind.MastermindGameActivity"
+            android:name=".day18Mastermind.MastermindGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity"
+            android:name=".day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day14DebuxaEAdivinha.DebuxaEAdivinhaGameActivity"
+            android:name=".day20DebuxaEAdivinha.DebuxaEAdivinhaGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day13RuletaDaSorte.RuletaDaSorteInicioActivity"
+            android:name=".day09RuletaDaSorte.RuletaDaSorteInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day13RuletaDaSorte.RuletaDaSorteResultsActivity"
+            android:name=".day09RuletaDaSorte.RuletaDaSorteResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day13RuletaDaSorte.RuletaDaSorteGameActivity"
+            android:name=".day09RuletaDaSorte.RuletaDaSorteGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day12ProbaVelocidade.ProbaVelocidadeInicioActivity"
+            android:name=".day17ProbaVelocidade.ProbaVelocidadeInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day12ProbaVelocidade.ProbaVelocidadeResultsActivity"
+            android:name=".day17ProbaVelocidade.ProbaVelocidadeResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day12ProbaVelocidade.ProbaVelocidadeGameActivity"
+            android:name=".day17ProbaVelocidade.ProbaVelocidadeGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -132,48 +132,48 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day11AgoraCaigo.AgoraCaigoInicioActivity"
+            android:name=".day07AgoraCaigo.AgoraCaigoInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day11AgoraCaigo.AgoraCaigoResultsActivity"
+            android:name=".day07AgoraCaigo.AgoraCaigoResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day11AgoraCaigo.AgoraCaigoQuestionActivity"
+            android:name=".day07AgoraCaigo.AgoraCaigoQuestionActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity"
+            android:name=".day05AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoResultsActivity"
+            android:name=".day05AdivinhaAnoFoto.AdivinhaAnoFotoResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day10AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity"
+            android:name=".day05AdivinhaAnoFoto.AdivinhaAnoFotoGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day09AdivinhaEscudo.AdivinhaEscudoResultsActivity"
+            android:name=".day14AdivinhaEscudo.AdivinhaEscudoResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day09AdivinhaEscudo.AdivinhaEscudoInicioActivity"
+            android:name=".day14AdivinhaEscudo.AdivinhaEscudoInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day09AdivinhaEscudo.AdivinhaEscudoQuestionActivity"
+            android:name=".day14AdivinhaEscudo.AdivinhaEscudoQuestionActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day08Wordle.WordleInicioActivity"
+            android:name=".day15Wordle.WordleInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day08Wordle.WordleGameActivity"
+            android:name=".day15Wordle.WordleGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -182,31 +182,31 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day07verdadeOuMentira.VerdadeOuMentiraResultsActivity"
+            android:name=".day13VerdadeOuMentira.VerdadeOuMentiraResultsActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day07verdadeOuMentira.VerdadeOuMentiraQuestionActivity"
+            android:name=".day13VerdadeOuMentira.VerdadeOuMentiraQuestionActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day07verdadeOuMentira.VerdadeOuMentiraInicioActivity"
+            android:name=".day13VerdadeOuMentira.VerdadeOuMentiraInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day06Conexions.ConexionsGameActivity"
+            android:name=".day08Conexions.ConexionsGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day06Conexions.ConexionsInicioActivity"
+            android:name=".day08Conexions.ConexionsInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day05Aforcado.AforcadoGameActivity"
+            android:name=".day19Aforcado.AforcadoGameActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day05Aforcado.AforcadoInicioActivity"
+            android:name=".day19Aforcado.AforcadoInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -226,20 +226,20 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day03AtrapameSePodes.AtrapameSePodesResultActivity"
+            android:name=".day11AtrapameSePodes.AtrapameSePodesResultActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day03AtrapameSePodes.AtrapameSePodesQuestionActivity"
+            android:name=".day11AtrapameSePodes.AtrapameSePodesQuestionActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".day03AtrapameSePodes.AtrapameSePodesInicioActivity"
+            android:name=".day11AtrapameSePodes.AtrapameSePodesInicioActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".day02Musica.MusicaActivity"
+            android:name=".day21RecursosGalego.RecursosGalegoActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

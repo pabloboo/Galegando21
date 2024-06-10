@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainLayoutMastermind"
-    tools:context=".day15mastermind.MastermindGameActivity">
+    tools:context=".day18Mastermind.MastermindGameActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"

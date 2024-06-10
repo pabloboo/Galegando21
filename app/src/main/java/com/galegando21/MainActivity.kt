@@ -11,7 +11,7 @@ import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
-import com.galegando21.day02Musica.MusicaActivity
+import com.galegando21.day21RecursosGalego.RecursosGalegoActivity
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -21,25 +21,25 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
-import com.galegando21.day03AtrapameSePodes.AtrapameSePodesInicioActivity
+import com.galegando21.day11AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
-import com.galegando21.day05Aforcado.AforcadoInicioActivity
-import com.galegando21.day06Conexions.ConexionsInicioActivity
-import com.galegando21.day07verdadeOuMentira.VerdadeOuMentiraInicioActivity
-import com.galegando21.day08Wordle.WordleInicioActivity
-import com.galegando21.day09AdivinhaEscudo.AdivinhaEscudoInicioActivity
-import com.galegando21.day10AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
-import com.galegando21.day11AgoraCaigo.AgoraCaigoInicioActivity
-import com.galegando21.day12ProbaVelocidade.ProbaVelocidadeInicioActivity
-import com.galegando21.day13RuletaDaSorte.RuletaDaSorteInicioActivity
-import com.galegando21.day14DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
-import com.galegando21.day15mastermind.MastermindInicioActivity
-import com.galegando21.day16OndeEstan.OndeEstanInicioActivity
-import com.galegando21.day17SopaLetras.SopaLetrasInicioActivity
-import com.galegando21.day18Anagramas.AnagramasInicioActivity
-import com.galegando21.day19AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
-import com.galegando21.day20XogoPalabras.XogoPalabrasInicioActivity
-import com.galegando21.day21ExplosionDePalabras.ExplosionPalabrasInicioActivity
+import com.galegando21.day19Aforcado.AforcadoInicioActivity
+import com.galegando21.day08Conexions.ConexionsInicioActivity
+import com.galegando21.day13VerdadeOuMentira.VerdadeOuMentiraInicioActivity
+import com.galegando21.day15Wordle.WordleInicioActivity
+import com.galegando21.day14AdivinhaEscudo.AdivinhaEscudoInicioActivity
+import com.galegando21.day05AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
+import com.galegando21.day07AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.day17ProbaVelocidade.ProbaVelocidadeInicioActivity
+import com.galegando21.day09RuletaDaSorte.RuletaDaSorteInicioActivity
+import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
+import com.galegando21.day18Mastermind.MastermindInicioActivity
+import com.galegando21.day02OndeEstan.OndeEstanInicioActivity
+import com.galegando21.day06SopaLetras.SopaLetrasInicioActivity
+import com.galegando21.day16Anagramas.AnagramasInicioActivity
+import com.galegando21.day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
+import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
+import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -192,13 +192,13 @@ class MainActivity : AppCompatActivity() {
     private fun setOnClickListenerMain(id: Int) {
         when (id) {
             R.id.btnDay2 -> {
-                Intent(this@MainActivity, MusicaActivity::class.java).also {
+                Intent(this@MainActivity, OndeEstanInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
             R.id.btnDay3 -> {
-                Intent(this@MainActivity, AtrapameSePodesInicioActivity::class.java).also {
+                Intent(this@MainActivity, XogoPalabrasInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
@@ -210,103 +210,103 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay5 -> {
-                Intent(this@MainActivity, AforcadoInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay6 -> {
-                Intent(this@MainActivity, ConexionsInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay7 -> {
-                Intent(this@MainActivity, VerdadeOuMentiraInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay8 -> {
-                Intent(this@MainActivity, WordleInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay9 -> {
-                Intent(this@MainActivity, AdivinhaEscudoInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay10 -> {
                 Intent(this@MainActivity, AdivinhaAnoFotoInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
-            R.id.btnDay11 -> {
-                Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay12 -> {
-                Intent(this@MainActivity, ProbaVelocidadeInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay13 -> {
-                Intent(this@MainActivity, RuletaDaSorteInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay14 -> {
-                Intent(this@MainActivity, DebuxaEAdivinhaInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay15 -> {
-                Intent(this@MainActivity, MastermindInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay16 -> {
-                Intent(this@MainActivity, OndeEstanInicioActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
-            }
-            R.id.btnDay17 -> {
+            R.id.btnDay6 -> {
                 Intent(this@MainActivity, SopaLetrasInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
-            R.id.btnDay18 -> {
-                Intent(this@MainActivity, AnagramasInicioActivity::class.java).also {
+            R.id.btnDay7 -> {
+                Intent(this@MainActivity, AgoraCaigoInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
-            R.id.btnDay19 -> {
+            R.id.btnDay8 -> {
+                Intent(this@MainActivity, ConexionsInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay9 -> {
+                Intent(this@MainActivity, RuletaDaSorteInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay10 -> {
+                Intent(this@MainActivity, ExplosionPalabrasInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay11 -> {
+                Intent(this@MainActivity, AtrapameSePodesInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay12 -> {
                 Intent(this@MainActivity, AdivinhaPersonaxeInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
+            R.id.btnDay13 -> {
+                Intent(this@MainActivity, VerdadeOuMentiraInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay14 -> {
+                Intent(this@MainActivity, AdivinhaEscudoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay15 -> {
+                Intent(this@MainActivity, WordleInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay16 -> {
+                Intent(this@MainActivity, AnagramasInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay17 -> {
+                Intent(this@MainActivity, ProbaVelocidadeInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay18 -> {
+                Intent(this@MainActivity, MastermindInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            R.id.btnDay19 -> {
+                Intent(this@MainActivity, AforcadoInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
             R.id.btnDay20 -> {
-                Intent(this@MainActivity, XogoPalabrasInicioActivity::class.java).also {
+                Intent(this@MainActivity, DebuxaEAdivinhaInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
             }
             R.id.btnDay21 -> {
-                Intent(this@MainActivity, ExplosionPalabrasInicioActivity::class.java).also {
+                Intent(this@MainActivity, RecursosGalegoActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
