@@ -30,8 +30,12 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
         setBanner(this, R.string.adivinha_o_personaxe)
 
         val score = intent.getIntExtra(AdivinhaPersonaxeConstants.ADIVINHA_PERSONAXE_SCORE, 0)
-        AdivinhaPersonaxeCorrectAnswersResultTv.text = score.toString()
-        AdivinhaPersonaxeResultsTv.text = "Necesitaches $score pistas para acertar o personaxe."
+        if (score != 0) {
+            AdivinhaPersonaxeCorrectAnswersResultTv.text = score.toString()
+            AdivinhaPersonaxeResultsTv.text = "Necesitaches $score pistas para acertar o personaxe."
+        } else {
+            AdivinhaPersonaxeResultsTv.text = "Intentao de novo!"
+        }
 
         AdivinhaPersonaxeFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
@@ -40,7 +44,9 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
             }
         }
 
-        changeAdivinhaPersonaxeStatistics()
+        if (score != 0) {
+            changeAdivinhaPersonaxeStatistics()
+        }
 
         setOnBackPressed(this, AdivinhaPersonaxeInicioActivity::class.java)
     }

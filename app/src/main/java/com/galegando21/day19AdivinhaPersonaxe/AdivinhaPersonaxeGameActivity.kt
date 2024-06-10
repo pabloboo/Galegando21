@@ -66,7 +66,7 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
         } else {
             // Muestra un mensaje si no hay más pistas disponibles
             Toast.makeText(this, "Non hai máis pistas dispoñibles", Toast.LENGTH_SHORT).show()
-            finalizarXogo()
+            finalizarXogo(false)
         }
     }
 
@@ -76,7 +76,7 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
             return
         }
         // Muestra todas las pistas restantes, esperando 500ms entre cada addClue
-        question.hints.subList(currentClueIndex+1, question.hints.size).forEachIndexed { index, hint ->
+        question.hints.subList(currentClueIndex, question.hints.size).forEachIndexed { index, hint ->
             cluesContainer.postDelayed({
                 addClue(hint, true)
             }, index * 500L)
@@ -114,18 +114,20 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
     private fun checkAnswer() {
         if (answerEditText.text.toString() == question.answer) {
             showAllLeftClues()
-            finalizarXogo()
+            finalizarXogo(true)
         } else {
             showNextClue()
             answerEditText.text.clear()
         }
     }
 
-    private fun finalizarXogo() {
+    private fun finalizarXogo(xogoGanhado: Boolean) {
         checkAnswerButton.text = "Rematar"
         checkAnswerButton.setOnClickListener {
             Intent(this, AdivinhaPersonaxeResultsActivity::class.java).also {
-                it.putExtra(AdivinhaPersonaxeConstants.ADIVINHA_PERSONAXE_SCORE, currentClueIndex)
+                if (xogoGanhado) {
+                    it.putExtra(AdivinhaPersonaxeConstants.ADIVINHA_PERSONAXE_SCORE, currentClueIndex)
+                }
                 startActivity(it)
                 finish()
             }
