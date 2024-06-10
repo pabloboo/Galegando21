@@ -166,7 +166,6 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                 var letrasBorradas = mutableListOf<Char>()
                 for (letter in inputWord) {
                     if ((letter.toString() in fallingLetters) && (letter !in letrasBorradas)) {
-                        Log.d("BORRAR LETRA", "Borrando letra $letter")
                         fallingLetters.remove(letter.toString())
                         letrasBorradas.add(letter)
                     }
@@ -178,18 +177,13 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                 while (i <= lettersDisplay.childCount) {
                     val child = lettersDisplay.getChildAt(i)
                     if ((child is TextView) && (child.text.toString() in inputWord) && (child.text[0] !in letrasBorradas)) {
-                        Log.d("BORRAR VISTA", "Borrando vista ${child.text}")
                         lettersDisplay.removeViewAt(i)
                         letrasBorradas.add(child.text[0])
-                        i--
-                        if (i < 0) i = 0
+                        // Non incrementar i porque se elimina unha vista
+                    } else {
+                        i++
                     }
-                    i++
                 }
-
-                Log.d("ExplosionPalabras", "Número de letras restantes: ${fallingLetters.size}")
-                Log.d("ExplosionPalabras", "Número de letras en pantalla: ${lettersDisplay.childCount}")
-
                 Toast.makeText(this, "Palabra válida! Puntuación: $score", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "A palabra non existe", Toast.LENGTH_SHORT).show()
