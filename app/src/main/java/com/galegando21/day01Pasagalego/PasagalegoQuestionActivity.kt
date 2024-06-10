@@ -56,9 +56,9 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         checkButton = findViewById(R.id.check_btn_pasagalego)
         pasapalabraButton = findViewById(R.id.pasapalabra_btn)
 
-        initQuestions()
-
         modo = intent.getStringExtra("modo")  ?: "diccionario"
+
+        initQuestions()
 
         checkButton.setOnClickListener {
             checkButtonClickListener()

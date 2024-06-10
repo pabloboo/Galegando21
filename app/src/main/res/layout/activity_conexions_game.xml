@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintBottom_toTopOf="@+id/ConexionsLinearLayoutButtons"
+        app:layout_constraintBottom_toTopOf="@+id/ConexionsLifesImageView"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="15dp"
         android:rowCount="4"
@@ -252,6 +252,16 @@
 
     </GridLayout>
 
+    <ImageView
+        android:id="@+id/ConexionsLifesImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/conexions_lifes_5"
+        app:layout_constraintTop_toBottomOf="@id/gridPalabrasConexions"
+        app:layout_constraintBottom_toTopOf="@id/ConexionsLinearLayoutButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <LinearLayout
         android:id="@+id/ConexionsLinearLayoutButtons"
         android:layout_width="match_parent"
@@ -261,7 +271,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gridPalabrasConexions">
+        app:layout_constraintTop_toBottomOf="@id/ConexionsLifesImageView">
 
         <Button
             android:id="@+id/deseleccionarConexionsButton"

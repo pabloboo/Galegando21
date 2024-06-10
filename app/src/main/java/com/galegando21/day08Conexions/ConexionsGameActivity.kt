@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.children
@@ -19,6 +20,7 @@ import kotlin.random.Random
 
 class ConexionsGameActivity : AppCompatActivity() {
     private lateinit var palabrasGrid: GridLayout
+    private lateinit var lifesImageView: ImageView
     private lateinit var deselectAllButton : Button
     private lateinit var sendButton : Button
     private lateinit var solutionGroup1Tv : TextView
@@ -30,12 +32,14 @@ class ConexionsGameActivity : AppCompatActivity() {
     private lateinit var conexionsData : Conexions
 
     private var correctAnswers = 0
+    private var currentLifes = 6
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conexions_game)
 
         palabrasGrid = findViewById(R.id.gridPalabrasConexions)
+        lifesImageView = findViewById(R.id.ConexionsLifesImageView)
         deselectAllButton = findViewById(R.id.deseleccionarConexionsButton)
         sendButton = findViewById(R.id.enviarConexionsButton)
         solutionGroup1Tv = findViewById(R.id.solution_grupo1)
@@ -182,8 +186,33 @@ class ConexionsGameActivity : AppCompatActivity() {
                     conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.toString()
                 return
             }
+
+            currentLifes--
+            updateLifes()
+
         } else {
             Toast.makeText(this, "Selecciona 4 elementos", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateLifes() {
+        when (currentLifes) {
+            6 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_5)
+            5 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_4)
+            4 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_3)
+            3 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_2)
+            2 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_1)
+            1 -> lifesImageView.setImageResource(R.drawable.conexions_lifes_0)
+            else -> lifesImageView.setImageResource(R.drawable.conexions_lifes_0)
+        }
+        if (currentLifes === 0) {
+            sendButton.text="Xogar de novo"
+            sendButton.setOnClickListener {
+                Intent(this@ConexionsGameActivity, ConexionsGameActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
         }
     }
 
