@@ -16,7 +16,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DigalegoConstants
@@ -56,6 +55,8 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
     private var recontoVogais = 0
     private var recontoConsoantes = 0
     private var score = 0
+    private var dificultade = "facil"
+    private var segundosEntreLetras = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +67,13 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         wordInput.filters = arrayOf(InputFilter.AllCaps())
         submitWordButton = findViewById(R.id.submitWordButtonExplosionPalabras)
         scoreTextView = findViewById(R.id.pointsCounterExplosionPalabras)
+
+        dificultade = intent.getStringExtra("dificultade") ?: "facil"
+        if (dificultade == "facil") {
+            segundosEntreLetras = 3
+        } else {
+            segundosEntreLetras = 1
+        }
 
         words = DigalegoConstants.getWords(this)
 
@@ -82,7 +90,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 seconds++
-                if (seconds % 1 == 0) {
+                if (seconds % segundosEntreLetras == 0) {
                     coroutineScope.launch {
                         val letter = generateLetter()
                         withContext(Dispatchers.Main) {
@@ -103,8 +111,8 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                                 lettersDisplay.addView(newLetterTextView)
                                 startFallAnimation(newLetterTextView, 3000)
                             } else {
-                                Intent(this@ExplosionPalabrasGameActivity, MainActivity::class.java).apply {
-                                    putExtra("score", score)
+                                Intent(this@ExplosionPalabrasGameActivity, ExplosionPalabrasResultsActivity::class.java).apply {
+                                    putExtra("PUNTOS_EXPLOSION_PALABRAS", score)
                                     startActivity(this)
                                     finish()
                                     countDownTimer?.cancel()
@@ -118,7 +126,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
             override fun onFinish() {}
         }.start()
 
-        setOnBackPressed(this, MainActivity::class.java, countDownTimer)
+        setOnBackPressed(this, ExplosionPalabrasInicioActivity::class.java, countDownTimer)
     }
 
     // Función para generar listas de probabilidades acumuladas
