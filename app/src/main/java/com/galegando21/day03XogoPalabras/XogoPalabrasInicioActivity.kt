@@ -1,12 +1,16 @@
 package com.galegando21.day03XogoPalabras
 
+import android.app.Dialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.VideoView
 import androidx.appcompat.app.AlertDialog
 import com.galegando21.MainActivity
 import com.galegando21.R
@@ -15,6 +19,7 @@ import com.galegando21.utils.setOnBackPressed
 
 class XogoPalabrasInicioActivity : AppCompatActivity() {
     private lateinit var helpButton: ImageButton
+    private lateinit var demoButton: ImageButton
     private lateinit var comezarButton: Button
     private lateinit var loadingProgressBar: ProgressBar
 
@@ -23,6 +28,7 @@ class XogoPalabrasInicioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_xogo_palabras_inicio)
 
         helpButton = findViewById(R.id.xogo_palabras_help_btn)
+        demoButton = findViewById(R.id.xogo_palabras_demo_btn)
         comezarButton = findViewById(R.id.start_btn_xogo_palabras)
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
@@ -30,6 +36,10 @@ class XogoPalabrasInicioActivity : AppCompatActivity() {
 
         helpButton.setOnClickListener {
             showHelpDialog()
+        }
+
+        demoButton.setOnClickListener {
+            showDemoDialog()
         }
 
         comezarButton.setOnClickListener {
@@ -61,5 +71,30 @@ class XogoPalabrasInicioActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun showDemoDialog() {
+        // Crear un nuevo diálogo
+        val dialog = Dialog(this)
+
+        // Establecer el layout del diálogo
+        dialog.setContentView(R.layout.dialog_video)
+
+        // Encontrar el VideoView en el layout
+        val videoView = dialog.findViewById<VideoView>(R.id.videoView)
+
+        // Encontrar el TextView en el layout y establecer el título
+        val titleView = dialog.findViewById<TextView>(R.id.dialogTitle)
+        titleView.text = "Cómo xogar?"
+
+        // Establecer la ruta del video
+        val videoPath = "android.resource://" + packageName + "/" + R.raw.xogo_palabras_demo
+        val uri = Uri.parse(videoPath)
+        videoView.setVideoURI(uri)
+
+        // Iniciar el video
+        videoView.start()
+
+        dialog.show()
     }
 }
