@@ -2,6 +2,7 @@ package com.galegando21.day21ExplosionDePalabras
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
@@ -80,7 +81,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 seconds++
-                if (seconds % 3 == 0) {
+                if (seconds % 1 == 0) {
                     coroutineScope.launch {
                         val letter = generateLetter()
                         withContext(Dispatchers.Main) {
@@ -96,12 +97,19 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                             val newLetterWidth = bounds.width()
                             totalWidthLetters += newLetterWidth
 
-                            if (totalWidthLetters < lettersDisplay.width) {
+                            if (totalWidthLetters < (lettersDisplay.width - 2 * newLetterWidth)) {
                                 fallingLetters.add(letter)
                                 lettersDisplay.addView(newLetterTextView)
                                 startFallAnimation(newLetterTextView, 3000)
                                 Log.d("ExplosionPalabras", "Anchura total de las letras: $totalWidthLetters, Anchura del contenedor de letras: ${lettersDisplay.width}")
                                 Log.d("ExplosionPalabras", "Tamaño falling letters: ${fallingLetters.size}, Tamaño lettersDisplay: ${lettersDisplay.childCount}")
+                            } else {
+                                Intent(this@ExplosionPalabrasGameActivity, MainActivity::class.java).apply {
+                                    putExtra("score", score)
+                                    startActivity(this)
+                                    finish()
+                                    countDownTimer?.cancel()
+                                }
                             }
                         }
                     }
@@ -223,6 +231,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                     }
                 }
                 Toast.makeText(this, "Palabra válida! Puntuación: $score", Toast.LENGTH_SHORT).show()
+                totalWidthLetters = recalculateTotalWidthLetters()
             } else {
                 Toast.makeText(this, "A palabra non existe", Toast.LENGTH_SHORT).show()
             }
@@ -231,6 +240,20 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         }
 
         wordInput.text.clear()
+    }
+
+    fun recalculateTotalWidthLetters(): Int {
+        var totalWidthLettersAux = 0
+        for (i in 0 until lettersDisplay.childCount) {
+            val child = lettersDisplay.getChildAt(i)
+            if (child is TextView) {
+                val bounds = Rect()
+                child.paint.getTextBounds(child.text.toString(), 0, child.text.length, bounds)
+                val childWidth = bounds.width()
+                totalWidthLettersAux += childWidth
+            }
+        }
+        return totalWidthLettersAux
     }
 
     fun startFallAnimation(view: View, duration: Long) {
