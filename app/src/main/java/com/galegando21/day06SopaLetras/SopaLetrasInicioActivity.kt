@@ -3,8 +3,10 @@ package com.galegando21.day06SopaLetras
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -22,6 +24,7 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
     private lateinit var explicacionImageView: ImageView
     private lateinit var explicacionTextView: TextView
     private lateinit var comezarButton: Button
+    private lateinit var loadingProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +39,10 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
         explicacionImageView = findViewById(R.id.explicacion_sopa_letras_image_view)
         explicacionTextView = findViewById(R.id.explicacion_sopa_letras_text_view)
         comezarButton = findViewById(R.id.start_btn_sopa_letras)
+        loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
         comezarButton.setOnClickListener {
+            loadingProgressBar.visibility = View.VISIBLE
             Intent(this@SopaLetrasInicioActivity, SopaLetrasGameActivity::class.java).also {
                 when(radioGroup.checkedRadioButtonId) {
                     radioButtonFacil.id -> it.putExtra("dificultade", SopaLetrasConstants.NIVEL_FACIL)
@@ -67,5 +72,11 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
         }
 
         setOnBackPressed(this, MainActivity::class.java)
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        loadingProgressBar.visibility = View.GONE
     }
 }

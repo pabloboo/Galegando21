@@ -91,6 +91,7 @@ class VerdadeOuMentiraQuestionActivity : AppCompatActivity() {
         if (currentQuestion.correctAnswer == resposta) {
             correctAnswers++
             progressBar.progress = correctAnswers
+            correctAnswersTextView.text = "$correctAnswers"
             if (correctAnswers > progressBar.max) {
                 progressBar.visibility = View.INVISIBLE
                 recordSuperadoTextView.visibility = View.VISIBLE

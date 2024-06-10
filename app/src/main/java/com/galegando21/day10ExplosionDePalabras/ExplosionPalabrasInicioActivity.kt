@@ -3,7 +3,9 @@ package com.galegando21.day10ExplosionDePalabras
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -18,6 +20,7 @@ class ExplosionPalabrasInicioActivity : AppCompatActivity() {
     private lateinit var radioButtonDificil: RadioButton
     private lateinit var explicacionDificultadeXogoTextView: TextView
     private lateinit var comezarButton: Button
+    private lateinit var loadingProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +33,10 @@ class ExplosionPalabrasInicioActivity : AppCompatActivity() {
         radioButtonDificil = findViewById(R.id.explosion_palabras_radio_btn_dificil)
         explicacionDificultadeXogoTextView = findViewById(R.id.dificultade_xogo_info_tv_explosion_palabras)
         comezarButton = findViewById(R.id.start_btn_explosion_palabras)
+        loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
         comezarButton.setOnClickListener {
+            loadingProgressBar.visibility = View.VISIBLE
             Intent(this@ExplosionPalabrasInicioActivity, ExplosionPalabrasGameActivity::class.java).also {
                 when (radioGroup.checkedRadioButtonId) {
                     radioButtonFacil.id -> it.putExtra("dificultade", "facil")
@@ -54,5 +59,11 @@ class ExplosionPalabrasInicioActivity : AppCompatActivity() {
         }
 
         setOnBackPressed(this, MainActivity::class.java)
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        loadingProgressBar.visibility = View.GONE
     }
 }
