@@ -39,7 +39,19 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
     private var countDownTimer: CountDownTimer? = null
     private val coroutineScope = CoroutineScope(Dispatchers.Default)
     private var words = listOf<String>()
+
+    private val letters_frequency = mapOf(
+        'A' to 0.125, 'K' to 0.008, 'T' to 0.0442, 'B' to 0.0127, 'L' to 0.0584, 'U' to 0.04, 'C' to 0.0443,
+        'M' to 0.0261, 'V' to 0.0098, 'D' to 0.0514, 'N' to 0.0709, 'W' to 0.0003, 'E' to 0.1324, 'Ñ' to 0.0022,
+        'X' to 0.0019, 'F' to 0.0079, 'O' to 0.0898, 'Y' to 0.0079, 'G' to 0.0117, 'P' to 0.0275, 'Z' to 0.0042,
+        'H' to 0.0081, 'Q' to 0.0083, 'I' to 0.0691, 'R' to 0.0662, 'J' to 0.0045, 'S' to 0.0744
+    )
     private val vogais = listOf('A', 'E', 'I', 'O', 'U')
+    val consonantes = letters_frequency.keys.filterNot { it in vogais }
+    val cumulativeVowels = createCumulativeFrequencyList(vogais)
+    var cumulativeVogaisMax = 0.0
+    val cumulativeConsonants = createCumulativeFrequencyList(consonantes)
+    var cumulativeConsoantesMax = 0.0
     private var recontoVogais = 0
     private var recontoConsoantes = 0
     private var score = 0
@@ -102,8 +114,22 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
         setOnBackPressed(this, MainActivity::class.java, countDownTimer)
     }
 
-    private fun generateLetter(): String {
-        val isVogal: Boolean
+    // Función para generar listas de probabilidades acumuladas
+    fun createCumulativeFrequencyList(letters: List<Char>): List<Pair<Char, Double>> {
+        var cumulative = 0.0
+        return letters.map { letter ->
+            cumulative += letters_frequency[letter] ?: 0.0
+            if (letter in vogais) {
+                cumulativeVogaisMax = cumulative
+            } else {
+                cumulativeConsoantesMax = cumulative
+            }
+            letter to cumulative
+        }
+    }
+
+    fun generateLetter(): String {
+        val isVowel: Boolean
 
         if (recontoVogais + recontoConsoantes >= 7) {
             // Resetear los contadores
@@ -113,29 +139,41 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
 
         if (recontoVogais >= 3) {
             // Ya hay suficientes vocales, forzar una consonante
-            isVogal = false
+            isVowel = false
         } else if (recontoConsoantes >= 4) {
             // Ya hay suficientes consonantes, forzar una vocal
-            isVogal = true
+            isVowel = true
         } else {
             // Decidir aleatoriamente si la letra será vocal o consonante
-            isVogal = Random.nextBoolean()
+            isVowel = Random.nextBoolean()
         }
 
-        var letter: Char
-        if (isVogal) {
-            // Generar una vocal aleatoria
-            letter = vogais[Random.nextInt(vogais.size)]
+        return if (isVowel) {
+            // Generar una vocal basada en las frecuencias relativas
             recontoVogais++
+            selectLetterBasedOnFrequency(cumulativeVowels, true).toString()
         } else {
-            // Generar una consonante aleatoria
-            do {
-                letter = ALFABETO[Random.nextInt(ALFABETO.length)]
-            } while (letter in vogais)
+            // Generar una consonante basada en las frecuencias relativas
             recontoConsoantes++
+            selectLetterBasedOnFrequency(cumulativeConsonants, false).toString()
+        }
+    }
+
+    // Función para seleccionar una letra basada en las frecuencias acumuladas
+    fun selectLetterBasedOnFrequency(frequencies: List<Pair<Char, Double>>, vowel: Boolean): Char {
+        var randomValue = 0.0
+        if (vowel) {
+            randomValue = Random.nextDouble(cumulativeVogaisMax)
+        } else {
+            randomValue = Random.nextDouble(cumulativeConsoantesMax)
         }
 
-        return letter.toString()
+        var letter = ' '
+        do {
+            letter = frequencies.first { it.second >= randomValue }.first
+        } while (letter !in ALFABETO)
+
+        return letter
     }
 
     private fun createNewLetterTextView(letter: String): TextView {
