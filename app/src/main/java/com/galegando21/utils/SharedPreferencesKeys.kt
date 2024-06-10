@@ -29,4 +29,5 @@ object SharedPreferencesKeys {
     const val ANAGRAMAS_MAX_SCORE = "anagramas_max_score"
     const val ADIVINHA_PERSONAXE_MAX_SCORE = "adivinha_personaxe_max_score"
     const val XOGO_PALABRAS_MAX_SCORE = "PUNTUACION_MAXIMA_XOGO_PALABRAS"
+    const val EXPLOSION_PALABRAS_MAX_SCORE = "explosion_palabras_max_score"
 }

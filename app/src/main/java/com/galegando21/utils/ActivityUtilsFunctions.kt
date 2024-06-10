@@ -9,7 +9,7 @@ import com.galegando21.R
 import java.text.Normalizer
 import java.util.Calendar
 
-const val NUMBER_OF_DAYS = 20
+const val NUMBER_OF_DAYS = 21
 const val ALFABETO = "ABCDEFGHILMNÑOPQRSTUVXZ"
 
 fun setBanner(activity: FragmentActivity, bannerTextId: Int) {

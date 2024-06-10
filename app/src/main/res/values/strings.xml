@@ -71,5 +71,8 @@
     <string name="xogo_de_palabras">Xogo de Palabras</string>
     <string name="day20_text">Día 20 - Xogo de Palabras</string>
     <string name="xogo_palabras_explicacion">Este xogo proporcionache 7 letras, unha das cales está no centro e debe ser usada en cada palabra que formes.\n\nO obxectivo é crear tantas palabras válidas como poidas usando esas letras, cada palabra debe ter un mínimo de catro letras.\nA medida que introduces palabras o xogo validaas según o diccionario e acumula a puntuación total.\n\nSe queres rematar o xogo antes de chegar á puntuación total podes facelo mantendro premido o botón \'Comprobar\'.</string>
+    <string name="day21_text">Día 21 - Explosión de Palabras</string>
+    <string name="explosion_de_palabras">Explosión de Palabras</string>
+    <string name="explosion_palabras_explicacion">Este xogo consiste en formar palabras coas letras que van caendo na pantalla. Se a lista de letras chega ata a parte dereita da imaxen perderás.\n\n Recibirás un punto por cada letra da palabra formada.</string>
 
 </resources>
