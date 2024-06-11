@@ -50,3 +50,27 @@ python3 ragscraper/spiders/rag.py
 ```
 
 Os resultados gardanse no ficheiro `rag.json` na o directorio actual.
+
+
+### Executar o Scraper do traductor de Gaio:
+
+Para executar este scraper é necesario ter instaladas as dependencias dos scrapers anteriores.
+
+Obter as palabras comúns:
+Partese de un ficheiro, en este caso 'palabras_comunes_es', que contén unha lista de palabras comúns
+no idioma español separadas por saltos de liña e por comas. O escraper 'gaio.py' obtén a traducción ao galego
+de cada termo usando o traductor de Gaio.
+
+Executar o scraper:
+```
+cd rag_scraper/
+python3 ragscraper/spiders/gaio.py
+```
+
+Unha vez finalizado o scraper os resultados gardanse no ficheiro 'palabras_comuns_gl.json'.
+Por último executase o seguinte comando (tendo, no mesmo directorio os arquivos 'digalego.json', 'palabras_comuns_gl.json' e 'find_definicions_comuns.py'):
+```
+python3 find_definicions_comuns.py
+```
+Este último comando crea un novo ficheiro .json chamado palabras_basicas.json que contén as palabras comúns en galego e as súas definicións.
+O arquivo 'find_definicions_comuns.py' busca todas as palabras traducidas no ficheiro 'digalego.json' para obter as súas definicións.
