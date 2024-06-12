@@ -3,6 +3,7 @@ package com.galegando21.model
 import android.content.Context
 import com.galegando21.R
 import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.PalabrasBasicasConstants
 import kotlin.random.Random
 
 class AforcadoGameManager {
@@ -14,12 +15,22 @@ class AforcadoGameManager {
     private var currentTries = 0
     private var drawable: Int = R.drawable.aforcado1
 
-    fun startNewGame(context: Context): AforcadoGameState {
+    fun startNewGame(context: Context, modo: String): AforcadoGameState {
         lettersUsed = ""
         currentTries = 0
         drawable = R.drawable.aforcado6
-        val randomIndex = Random.nextInt(0, DigalegoConstants.getWords(context).size)
-        wordToGuess = DigalegoConstants.getWords(context)[randomIndex]
+
+        when (modo) {
+            "facil" -> {
+                val randomIndex = Random.nextInt(0, PalabrasBasicasConstants.getPalabrasBasicasWords(context).size)
+                wordToGuess = PalabrasBasicasConstants.getPalabrasBasicasWords(context)[randomIndex]
+            }
+            "dificil" -> {
+                val randomIndex = Random.nextInt(0, DigalegoConstants.getWords(context).size)
+                wordToGuess = DigalegoConstants.getWords(context)[randomIndex]
+            }
+        }
+
         generateUnderscores(wordToGuess)
         return getGameState()
     }

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
-import android.util.Log
 import android.widget.Chronometer
 import android.widget.EditText
 import android.widget.ImageButton
@@ -14,6 +13,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.PalabrasBasicasConstants
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
 import com.galegando21.utils.removeAccents
@@ -78,10 +78,32 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
     }
 
     private fun initQuestions() {
-        if (modo == "diccionario") {
-            initQuestionsDiccionario()
-        } else {
-            initQuestionsOrixinal()
+        when (modo) {
+            "diccionario_facil" -> initQuestionsDiccionarioFacil()
+            "diccionario" -> initQuestionsDiccionario()
+            "orixinal" -> initQuestionsOrixinal()
+            else -> initQuestionsDiccionario()
+        }
+    }
+
+    private fun initQuestionsDiccionarioFacil() {
+        // Cargar todas las palabras
+        val allWords = PalabrasBasicasConstants.getPalabrasBasicasWordDefinitions(this)
+
+        // Crear un mapa de letras a palabras
+        val wordsByLetter = allWords.groupBy { it.palabra.first() }.toMutableMap()
+
+        // Crear una lista de palabras que contienen la letra 'Ñ'
+        val wordsWithNH = allWords.filter { it.palabra.contains('Ñ', ignoreCase = true) }
+        wordsByLetter['Ñ'] = wordsWithNH
+
+        // Seleccionar una palabra aleatoria para cada letra
+        for (letter in ALFABETO) {
+            val wordsForLetter = wordsByLetter[letter]
+            if (!wordsForLetter.isNullOrEmpty()) {
+                val randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                questionMap[letter] = QuestionPasagalego(randomWord.definicion, randomWord.palabra)
+            }
         }
     }
 
@@ -154,7 +176,6 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta incorrecta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
         }
         letters = letters.deleteCharAt(questionCounter)
-        Log.d("LETTERS", "$letters")
         userAnswerText.text.clear()
         showNextQuestion()
     }

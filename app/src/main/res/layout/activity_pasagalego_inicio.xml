@@ -42,6 +42,11 @@
             android:textAlignment="center"
             android:text="Modo de xogo:"/>
         <RadioButton
+            android:id="@+id/pasagalego_radio_btn_diccionario_facil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Diccionario - nivel fácil"/>
+        <RadioButton
             android:id="@+id/pasagalego_radio_btn_diccionario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

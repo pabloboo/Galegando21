@@ -38,6 +38,8 @@ class AforcadoGameActivity : AppCompatActivity() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
+    private var modo = "facil"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_aforcado_game)
@@ -52,6 +54,8 @@ class AforcadoGameActivity : AppCompatActivity() {
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.aforcado)
+
+        modo = intent.getStringExtra("modo") ?: "facil"
 
         newGameButton.setOnClickListener {
             startNewGame()
@@ -128,7 +132,7 @@ class AforcadoGameActivity : AppCompatActivity() {
             }
 
             val gameState = withContext(Dispatchers.Default) {
-                gameManager.startNewGame(this@AforcadoGameActivity)
+                gameManager.startNewGame(this@AforcadoGameActivity, modo)
             }
             updateUI(gameState)
 

@@ -12,7 +12,9 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.galegando21.R
+import com.galegando21.model.WordDefinition
 import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.PalabrasBasicasConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -37,6 +39,8 @@ class AnagramasGameActivity : AppCompatActivity() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
+    private var modo = "facil"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anagramas_game)
@@ -51,6 +55,8 @@ class AnagramasGameActivity : AppCompatActivity() {
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.anagramas)
+
+        modo = intent.getStringExtra("modo") ?: "facil"
 
         getWord()
 
@@ -70,7 +76,15 @@ class AnagramasGameActivity : AppCompatActivity() {
             answerEditText.isEnabled = false
 
             // Obtener 1 palabra aleatoria
-            val wordsDefinitions = DigalegoConstants.getWordDefinitions(this@AnagramasGameActivity)
+            var wordsDefinitions = listOf<WordDefinition>()
+            when (modo) {
+                "facil" -> {
+                    wordsDefinitions = PalabrasBasicasConstants.getPalabrasBasicasWordDefinitions(this@AnagramasGameActivity)
+                }
+                "dificil" -> {
+                    wordsDefinitions = DigalegoConstants.getWordDefinitions(this@AnagramasGameActivity)
+                }
+            }
             val wordsFiltered = withContext(Dispatchers.Default) {
                 wordsDefinitions.filter { it.palabra.length in 4..7 && it.definicion != null }
             }
