@@ -18,7 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -75,7 +75,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
             segundosEntreLetras = 1
         }
 
-        words = DigalegoConstants.getWords(this)
+        words = DictionaryConstants.getWords(this)
 
         submitWordButton.setOnClickListener {
             checkWord()

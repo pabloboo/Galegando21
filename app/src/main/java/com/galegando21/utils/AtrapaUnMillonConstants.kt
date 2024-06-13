@@ -138,6 +138,600 @@ object AtrapaUnMillonConstants {
                 "Mayra Gómez Kemp",
                 3)
         )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama a revista na que traballan os persoaxes da serie 'Yo soy Bea'?",
+                "Bulevar 21",
+                "Hola",
+                "Gente",
+                "AR",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Nome do cabalo de Don Quijote",
+                "Rocinante",
+                "Babieca",
+                "Rucio",
+                "Bucéfalo",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Con que se atrae a boa sorte?",
+                "Casándose en martes 13",
+                "Con unha ferradura",
+                "Con un espello roto",
+                "Con un gato negro",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o protagonista da serie Smallville?",
+                "Peter Parker",
+                "Clark Kent",
+                "Lobezno",
+                "Hellboy",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o heroe de Bichos?",
+                "Flea",
+                "Flik",
+                "Francis",
+                "Heimlich",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen foi o primeiro humano en pisar a lúa na misión do Apolo 11?",
+                "Georgi Dobrovolski",
+                "Neil Armstrong",
+                "Laika",
+                "Yuri Gagarin",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen escribiu 'Cien años de soledad'?",
+                "Boris Izaguirre",
+                "Camilo José Cela",
+                "Gabriel García Márquez",
+                "Arturo Pérez Reverte",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Donde está o estadio de fútbol Maracaná?",
+                "Italia",
+                "Colombia",
+                "Portugal",
+                "Brasil",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chaman os protagonistas de 'La Celestina'?",
+                "Calisto e Melibea",
+                "Ana e Miguel",
+                "Romeo e Julieta",
+                "Adán e Eva",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que é un 'cachopo'?",
+                "Unha prenda de roupa",
+                "Unha especie de peixe",
+                "Unha comida",
+                "Unha bebida",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen era o presidente de Bolivia en 2016?",
+                "Álvaro Uribe Vélez",
+                "Evo Morales",
+                "Felipe Calderón",
+                "Hugo Chávez",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é a comida favorita de Winnie the Pooh?",
+                "A mel",
+                "As grosellas",
+                "As mazás",
+                "As moras",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é a unidade básica de lonxitude según o Sistema Internacional de Unidades?",
+                "Mol",
+                "Candela",
+                "Kevin",
+                "Metro",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En cantos tempos se divide un partido de fútbol?",
+                "4",
+                "5",
+                "2",
+                "1",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "A que xénero pertence El Quijote?",
+                "Novela",
+                "Poesía",
+                "Cómic",
+                "Teatro",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen tivo unha experiencia relixiosa nos 90?",
+                "Ismael Serrano",
+                "David Bustamante",
+                "Miguel Poveda",
+                "Enrique Iglesias",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que tipo de serie é Bonanza?",
+                "Bélica",
+                "De colexiales",
+                "De superheroes",
+                "Wester",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De que país son típicos os tacos?",
+                "España",
+                "México",
+                "Ecuador",
+                "Irlanda",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen é David Hasselhoff en 'Los vigilantes de la playa'?",
+                "Hobie Buchannon",
+                "Jill Riley",
+                "Don Thorpe",
+                "Mitch Buchannan",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cantas horas ten unha semana?",
+                "24",
+                "52",
+                "168",
+                "1440",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen foi o marido de Juana la Loca?",
+                "Juan de Trastamara",
+                "Juan de Austria",
+                "Felipe el Hermoso",
+                "Duque de Alba",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen foi o dictador que seguiu ao goberno de Salvador Allende en Chile?",
+                "Augusto Pinochet",
+                "Anastasio Somoza García",
+                "Jorge Rafael Videla",
+                "Manuel Noriega",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o satélite da Terra?",
+                "Titán",
+                "Júpiter",
+                "Lúa",
+                "Sol",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que cadea de televisión está orientada a un público infantil e xuvenil?",
+                "Disney Channel",
+                "Fashion TV",
+                "MTV",
+                "Bloomberg TV",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De que cor é o cinturón que leva un principiante en Karate?",
+                "Laranxa",
+                "Amarelo",
+                "Branco",
+                "Negro",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o primeiro álbum de Kiko e Shara?",
+                "Cántame",
+                "Se me olvidó tu nombre",
+                "Kiko y Shara",
+                "Entre 2 y un mes",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que instrumento toca o bardo da aldea Gala de Asterix?",
+                "Trompeta",
+                "Guitarra",
+                "Tambor",
+                "Lira",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que tipo de coches fabrica Land Rover?",
+                "Deportivos",
+                "Descapotables",
+                "Todoterreos",
+                "Motocicletas",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que fecha chegou Cristóbal Colón a América por primeira vez?",
+                "12 de outubro de 1429",
+                "8 de setembro de 1492",
+                "12 de outubro de 1492",
+                "8 de setembro de 1429",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen formaba o dúo humorístico 'Tip y Coll' xunto con José Luis Coll?",
+                "Emilio Aragón",
+                "Luís Sánchez Polack",
+                "Santiago Segura",
+                "O Gran Wyoming",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o boneco vaqueiro de Toy Story?",
+                "Woody",
+                "Stitch",
+                "Buzz Lightyear",
+                "Lilo",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o druida da aldea gala na que viven Asterix e Obelix?",
+                "Ordenalfabetix",
+                "Asurancetúrix",
+                "Abraracúrcix",
+                "Panorámix",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De que país é o grupo 'The Beatles'?",
+                "Francia",
+                "Reino Unido",
+                "Australia",
+                "Estados Unidos",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen é o protagonista masculino de 'Californication'?",
+                "Ted Danson",
+                "David Duchovny",
+                "Michael Landon",
+                "David Hasselhoff",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chaman os pais dos 101 dálmatas?",
+                "Roger e Anita",
+                "Jafar e Jasmine",
+                "Perdita e Pongo",
+                "Jago e Faline",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen era o piloto e loco do equipo A ('Los Magníficos')?",
+                "H.M. Murdock",
+                "M.A. Baracus",
+                "Templon Peck",
+                "John 'Hanibal' Smith",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama a cazavampiros que ten a súa propia serie?",
+                "Dana Scully",
+                "Allison Dubois",
+                "Buffy",
+                "Angela Channing",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o noivo de Barbie?",
+                "Clark",
+                "Elyon",
+                "Peter Cook",
+                "Ken",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama a proba final do concurso Pasapalabra?",
+                "De par en par",
+                "O pulsador",
+                "O rosco",
+                "A escaleira",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que estación do ano os días son máis longos?",
+                "Inverno",
+                "Outono",
+                "Primavera",
+                "Verán",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen cantou 'La raja de tu falda'?",
+                "The Cure Spain",
+                "Paulina Rubio",
+                "Estopa",
+                "Oasis",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que continente se encontra o río Niger?",
+                "En África",
+                "En Asia",
+                "En América",
+                "En Oceanía",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De quen é a canción 'One'?",
+                "Metallica",
+                "Estopa",
+                "Alaska",
+                "Mecano",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é o cantante de Reggaetón?",
+                "Shakria",
+                "Daddy Yankee",
+                "Ricky Martin",
+                "Enrique Iglesias",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o único satélite natural da Terra?",
+                "Landsat",
+                "Meteosat",
+                "RapidEye",
+                "Lúa",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que clase de animais eran Tom e Jerry?",
+                "Un can e un gato",
+                "Un castor e un oso",
+                "Un zorro e un ganso",
+                "Un gato e un rato",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "A quen unha boa árbore se arrima...",
+                "asomase pola tarima",
+                "boa sombra lle cobija",
+                "ven un can e orinalle",
+                "non lle ve a veciña",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que destacaba o protagonista de Kung fu?",
+                "Na medicina",
+                "Guerra de guerrillas",
+                "Artes marciais",
+                "No baile",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Como se chama o máis polémico xurado de Operación Triunfo - España?",
+                "Alejandro Abad",
+                "Risto Mejide",
+                "Noemí Galera",
+                "Javier Llano",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De que cor é a bandeira de Xapón?",
+                "Branca e vermella",
+                "Fucsia e marrón",
+                "Amarela e granate",
+                "Azul e verde",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Actor protagonista da comedia 'La Máscara'?",
+                "Daniel-Day Lewis",
+                "Benny Hill",
+                "Jim Carrey",
+                "Viggo Mortensen",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que tipo de modelismo se practica con avións?",
+                "Modelismo ferroviario",
+                "Automodelismo",
+                "Doramas",
+                "Aeromodelismo",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Segundo a novela de Bram Stoker de donde é Drácula?",
+                "China",
+                "Francia",
+                "Transilvania",
+                "Estados Unidos",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "A quen adopta Lilo como mascota?",
+                "A Rayo McQueen",
+                "A Valiant",
+                "A Nemo",
+                "A Stitch",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é o símbolo do Astato?",
+                "Tt",
+                "Stt",
+                "tt",
+                "At",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "De que país foi colonia Australia?",
+                "Inglaterra",
+                "España",
+                "Portugal",
+                "Francia",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen foi o campeón mundial de fórmula 1 en 2005?",
+                "Alain Prost",
+                "Niki Lauda",
+                "Fernando Alonso",
+                "Ayton Senna",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "En que clube debutou o futbolista David Beckham?",
+                "Real Madrid",
+                "FC Barcelona",
+                "Manchester United",
+                "Los Angeles Galaxy",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cantos tentáculos ten un pulpo?",
+                "8",
+                "10",
+                "4",
+                "5",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é o símbolo do Hidróxeno?",
+                "Hi",
+                "Hdrg",
+                "H",
+                "Hd",
+                3)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que símbolo ten o ouro?",
+                "Au",
+                "Or",
+                "Oo",
+                "O",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cal é o símbolo do Titanio?",
+                "Talas",
+                "Ti",
+                "Ttn",
+                "Tt",
+                2)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Cantos días ten o mes de xaneiro en ano bisiesto?",
+                "28",
+                "30",
+                "29",
+                "31",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Que medida de volumen anglosaxona equivale a 4'546 litros?",
+                "Galón",
+                "Yarda",
+                "Pé",
+                "Libra",
+                1)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Entre que outras cousas destacou Galileo Galilei?",
+                "Xeoloxía",
+                "Robótica",
+                "Medicina",
+                "Astronomía",
+                4)
+        )
+        questions.add(
+            QuestionAtrapaUnMillon(
+                "Quen inventou a bombilla?",
+                "James Bowman",
+                "Thomas Alva Edison",
+                "Joseph Swan",
+                "Alexander Graham Bell",
+                2)
+        )
         return questions
     }
 

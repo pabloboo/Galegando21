@@ -4,6 +4,6 @@ import android.content.Context
 
 object WordleConstants {
     fun getWords(context: Context): List<String> {
-        return DigalegoConstants.getWordsOfLength(context, 5)
+        return DictionaryConstants.getWordsOfLength(context, 5)
     }
 }

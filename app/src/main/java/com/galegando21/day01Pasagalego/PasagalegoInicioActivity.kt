@@ -56,7 +56,7 @@ class PasagalegoInicioActivity : AppCompatActivity() {
                     explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas de unha lista de palabras comúns."
                 }
                 radioButtonDiccionario.id -> {
-                    explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas do diccionario 'Digalego'."
+                    explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas aleatoriamente de un diccionario."
                 }
                 radioButtonOrixinal.id -> {
                     explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas do programa televisivo 'Pasapalabra'."

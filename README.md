@@ -51,7 +51,9 @@ cd rag_scraper/
 python3 ragscraper/spiders/rag.py
 ```
 
-Os resultados gardanse no ficheiro `rag.json` na o directorio actual.
+En caso de completarse o scraper correctamente os resultados poden encontrarse no ficheiro 'complete_rag.json' no directorio actual.
+Por cada liña procesada tamén se van gardando os resultados no ficheiro `rag.json` no directorio actual, así en caso de querer reanudar
+o scraper podese cambiar a url de partida pola última procesada en lugar de comezar desde o principio.
 
 <br/><br/>
 ### Executar o Scraper do traductor de Gaio:

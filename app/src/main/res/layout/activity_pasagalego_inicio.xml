@@ -62,7 +62,7 @@
         android:id="@+id/modo_xogo_info_tv_pasagalego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="En este modo de xogo as preguntas e definicións serán obtidas do diccionario 'Digalego'."
+        android:text="En este modo de xogo as preguntas e definicións serán obtidas aleatoriamente de un diccionario."
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@id/start_btn_pasagalego"
         app:layout_constraintEnd_toEndOf="parent"

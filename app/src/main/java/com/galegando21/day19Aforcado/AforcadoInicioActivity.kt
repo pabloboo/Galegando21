@@ -47,7 +47,7 @@ class AforcadoInicioActivity : AppCompatActivity() {
                     explicacionModoXogoTextView.text = "En este modo de xogo as palabras serán obtidas de unha lista de palabras comúns."
                 }
                 radioButtonDificil.id -> {
-                    explicacionModoXogoTextView.text = "En este modo de xogo as palabras serán obtidas do diccionario 'Digalego'."
+                    explicacionModoXogoTextView.text = "En este modo de xogo as palabras serán obtidas aleatoriamente de un diccionario."
                 }
             }
         }

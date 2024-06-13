@@ -14,7 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -176,7 +176,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
         val resultados = mutableSetOf<String>()
 
         while(resultados.size < 4) {
-            val palabras = DigalegoConstants.getWords(this).toMutableList()
+            val palabras = DictionaryConstants.getWords(this).toMutableList()
             for (palabra in palabras) {
                 if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7) {
                     resultados.add(palabra)

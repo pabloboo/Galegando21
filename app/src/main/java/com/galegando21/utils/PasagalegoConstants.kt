@@ -135,6 +135,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Periodo de tempo que se distingue polos feitos históricos nel acaecidos e polas súas formas de vida", "EPOCA"))
         questions.add(QuestionPasagalego("Persoa que desempeña un traballo a cambio de un soldo", "EMPREGADO"))
         questions.add(QuestionPasagalego("Conmemoración dun feito notable que se fai no seu aniversario", "EFEMERIDES"))
+        questions.add(QuestionPasagalego("Manifestación dos afectos e das emocións por medio da xesticulacion", "EXPRESION"))
         return questions
     }
 
@@ -444,7 +445,6 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Recipiente groso no medio e estreito na boca e na base, con asa e bico, que se emprega para conter líquidos e para servilos", "XERRA"))
         questions.add(QuestionPasagalego("Membro de un xurado ou tribunal", "XUIZ"))
         questions.add(QuestionPasagalego("Sexto mes do ano", "XUÑO"))
-        questions.add(QuestionPasagalego("Manifestación dos afectos e das emocións por medio da xesticulacion", "EXPRESION"))
         questions.add(QuestionPasagalego("Adxectivo substantivo que expresa o lugar de orixen ou a nacionalidade como americano ou español", "XENTILICIO"))
         return questions
     }

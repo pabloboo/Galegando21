@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionPasagalego
 import com.galegando21.utils.ALFABETO
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.PalabrasBasicasConstants
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
@@ -109,7 +109,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
 
     private fun initQuestionsDiccionario() {
         // Cargar todas las palabras
-        val allWords = DigalegoConstants.getWordDefinitions(this)
+        val allWords = DictionaryConstants.getWordDefinitions(this)
 
         // Crear un mapa de letras a palabras
         val wordsByLetter = allWords.groupBy { it.palabra.first() }.toMutableMap()

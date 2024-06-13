@@ -2,7 +2,7 @@ package com.galegando21.model
 
 import android.content.Context
 import com.galegando21.R
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.PalabrasBasicasConstants
 import kotlin.random.Random
 
@@ -26,8 +26,8 @@ class AforcadoGameManager {
                 wordToGuess = PalabrasBasicasConstants.getPalabrasBasicasWords(context)[randomIndex]
             }
             "dificil" -> {
-                val randomIndex = Random.nextInt(0, DigalegoConstants.getWords(context).size)
-                wordToGuess = DigalegoConstants.getWords(context)[randomIndex]
+                val randomIndex = Random.nextInt(0, DictionaryConstants.getWords(context).size)
+                wordToGuess = DictionaryConstants.getWords(context)[randomIndex]
             }
         }
 

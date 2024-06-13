@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.R
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
@@ -99,7 +99,7 @@ class OndeEstanGameActivity : AppCompatActivity() {
     }
 
     private fun initializeGame() {
-        palabras = DigalegoConstants.getWords(this).shuffled().take(9)
+        palabras = DictionaryConstants.getWords(this).shuffled().take(9)
         palabrasOrdenCorrecto = palabras.shuffled()
         Log.d("OndeEstan", palabras.toString())
 

@@ -9,16 +9,24 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
 class AxustesActivity : AppCompatActivity() {
     private lateinit var nomeEditText: EditText
+
     private lateinit var radioGroupNivelFacil: RadioGroup
     private lateinit var radioButtonPalabrasComuns: RadioButton
     private lateinit var radioButtonPalabrasPet: RadioButton
     private lateinit var explicacionPalabrasNivelFacilTextView: TextView
+
+    private lateinit var radioGroupNivelDificil: RadioGroup
+    private lateinit var radioButtonDiccionarioRag: RadioButton
+    private lateinit var radioButtonDiccionarioDigalego: RadioButton
+    private lateinit var explicacionDiccionarioNivelDificilTextView: TextView
+
     private lateinit var gardarButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +38,10 @@ class AxustesActivity : AppCompatActivity() {
         radioButtonPalabrasComuns = findViewById(R.id.axustes_radio_btn_sources_palabras_comuns)
         radioButtonPalabrasPet = findViewById(R.id.axustes_radio_btn_sources_palabras_pet)
         explicacionPalabrasNivelFacilTextView = findViewById(R.id.info_sources_modo_facil_tv)
+        radioGroupNivelDificil = findViewById(R.id.sources_modo_dificil_radio_group)
+        radioButtonDiccionarioRag = findViewById(R.id.axustes_radio_btn_sources_dictionary_rag)
+        radioButtonDiccionarioDigalego = findViewById(R.id.axustes_radio_btn_sources_dictionary_digalego)
+        explicacionDiccionarioNivelDificilTextView = findViewById(R.id.info_sources_modo_dificil_tv)
         gardarButton = findViewById(R.id.gardarButtonAxustes)
 
         setBanner(this, R.string.axustes)
@@ -51,6 +63,18 @@ class AxustesActivity : AppCompatActivity() {
             }
         }
 
+        val dictionarySource = sharedPreferences.getString(SharedPreferencesKeys.DICTIONARY_SOURCE, "real_academia_galega_source")
+        when (dictionarySource) {
+            DictionaryConstants.RAG_SOURCE -> {
+                radioButtonDiccionarioRag.isChecked = true
+                explicacionDiccionarioNivelDificilTextView.text = "En este modo usaranse as palabras e definición do diccionario da Real Academia Galega."
+            }
+            DictionaryConstants.DIGALEGO_SOURCE -> {
+                radioButtonDiccionarioDigalego.isChecked = true
+                explicacionDiccionarioNivelDificilTextView.text = "En este modo usaranse as palabras e definición do diccionario 'Digalego'."
+            }
+        }
+
         radioGroupNivelFacil.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 radioButtonPalabrasComuns.id -> {
@@ -58,6 +82,17 @@ class AxustesActivity : AppCompatActivity() {
                 }
                 radioButtonPalabrasPet.id -> {
                     explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1600 palabras do nivel PET de Cambridge traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+                }
+            }
+        }
+
+        radioGroupNivelDificil.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                radioButtonDiccionarioRag.id -> {
+                    explicacionDiccionarioNivelDificilTextView.text = "En este modo usaranse as palabras e definición do diccionario da Real Academia Galega."
+                }
+                radioButtonDiccionarioDigalego.id -> {
+                    explicacionDiccionarioNivelDificilTextView.text = "En este modo usaranse as palabras e definición do diccionario 'Digalego'."
                 }
             }
         }
@@ -74,6 +109,12 @@ class AxustesActivity : AppCompatActivity() {
                     else -> "palabras_basicas.json"
                 }
 
+                val dictionarySource = when (radioGroupNivelDificil.checkedRadioButtonId) {
+                    radioButtonDiccionarioRag.id -> DictionaryConstants.RAG_SOURCE
+                    radioButtonDiccionarioDigalego.id -> DictionaryConstants.DIGALEGO_SOURCE
+                    else -> DictionaryConstants.RAG_SOURCE
+                }
+
                 with(sharedPreferencesOnboarding.edit()) {
                     putString(SharedPreferencesKeys.NOME, nome)
                     commit()
@@ -81,6 +122,7 @@ class AxustesActivity : AppCompatActivity() {
 
                 with(sharedPreferences.edit()) {
                     putString(SharedPreferencesKeys.PALABRAS_BASICAS_SOURCE, source)
+                    putString(SharedPreferencesKeys.DICTIONARY_SOURCE, dictionarySource)
                     commit()
                 }
 

@@ -30,7 +30,7 @@ object SopaLetrasConstants {
 
     fun getSopasLetras(context: Context, maxWordLength: Int): QuestionSopaLetras {
         // Obtener 3 palabras aleatorias de AforcadoConstants.getWords() que tengan máximo 5 letras
-        val words = DigalegoConstants.getWords(context)
+        val words = DictionaryConstants.getWords(context)
         val wordsFiltered = words.filter { it.length <= maxWordLength }
         val wordsRandom = wordsFiltered.shuffled().take(3)
         return QuestionSopaLetras(

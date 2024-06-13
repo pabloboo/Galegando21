@@ -40,7 +40,7 @@ initial_url = "https://academia.gal/dicionario/-/termo/zurrar"
 # Initialize the lists for visited and to-visit links
 visited_links = set()
 to_visit_links = [initial_url]
-number_of_links_to_visit = 1000
+number_of_links_to_visit = 1000000000000000
 
 # Initialize an empty dictionary to store words and definitions
 word_definitions = {}
@@ -83,6 +83,9 @@ while to_visit_links and len(visited_links) < number_of_links_to_visit:
 
             # Add word and definition to the dictionary
             word_definitions[palabra] = definicion
+            # Add word and definition to the json file
+            with open("rag.json", "a", encoding="utf-8") as json_file:
+                json.dump({"palabra": palabra, "definicion": definicion}, json_file, ensure_ascii=False, indent=4)
 
         ## ENLACES
         driver.implicitly_wait(10)
@@ -107,7 +110,7 @@ while to_visit_links and len(visited_links) < number_of_links_to_visit:
         print(f"Error processing {current_link}: {e}")
 
 # Save the word_definitions dictionary to a JSON file
-with open("rag.json", "w", encoding="utf-8") as json_file:
+with open("complete_rag.json", "w", encoding="utf-8") as json_file:
     json.dump(word_definitions, json_file, ensure_ascii=False, indent=4)
 
 # Clean up: quit the WebDriver

@@ -15,7 +15,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.galegando21.R
 import com.galegando21.model.WordDefinition
-import com.galegando21.utils.DigalegoConstants
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.PalabrasBasicasConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
@@ -84,7 +84,7 @@ class AnagramasGameActivity : AppCompatActivity() {
                     wordsDefinitions = PalabrasBasicasConstants.getPalabrasBasicasWordDefinitions(this@AnagramasGameActivity)
                 }
                 "dificil" -> {
-                    wordsDefinitions = DigalegoConstants.getWordDefinitions(this@AnagramasGameActivity)
+                    wordsDefinitions = DictionaryConstants.getWordDefinitions(this@AnagramasGameActivity)
                 }
             }
             val wordsFiltered = withContext(Dispatchers.Default) {
