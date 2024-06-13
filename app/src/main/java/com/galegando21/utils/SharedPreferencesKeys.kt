@@ -4,6 +4,7 @@ object SharedPreferencesKeys {
     const val ONBOARDING = "onboarding"
     const val IS_ONBOARDING_COMPLETED = "is_onboarding_completed"
     const val NOME = "name"
+    const val PALABRAS_BASICAS_SOURCE = "palabras_basicas_source"
     const val APP_PREFERENCES = "app_preferences"
     const val HAS_USER_DENIED_PERMISSIONS_BEFORE = "hasUserDeniedPermissionBefore"
     const val UNLOCKED_BUTTONS = "BotonesDesbloqueados"

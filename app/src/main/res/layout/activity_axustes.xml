@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@id/bannerFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/gardarButtonAxustes">
+        app:layout_constraintBottom_toTopOf="@+id/sources_modo_facil_radio_group">
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,13 +41,51 @@
 
     </LinearLayout>
 
+    <RadioGroup
+        android:id="@+id/sources_modo_facil_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAxustesCampos"
+        app:layout_constraintBottom_toTopOf="@id/info_sources_modo_facil_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="80dp"
+        android:checkedButton="@id/axustes_radio_btn_sources_palabras_comuns">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Palabras do nivel fácil:"/>
+        <RadioButton
+            android:id="@+id/axustes_radio_btn_sources_palabras_comuns"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Palabras comúns"/>
+        <RadioButton
+            android:id="@+id/axustes_radio_btn_sources_palabras_pet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Nivel PET"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/info_sources_modo_facil_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="As palabras serán seleccionadas de unha lista de unhas 1000 palabras comúns en español traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/gardarButtonAxustes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sources_modo_facil_radio_group" />
+
     <Button
         android:id="@+id/gardarButtonAxustes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gardar"
         android:backgroundTint="@color/secondaryBlue"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutAxustesCampos"
+        app:layout_constraintTop_toBottomOf="@id/info_sources_modo_facil_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

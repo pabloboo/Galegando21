@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
@@ -12,6 +15,10 @@ import com.galegando21.utils.setOnBackPressed
 
 class AxustesActivity : AppCompatActivity() {
     private lateinit var nomeEditText: EditText
+    private lateinit var radioGroupNivelFacil: RadioGroup
+    private lateinit var radioButtonPalabrasComuns: RadioButton
+    private lateinit var radioButtonPalabrasPet: RadioButton
+    private lateinit var explicacionPalabrasNivelFacilTextView: TextView
     private lateinit var gardarButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,24 +26,65 @@ class AxustesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_axustes)
 
         nomeEditText = findViewById(R.id.editTextName)
+        radioGroupNivelFacil = findViewById(R.id.sources_modo_facil_radio_group)
+        radioButtonPalabrasComuns = findViewById(R.id.axustes_radio_btn_sources_palabras_comuns)
+        radioButtonPalabrasPet = findViewById(R.id.axustes_radio_btn_sources_palabras_pet)
+        explicacionPalabrasNivelFacilTextView = findViewById(R.id.info_sources_modo_facil_tv)
         gardarButton = findViewById(R.id.gardarButtonAxustes)
 
         setBanner(this, R.string.axustes)
 
-        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
-        val nome = sharedPreferences.getString(SharedPreferencesKeys.NOME, "")
+        val sharedPreferencesOnboarding = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
+        val nome = sharedPreferencesOnboarding.getString(SharedPreferencesKeys.NOME, "")
         nomeEditText.setText(nome)
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val source = sharedPreferences.getString(SharedPreferencesKeys.PALABRAS_BASICAS_SOURCE, "palabras_basicas.json")
+        when (source) {
+            "palabras_basicas.json" -> {
+                radioButtonPalabrasComuns.isChecked = true
+                explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1000 palabras comúns en español traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+            }
+            "palabras_basicas_pet.json" -> {
+                radioButtonPalabrasPet.isChecked = true
+                explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1600 palabras do nivel PET de Cambridge traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+            }
+        }
+
+        radioGroupNivelFacil.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                radioButtonPalabrasComuns.id -> {
+                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1000 palabras comúns en español traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+                }
+                radioButtonPalabrasPet.id -> {
+                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1600 palabras do nivel PET de Cambridge traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+                }
+            }
+        }
 
         gardarButton.setOnClickListener {
             val nome = nomeEditText.text.toString()
             if (nome.isNotEmpty()) {
-                val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
-                with(sharedPreferences.edit()) {
-                    putBoolean(SharedPreferencesKeys.IS_ONBOARDING_COMPLETED, true)
+                val sharedPreferencesOnboarding = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+
+                val source = when (radioGroupNivelFacil.checkedRadioButtonId) {
+                    radioButtonPalabrasComuns.id -> "palabras_basicas.json"
+                    radioButtonPalabrasPet.id -> "palabras_basicas_pet.json"
+                    else -> "palabras_basicas.json"
+                }
+
+                with(sharedPreferencesOnboarding.edit()) {
                     putString(SharedPreferencesKeys.NOME, nome)
                     commit()
                 }
-                Toast.makeText(this, "Nome gardado correctamente", Toast.LENGTH_SHORT).show()
+
+                with(sharedPreferences.edit()) {
+                    putString(SharedPreferencesKeys.PALABRAS_BASICAS_SOURCE, source)
+                    commit()
+                }
+
+                Toast.makeText(this, "Datos gardados correctamente", Toast.LENGTH_SHORT).show()
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
                     finish()
