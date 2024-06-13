@@ -175,7 +175,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
     private fun palabrasPosibles(): List<String> {
         val resultados = mutableSetOf<String>()
 
-        while(resultados.size == 0) {
+        while(resultados.size < 4) {
             val palabras = DigalegoConstants.getWords(this).toMutableList()
             for (palabra in palabras) {
                 if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7) {
@@ -239,6 +239,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
             val porcentaxeAcerto = ((puntuacion.toFloat().div(puntuacionMax.toFloat())) * 100F)
             val porcentaxeAcertoAproximado = round(porcentaxeAcerto * 100) / 100
             putExtra("PORCENTAXE_ACERTO", porcentaxeAcertoAproximado)
+            putExtra("PALABRAS_RESTANTES", palabrasPosibles.joinToString(", "))
             startActivity(this)
         }
     }

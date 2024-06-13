@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.text.InputFilter
 import android.util.Log
 import android.view.View
@@ -130,12 +132,26 @@ class AnagramasGameActivity : AppCompatActivity() {
         rachaActualTextView.text = "Racha: $rachaActual"
     }
 
+    private fun showCurrentSolution() {
+        val delay = 500 // tiempo en milisegundos que esperará antes de mostrar la siguiente letra
+
+        for (i in solution.indices) {
+            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                hintTextView.text = solution.substring(0, i+1)
+            }, (i * delay).toLong())
+        }
+    }
+
     private fun finalizarXogo() {
         countDownTimer?.cancel()
-        Intent(this, AnagramasResultsActivity::class.java).also {
-            it.putExtra("ANAGRAMAS_SCORE", rachaActual)
-            startActivity(it)
-            finish()
-        }
+        // Mostrar la solución y despues poner un delay de 5 segundos antes de pasar a la siguiente pantalla
+        showCurrentSolution()
+        Handler(Looper.getMainLooper()).postDelayed({
+            Intent(this, AnagramasResultsActivity::class.java).also {
+                it.putExtra("ANAGRAMAS_SCORE", rachaActual)
+                startActivity(it)
+                finish()
+            }
+        }, 5000)
     }
 }
