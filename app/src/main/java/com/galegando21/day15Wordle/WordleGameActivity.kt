@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -151,12 +152,22 @@ class WordleGameActivity : AppCompatActivity() {
                     xogarDeNovoButton.visibility = View.VISIBLE
                 } else if (countCurrentTries == 6) {
                     countCurrentTries = 0
-                    Toast.makeText(this, "Perdeches, a palabra era ${gameCore.getFinalWord()}", Toast.LENGTH_SHORT).show()
+                    showGameLostDialog()
                     unSetEventListeners()
                     xogarDeNovoButton.visibility = View.VISIBLE
                 }
             }
         }
+    }
+
+    private fun showGameLostDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Perdeches, a palabra era ${gameCore.getFinalWord()}")
+            .setMessage(DictionaryConstants.getWordDefinition(this, gameCore.getFinalWord())?.definicion ?: "")
+            .setPositiveButton("Cerrar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun initTexts() {

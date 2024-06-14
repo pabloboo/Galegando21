@@ -20,6 +20,10 @@ object DictionaryConstants {
         return RagConstants.getRagDefinitions(context)
     }
 
+    fun getWordDefinition(context: Context, word: String): WordDefinition? {
+        return getWordDefinitions(context).find { it.palabra == word }
+    }
+
     fun getWords(context: Context): List<String> {
         val sharedPreferences = context.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
         val source = sharedPreferences.getString(SharedPreferencesKeys.DICTIONARY_SOURCE, RAG_SOURCE)

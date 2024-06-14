@@ -213,7 +213,19 @@ class ConexionsGameActivity : AppCompatActivity() {
                     finish()
                 }
             }
+            showSolution()
         }
+    }
+
+    private fun showSolution() {
+        solutionGroup1Tv.visibility = View.VISIBLE
+        solutionGroup1Tv.text = conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.toString()
+        solutionGroup2Tv.visibility = View.VISIBLE
+        solutionGroup2Tv.text = conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.toString()
+        solutionGroup3Tv.visibility = View.VISIBLE
+        solutionGroup3Tv.text = conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.toString()
+        solutionGroup4Tv.visibility = View.VISIBLE
+        solutionGroup4Tv.text = conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.toString()
     }
 
     private fun saveSolution() {

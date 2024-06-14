@@ -1,7 +1,6 @@
 package com.galegando21.utils
 
 import android.content.Context
-import android.util.Log
 import com.galegando21.model.WordDefinition
 import org.json.JSONObject
 import java.io.IOException
@@ -54,5 +53,9 @@ object RagConstants {
         }
 
         return ragDefinitions
+    }
+
+    fun getWordDefinition(context: Context, word: String): WordDefinition? {
+        return getRagDefinitions(context).find { it.palabra == word }
     }
 }

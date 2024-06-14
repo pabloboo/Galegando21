@@ -8,10 +8,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.AforcadoGameState
 import com.galegando21.model.AforcadoGameManager
+import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
@@ -104,8 +106,19 @@ class AforcadoGameActivity : AppCompatActivity() {
         gameLostTextView.visibility = View.VISIBLE
         imageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.aforcado6))
         unSetLetterEventListeners()
+        showGameLostDialog(wordToGuess)
         racha = 0
         rachaTextView.text = "Racha actual: $racha"
+    }
+
+    private fun showGameLostDialog(wordToGuess: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Perdiches, a palabra era $wordToGuess")
+            .setMessage(DictionaryConstants.getWordDefinition(this, wordToGuess)?.definicion ?: "")
+            .setPositiveButton("Cerrar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun showGameWon(wordToGuess: String) {
