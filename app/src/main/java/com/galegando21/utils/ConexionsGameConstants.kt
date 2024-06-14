@@ -138,6 +138,30 @@ object ConexionsGameConstants {
                 "Colección de diñeiro", listOf("Fondo", "Caixa", "Bote", "Conta")
             )
         )
+        conexionsList.add(
+            Conexions(
+                "Amargada", "Frecha", "Alegre", "Terra",
+                "Cansada", "Decepcionada", "Cebola", "Doce",
+                "Cocida", "Guión", "Horneada", "Maquillaxe",
+                "Tarta", "Quente", "Caixa", "Punto",
+                "Sentirse de unha maneira", listOf("Amargada", "Decepcionada", "Cansada", "Alegre"),
+                "Símbolos usados para facer listas", listOf("Frecha", "Punto", "Caixa", "Guión"),
+                "Pataca...", listOf("Quente", "Cocida", "Doce", "Horneada"),
+                "Cousas con capas", listOf("Tarta", "Terra", "Cebola", "Maquillaxe")
+            )
+        )
+        conexionsList.add(
+            Conexions(
+                "Kilo", "Chicle", "Artículo", "Redacción",
+                "Habitación", "Lima", "Clavel", "Flamenco",
+                "Foxtrot", "Informe", "Ponte", "Ensaio",
+                "Cuberta", "Escotilla", "Tango", "Sal rosa",
+                "Tarefas de escritura", listOf("Artículo", "Ensaio", "Redacción", "Informe"),
+                "Encontrado en un barco", listOf("Ponte", "Cuberta", "Escotilla", "Habitación"),
+                "Cousas que son rosas", listOf("Chicle", "Clavel", "Sal rosa", "Flamenco"),
+                "Alfabeto radiofónico", listOf("Kilo", "Lima", "Foxtrot", "Tango")
+            )
+        )
         return conexionsList
     }
 }

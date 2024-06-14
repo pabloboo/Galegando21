@@ -289,6 +289,142 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_35,
+                "Discurso do rei na sesión de apertura conxunta do congreso dos deputados e do senado para a lexislatura constituínte",
+                1977
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_36,
+                "España campioa do Mundial de fútbol Sub-20",
+                1999
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_37,
+                "As calles e plazas do recinto da Expo’92",
+                1992
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_38,
+                "Miles de persoas congreganse ante o paso do cortello fúnebre dos asesinados na Matanza de Atocha",
+                1977
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_39,
+                "Manifestación en contra da lei antitabaco",
+                2006
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_40,
+                "Accidente que provocou a morte da princesa Diana de Gales",
+                1997
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_41,
+                "Koudelka colocou a un transeúnte para mostrar o momento exacto no que as tropas soviéticas invadiron Praga",
+                1968
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_42,
+                "Nelson Mandela xura como o primeiro presidente elexido democráticamente de Sudáfrica",
+                1994
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_43,
+                "Rosa Parks negase a ceder o seu asento no autobus",
+                1955
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_44,
+                "Traballadores durante o accidente nuclear de Chernóbil",
+                1986
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_45,
+                "Jonas Salk, inventor da vacina contra o Polio, vacina a unha nena",
+                1955
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_46,
+                "Periódicos mostran a morte de Bob Marley",
+                1981
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_47,
+                "O elenco de Friends despois do seu episodio final",
+                2004
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_48,
+                "Despois dos ataques do 11 de setembro, o presidente George W. Bush lanzou o primeiro lanzamento ceremonial da serie mundial de 2001 en Nova York",
+                2004
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_49,
+                "Arthur Ashe, o primeiro xogador negro en gañar o torneo de Wimbledon",
+                1975
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_50,
+                "O sempre emocional John McEnroe reacciona despois de vencer ao rival Bjorn Bor polo título de Wimbledon",
+                1981
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_51,
+                "O gol de Jonny Wilkinson que sellou unha dramática victoria na copa Mundial",
+                2003
+            )
+        )
+
         return questions
     }
 }

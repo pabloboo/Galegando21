@@ -24,6 +24,66 @@ object SopaLetrasConstants {
                 "RATO", "MESA", "BOLI"
             )
         )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Cousas que se poden atopar nunha escola",
+                "LAPIZ", "LIBRO", "MESA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Cousas que poden ser estrictas",
+                "DIETA", "NORMA", "FE"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Non se compra con diñeiro",
+                "AMOR", "AMIGO", "SAUDE"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Relativo a un cheque",
+                "BANCO", "TALON", "FIRMA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "En unha ingrexa",
+                "ALTAR", "TORRE", "CRUZ"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Tomase para almorzar",
+                "ZUMO", "CAFE", "LEITE"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Falar...",
+                "SO", "MOITO", "ALTO"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Apelidos españois que terminan en Z",
+                "PEREZ", "GOMEZ", "SANZ"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Estudase en filosofía",
+                "RAZON", "MORAL", "ETICA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Obxectos que usa un mineiro",
+                "PICO", "PALA", "CASCO"
+            )
+        )
 
         return sopasLetrasList
     }
