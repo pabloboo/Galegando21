@@ -69,7 +69,7 @@ object SopaLetrasConstants {
         sopasLetrasList.add(
             QuestionSopaLetras(
                 "Apelidos españois que terminan en Z",
-                "PEREZ", "GOMEZ", "SANZ"
+                "PEREZ", "GOMEZ", "SAINZ"
             )
         )
         sopasLetrasList.add(

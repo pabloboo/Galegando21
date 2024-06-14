@@ -90,20 +90,23 @@ class SopaLetrasGameActivity : AppCompatActivity() {
         } else if (dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
             val questionSopaLetras = SopaLetrasConstants.getSopasLetras(this,5)
             words = mutableListOf(questionSopaLetras.word1, questionSopaLetras.word2, questionSopaLetras.word3)
+            hintTextView.text = words.joinToString(", ")
+        }
+
+        if (dificultade == SopaLetrasConstants.NIVEL_MEDIO || dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
             // Ampliar tablero a 6x6
             boardSize = 6
             board = Array(boardSize) { arrayOfNulls<Char>(boardSize) }
             gridSopaLetras.columnCount = boardSize
             gridSopaLetras.columnCount = boardSize
             showTextViewsBoard6()
-
-            hintTextView.text = words.joinToString(", ")
         }
 
         // Iniciar temporizador si la dificultad es media o difícil
         if (dificultade == SopaLetrasConstants.NIVEL_MEDIO || dificultade == SopaLetrasConstants.NIVEL_DIFICIL) {
+            var segundos = if (dificultade == SopaLetrasConstants.NIVEL_MEDIO) 60000L else 30000L
             // Inicializar nuevo temporizador
-            countDownTimer = object : CountDownTimer(60000, 1000) {
+            countDownTimer = object : CountDownTimer(segundos, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     val seconds = millisUntilFinished / 1000
                     sopaLetrasTimerTv.text = "$seconds:00"
