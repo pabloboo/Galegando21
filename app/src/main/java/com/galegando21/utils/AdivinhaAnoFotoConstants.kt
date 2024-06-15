@@ -425,6 +425,102 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_52,
+                "O Rei Juan Carlos I sanciona a Constitución española de 1978 ante as cortes Xerais",
+                1978
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_53,
+                "Inauguración do mundial de fútbol 1982 en España",
+                1982
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_54,
+                "Keanu Reeves con J.Lo nos MTV Movie Awards",
+                1999
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_55,
+                "Ceremonia de clausura dos Xogos Olímpicos de inverno Pyeongchang",
+                2018
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_56,
+                "Bobbi Gibb foi a primeira muller en dirixir o maratón de Boston",
+                1966
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_57,
+                "Paul Newman e a súa esposa pasean por unha calle de Cannes durante o festival de cine de 1973",
+                1973
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_58,
+                "Primeira visita de Juan Pablo II a Venezuela",
+                1985
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_59,
+                "Caída do muro de Berlín",
+                1989
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_60,
+                "O telescopio Hubble fotografiou a nebulosa da águila, un parche de espacio formador de estrelas 6500 anos luz da terra na constleación Serpens Cauda",
+                1995
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_61,
+                "Kobe Bryant arrollou a Dwight Howard en este lookback de un dos volcados máis desagradables da Mamba negra",
+                2004
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_62,
+                "O arqueiro de Brasil, Moacir Barbosa, é impotente para deter o gol ganador da selección de Uruguay. O ‘Maracanazo’",
+                1950
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_63,
+                "Roger Federer gaña o primeiro título de Masters 1000 en Hamburgo",
+                2002
+            )
+        )
+
         return questions
     }
 }
