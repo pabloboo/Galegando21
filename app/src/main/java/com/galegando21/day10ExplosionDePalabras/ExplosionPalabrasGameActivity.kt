@@ -113,6 +113,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
                             } else {
                                 Intent(this@ExplosionPalabrasGameActivity, ExplosionPalabrasResultsActivity::class.java).apply {
                                     putExtra("PUNTOS_EXPLOSION_PALABRAS", score)
+                                    putExtra("dificultade", dificultade)
                                     startActivity(this)
                                     finish()
                                     countDownTimer?.cancel()

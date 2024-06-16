@@ -160,16 +160,23 @@ class AforcadoGameActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
+        val maxStreakKey =
+            when (modo) {
+                "facil" -> SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY
+                "dificil" -> SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT
+                else -> SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY
+            }
+
         var maxStreak = 0
-        if (sharedPreferences.contains(SharedPreferencesKeys.AFORCADO_MAX_STREAK)) {
-            maxStreak = sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK, 0)
+        if (sharedPreferences.contains(maxStreakKey)) {
+            maxStreak = sharedPreferences.getInt(maxStreakKey, 0)
         }
 
         if (racha > maxStreak) {
-            editor.putInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK, racha)
+            editor.putInt(maxStreakKey, racha)
             editor.apply()
         }
-        Log.d("maxStreak", sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK, 0).toString())
+        Log.d("maxStreak", sharedPreferences.getInt(maxStreakKey, 0).toString())
 
         updateCurrentStreak(this)
     }

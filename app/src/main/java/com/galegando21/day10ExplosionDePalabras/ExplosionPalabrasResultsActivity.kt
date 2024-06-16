@@ -48,17 +48,24 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
+        val dificultade = intent.getStringExtra("dificultade") ?: "facil"
+        val maxScoreKey = when (dificultade) {
+            "facil" -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY
+            "dificil" -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_DIFICULT
+            else -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY
+        }
+
         var maxScore = 0
-        if (sharedPreferences.contains(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE)) {
-            maxScore = sharedPreferences.getInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE, 0)
+        if (sharedPreferences.contains(maxScoreKey)) {
+            maxScore = sharedPreferences.getInt(maxScoreKey, 0)
         }
 
         val score = intent.getIntExtra("PUNTOS_EXPLOSION_PALABRAS", 0)
         if (score > maxScore) {
-            editor.putInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE, score)
+            editor.putInt(maxScoreKey, score)
             editor.apply()
         }
-        Log.d("ExplosionPalabrasResultsActivity", "Puntuación máxima ${sharedPreferences.getInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE, 0)}")
+        Log.d("ExplosionPalabrasResultsActivity", "Puntuación máxima $maxScoreKey")
 
         updateCurrentStreak(this)
     }

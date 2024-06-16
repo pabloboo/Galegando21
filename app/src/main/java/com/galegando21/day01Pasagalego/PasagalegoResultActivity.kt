@@ -58,18 +58,41 @@ class PasagalegoResultActivity : AppCompatActivity() {
         var currentCorrectAnswers = correctAnswersTv.text.toString().toInt()
         var currentErrorAnswers = errorAnswersTv.text.toString().toInt()
         var currentPasagalegoTime = timePasagalegoTv.text.toString()
+        val modo = intent.getStringExtra("modo") ?: "diccionario"
 
         var maxCorrectAnswers = 0
         var maxErrors = 0
         var maxTime = "999999:59"
-        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS)) {
-            maxCorrectAnswers = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS, 0)
+
+        var correctAnswersKey = SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY
+        var errorAnswersKey = SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY
+        var timeKey = SharedPreferencesKeys.PASAGALEGO_TIME_DICTIONARY
+        when (modo) {
+            "diccionario" -> {
+                correctAnswersKey = SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY
+                errorAnswersKey = SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY
+                timeKey = SharedPreferencesKeys.PASAGALEGO_TIME_DICTIONARY
+            }
+            "orixinal" -> {
+                correctAnswersKey = SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_ORIXINAL
+                errorAnswersKey = SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_ORIXINAL
+                timeKey = SharedPreferencesKeys.PASAGALEGO_TIME_ORIXINAL
+            }
+            "diccionario_facil" -> {
+                correctAnswersKey = SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY_EASY
+                errorAnswersKey = SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY_EASY
+                timeKey = SharedPreferencesKeys.PASAGALEGO_TIME_DICTIONARY_EASY
+            }
         }
-        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS)) {
-            maxErrors = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS, 0)
+
+        if (sharedPreferences.contains(correctAnswersKey)) {
+            maxCorrectAnswers = sharedPreferences.getInt(correctAnswersKey, 0)
         }
-        if (sharedPreferences.contains(SharedPreferencesKeys.PASAGALEGO_TIME)) {
-            maxTime = sharedPreferences.getString(SharedPreferencesKeys.PASAGALEGO_TIME, "00:00").toString()
+        if (sharedPreferences.contains(errorAnswersKey)) {
+            maxErrors = sharedPreferences.getInt(errorAnswersKey, 0)
+        }
+        if (sharedPreferences.contains(timeKey)) {
+            maxTime = sharedPreferences.getString(timeKey, "00:00").toString()
         }
 
         if (currentCorrectAnswers > maxCorrectAnswers) { // Cambiar estadísticas si tiene más aciertos
@@ -84,9 +107,9 @@ class PasagalegoResultActivity : AppCompatActivity() {
             }
         }
 
-        editor.putInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS, maxCorrectAnswers)
-        editor.putInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS, maxErrors)
-        editor.putString(SharedPreferencesKeys.PASAGALEGO_TIME, maxTime)
+        editor.putInt(correctAnswersKey, maxCorrectAnswers)
+        editor.putInt(errorAnswersKey, maxErrors)
+        editor.putString(timeKey, maxTime)
         editor.apply()
         Log.d("PASAGALEGO", "Correct answers: $maxCorrectAnswers, Errors: $maxErrors, Time: $maxTime")
 

@@ -156,6 +156,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
                 it.putExtra(PasagalegoConstants.SCORE, correctAnswers)
                 it.putExtra(PasagalegoConstants.ERRORS, errorAnswers)
                 it.putExtra(PasagalegoConstants.TIME, chronometer.text)
+                it.putExtra("modo", modo)
                 startActivity(it)
                 finish()
             }

@@ -47,17 +47,25 @@ class AnagramasResultsActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
+        val modo = intent.getStringExtra("modo") ?: "facil"
+        val maxScoreKey =
+            when (modo) {
+                "facil" -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY
+                "dificil" -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_DIFICULT
+                else -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY
+            }
+
         var maxScore = 0
-        if (sharedPreferences.contains(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE)) {
-            maxScore = sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE, 0)
+        if (sharedPreferences.contains(maxScoreKey)) {
+            maxScore = sharedPreferences.getInt(maxScoreKey, 0)
         }
 
         val score = intent.getIntExtra("ANAGRAMAS_SCORE", 0)
         if (score > maxScore) {
-            editor.putInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE, score)
+            editor.putInt(maxScoreKey, score)
             editor.apply()
         }
-        Log.d("AnagramasResultsActivity", "Max score: ${sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE, 0)}")
+        Log.d("AnagramasResultsActivity", "Max score: ${sharedPreferences.getInt(maxScoreKey, 0)}")
 
         updateCurrentStreak(this)
 

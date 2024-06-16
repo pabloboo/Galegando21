@@ -149,6 +149,7 @@ class AnagramasGameActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             Intent(this, AnagramasResultsActivity::class.java).also {
                 it.putExtra("ANAGRAMAS_SCORE", rachaActual)
+                it.putExtra("modo", modo)
                 startActivity(it)
                 finish()
             }
