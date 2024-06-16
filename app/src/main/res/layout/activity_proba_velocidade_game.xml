@@ -72,14 +72,24 @@
             android:gravity="center"
             android:layout_marginTop="20dp">
             <ImageButton
+                android:id="@+id/pause_btn_proba_velocidade"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@color/secondaryBlue"
+                android:src="@drawable/ic_pause"/>
+            <ImageButton
                 android:id="@+id/check_btn_proba_velocidade"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:scaleType="fitCenter"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:background="@color/secondaryBlue"
                 android:padding="10dp"
-                android:src="@drawable/check_icon" />
+                android:src="@drawable/ic_check" />
             <ImageButton
                 android:id="@+id/mic_btn_proba_velocidade"
                 android:layout_width="50dp"

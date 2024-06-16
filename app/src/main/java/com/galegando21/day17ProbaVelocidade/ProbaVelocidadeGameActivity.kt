@@ -31,6 +31,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     private lateinit var boardLayout: LinearLayout
     private lateinit var hintTv: TextView
     private lateinit var userAnswerTv: EditText
+    private lateinit var pauseButton: ImageButton
     private lateinit var checkButton: ImageButton
 
     private var correctAnswers = 0
@@ -41,6 +42,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     private lateinit var probaVelocidadeTimerTv : TextView
 
     private var seconds = 0
+    private var stoppedSeconds = 0
     private var countDownTimer: CountDownTimer? = null
     private var letterViews: List<TextView> = listOf()
     private var revealedLetterIndices = mutableListOf<Int>()
@@ -56,10 +58,14 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
         hintTv = findViewById(R.id.proba_velocidade_hint_tv)
         userAnswerTv = findViewById(R.id.proba_velocidade_answer_et)
         userAnswerTv.filters = arrayOf(InputFilter.AllCaps())
+        pauseButton = findViewById(R.id.pause_btn_proba_velocidade)
         checkButton = findViewById(R.id.check_btn_proba_velocidade)
         probaVelocidadeTimerTv = findViewById(R.id.proba_velocidade_timer_tv)
         micButton = findViewById(R.id.mic_btn_proba_velocidade)
 
+        pauseButton.setOnClickListener {
+            pauseOrResumeTimer()
+        }
         checkButton.setOnClickListener {
             checkButtonClickListener()
         }
@@ -76,8 +82,12 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
     }
 
-    private fun startTimer() {
+    private fun startTimer(segundos: Int = 0) {
         countDownTimer?.cancel() // Cancela el timer anterior si existe
+
+        if (segundos != 0) {
+            seconds = segundos
+        }
 
         countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -146,6 +156,9 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
         countDownTimer?.cancel()
         seconds=0
+        stoppedSeconds=0
+        pauseButton.tag = null
+        pauseButton.setImageResource(R.drawable.ic_pause)
         startTimer()
     }
 
@@ -195,4 +208,17 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
                 userAnswerTv.setText(result?.get(0) ?: "")
             }
         }
+
+    private fun pauseOrResumeTimer() {
+        if (pauseButton.tag == null) {
+            pauseButton.tag = "paused"
+            pauseButton.setImageResource(R.drawable.ic_resume)
+            countDownTimer?.cancel()
+            stoppedSeconds = seconds
+        } else {
+            pauseButton.tag = null
+            pauseButton.setImageResource(R.drawable.ic_pause)
+            startTimer(stoppedSeconds)
+        }
+    }
 }
