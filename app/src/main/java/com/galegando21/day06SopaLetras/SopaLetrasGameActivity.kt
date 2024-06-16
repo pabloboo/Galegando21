@@ -113,6 +113,10 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                 }
 
                 override fun onFinish() {
+                    puntuacion = 0
+                    racha = 0
+                    rachaActualTextView.text = "Racha: $racha"
+                    scoreActualTextView.text = "Puntos: $puntuacion"
                     markMissingWordsInRed()
                     xogarDeNovoButton.visibility = Button.VISIBLE
                     finishButton.visibility = Button.VISIBLE

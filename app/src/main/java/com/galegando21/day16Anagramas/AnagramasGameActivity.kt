@@ -126,8 +126,6 @@ class AnagramasGameActivity : AppCompatActivity() {
             rachaActual++
             getWord()
             answerEditText.text.clear()
-        } else {
-            rachaActual = 0
         }
         rachaActualTextView.text = "Racha: $rachaActual"
     }
@@ -144,6 +142,7 @@ class AnagramasGameActivity : AppCompatActivity() {
 
     private fun finalizarXogo() {
         countDownTimer?.cancel()
+        checkAnswerButton.isEnabled = false
         // Mostrar la solución y despues poner un delay de 5 segundos antes de pasar a la siguiente pantalla
         showCurrentSolution()
         Handler(Looper.getMainLooper()).postDelayed({
