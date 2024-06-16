@@ -14,8 +14,10 @@ import androidx.core.view.children
 import com.galegando21.R
 import com.galegando21.model.Conexions
 import com.galegando21.utils.ConexionsGameConstants.getConexions
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 import kotlin.random.Random
 
 class ConexionsGameActivity : AppCompatActivity() {
@@ -238,6 +240,7 @@ class ConexionsGameActivity : AppCompatActivity() {
         correctAnswers++
         if (correctAnswers === 4) {
             endGame()
+            changeConexionsStatistics()
         }
     }
 
@@ -249,5 +252,23 @@ class ConexionsGameActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    private fun changeConexionsStatistics() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxLifes = 0
+        if (sharedPreferences.contains(SharedPreferencesKeys.CONEXIONS_MAX_SCORE)) {
+            maxLifes = sharedPreferences.getInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, 0)
+        }
+
+        if (currentLifes > maxLifes) {
+            editor.putInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, currentLifes)
+            editor.apply()
+        }
+        Log.d("maxStreak", sharedPreferences.getInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, 0).toString())
+
+        updateCurrentStreak(this)
     }
 }

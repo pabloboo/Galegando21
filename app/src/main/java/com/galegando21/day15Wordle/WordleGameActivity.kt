@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 import com.galegando21.utils.DictionaryConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.updateCurrentStreak
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -150,6 +152,7 @@ class WordleGameActivity : AppCompatActivity() {
                     Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
                     unSetEventListeners()
                     xogarDeNovoButton.visibility = View.VISIBLE
+                    changeWordleStatistics()
                 } else if (countCurrentTries == 6) {
                     countCurrentTries = 0
                     showGameLostDialog()
@@ -259,5 +262,23 @@ class WordleGameActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun changeWordleStatistics() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        var maxStreak = 0
+        if (sharedPreferences.contains(SharedPreferencesKeys.WORDLE_MAX_STREAK)) {
+            maxStreak = sharedPreferences.getInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, 0)
+        }
+
+        if (countWins > maxStreak) {
+            editor.putInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, countWins)
+            editor.apply()
+        }
+        Log.d("maxStreak", sharedPreferences.getInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, 0).toString())
+
+        updateCurrentStreak(this)
     }
 }

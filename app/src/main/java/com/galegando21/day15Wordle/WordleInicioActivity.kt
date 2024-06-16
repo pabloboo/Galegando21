@@ -8,7 +8,6 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
-import com.galegando21.utils.updateCurrentStreak
 
 class WordleInicioActivity : AppCompatActivity() {
     private lateinit var comezarButton : Button
@@ -23,7 +22,6 @@ class WordleInicioActivity : AppCompatActivity() {
 
         comezarButton.setOnClickListener {
             Intent(this@WordleInicioActivity, WordleGameActivity::class.java).also {
-                updateCurrentStreak(this)
                 startActivity(it)
                 finish()
             }

@@ -28,6 +28,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var adivinhaAnoFotoScore: TextView
     private lateinit var sopaLetrasScore: TextView
     private lateinit var agoraCaigoScore: TextView
+    private lateinit var conexionsScore: TextView
     private lateinit var ruletaSorteScore: TextView
     private lateinit var explosionPalabrasScoreEasy: TextView
     private lateinit var explosionPalabrasScoreDificult: TextView
@@ -35,6 +36,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var adivinhaPersonaxeScore: TextView
     private lateinit var verdadeOuMentiraScore: TextView
     private lateinit var adivinhaEscudoScore: TextView
+    private lateinit var wordleScore: TextView
     private lateinit var anagramasScoreEasy: TextView
     private lateinit var anagramasScoreDificult: TextView
     private lateinit var probaVelocidadeScore: TextView
@@ -76,6 +78,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         adivinhaAnoFotoScore = findViewById(R.id.adivinha_ano_foto_statistics)
         sopaLetrasScore = findViewById(R.id.sopa_letras_statistics)
         agoraCaigoScore = findViewById(R.id.agora_caigo_statistics)
+        conexionsScore = findViewById(R.id.conexions_statistics)
         ruletaSorteScore = findViewById(R.id.ruleta_sorte_statistics)
         explosionPalabrasScoreEasy = findViewById(R.id.explosion_palabras_statistics_easy)
         explosionPalabrasScoreDificult = findViewById(R.id.explosion_palabras_statistics_dificult)
@@ -83,6 +86,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         adivinhaPersonaxeScore = findViewById(R.id.adivinha_personaxe_statistics)
         verdadeOuMentiraScore = findViewById(R.id.verdade_ou_mentira_statistics)
         adivinhaEscudoScore = findViewById(R.id.adivinha_escudo_statistics)
+        wordleScore = findViewById(R.id.wordle_statistics)
         anagramasScoreEasy = findViewById(R.id.anagramas_statistics_easy)
         anagramasScoreDificult = findViewById(R.id.anagramas_statistics_dificult)
         probaVelocidadeScore = findViewById(R.id.proba_velocidade_statistics)
@@ -118,6 +122,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         agoraCaigoScore.text = sharedPreferences.getInt(SharedPreferencesKeys.AGORA_CAIGO_MAX_SCORE, 0).toString() + " respostas correctas"
 
+        conexionsScore.text = "Na túa mellor partida quedaronche " + sharedPreferences.getInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, 0).toString() + " vidas restantes"
+
         ruletaSorteScore.text = sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0).toString() + " €"
 
         explosionPalabrasScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY, 0).toString() + " puntos"
@@ -130,6 +136,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         verdadeOuMentiraScore.text = sharedPreferences.getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0).toString() + " respostas correctas seguidas"
 
         adivinhaEscudoScore.text = sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ESCUDO_MAX_SCORE, 0).toString() + " acertos"
+
+        wordleScore.text = "Acertaches " + sharedPreferences.getInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, 0).toString() + " palabras na túa mellor partida"
 
         anagramasScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY, 0).toString() + " acertos"
         anagramasScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_DIFICULT, 0).toString() + " acertos"

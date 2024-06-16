@@ -42,4 +42,6 @@ object SharedPreferencesKeys {
     const val XOGO_PALABRAS_MAX_SCORE = "PUNTUACION_MAXIMA_XOGO_PALABRAS"
     const val EXPLOSION_PALABRAS_MAX_SCORE_EASY = "explosion_palabras_max_score_easy"
     const val EXPLOSION_PALABRAS_MAX_SCORE_DIFICULT = "explosion_palabras_max_score_dificult"
+    const val WORDLE_MAX_STREAK = "wordle_max_streak"
+    const val CONEXIONS_MAX_SCORE = "conexions_max_score"
 }

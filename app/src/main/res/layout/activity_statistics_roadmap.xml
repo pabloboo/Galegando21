@@ -777,7 +777,7 @@
                 android:id="@+id/wordle_statistics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text=""
+                tools:text="Acertaches 3 palabras na túa mellor partida"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
                 android:layout_marginVertical="15dp" />
