@@ -58,6 +58,12 @@ fun updateCurrentStreak(activity: AppCompatActivity) {
         sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_DAY_CURRENT_STREAK_UPDATED, currentDay).apply()
         sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_YEAR_CURRENT_STREAK_UPDATED, currentYear).apply()
     }
+
+    // Actualizar el valor de la racha más larga
+    val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
+    if (currentStreak > longestStreak) {
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.LONGEST_STREAK, currentStreak).apply()
+    }
 }
 
 fun removeAccents(input: String): String {

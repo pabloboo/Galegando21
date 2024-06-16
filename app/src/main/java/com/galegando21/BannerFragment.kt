@@ -38,7 +38,7 @@ class BannerFragment : Fragment() {
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_statistics -> {
-                    val intent = Intent(requireContext(), StatisticsActivity::class.java)
+                    val intent = Intent(requireContext(), StatisticsRoadmapActivity::class.java)
                     startActivity(intent)
                     true
                 }

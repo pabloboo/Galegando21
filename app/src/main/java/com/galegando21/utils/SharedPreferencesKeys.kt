@@ -12,6 +12,7 @@ object SharedPreferencesKeys {
     const val UNLOCKED_BUTTON_COUNT = "unlockedButtonCount"
     const val STATISTICS = "statistics"
     const val CURRENT_STREAK = "current_streak"
+    const val LONGEST_STREAK = "longest_streak"
     const val LAST_DAY_CURRENT_STREAK_UPDATED = "last_day_current_streak_updated"
     const val LAST_YEAR_CURRENT_STREAK_UPDATED = "last_year_current_streak_updated"
     const val PASAGALEGO_CORRECT_ANSWERS = "pasagalego_correct_answers"
