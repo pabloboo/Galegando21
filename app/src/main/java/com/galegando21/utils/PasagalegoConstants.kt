@@ -370,7 +370,7 @@ object PasagalegoConstants {
 
     private fun getPasagalegoQuestionsR() : MutableList<QuestionPasagalego> {
         var questions : MutableList<QuestionPasagalego> = mutableListOf()
-        questions.add(QuestionPasagalego("Actitude da persoa que garda as consideracións debidas ás persoas ou cousas", "RESPETO"))
+        questions.add(QuestionPasagalego("Actitude ou sentimento que fai que sexa tratada con consideración unha persoa ou cousa.", "RESPECTO"))
         questions.add(QuestionPasagalego("Peza de tenreira, que se corta en forma case cilíndrica, dende a parte inmediata ata a contracuberta", "REDONDO"))
         questions.add(QuestionPasagalego("Camiño establecido ou planificado para unha expedición ou viaxe", "RUTA"))
         questions.add(QuestionPasagalego("Cada unha das continxencias que poden ser obxecto de un contrato de seguro", "RISCO"))

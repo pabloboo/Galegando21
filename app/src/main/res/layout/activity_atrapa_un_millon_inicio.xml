@@ -20,11 +20,25 @@
         android:layout_height="wrap_content"
         android:text="@string/atrapa_un_millon_explicacion"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_help_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+
+    <ImageButton
+        android:id="@+id/atrapa_un_millon_help_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/white"
+        android:onClick="setLetter"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/help_icon"
+        app:layout_constraintBottom_toTopOf="@+id/start_btn_atrapame_un_millon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_description_tv" />
 
     <Button
         android:id="@+id/start_btn_atrapame_un_millon"
@@ -36,6 +50,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_help_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
