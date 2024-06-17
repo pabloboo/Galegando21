@@ -855,9 +855,9 @@
                 android:layout_marginVertical="15dp" />
         </LinearLayout>
 
-        <!-- Mastermind Card -->
+        <!-- Palabras Encadeadas Card -->
         <LinearLayout
-            android:id="@+id/day18_mastermind_card"
+            android:id="@+id/day18_palabras_encadeadas_card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -869,7 +869,7 @@
             android:layout_margin="16dp">
 
             <TextView
-                android:id="@+id/mastermind_title"
+                android:id="@+id/palabras_encadeadas_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/day18_text"
@@ -878,7 +878,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mastermind_statistics"
+                android:id="@+id/palabras_encadeadas_statistics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text=""
@@ -895,7 +895,7 @@
             android:orientation="vertical"
             android:background="@drawable/card_background_statistics"
             android:padding="16dp"
-            app:layout_constraintTop_toBottomOf="@id/day18_mastermind_card"
+            app:layout_constraintTop_toBottomOf="@id/day18_palabras_encadeadas_card"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_margin="16dp">
