@@ -19,6 +19,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -280,5 +281,8 @@ class WordleGameActivity : AppCompatActivity() {
         Log.d("maxStreak", sharedPreferences.getInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, 0).toString())
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, 10)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

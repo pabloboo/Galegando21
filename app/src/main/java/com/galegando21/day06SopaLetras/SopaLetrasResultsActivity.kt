@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.galegando21.MainActivity
 import com.galegando21.R
@@ -15,6 +16,7 @@ import com.galegando21.utils.SopaLetrasConstants
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class SopaLetrasResultsActivity : AppCompatActivity() {
     private lateinit var SopaLetrasCorrectAnswersResultTv : TextView
@@ -81,5 +83,8 @@ class SopaLetrasResultsActivity : AppCompatActivity() {
         Log.d("SopaLetrasResultsActivity", "maxScore: ${sharedPreferences.getInt(SharedPreferencesKeys.SOPA_LETRAS_MAX_SCORE, 0)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, score.div(10))
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

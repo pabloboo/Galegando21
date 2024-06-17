@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AdivinhaPersonaxeConstants
@@ -13,6 +14,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
     private lateinit var AdivinhaPersonaxeCorrectAnswersResultTv : TextView
@@ -68,5 +70,8 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
         Log.d("AdivinhaPersonaxeResultsActivity", "Max score: ${sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_PERSONAXE_MAX_SCORE, Int.MAX_VALUE)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, 30)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

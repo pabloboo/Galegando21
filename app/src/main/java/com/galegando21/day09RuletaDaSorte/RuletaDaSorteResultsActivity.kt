@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
@@ -12,6 +13,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class RuletaDaSorteResultsActivity : AppCompatActivity() {
     private lateinit var ruletaDaSorteCashResultTv : TextView
@@ -60,5 +62,8 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
         Log.d("RuletaDaSorteResultsActivity", "maxCash: ${sharedPreferences.getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, cash.div(100))
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AgoraCaigoConstants
@@ -13,6 +14,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class AgoraCaigoResultsActivity : AppCompatActivity() {
     private lateinit var AgoraCaigoCorrectAnswersResultTv : TextView
@@ -61,5 +63,8 @@ class AgoraCaigoResultsActivity : AppCompatActivity() {
         Log.d("AgoraCaigoResultsActivity", "maxScore: ${sharedPreferences.getInt(SharedPreferencesKeys.AGORA_CAIGO_MAX_SCORE, 0)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, score)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

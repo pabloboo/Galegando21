@@ -18,6 +18,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 import kotlin.random.Random
 
 class ConexionsGameActivity : AppCompatActivity() {
@@ -270,5 +271,8 @@ class ConexionsGameActivity : AppCompatActivity() {
         Log.d("maxStreak", sharedPreferences.getInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, 0).toString())
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, currentLifes*10)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

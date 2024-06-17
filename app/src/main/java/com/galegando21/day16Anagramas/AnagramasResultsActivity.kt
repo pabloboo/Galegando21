@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class AnagramasResultsActivity : AppCompatActivity() {
     private lateinit var AnagramasCorrectAnswersResultTv : TextView
@@ -69,5 +71,7 @@ class AnagramasResultsActivity : AppCompatActivity() {
 
         updateCurrentStreak(this)
 
+        val experience = updateUserExperience(this, score*10)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

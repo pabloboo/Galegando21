@@ -14,6 +14,10 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var currentStreakStatistics : TextView
     private lateinit var longestStreakStatistics : TextView
 
+    private lateinit var totalExperienceStatistics: TextView
+    private lateinit var maxDayExperienceStatistics: TextView
+    private lateinit var maxDayExperienceStatisticsDate: TextView
+
     private lateinit var insigniaRacha7 : LinearLayout
     private lateinit var insigniaRacha21 : LinearLayout
     private lateinit var insigniaRacha50 : LinearLayout
@@ -75,6 +79,10 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         currentStreakStatistics = findViewById(R.id.current_streak_statistics)
         longestStreakStatistics = findViewById(R.id.longest_streak_statistics)
 
+        totalExperienceStatistics = findViewById(R.id.total_experience_statistics)
+        maxDayExperienceStatistics = findViewById(R.id.max_day_experience_statistics)
+        maxDayExperienceStatisticsDate = findViewById(R.id.max_day_experience_statistics_day)
+
         insigniaRacha7 = findViewById(R.id.insignia_racha_7)
         insigniaRacha21 = findViewById(R.id.insignia_racha_21)
         insigniaRacha50 = findViewById(R.id.insignia_racha_50)
@@ -123,6 +131,13 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         currentStreakStatistics.text = "$currentStreak"
         val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
         longestStreakStatistics.text = "$longestStreak"
+
+        totalExperienceStatistics.text = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString() + " pts"
+        maxDayExperienceStatistics.text = sharedPreferences.getInt(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS, 0).toString() + " pts"
+        maxDayExperienceStatisticsDate.text = sharedPreferences.getString(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS_DATE, "")
+        if (maxDayExperienceStatisticsDate.text.isEmpty()) {
+            maxDayExperienceStatisticsDate.visibility = View.GONE
+        }
 
         correctAnswersPasagalegoDiccionarioFacil.text = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY_EASY, 0).toString()
         errorAnswersPasagalegoDiccionarioFacil.text = sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY_EASY, 0).toString()

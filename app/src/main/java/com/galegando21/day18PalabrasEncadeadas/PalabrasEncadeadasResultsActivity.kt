@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class PalabrasEncadeadasResultsActivity : AppCompatActivity() {
     private lateinit var PalabrasEncadeadasCorrectAnswersResultTv : TextView
@@ -61,5 +63,8 @@ class PalabrasEncadeadasResultsActivity : AppCompatActivity() {
         Log.d("PalabrasEncadeadasResultsActivity", "maxScore: ${sharedPreferences.getInt(SharedPreferencesKeys.PALABRAS_ENCADEADAS_MAX_SCORE, 0)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, score)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia", Toast.LENGTH_SHORT).show()
     }
 }

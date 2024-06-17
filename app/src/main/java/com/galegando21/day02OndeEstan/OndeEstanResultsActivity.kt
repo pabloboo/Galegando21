@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import com.galegando21.utils.updateUserExperience
 
 class OndeEstanResultsActivity : AppCompatActivity() {
     private lateinit var ondeEstanCorrectAnswersResultTv : TextView
@@ -65,5 +67,8 @@ class OndeEstanResultsActivity : AppCompatActivity() {
         Log.d("OndeEstanResultsActivity", "minTime: ${sharedPreferences.getInt(SharedPreferencesKeys.ONDE_ESTAN_MIN_TIME, 0)}")
 
         updateCurrentStreak(this)
+
+        val experience = updateUserExperience(this, score)
+        Toast.makeText(this, "Gañaches $experience puntos de experiencia.", Toast.LENGTH_SHORT).show()
     }
 }

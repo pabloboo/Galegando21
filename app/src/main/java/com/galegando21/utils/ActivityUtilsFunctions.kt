@@ -66,6 +66,46 @@ fun updateCurrentStreak(activity: AppCompatActivity) {
     }
 }
 
+fun updateUserExperience(activity: AppCompatActivity, experience: Int): Int {
+    val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
+
+    val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+    val experienceWithCurrentStreak = experience + currentStreak*10
+
+    val currentExperience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0)
+    val newExperience = currentExperience + experienceWithCurrentStreak
+    sharedPreferences.edit().putInt(SharedPreferencesKeys.EXPERIENCE_POINTS, newExperience).apply()
+
+    updateTodayExperience(activity, experienceWithCurrentStreak)
+
+    return experienceWithCurrentStreak
+}
+
+fun updateTodayExperience(activity: AppCompatActivity, experience: Int) {
+    val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
+    val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
+
+    var todayExperience = 0
+    var lastDayExperienceUpdated = sharedPreferences.getInt(SharedPreferencesKeys.LAST_DAY_EXPERIENCE_POINTS_UPDATED, -1)
+    if (currentDay == lastDayExperienceUpdated) {
+        todayExperience = sharedPreferences.getInt(SharedPreferencesKeys.TODAY_EXPERIENCE_POINTS, 0)
+    } else {
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_DAY_EXPERIENCE_POINTS_UPDATED, currentDay).apply()
+    }
+
+    val newExperience = todayExperience + experience
+    sharedPreferences.edit().putInt(SharedPreferencesKeys.TODAY_EXPERIENCE_POINTS, newExperience).apply()
+    // Comprobar si es el día que más experiencia ha obtenido
+    val maxDayExperience = sharedPreferences.getInt(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS, 0)
+    if (newExperience > maxDayExperience) {
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS, newExperience).apply()
+        // Guardar la fecha del día con más experiencia
+        val today = Calendar.getInstance().time
+        val dateInString = android.text.format.DateFormat.format("dd/MM/yyyy", today).toString()
+        sharedPreferences.edit().putString(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS_DATE, dateInString).apply()
+    }
+}
+
 fun removeAccents(input: String): String {
     val normalized = Normalizer.normalize(input, Normalizer.Form.NFD)
     val accentRemoved = Regex("(?![ñÑ])[\\u0300-\\u036F]").replace(normalized, "")
