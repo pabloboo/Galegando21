@@ -2,6 +2,8 @@ package com.galegando21
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setOnBackPressed
@@ -11,6 +13,16 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
     private lateinit var currentStreakStatistics : TextView
     private lateinit var longestStreakStatistics : TextView
+
+    private lateinit var insigniaRacha7 : LinearLayout
+    private lateinit var insigniaRacha21 : LinearLayout
+    private lateinit var insigniaRacha50 : LinearLayout
+    private lateinit var insigniaRacha100 : LinearLayout
+    private lateinit var insigniaPasagalegoComplete : LinearLayout
+    private lateinit var insigniaXogoPalabrasComplete : LinearLayout
+    private lateinit var insigniaAtrapaUnMillonComplete : LinearLayout
+    private lateinit var insigniaAdivinhaAnoFotoComplete : LinearLayout
+    private lateinit var insigniaAdivinhaEscudoComplete: LinearLayout
 
     private lateinit var correctAnswersPasagalegoDiccionarioFacil : TextView
     private lateinit var errorAnswersPasagalegoDiccionarioFacil : TextView
@@ -62,6 +74,16 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         currentStreakStatistics = findViewById(R.id.current_streak_statistics)
         longestStreakStatistics = findViewById(R.id.longest_streak_statistics)
+
+        insigniaRacha7 = findViewById(R.id.insignia_racha_7)
+        insigniaRacha21 = findViewById(R.id.insignia_racha_21)
+        insigniaRacha50 = findViewById(R.id.insignia_racha_50)
+        insigniaRacha100 = findViewById(R.id.insignia_racha_100)
+        insigniaPasagalegoComplete = findViewById(R.id.insignia_pasagalego_complete)
+        insigniaXogoPalabrasComplete = findViewById(R.id.insignia_xogo_palabras_complete)
+        insigniaAtrapaUnMillonComplete = findViewById(R.id.insignia_atrapa_un_millon_complete)
+        insigniaAdivinhaAnoFotoComplete = findViewById(R.id.insignia_adivinha_ano_foto_complete)
+        insigniaAdivinhaEscudoComplete = findViewById(R.id.insignia_adivinha_escudo_complete)
 
         correctAnswersPasagalegoDiccionarioFacil = findViewById(R.id.correct_answers_pasagalego_statistics_diccionario_facil)
         errorAnswersPasagalegoDiccionarioFacil = findViewById(R.id.error_answers_pasagalego_statistics_diccionario_facil)
@@ -150,6 +172,47 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         aforcadoScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY, 0).toString() + " acertos seguidos"
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"
+
+        setInsignias()
+
+    }
+
+    private fun setInsignias() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+
+        val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0).toString().toInt()
+        if (longestStreak >= 7) {
+            insigniaRacha7.visibility = View.VISIBLE
+        }
+        if (longestStreak >= 21) {
+            insigniaRacha21.visibility = View.VISIBLE
+        }
+        if (longestStreak >= 50) {
+            insigniaRacha50.visibility = View.VISIBLE
+        }
+        if (longestStreak >= 100) {
+            insigniaRacha100.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY, 0).toString().toInt() == 0) {
+            insigniaPasagalegoComplete.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getFloat(SharedPreferencesKeys.XOGO_PALABRAS_MAX_SCORE, 0F).toString().toFloat() == 100F) {
+            insigniaXogoPalabrasComplete.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0).toString().toInt() == 1000000) {
+            insigniaAtrapaUnMillonComplete.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, 0).toString().toInt() == 50) {
+            insigniaAdivinhaAnoFotoComplete.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getInt(SharedPreferencesKeys.ADIVINHA_ESCUDO_MAX_SCORE, 0).toString().toInt() == 10) {
+            insigniaAdivinhaEscudoComplete.visibility = View.VISIBLE
+        }
 
     }
 }
