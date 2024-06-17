@@ -34,6 +34,16 @@
             app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
             app:layout_constraintVertical_bias="0.094">
 
+            <TextView
+                android:id="@+id/goldenHourTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@color/yellow"
+                android:padding="20dp"
+                tools:visibility="visible"
+                android:text="Golden Hour: dobre de experiencia en todos os xogos"/>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">

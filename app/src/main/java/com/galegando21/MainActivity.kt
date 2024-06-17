@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
 import com.galegando21.day21RecursosGalego.RecursosGalegoActivity
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
@@ -45,11 +47,13 @@ import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.showBannerMenu
+import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var goldenHourTextView: TextView
     private lateinit var day01Button: ImageButton
     private lateinit var day02Button: ImageButton
     private lateinit var day03Button: ImageButton
@@ -98,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             unlockButtonsWorkRequest
         )
 
+        goldenHourTextView = findViewById(R.id.goldenHourTextView)
         day01Button = findViewById(R.id.btnDay1)
         day02Button = findViewById(R.id.btnDay2)
         day03Button = findViewById(R.id.btnDay3)
@@ -121,6 +126,8 @@ class MainActivity : AppCompatActivity() {
         day21Button = findViewById(R.id.btnDay21)
 
         setBanner(this, R.string.app_name)
+
+        setGoldenHourTextView()
 
         day01Button.setOnClickListener {
             Intent(this@MainActivity, PasagalegoInicioActivity::class.java). also {
@@ -157,6 +164,14 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         updateButtonState()
         showBannerMenu(this)
+    }
+
+    private fun setGoldenHourTextView() {
+        val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+
+        if (currentHour in 19..20) {
+            goldenHourTextView.visibility = View.VISIBLE
+        }
     }
 
     // Función para verificar y actualizar el estado de los botones
