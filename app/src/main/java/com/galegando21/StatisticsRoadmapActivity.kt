@@ -40,6 +40,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var anagramasScoreEasy: TextView
     private lateinit var anagramasScoreDificult: TextView
     private lateinit var probaVelocidadeScore: TextView
+    private lateinit var palabrasEncadeadasScore: TextView
     private lateinit var aforcadoScoreEasy: TextView
     private lateinit var aforcadoScoreDificult: TextView
 
@@ -90,6 +91,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         anagramasScoreEasy = findViewById(R.id.anagramas_statistics_easy)
         anagramasScoreDificult = findViewById(R.id.anagramas_statistics_dificult)
         probaVelocidadeScore = findViewById(R.id.proba_velocidade_statistics)
+        palabrasEncadeadasScore = findViewById(R.id.palabras_encadeadas_statistics)
         aforcadoScoreEasy = findViewById(R.id.aforcado_statistics_easy)
         aforcadoScoreDificult = findViewById(R.id.aforcado_statistics_dificult)
 
@@ -143,6 +145,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         anagramasScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_DIFICULT, 0).toString() + " acertos"
 
         probaVelocidadeScore.text = sharedPreferences.getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0).toString() + " segundos"
+
+        palabrasEncadeadasScore.text = "Encadeaches " + sharedPreferences.getInt(SharedPreferencesKeys.PALABRAS_ENCADEADAS_MAX_SCORE, 0).toString() + " palabras"
 
         aforcadoScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY, 0).toString() + " acertos seguidos"
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"

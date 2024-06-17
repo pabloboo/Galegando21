@@ -33,13 +33,13 @@ import com.galegando21.day07AgoraCaigo.AgoraCaigoInicioActivity
 import com.galegando21.day17ProbaVelocidade.ProbaVelocidadeInicioActivity
 import com.galegando21.day09RuletaDaSorte.RuletaDaSorteInicioActivity
 import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
-import com.galegando21.day18Mastermind.MastermindInicioActivity
 import com.galegando21.day02OndeEstan.OndeEstanInicioActivity
 import com.galegando21.day06SopaLetras.SopaLetrasInicioActivity
 import com.galegando21.day16Anagramas.AnagramasInicioActivity
 import com.galegando21.day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
 import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
+import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
@@ -288,7 +288,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             R.id.btnDay18 -> {
-                Intent(this@MainActivity, MastermindInicioActivity::class.java).also {
+                Intent(this@MainActivity, PalabrasEncadeadasInicioActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }

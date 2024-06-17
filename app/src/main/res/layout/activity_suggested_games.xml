@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textSize="16sp"
-                android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Mastermind'." />
+                android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Palabras Encadeadas'." />
         </LinearLayout>
     </ScrollView>
 

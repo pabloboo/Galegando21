@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".day18Mastermind.MastermindInicioActivity">
+    tools:context=".day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bannerFragment"
@@ -15,20 +15,18 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/mastermind_description_tv"
+        android:id="@+id/palabras_encadeadas_description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mastermind_explicacion"
+        android:text="@string/palabras_encadeadas_explicacion"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/start_btn_palabras_encadeadas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.361" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
     <Button
-        android:id="@+id/start_btn_mastermind"
+        android:id="@+id/start_btn_palabras_encadeadas"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/secondaryBlue"
@@ -37,7 +35,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mastermind_description_tv"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintTop_toBottomOf="@+id/palabras_encadeadas_description_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
