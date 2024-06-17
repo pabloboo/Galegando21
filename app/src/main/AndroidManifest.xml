@@ -16,6 +16,13 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
+            android:name=".day18PalabrasEncadeadas.PalabrasEncadeadasResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".day18PalabrasEncadeadas.PalabrasEncadeadasGameActivity"
             android:exported="false"
             android:screenOrientation="portrait"

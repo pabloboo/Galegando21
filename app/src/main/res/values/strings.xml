@@ -75,5 +75,6 @@
     <string name="xogos_suxeridos">Xogos suxeridos</string>
     <string name="axustes">Axustes</string>
     <string name="palabras_encadeadas">Palabras Encadeadas</string>
+    <string name="palabras_encadeadas_explicacion">O obxectivo de este xogo é encadear o maior número de palabras sen repetir.\n\nComezarás con unha sílaba e terás 10 segundos para escribir unha palabra que exista no diccionario e comece coas letras que aparecen no campo de texto.\n\nPor cada palabra que escribas e encadees correctamente repetirase o procedemento. Exemplo: monxa-xamon-monte.\n\nNa parte superior verás o tempo restante. A medida que o tempo se esgote a cor de fondo irá cambiando para alertarte.</string>
 
 </resources>

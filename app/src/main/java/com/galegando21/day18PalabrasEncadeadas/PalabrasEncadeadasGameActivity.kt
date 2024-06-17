@@ -2,6 +2,7 @@ package com.galegando21.day18PalabrasEncadeadas
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,9 +13,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.DictionaryConstants
+import com.galegando21.utils.removeAccents
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -70,9 +71,9 @@ class PalabrasEncadeadasGameActivity : AppCompatActivity() {
             }
             lastSilaba = ultimaSilaba(firstWord)
             inputWordEditText.setText(lastSilaba)
-        }
 
-        startTimer()
+            startTimer()
+        }
     }
 
     private fun startTimer() {
@@ -84,10 +85,15 @@ class PalabrasEncadeadasGameActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(this@PalabrasEncadeadasGameActivity, "Tempo esgotado", Toast.LENGTH_SHORT).show()
+                Intent(this@PalabrasEncadeadasGameActivity, PalabrasEncadeadasResultsActivity::class.java).also {
+                    it.putExtra("PALABRAS_ENCADEADAS_SCORE", palabrasEncontradas.size)
+                    startActivity(it)
+                    countDownTimer?.cancel()
+                    finish()
+                }
             }
         }.start()
-        setOnBackPressed(this, MainActivity::class.java, countDownTimer)
+        setOnBackPressed(this, PalabrasEncadeadasInicioActivity::class.java, countDownTimer)
     }
 
     private fun changeBackgroundColor(millisUntilFinished: Long) {
@@ -127,7 +133,7 @@ class PalabrasEncadeadasGameActivity : AppCompatActivity() {
     }
 
     private fun encadearPalabra() {
-        val word = inputWordEditText.text.toString()
+        val word = removeAccents(inputWordEditText.text.toString())
         if (word.isEmpty()) {
             return
         }
