@@ -162,16 +162,35 @@
             app:layout_constraintBottom_toTopOf="@+id/insignias_card">
 
             <!-- Title -->
-            <TextView
-                android:id="@+id/experience_title"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayoutExperienceTitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="EXPERIENCIA"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"/>
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/experience_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXPERIENCIA"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <ImageButton
+                    android:id="@+id/helpButtonStatisticsExperience"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:backgroundTint="@color/secondaryBlue"
+                    android:layout_gravity="end"
+                    android:onClick="setLetter"
+                    android:padding="10dp"
+                    android:src="@drawable/help_icon_white" />
+            </LinearLayout>
 
             <!-- Divider -->
             <View
@@ -179,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="#FFFFFF"
-                android:layout_below="@id/experience_title"
+                android:layout_below="@id/linearLayoutExperienceTitle"
                 android:layout_marginTop="8dp" />
 
             <!-- Total Experience -->

@@ -3,8 +3,10 @@ package com.galegando21
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setOnBackPressed
 
@@ -14,6 +16,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var currentStreakStatistics : TextView
     private lateinit var longestStreakStatistics : TextView
 
+    private lateinit var helpImageButtonExperience: ImageButton
     private lateinit var totalExperienceStatistics: TextView
     private lateinit var maxDayExperienceStatistics: TextView
     private lateinit var maxDayExperienceStatisticsDate: TextView
@@ -79,6 +82,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         currentStreakStatistics = findViewById(R.id.current_streak_statistics)
         longestStreakStatistics = findViewById(R.id.longest_streak_statistics)
 
+        helpImageButtonExperience = findViewById(R.id.helpButtonStatisticsExperience)
         totalExperienceStatistics = findViewById(R.id.total_experience_statistics)
         maxDayExperienceStatistics = findViewById(R.id.max_day_experience_statistics)
         maxDayExperienceStatisticsDate = findViewById(R.id.max_day_experience_statistics_day)
@@ -132,6 +136,9 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
         longestStreakStatistics.text = "$longestStreak"
 
+        helpImageButtonExperience.setOnClickListener {
+            showHelpDialogExperience()
+        }
         totalExperienceStatistics.text = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString() + " pts"
         maxDayExperienceStatistics.text = sharedPreferences.getInt(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS, 0).toString() + " pts"
         maxDayExperienceStatisticsDate.text = sharedPreferences.getString(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS_DATE, "")
@@ -190,6 +197,16 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         setInsignias()
 
+    }
+
+    private fun showHelpDialogExperience() {
+        AlertDialog.Builder(this)
+            .setTitle("Como se obteñen os puntos de experiencia?")
+            .setMessage("En cada xogo, dependendo do teu desempeño, recibirás puntos de experiencia. \n\nAdemáis, recibirás 1 punto de experiencia adicional por cada día de racha actual ao finalizar cada xogo. \n\nDurante a Hora Dourada (de 19:00 a 20:00) recibirás o dobre de puntos de experiencia.")
+            .setPositiveButton("Cerrar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun setInsignias() {

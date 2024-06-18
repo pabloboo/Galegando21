@@ -70,11 +70,11 @@ fun updateUserExperience(activity: AppCompatActivity, experience: Int): Int {
     val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
 
     val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
-    val experienceWithCurrentStreak = experience + currentStreak*10
+    val experienceWithCurrentStreak = experience + currentStreak
 
     var experienceWithBonus = experienceWithCurrentStreak
     val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-    if (currentHour in 19..20) { // Golden Hour -> dobre de experiencia
+    if (currentHour in 19..20) { // Hora Dourada -> dobre de experiencia
         experienceWithBonus *= 2
     }
 
