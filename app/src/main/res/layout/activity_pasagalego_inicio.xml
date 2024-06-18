@@ -16,15 +16,15 @@
 
     <TextView
         android:id="@+id/pasagalego_description_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/pasagalego_explicacion"
         android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toTopOf="@id/pasagalego_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
 
     <RadioGroup
         android:id="@+id/pasagalego_radio_group"
@@ -60,19 +60,19 @@
 
     <TextView
         android:id="@+id/modo_xogo_info_tv_pasagalego"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="En este modo de xogo as preguntas e definicións serán obtidas aleatoriamente de un diccionario."
         android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toTopOf="@id/start_btn_pasagalego"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pasagalego_radio_group"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintTop_toBottomOf="@id/pasagalego_radio_group" />
 
     <Button
         android:id="@+id/start_btn_pasagalego"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:backgroundTint="@color/secondaryBlue"

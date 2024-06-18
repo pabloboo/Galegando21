@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment"
         app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_hint_tv"
         app:layout_constraintStart_toStartOf="parent"

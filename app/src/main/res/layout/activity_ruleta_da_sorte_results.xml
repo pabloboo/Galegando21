@@ -19,11 +19,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/ruleta_da_sorte_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ruleta_sorte_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
     <TextView
         android:id="@+id/ruleta_sorte_cash_results_text_view"
@@ -40,10 +39,10 @@
         android:id="@+id/ruleta_sorte_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_finish_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
         tools:text="Gañaches un total de 3000€" />
 
     <Button

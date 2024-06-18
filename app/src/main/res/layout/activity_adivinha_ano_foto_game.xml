@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginHorizontal="40dp"
         android:weightSum="10"
         app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_foto_ImageView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,20 +53,21 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/presentacion_lucas_perez"
+        android:layout_marginHorizontal="5dp"
         app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_solution_description_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_progress_bar_layout"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_progress_bar_layout" />
 
     <TextView
         android:id="@+id/adivinhaAnoFoto_solution_description_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="2023: 7000 persoas reclaman a Lucas Pérez na súa presentación"
         android:textAlignment="center"
         android:visibility="gone"
         tools:visibility="visible"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_foto_ImageView"
@@ -78,6 +80,7 @@
         android:valueFrom="1945"
         android:valueTo="2024"
         android:stepSize="1"
+        android:layout_marginHorizontal="5dp"
         app:layout_constraintBottom_toTopOf="@+id/check_btn_AdivinhaAnoFoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +88,7 @@
 
     <Button
         android:id="@+id/check_btn_AdivinhaAnoFoto"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:backgroundTint="@color/secondaryBlue"

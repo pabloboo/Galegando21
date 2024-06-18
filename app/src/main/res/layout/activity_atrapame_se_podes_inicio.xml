@@ -16,20 +16,19 @@
 
     <TextView
         android:id="@+id/atrapame_se_podes_description_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/atrapame_se_podes_explicacion"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toTopOf="@id/start_btn_atrapame_se_podes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
     <Button
         android:id="@+id/start_btn_atrapame_se_podes"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:backgroundTint="@color/secondaryBlue"

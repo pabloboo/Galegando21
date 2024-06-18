@@ -16,10 +16,11 @@
 
     <TextView
         android:id="@+id/anagramas_description_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/anagramas_explicacion"
         android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toTopOf="@id/anagramas_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +55,11 @@
 
     <TextView
         android:id="@+id/modo_xogo_info_tv_anagramas"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="En este modo de xogo as preguntas e definicións serán obtidas de unha lista de palabras comúns."
         android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintBottom_toTopOf="@id/start_btn_anagramas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +67,7 @@
 
     <Button
         android:id="@+id/start_btn_anagramas"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:backgroundTint="@color/secondaryBlue"

@@ -16,10 +16,11 @@
 
     <TextView
         android:id="@+id/adivinhaAnoFoto_description_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/adivinhaAnoFoto_explicacion"
         android:textAlignment="center"
+        android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_help_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
 
     <Button
         android:id="@+id/start_btn_adivinhaAnoFoto"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/secondaryBlue"
         android:gravity="center"

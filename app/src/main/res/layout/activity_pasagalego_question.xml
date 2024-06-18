@@ -41,6 +41,7 @@
             android:id="@+id/tv_pasagalego_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
             android:padding="16dp"
             tools:text="Separación das partes dun todo para
                 coñecer os elementos que o constitúen."

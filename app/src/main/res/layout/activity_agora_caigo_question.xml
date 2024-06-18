@@ -62,15 +62,15 @@
 
     <TextView
         android:id="@+id/agora_caigo_question_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toTopOf="@id/agora_caigo_hint_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agora_caigo_timer_tv"
-        app:layout_constraintVertical_bias="0.518"
         tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
 
     <LinearLayout
