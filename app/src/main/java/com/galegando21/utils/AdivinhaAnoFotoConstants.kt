@@ -521,6 +521,107 @@ object AdivinhaAnoFotoConstants {
             )
         )
 
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_64,
+                "Proclamación de Felipe VI como rei de España",
+                2014
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_65,
+                "O Prestige hundese e lanza outra marea negra hacia Galicia",
+                2002
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_66,
+                "Homenaxe en recordo ás vítimas do Madrid Arena",
+                2012
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_67,
+                "Manifestación a favor de legalizar a Eutanasia",
+                2020
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_68,
+                "Premier de “Sex and the City” en Nova York",
+                1998
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_69,
+                "Jay-Z e Kobe Bryant saudanse no partido de Los Angeles Lakers contra Houston en Staples Center",
+                2009
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_70,
+                "Pablo Picasso no Festival de Cine de Cannes para a presentación da película Le Mystere Picasso, dirixida por Henri Georges Clouzot",
+                1956
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_71,
+                "Kance Armstrong admite usar ranuras para mellorar o rendemento durante unha entrevista con Ophra",
+                2013
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_72,
+                "O 31 de outubro do 2000 realizouse o lanzamento da nave espacial Soyuz coa primeira tripulación destinada á Estación Espacial Internacional",
+                2000
+            )
+        )
+
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_73,
+                "Pelé triunfante despois do partido da final da Copa do Mundo de 1970",
+                1970
+            )
+        )
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_74,
+                "Presentase o primeiro microondas doméstico",
+                1955
+            )
+        )
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_75,
+                "Goerge Lucas e MArk Hamill grabando o Star Wars orixinal ",
+                1976
+            )
+        )
+        questions.add(
+            QuestionAdivinhaAnoFoto(
+                R.drawable.adivinar_ano_76,
+                "Zinedine Zidane perde a cabeza e posiblemente a final para Francia",
+                2006
+            )
+        )
+
         return questions
     }
 }

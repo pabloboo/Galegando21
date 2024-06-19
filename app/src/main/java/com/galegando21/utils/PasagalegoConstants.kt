@@ -57,6 +57,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Perfume, olor agradable", "AROMA"))
         questions.add(QuestionPasagalego("Vehículo automóvil de transporte público e traxecto fixo que se emplea habitualmente no servizo urbano", "AUTOBUS"))
         questions.add(QuestionPasagalego("Tomar legalmente como o fillo que non o é biolóxicamente", "ADOPTAR"))
+        questions.add(QuestionPasagalego("Soporte en donde se coloca un libro ou unha partitura para poder ler con comodidade", "ATRIL"))
         return questions
     }
 
@@ -80,6 +81,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Almacén de viños", "BODEGA"))
         questions.add(QuestionPasagalego("Gota de líquido acuoso, segregada por unha glándula do ollo, debido a unha irritación de este, ou a unha dor ou unha emoción", "BAGOA"))
         questions.add(QuestionPasagalego("Cunca que se pon aos paxaros na xaula para que beban", "BEBEDEIRO"))
+        questions.add(QuestionPasagalego("Conxunto completo de cartas empleado para xogos de azar", "BARALLA"))
         return questions
     }
 
@@ -103,6 +105,8 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Artefacto que se move por propulsión a chorro empleado en vehículos espaciais ou como arma de guerra", "COHETE"))
         questions.add(QuestionPasagalego("En algúns países europeos, como Alemaña, xefe do goberno", "CANCILLER"))
         questions.add(QuestionPasagalego("Plato composto de lonchas moi finas de carne ou pescado crudo, condimentadas con especias", "CARPACHO"))
+        questions.add(QuestionPasagalego("Instrumento de debuxo que se emplea para trazar arcos de circunferencia", "COMPAS"))
+        questions.add(QuestionPasagalego("Porción de unha masa feita con bechamel e un alimento picado que se come rebozada en ovo e pan raiado e frita", "CROQUETA"))
         return questions
     }
 
@@ -124,6 +128,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Persoa comisionada por outra para actuar no seu nome", "DELEGADO"))
         questions.add(QuestionPasagalego("Desviación de unha nave do seu rumbo por efecto do vento, mar ou da corrente", "DERIVA"))
         questions.add(QuestionPasagalego("Nome do personaxe bíblico que suscitou o amor de Sansón e lle arrebatou a forza tras cortarlle a cabeleira", "DALILA"))
+        questions.add(QuestionPasagalego("Unidade de lonxitude equivalente a dez metros", "DECAMETRO"))
         return questions
     }
 
@@ -147,6 +152,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Manifestación dos afectos e das emocións por medio da xesticulacion", "EXPRESION"))
         questions.add(QuestionPasagalego("Seducir a alguén con adulacións e mentiras", "ENGANAR"))
         questions.add(QuestionPasagalego("Raíz ou tronco de unha familia ou linaxe", "ESTIRPE"))
+        questions.add(QuestionPasagalego("Na filosofía grega, cada un dos catro principios que compoñen o universo: terra, auga, aire e foto", "ELEMENTO"))
         return questions
     }
 
@@ -194,6 +200,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Dicese do canto propio de culto cristiano de notas uniformes no tono e na duración", "GREGORIANO"))
         questions.add(QuestionPasagalego("Apelido do obispo que apoiou a Enrique 8º de Inglaterra contra o papa e foi lord canciller con María Tudor de 1553 a 1555", "GARDINER"))
         questions.add(QuestionPasagalego("Pillo, sinvergonza, folgazán", "GOLFO"))
+        questions.add(QuestionPasagalego("Salsa espesa que se prepara con aguacate molido e picado ao que se lle agrega cebola, tomate e chile verde", "GUACAMOLE"))
         return questions
     }
 
@@ -210,6 +217,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Preocupación obsesiva pola propia saúde, particularmente por contraer enfermidades", "HIPOCONDRIA"))
         questions.add(QuestionPasagalego("Varón que chegou á idade adulta", "HOME"))
         questions.add(QuestionPasagalego("Polígono de sete lados", "HEPTAGONO"))
+        questions.add(QuestionPasagalego("Cidade estadounidense que é capital do estado de Montana", "HELENA"))
         return questions
     }
 
@@ -231,6 +239,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Parte do corpo na que se xunta o muslo co ventre", "INGLE"))
         questions.add(QuestionPasagalego("Natural do país asiático con capital en Nova Delhi", "INDIO"))
         questions.add(QuestionPasagalego("Emblema distintivo de unha institución que se usa prendido á roupa como mostra de vinculación ou simpatía", "INSIGNIA"))
+        questions.add(QuestionPasagalego("Que non se pode percibir cos sentidos ou coa atención", "IMPERCEPTIBLE"))
         return questions
     }
 
@@ -250,6 +259,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Parte inclinada de un monte ou de outra altura do terreo", "LADEIRA"))
         questions.add(QuestionPasagalego("Conxunto de obxectos similares entre sí que se agrupan con un fin determinado", "LOTE"))
         questions.add(QuestionPasagalego("Operación de ciruxía estética que consiste en estirar a pel para eliminar as arrugas", "LIFTING"))
+        questions.add(QuestionPasagalego("Executar sen proceso e tumultariamente a un sospeitoso ou a un reo", "LINCHAR"))
         return questions
     }
 
@@ -271,6 +281,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Dente posterior aos caninos que serve para triturar os alimentos", "MOLAR"))
         questions.add(QuestionPasagalego("Persoa que ten por oficio o manexo de unha locomotora", "MAQUINISTA"))
         questions.add(QuestionPasagalego("Esperar sen facer nada", "MUSAR"))
+        questions.add(QuestionPasagalego("Telar do vano de unha porta ou ventá", "MOCHETA"))
         return questions
     }
 
@@ -291,6 +302,8 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Sustancia branca e dura, que reviste o interior de algunhas conchas de moluscos, como a madreperla", "NACAR"))
         questions.add(QuestionPasagalego("Árbore de tronco robusto e madeira dura, cuxo fruto é a noz", "NOGAL"))
         questions.add(QuestionPasagalego("Doctrina filosófica que nega calquer creencia", "NIHILISMO"))
+        questions.add(QuestionPasagalego("Xugo azucarado que hai no fondo da corola ou o cáliz das flores que chupan os insectos", "NECTAR"))
+        questions.add(QuestionPasagalego("Coloquialmente, interior da garganta", "GAÑOTE"))
         return questions
     }
 
@@ -330,6 +343,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Substancia anarcótica e moi adictiva que se extrae da adormidera", "OPIO"))
         questions.add(QuestionPasagalego("Dicese do animal que pon ovos nos que se desarrollan os embrións", "OVIPARO"))
         questions.add(QuestionPasagalego("Arte de facer obxetos artísticos con metales preciosos", "ORFEBRERIA"))
+        questions.add(QuestionPasagalego("Asio de órfanos", "ORFANATO"))
         return questions
     }
 
@@ -352,6 +366,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Que pode ser penetrado ou traspasado pola auga ou outro fluído", "PERMEABLE"))
         questions.add(QuestionPasagalego("Nome do filósofo grego da escola ecleática cuxa única obra coñecida é o poema titulado 'Sobre a natureza'", "PARMENIDES"))
         questions.add(QuestionPasagalego("Tubo delgado, xeralmente de plástico, que se utiliza para sorber refrescos ou outros líquidos", "PALLA"))
+        questions.add(QuestionPasagalego("En certos aparatos electrónicos, superficie donde aparecen imaxes", "PANTALLA"))
         return questions
     }
 
@@ -386,6 +401,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("En unha comida, volver a servirse un prato que xa se tomou", "REPETIR"))
         questions.add(QuestionPasagalego("Encargo ou xestión que normalmente implica desprazamento", "RECADO"))
         questions.add(QuestionPasagalego("Conxunto de pequenas gotas de auga formadas pola condensación de vapor da atmósfera nas noites frías", "ROCIO"))
+        questions.add(QuestionPasagalego("Apelido da escritora autora da novela 'Myriam de Magdala', de 1983", "RINSER"))
         return questions
     }
 
@@ -407,6 +423,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Que é moi nombrado, coñecido ou famoso", "SOADO"))
         questions.add(QuestionPasagalego("Soporte de tela metálica ou láminas de madeira, sobre o que se coloca o colchón da cama", "SOMIER"))
         questions.add(QuestionPasagalego("Ir ou moverse hacia arriba", "SUBIR"))
+        questions.add(QuestionPasagalego("Poñer a alguén ou algo en lugar de outra persoa ou cousa", "SUBSTITUIR"))
         return questions
     }
 
@@ -429,6 +446,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Pastel grande, xeralmente redondo, elaborado a base de fariña e con recheo de doce, froitas ou crema", "TARTA"))
         questions.add(QuestionPasagalego("Potro que non chegou aos dous anos", "TUSON"))
         questions.add(QuestionPasagalego("Cetro en forma de arpón de tres puntas, que teñen na man as estatuas de Neptuno", "TRIDENTE"))
+        questions.add(QuestionPasagalego("Cabo gaditano xunto ao que tivo lugar a batalla naval na que perdeu a vida o almirante británico Horatio Nelson", "TRAFALGAR"))
         return questions
     }
 
@@ -451,6 +469,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Acondicionar un terreo dotandoo de luz, calles, alcantarillado e outros servizos", "URBANIZAR"))
         questions.add(QuestionPasagalego("Adverbio que significa 'soamente'", "UNICAMENTE"))
         questions.add(QuestionPasagalego("Primeiro dos números", "UN"))
+        questions.add(QuestionPasagalego("No xénero humano, conducto por onde se expulsa a orina desde a vexiga ao exterior", "URETRA"))
         return questions
     }
 
@@ -474,6 +493,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Utensilio que se fai con ramas de distintas plantas, atadas e suxeitas a un pau, que se emplea para barrer", "VASOIRA"))
         questions.add(QuestionPasagalego("Rendir culto a Deus, aos santos ou ás cousas sagradas", "VENERAR"))
         questions.add(QuestionPasagalego("Apelido do autor do cadro titulado 'Luis Francisco de la Cerda, 9º duque de Medinaceli'", "VOET"))
+        questions.add(QuestionPasagalego("Hábito de facer mal certa cousa ou de facer certa cousa mala", "VICIO"))
         return questions
     }
 
@@ -503,6 +523,7 @@ object PasagalegoConstants {
         questions.add(QuestionPasagalego("Dicese da persoa que ten tendencia natural a utilizar preferentemente a man e os pés esquerdos", "ZURDA"))
         questions.add(QuestionPasagalego("Soldado de un corpo destinado aos traballos de excavación", "ZAPADOR"))
         questions.add(QuestionPasagalego("Arbusto co que as súas follas se prepara un refresco chamado de igual modo", "ZARZAPARRILLA"))
+        questions.add(QuestionPasagalego("Participio do verbo zampar", "ZAMPADO"))
         return questions
     }
 

@@ -414,6 +414,581 @@ object AgoraCaigoConstants {
             "_O__M_O _I",
             "TOLOMEO II"
         ))
+        questions.add(QuestionAgoraCaigo(
+            "Pintor impresionista francés que non era 'nin de líquido nin de sólido'",
+            "D_G__",
+            "DEGAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que lingua provén a palabra 'tsunami'?",
+            "_AP_N_S",
+            "XAPONÉS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cantos anos tiña Justin Bieber cando grabou o seu primeiro disco?",
+            "__",
+            "15"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que posición xogaba o futbolista Andoni Cedrún?",
+            "_O_TE__O",
+            "PORTEIRO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que disciplina artística destacou Eduardo Rosales no século XIX?",
+            "_I_T__A",
+            "PINTURA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cal das rochas magmáticas é a máis abundante na corteza terrestre?",
+            "_R__IT_",
+            "GRANITO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que animal é unha garza?",
+            "_V_",
+            "AVE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O neno protagonista de 'Sexto Sentido' en ocasións ve...",
+            "_OR_O_",
+            "MORTOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Para que axencia traballa o astronauta Peggy Whitson, que ten o record estadounidense de tempo no espazo?",
+            "N_S_",
+            "NASA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que diva pop parodiou a Terremoto de Alcorcón coa canción 'Time goes by' con Loli",
+            "_A__N_A",
+            "MADONNA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Gertrude Ederle foi a primeira muller que cruzou a nado este canle europeo",
+            "C___E D_ M__CHA",
+            "CANLE DA MANCHA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Antonio Molina cantaba: 'Soy barrenero porque a mi nada me espanta y sólo quiero el sonido de...'",
+            "_NA _A__N_A",
+            "UNA TARANTA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Na costa de Escocia cando falan de 'haar' referense a este fenómeno meteorolóxico",
+            "N_B_A",
+            "NÉBOA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que legumbre 'acompaña' á princesa no famoso conto de Andersen",
+            "G_I__NT_",
+            "GUISANTE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Quen sucedeu no trono británico ao rei Jorge VI?",
+            "__ABE_ __",
+            "ISABEL II"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que premio Nobel gañou a activista iraquí Nadia Murad en 2018?",
+            "__B_L D_ __Z",
+            "NOBEL DA PAZ"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que país sudamericano gobernou o extemeño Pedro de Valdivia?",
+            "_HI__",
+            "CHILE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O día mundial da alimentación celebrase cada 16 de outubro conmemorando a fundación de esta organización da ONU",
+            "_A_",
+            "FAO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que famoso exfutbolista británico ten o seu propio equipo de fútbol en Miami?",
+            "__V_D B___HA_",
+            "DAVID BECKHAM"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que xénero musical pertence a canción 'Canta y sé feliz' de Peret?",
+            "__M_A",
+            "RUMBA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que novela de Cela se desenvolve en gran parte no Café La Delicia?",
+            "A __LM_N_",
+            "A COLMENA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "As murallas de qué cidade do sur de Croacia é o Desembarco do Rei en 'Juego de Tronos'?",
+            "_U_R__NI_",
+            "DUBROVNIK"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que país é a gañadora do certamen de Miss Mundo en 2018?",
+            "__XI_O",
+            "MEXICO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Nos días previos a qué época festiva se instalou o famoso touro de Wall Street?",
+            "N_D_L",
+            "NADAL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que láminas que recubren o corpo da maioría os peixes non ten o peixe ourizo?",
+            "_S__M_S",
+            "ESCAMAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que flores vermellas se di que foron as primeiras en crecer nos campos devastados tras a I Guerra Mundial?",
+            "_M_P_L__",
+            "AMAPOLAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que artista colombiano canta 'Sin Contrato'",
+            "__L__A",
+            "MALUMA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que país está a praza urbana máis grande do mundo?",
+            "_H_N_",
+            "CHINA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que presidente de EEUU impulsou a contrucción de autopistas interestatais?",
+            "_I__N___E_",
+            "EISENHOWER"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que famoso xeneral cartaxinés venceu o xeneral romano Escorpión?",
+            "AN_BA_",
+            "ANÍBAL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En España, que famoso rato de Disney foi coñecido como Miguelín nos anos 30?",
+            "___K_Y M__SE",
+            "MICKEY MOUSE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que é o telurio?",
+            "M___RA_",
+            "MINERAL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Luis Fonsi canta: 'Si tú te quedas conmigo bailando toda la noche. Cerquita de mí, al ritmo de...'",
+            "_M_R _ D__R__HE",
+            "AMOR Y DERROCHE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cal é o deporte que máis galardonadas tivo nos Premios Nacionais do Deporte?",
+            "_T__TIS_O",
+            "ATLETISMO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que obxecto imprescindible para Harry Potter é de madeira de acebo e ten unha pluma de fénix?",
+            "_A__ÑA",
+            "VARIÑA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cal era o nome de pila do cantante Chiquetete?",
+            "__T_NI_",
+            "ANTONIO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O día da coronación de esta raíña inglesa soupose que Edmund Hillary coronou o Everest",
+            "_S__EL __",
+            "ISABEL II"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que famoso empresario español é o pai de Marta Ortega",
+            "_M__C_O __T_GA",
+            "AMANCIO ORTEGA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que ano se inaugurou a Torre Eiffel?",
+            "18__",
+            "1889"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que cidade suiza naceu Javier Gómez Noya?",
+            "_A__L_A",
+            "BASILEA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que ave era o emblema imperial do nazismo?",
+            "Á__IL_",
+            "ÁGUILA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Para que boneca deseñeu Pertegaz un vestido?",
+            "B__BI_",
+            "BARBIE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que país é capital Kampala?",
+            "_G_ND_",
+            "UGANDA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que alcaldesa casou a Silvia Abril e Andreu Buenafuente?",
+            "__A __L_U",
+            "ADA COLAU"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que personaxe da 'Guerra das Galaxias' inspirou o nome común de unha nova especie de primate encontrada en China?",
+            "L__E __Y___K_R",
+            "LUKE SKYWALKER"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que actor da saga 'Mercenarios' foi un saltador de trampolín profesional?",
+            "__S_N S___HA_",
+            "JASON STATHAM"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que serie de Antena 3 gañou catro Premios Iris en 2018?",
+            "F___ÑA",
+            "FARIÑA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Sigue a Fito e Fitipaldis: 'Soldadito marinero conociste a una sirena, de esas que dicen te quiero si vel la...'",
+            "__R___A _L__A",
+            "CARTERA LLENA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que centenario actor de Hollywood é sogro de Catherine Zeta-Jones?",
+            "___K __U___S",
+            "KIRK DOUGLAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En 1847, que novela publicou Charlotte Brontë baixo o pseudónimo de Currer Bell?",
+            "__N_ __RE",
+            "JANE EYRE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que pobo nómada asiático vive en tendas de campaña chamadas 'ger' e coñecidas popularmente como 'yurtas'?",
+            "__B_ M__G__",
+            "POBO MONGOL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Sobre que vehículo conseguiu Ot Pi ser 12 veces campión do mundo?",
+            "__C_C_E_A",
+            "BICICLETA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Tradicionalmente, en Eibar celebran o día de Gaztañerre comendo castañas e estos moluscos",
+            "C_R_C___S",
+            "CARACOIS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que famosa pintora naceu na localidade mexicana de Coyoacán?",
+            "_R_D_ __H_O",
+            "FRIDA KAHLO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Durante o apareamento, o tiburón nodriza morde esta parte da femia para asgurar a copula",
+            "_L_T_",
+            "ALETA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Con que nome se coñece tamén ao pez fletán",
+            "_A__BU_",
+            "HALIBUT"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Os integrantes dos Lobos, concursantes de '¡Boom!', son Alberto, Manu, Valentín e...?",
+            "ER_NDI__",
+            "ERUNDINO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que obxeto usado para limpar os dentes servía de apodo a Sophia Loren pola súa delgadez?",
+            "P__IL__",
+            "PALILLO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Película dos 90 na que Sam sempre responde 'Ídem' cnado Molly lle di 'Te quiero'",
+            "__OS_",
+            "GHOST"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que artista español é o album '#ELDISCO'?",
+            "___J_N_R_ __NZ",
+            "ALEJANDRO SANZ"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que serie de televisión está protagonizada por un oficial de policía chamado Rick Grimes?",
+            "__E _A__IN_ _E__",
+            "THE WALKING DEAD"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que extracto de planta se aislou por primeira vez a morfina?",
+            "_P_O",
+            "OPIO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que 'best seller' de Arthur Golden se levou ao cine en 2005 e gañou tres premios Oscar?",
+            "_E__R__S D_ _NH_ ___S_A",
+            "MEMORIAS DE UNHA GEISHA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que famoso xogo de mesa podes ir á cárcere ao caer no parking gratuito?",
+            "M_N__O_Y",
+            "MONOPOLY"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Como se titula o disco no que Mónica Naranjo versionou á diva italiana Mina?",
+            "M_N___",
+            "MINAGE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A orillas de que lago italiano está a localidade de Bellagio?",
+            "_AG_ __ C_M_",
+            "LAGO DE COMO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Gloria Estefan canta: 'Hay amores que nos llevan al abismo. Hay amores que jamás...",
+            "_E _O_ ____DA_",
+            "SE NOS OLVIDAN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que famoso ternista madrileño se contertiu en pai primerizo en marzo de 2019?",
+            "__R_A_D_ V____SC_",
+            "FERNANDO VERDASCO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que gran isla do océano Índico é nativo o camaleón de Parson, un dos máis grandes que existen?",
+            "_A___A_C__",
+            "MADAGASCAR"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que organismo acuático é a chlorella, famosa polos seus múltiples beneficios para o ser humano?",
+            "__GA",
+            "ALGA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que científico nacido en Aragón describiu por primeira vez en Occidente a circulación pulmonar do sangue?",
+            "__G__L __R_E_",
+            "MIGUEL SERVET"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que estado norteamericano naceu Martin Luther King?",
+            "G__RG__",
+            "GEORGIA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que actriz interpreta a Macarena na serie 'Vis a vis'?",
+            "__G_I_ _I__NT__",
+            "MAGGIE CIVANTOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que siglo se completou a contrución da catedral gótica de León?",
+            "__",
+            "XV"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que estación do ano se entrega o trofeo Ramón de Carranza?",
+            "_E_Á_",
+            "VERÁN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que animal é Church na novela 'Cementerio de animales' de Stephen King?",
+            "__TO",
+            "GATO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que provincia española están as maiores minas de ouro que os romanos explotaron en Europa?",
+            "L_Ó_",
+            "LEÓN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Ao comezo da serie 'Allí abajo', que profesión exerce María León?",
+            "_N___M__RA",
+            "ENFERMEIRA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que película de Almodóvar a un director de cine lle fan un homenxa pola súa película 'Sabor'",
+            "D_R E G__R_A",
+            "DOR E GLORIA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que tipo de corpo xeométrico son as pirámides e os prismas, pero non as esferas?",
+            "_O__EDR_",
+            "POLIEDRO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que grupo de pop español cantaba 'No mires a los ojos de la gente. Me dan miedo, siempre mienten'?",
+            "__LP_S B_J__",
+            "GOLPES BAJOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que institución académica é director Santiago Muñoz Machado?",
+            "_A_",
+            "RAE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O nome de que falecida piloto de Fórmula 1 leva unha curva do circuto de Jarama desde xullo de 2017?",
+            "M_R__ _E _I_L_T_",
+            "MARÍA DE VILLOTA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Luis Fonsi e Ozuna cantan: 'Es imposible que te quiera como yo. No hay nadie que te quiera como yo. Déjame que te...'",
+            "_A_BI_ L_ _U_R__",
+            "CAMBIE LA SUERTE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que institución financieira dirixe Pablo Hernández de Cos?",
+            "B__C_ D_ E___Ñ_",
+            "BANCO DE ESPAÑA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que 'irreductibles galos' de cómic coñecen a reina Cleopatra durante a súa estanxia en Exipto?",
+            "__T_R_X _ __É__X",
+            "ASTÉRIX E OBÉLIX"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que profesión aérea exerce Han Solo no Halcón Milenario de 'Guerra das Galaxias'?",
+            "__LOT_",
+            "PILOTO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que cidade de Ontario coincide co aplido de piloto de Fórmula 1 chamado Lewis?",
+            "_A__LTO_",
+            "HAMILTON"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que deporte se dedica a brasileña Maya Gabeira?",
+            "___F",
+            "SURF"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que famosa periodista é a nai de Martín e Lucas Casillas?",
+            "___A __R_O__RO",
+            "SARA CARBONERO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que serie de televisión protagonizada por George Clooney creou Michael Crichton, autor de 'Jurassic Park'?",
+            "_R__N_I_S",
+            "URXENCIAS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "No conto 'A reina das neves' de Andersen, a bordo de que vehículo levan ao pequeno Kay?",
+            "_R__E_",
+            "TRINEO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que animal é un gocho?",
+            "__RC_",
+            "PORCO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que prenda de roupa soe levar Peppa Pig?",
+            "__S_I_O",
+            "VESTIDO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que canle de Atresmedia se emite o programa 'Forjado a fuego'?",
+            "M_G_",
+            "MEGA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "O 30 de xuño de 1934 os nazis puxeron en marcha a coñecido como 'Noite dos...'?",
+            "___T_L_S __R_OS",
+            "COITELOS LARGOS"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Para preparar os papeis en 'El diario de Noah' e 'Drive' que actor construiu unha mesa e restaurou un coche?",
+            "__A_ _OS_I__",
+            "RYAN GOSLING"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que siglo foi considerada a Antártida como continente?",
+            "___",
+            "XIX"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A que deporte xogan os equipos que compiten na Premier League inglesa?",
+            "_Ú_B__",
+            "FÚTBOL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Na cultura azteca, que animal se creía que guiaba as almas ata o inframundo",
+            "__N",
+            "CAN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "A creación de que actual museo impulsou a reina Isabel de Braganza pola súa paixón pola pintura?",
+            "__S_O __L _R_D_",
+            "MUSEO DEL PRADO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que país ten fronteira con todos os países de Sudamérica excepto con Ecuador e Chile?",
+            "_R_SI_",
+            "BRASIL"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Como está Marta Sánchez no seu primeiro single en solitario, publicado en 1993?",
+            "D___S_E_A_A",
+            "DESESPERADA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cal é o verdadeiro nome de pila da actriz Emma Stone?",
+            "_M_L_",
+            "EMILY"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "É o futbolista que na Champions League marcou máis goles en un mismo club",
+            "L__ __SSI",
+            "LEO MESSI"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "En que década saltou á fama a banda Queen?",
+            "__",
+            "70"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que dictador europeo planeou unha 'solución final' durante a Segunda Guerra Mundial?",
+            "H_T__R",
+            "HITLER"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que equipo madrileño de fútbol ascendeu a primeira división na tempada 2016-2017?",
+            "_ET__E",
+            "GETAFE"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Xunto a que cantante interpreta Miriam Rodríguez a canción 'No!'?",
+            "__BL_ L___Z",
+            "PABLO LÓPEZ"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que artista se inspirou na 'Divina Comedia' de Dante para esculpir 'La puerta del Infierno'?",
+            "R__I_",
+            "RODIN"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Cor que lle da nome a un dos maiores afluentes do río Amazonas",
+            "__G_O",
+            "NEGRO"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "De que clube deportivo foi presidente Josep Lluís Núñez?",
+            "F_ B__C___N_",
+            "FC BARCELONA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Mae Jemison foi a primeira afroamericana en exercer esta profesión en Estados Unidos",
+            "_ST__N__TA",
+            "ASTRONAUTA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Que fruta seca leva o frangollo, postre típico de Canarias?",
+            "P_S_",
+            "PASA"
+        ))
+        questions.add(QuestionAgoraCaigo(
+            "Bolsa de pel que usan os pastores para gardar e levar utensilios e comida",
+            "__R_Ó_",
+            "ZURRÓN"
+        ))
 
         return questions
     }

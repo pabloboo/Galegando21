@@ -84,6 +84,72 @@ object SopaLetrasConstants {
                 "PICO", "PALA", "CASCO"
             )
         )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Obxetos afilados",
+                "CUTER", "LAPIZ", "HACHA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "En unha carreteira",
+                "CURVA", "TUNEL", "SINAL"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Demostracións de cariño",
+                "BICO", "AMOR", "MIMOS"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Pratos de cuchara",
+                "CALDO", "SOPA", "CREMA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Cousas que teñen tapa",
+                "LIBRO", "CAIXA", "VATER"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "En unha obra de carreteira",
+                "CONO", "SINAL", "GRUA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Animais que non terías en casa",
+                "LEON", "SERPE", "TIGRE"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Cousas que quentan",
+                "FORNO", "FOGO", "MANTA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "En misa",
+                "CALIZ", "CURA", "VIÑO"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Animais que producen picaduras",
+                "ARAÑA", "PULGA", "MOSCA"
+            )
+        )
+        sopasLetrasList.add(
+            QuestionSopaLetras(
+                "Cousas que se poñen sobre a mesa",
+                "XARRA", "PRATO", "VASO"
+            )
+        )
 
         return sopasLetrasList
     }
