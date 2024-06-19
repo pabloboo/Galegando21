@@ -61,8 +61,9 @@ fun updateCurrentStreak(activity: AppCompatActivity) {
 
     // Actualizar el valor de la racha más larga
     val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
-    if (currentStreak > longestStreak) {
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LONGEST_STREAK, currentStreak).apply()
+    val currentStreakUpdated = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+    if (currentStreakUpdated > longestStreak) {
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.LONGEST_STREAK, currentStreakUpdated).apply()
     }
 }
 
