@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day21RecursosGalego.RecursosGalegoActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bannerFragment"
+        android:name="com.galegando21.BannerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/intro_recursos_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parabéns! chegaches ao día 21 do reto. Pero esto non remata aquí, a continuación amosamosche unha serie de recursos para que incorpores o galego no teu día a día de unha forma amena."
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp" />
+
+            <!-- Música -->
+            <TextView
+                android:id="@+id/music_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gustache a música?"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/music_description_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/musica_description"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/spotify_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/spotify_icon"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/music_suxerencias_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/musica_suxerencias"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp" />
+
+            <!-- Entretemento -->
+            <TextView
+                android:id="@+id/entretemento_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Queres entreterte con contido en galego?"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Propoñemosche consultar o catálogo da TVG, a continuación podes facer click na icona para ir ao seu sitio web."
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/agalega_web_icon"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/agalega_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ou se o prefires, facer click na seguinte icona para descargar a aplicación móbil."
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/agalega_mobile_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/agalega_mobile_icon"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Que che parece se che propoñemos uns programas en galego para ver hoxe?"
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Se che gustan os programas de humor animamoste a ver 'Land Rober Tunai Show', un dos programas máis populares da TVG.\n\nPresentado por Roberto Vilar, 'Land Rober Tunai Show' son dúas horas continuas de humor, convidados, música, comedia, colaboradores e a participación directa do público no estudio. Podes acceder facendo click na seguinte icona."
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/land_rober_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/land_rober_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Prefires un programa de noticias con un toque de humor similar a 'Zapeando' da 'Sexta'? Botalle un ollo a 'Malicia Noticias'.\n\n'Malicia Noticias' é un noticiario armado con reportaxes propias e sketches de humor nos que se analiza toda a actualidade dun xeito diferente, dándolles voz ás nosas xentes, ao que pasa na rúa e ao máis comentado nas redes sociais. Fai click na seguinte icona para acceder."
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/malicia_noticias_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/malicia_noticias_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Se eres máis de series recomendamosche darlle unha oportunidade a 'Era Visto!'.\n\n'Era Visto!' é unha comedia familiar, en que prima o humor verbal dos personaxes orixinais do universo rural galego e en que destacan as conversas de Moncho coa súa contorna."
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/era_visto_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/era_visto_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="En Galicia a gastronomía é moi importante e como non iba ser menos, na TVG tamén hai grandes programas de cociña. Entre eles recomendamosche 'Estache bo!'.\n\n'Estache bo!' é un programa dirixido a todos aqueles que queren achegarse ao mundo da gastronomía de forma práctica, sinxela e familiar. O programa é presentado por Iván Mariñas que obtivo un terceiro posto en masterchef 8. Fai click na seguinte icona para acceder."
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/estache_bo_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/estache_bo_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Se che gustou o xogo do Galegando21 'Atrápame se podes' recomendamosche que vexas o concurso televisivo co mesmo nome.\n\n'Atrápame se podes' é un concurso de preguntas e respostas que convida o espectador a xogar desde casa e dá aos concursantes a oportunidade de gañaren importantes premios. Fai click na seguinte icona para acceder."
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/atrapame_se_podes_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/atrapame_se_podes_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Para os máis cativos recomendamosche botarlle un ollo ao catálogo de Xabarín Club. Entre os seus contidos conta con capítulos de 'Os bolechas', 'Detective Conan' ou 'Sherlock Holmes' ou a sección do 'Digochiño' presentada por Esther Estévez. Accede ao catálogo facendo click na seguinte icona."
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/xabarin_club_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/xabarin_club_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv9b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Se tes contacto con algún centro escolar de nenos entre 10 e 18 anos tamén podes recomendar ao centro que sigan o programa promovido pola Secretaría Xeral de Política Lingüistíca chamado '21 días co galego e +' que foi a inspiración de esta aplicación de xogos en galego e que ten como intención fomentar o uso do galego entre os máis novos."
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Por último, non podemos rematar esta lista de recomendacións sen falar de un dos programas insignia da TVG, o 'Luar'.\n\nDa man de Xosé Ramón Gayoso, 'Luar' é o único do seu xénero en todo o panorama da televisión estatal que abrangue arredor das catro horas en directo. O programa musical e de humor da TVG converteuse tamén nunha plataforma de promoción tanto do novo talento musical como do humorístico de Galicia. "
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <ImageView
+                android:id="@+id/luar_icon"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/luar_logo"
+                android:layout_marginVertical="15dp"
+                android:layout_marginHorizontal="40dp"/>
+
+            <!-- Redes Sociais -->
+            <TextView
+                android:id="@+id/redes_sociais_title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Redes Sociais"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+            <TextView
+                android:id="@+id/entretemento_description_tv11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="As redes sociais xa forman parte do noso día a día polo que unha forma sinxela de incorporar o galego na túa vida é seguir contas en galego. A continuación amosamosche unha lista de contas en galego que podes seguir en diferentes redes sociais.\n\n En Instagram tes contas como prado_rua ou esther.estevez que se dedican, entre outras cousas, a ensinar o galego de unha forma divertida. Tamén podes encontrar perfís de noticias como son quincemil15000 ou quincemilsantiago que publican noticias sobre as cidades de A Coruña e Santiago respectivamente.\n\nSe che gustan os podcast podes botarlle un ollo a 'O Faiado Podcast' e 'Exército Mekemeke' en Spotify ou ao divertido programa de humor 'Todo Mal' en Spotify, Youtube ou Instagram. "
+                android:textAlignment="center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

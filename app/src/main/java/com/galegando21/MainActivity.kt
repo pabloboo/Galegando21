@@ -43,6 +43,7 @@ import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
 import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
+import com.galegando21.utils.ENVIRONMENT
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
@@ -136,10 +137,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.fab.setOnClickListener { view ->
-            unlockAllButtons() // Llama a la función para desbloquear todos los botones
-            Snackbar.make(view, "Botóns desbloqueados", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        if (ENVIRONMENT == "production") {
+            binding.fab.visibility = View.GONE
+            binding.fab.isEnabled = false
+        } else {
+            binding.fab.visibility = View.VISIBLE
+            binding.fab.isEnabled = true
+            binding.fab.setOnClickListener { view ->
+                unlockAllButtons() // Llama a la función para desbloquear todos los botones
+                Snackbar.make(view, "Botóns desbloqueados", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+            }
         }
 
         onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
