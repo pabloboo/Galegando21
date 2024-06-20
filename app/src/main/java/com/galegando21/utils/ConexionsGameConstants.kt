@@ -9,7 +9,7 @@ object ConexionsGameConstants {
             Conexions(
                 "Gritar", "Xenxibre", "Arroz", "Dardo",
                 "Revolto", "Machado", "Prisa", "Anel",
-                "Algas", "Ferradura", "Ferver", "Patada",
+                "Algas", "Ferradura", "Ferver", "Alboroto",
                 "Sésamo", "Fritir", "Emoción", "Escalfar",
                 "Formas de preparar ovos", listOf("Ferver", "Fritir", "Escalfar", "Revolto"),
                 "Sentimento de euforia", listOf("Alboroto", "Gritar", "Prisa", "Emoción"),

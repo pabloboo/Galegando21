@@ -226,7 +226,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
             insigniaRacha100.visibility = View.VISIBLE
         }
 
-        if (sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY, 0).toString().toInt() == 0) {
+        if (sharedPreferences.getInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY, 0).toString().toInt() == 23) {
             insigniaPasagalegoComplete.visibility = View.VISIBLE
         }
 

@@ -85,7 +85,7 @@ class DebuxaEAdivinhaGameActivity : AppCompatActivity() {
 
     private fun showWord() {
         if (palabraTv.visibility == View.VISIBLE) {
-            palabraTv.visibility = View.INVISIBLE
+            palabraTv.visibility = View.GONE
             showWordButton.text = "Mostrar palabra"
         } else {
             palabraTv.visibility = View.VISIBLE

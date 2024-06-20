@@ -29,6 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
             <Button
                 android:id="@+id/btnClearDebuxaEAdivinha"
@@ -43,15 +44,16 @@
                 android:layout_marginLeft="20dp"
                 android:text="Ocultar palabra"
                 android:backgroundTint="@color/secondaryBlue"/>
-            <TextView
-                android:id="@+id/palabraDebuxaEAdivinhaTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Árbore"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="20dp"/>
         </LinearLayout>
+        <TextView
+            android:id="@+id/palabraDebuxaEAdivinhaTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Árbore"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="5dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
