@@ -72,7 +72,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
     private fun checkButtonClickListener() {
         questionCounter++
 
-        if (removeAccents(userAnswerText.text.toString()) == currentQuestionAtrapameSePodes.answer) {
+        if (removeAccents(userAnswerText.text.toString()).trim() == currentQuestionAtrapameSePodes.answer) {
             correctAnswers++
             userAnswerText.text.clear()
             showNextQuestion()

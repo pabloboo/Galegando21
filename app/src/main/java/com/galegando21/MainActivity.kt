@@ -137,6 +137,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        buttonsInitialState()
+
         if (ENVIRONMENT == "production") {
             binding.fab.visibility = View.GONE
             binding.fab.isEnabled = false
@@ -179,6 +181,16 @@ class MainActivity : AppCompatActivity() {
 
         if (currentHour in 19..20) {
             goldenHourTextView.visibility = View.VISIBLE
+        }
+    }
+
+    private fun buttonsInitialState() {
+        for (i in 2..NUMBER_OF_DAYS) {
+            val buttonId = resources.getIdentifier("btnDay$i", "id", packageName)
+            val button = findViewById<ImageButton>(buttonId)
+            button.setOnClickListener {
+                Toast.makeText(this, "Aínda non desbloqueaches este xogo", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

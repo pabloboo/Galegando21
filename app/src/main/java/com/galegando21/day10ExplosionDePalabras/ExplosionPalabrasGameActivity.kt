@@ -202,7 +202,7 @@ class ExplosionPalabrasGameActivity : AppCompatActivity() {
 
     private fun checkWord() {
         // Comprobar si todos los caracteres de inputWord están en fallingLetters
-        val inputWord = wordInput.text.toString()
+        val inputWord = wordInput.text.toString().trim()
         var validWord = true
         for (letter in inputWord) {
             if (letter.toString() !in fallingLetters) {

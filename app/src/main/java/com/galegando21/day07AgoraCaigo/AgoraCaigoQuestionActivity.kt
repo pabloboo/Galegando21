@@ -120,7 +120,7 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
     }
 
     private fun checkButtonClickListener() {
-        val userAnswer = userAnswerET.text.toString()
+        val userAnswer = userAnswerET.text.toString().trim()
         if (userAnswer == currentQuestionAgoraCaigo.solution) {
             correctAnswers++
             Toast.makeText(this, "Correcto!", Toast.LENGTH_SHORT).show()

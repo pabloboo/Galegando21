@@ -24,7 +24,7 @@
     <string name="day06_text">Día 6 - Sopa de Letras</string>
     <string name="verdade_ou_mentira_explicacion">Verdade ou Mentira é un xogo de preguntas\nbasado no concurso da TVG ‘Atrápame se Podes’.\n\nTerás que responder unha serie de preguntas\ncon 2 opcións posibles: verdadeiro ou falso.\n\nCantas respostas correctas eres capaz\nde encadear?</string>
     <string name="verdadeOuMentira">Verdade ou Mentira</string>
-    <string name="day07_text">Día 7 - Agora Caigo</string>
+    <string name="day07_text">Día 7 - Agora Caio</string>
     <string name="onboarding_text">Galegando 21 ten o obxectivo de que\nincorpores o galego no teu día a día.\n\nDurante os seguintes 21 días irás\ndesbloqueando novos xogos e\ncontidos en galego.\n\nEntra cada día e completa o reto\ndiario.</string>
     <string name="comezar">Comezar</string>
     <string name="day08_text">Día 8 - Conexións</string>
@@ -37,7 +37,7 @@
     <string name="seguinte">Seguinte</string>
     <string name="day10_text">Día 10 - Explosión de Palabras</string>
     <string name="adivinhaAnoFoto_explicacion">Mostrarase unha foto e terás que adiviñar o ano no que foi tomada.\n\n Move o control ao ano no que cres que se tomou a foto e fai click en \'comprobar\'.\n\n Cada xogo ten 5 rondas e podes obter ata un total de 10 puntos por ronda.</string>
-    <string name="agora_caigo">Agora caigo</string>
+    <string name="agora_caigo">Agora caio</string>
     <string name="day11_text">Día 11 - Atrápame se podes</string>
     <string name="agora_caigo_explicacion">En este xogo, basado no concurso televisivo \'Ahora caigo\', tes que acertar preguntas, completando os ocos que faltan nas respostas.\n\n Toca en un comodín para usalo. Recorda usar o comodín se non sabes a resposta antes de que se esgote o tempo!</string>
     <string name="musica_suxerencias">tes algunha suxerencia?\n\n podes propoñela enviando un correo a booiglesiaspablo@gmail.com</string>

@@ -850,7 +850,7 @@
                 android:layout_marginVertical="15dp" />
         </LinearLayout>
 
-        <!-- Agora Caigo Card -->
+        <!-- Agora Caio Card -->
         <LinearLayout
             android:id="@+id/day07_agora_caigo_card"
             android:layout_width="0dp"

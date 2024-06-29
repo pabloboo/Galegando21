@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textSize="16sp"
-                android:text="Os xogos considerados máis sinxelos de xogar en canto a complexidade son 'Onde están?', 'Atrapa un millón', 'Adiviña o ano da foto', 'Sopa de Letras', 'Agora Caigo', 'Ruleta da Sorte', 'Adiviña o Personaxe', 'Adiviña o escudo' e 'Wordle'." />
+                android:text="Os xogos considerados máis sinxelos de xogar en canto a complexidade son 'Onde están?', 'Atrapa un millón', 'Adiviña o ano da foto', 'Sopa de Letras', 'Agora Caio', 'Ruleta da Sorte', 'Adiviña o Personaxe', 'Adiviña o escudo' e 'Wordle'." />
 
             <TextView
                 android:id="@+id/gameRecommendationsTitleDificiles"

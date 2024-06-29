@@ -1021,7 +1021,7 @@ object AtrapaUnMillonConstants {
                 "China",
                 "Estados Unidos",
                 "-",
-                2)
+                1)
         )
         questions.add(
             QuestionAtrapaUnMillon(
@@ -1181,7 +1181,7 @@ object AtrapaUnMillonConstants {
                 "Cal é o compoñente principal do vidro?",
                 "Silicio",
                 "Carbono",
-                "Oxíxeno",
+                "Osíxeno",
                 "-",
                 1)
         )
@@ -1251,7 +1251,7 @@ object AtrapaUnMillonConstants {
         questions.add(
             QuestionAtrapaUnMillon(
                 "Que gas se atopa en maior proporción na atmosfera terrestre?",
-                "Oxíxeno",
+                "Osíxeno",
                 "Nitróxeno",
                 "Dióxido de carbono",
                 "-",
@@ -1287,7 +1287,7 @@ object AtrapaUnMillonConstants {
         questions.add(
             QuestionAtrapaUnMillon(
                 "Cal é o compoñente principal da auga?",
-                "Oxíxeno",
+                "Osíxeno",
                 "Hidróxeno",
                 "Nitróxeno",
                 "-",
@@ -1495,7 +1495,7 @@ object AtrapaUnMillonConstants {
             QuestionAtrapaUnMillon(
                 "Cal é o segundo elemento máis abundante no universo?",
                 "Helio",
-                "Oxíxeno",
+                "Osíxeno",
                 "Carbono",
                 "-",
                 1)
@@ -1694,7 +1694,7 @@ object AtrapaUnMillonConstants {
                 "Cal é o compoñente principal do vidro?",
                 "Sílice",
                 "Carbono",
-                "Oxíxeno",
+                "Osíxeno",
                 "-",
                 1)
         )
@@ -1830,15 +1830,6 @@ object AtrapaUnMillonConstants {
                 "Jack Nicklaus",
                 "Tiger Woods",
                 "Bobby Jones",
-                "-",
-                3)
-        )
-        questions.add(
-            QuestionAtrapaUnMillon(
-                "Quen é o xogador máis exitoso na historia do rugby internacional?",
-                "Jonny Wilkinson",
-                "Dan Carter",
-                "Richie McCaw",
                 "-",
                 3)
         )

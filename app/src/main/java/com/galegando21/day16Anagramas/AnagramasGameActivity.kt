@@ -121,7 +121,7 @@ class AnagramasGameActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer() {
-        val answer = answerEditText.text.toString()
+        val answer = answerEditText.text.toString().trim()
         if (answer == solution) {
             rachaActual++
             getWord()

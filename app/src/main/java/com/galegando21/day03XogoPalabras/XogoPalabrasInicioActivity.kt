@@ -85,7 +85,7 @@ class XogoPalabrasInicioActivity : AppCompatActivity() {
 
         // Encontrar el TextView en el layout y establecer el título
         val titleView = dialog.findViewById<TextView>(R.id.dialogTitle)
-        titleView.text = "Cómo xogar?"
+        titleView.text = "Como xogar?"
 
         // Establecer la ruta del video
         val videoPath = "android.resource://" + packageName + "/" + R.raw.xogo_palabras_demo

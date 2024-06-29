@@ -168,7 +168,7 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
             questionCounter = 0
         }
 
-        if (removeAccents(userAnswerText.text.toString()) == currentQuestionPasagalego.answer) {
+        if (removeAccents(userAnswerText.text.toString()).trim() == currentQuestionPasagalego.answer) {
             correctAnswers++
             roscoView.setLetterStatus(letters[questionCounter], LetterStatus.CORRECT)
         } else {

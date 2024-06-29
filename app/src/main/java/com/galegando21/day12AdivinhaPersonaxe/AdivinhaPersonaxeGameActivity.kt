@@ -112,7 +112,7 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer() {
-        if (answerEditText.text.toString() == question.answer) {
+        if (answerEditText.text.toString().trim() == question.answer) {
             showAllLeftClues()
             finalizarXogo(true)
         } else {

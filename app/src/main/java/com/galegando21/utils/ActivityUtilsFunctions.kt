@@ -9,8 +9,8 @@ import com.galegando21.R
 import java.text.Normalizer
 import java.util.Calendar
 
-//const val ENVIRONMENT = "production"
-const val ENVIRONMENT = "development"
+const val ENVIRONMENT = "production"
+//const val ENVIRONMENT = "development"
 const val NUMBER_OF_DAYS = 21
 const val ALFABETO = "ABCDEFGHILMNÑOPQRSTUVXZ"
 

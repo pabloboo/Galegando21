@@ -176,7 +176,7 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
     }
 
     private fun checkButtonClickListener() {
-        if (userAnswerTv.text.toString() == currentQuestionProbaVelocidade.board) {
+        if (userAnswerTv.text.toString().trim() == currentQuestionProbaVelocidade.board) {
             correctAnswers++
             Toast.makeText(this, "Correcto!", Toast.LENGTH_SHORT).show()
             totalTime+=seconds

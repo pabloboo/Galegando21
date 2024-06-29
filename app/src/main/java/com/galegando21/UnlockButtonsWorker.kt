@@ -52,7 +52,7 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
         val notification = NotificationCompat.Builder(applicationContext, channelId)
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Novo contido desbloqueado!")
-            .setContentText("Fai click para ver o novo contido")
+            .setContentText("Fai click para xogar")
             .setContentIntent(pendingIntent)
             .setAutoCancel(true) // La notificación se cancela cuando el usuario la toca
             .build()

@@ -133,7 +133,7 @@ class PalabrasEncadeadasGameActivity : AppCompatActivity() {
     }
 
     private fun encadearPalabra() {
-        val word = removeAccents(inputWordEditText.text.toString())
+        val word = removeAccents(inputWordEditText.text.toString()).trim()
         if (word.isEmpty()) {
             return
         }

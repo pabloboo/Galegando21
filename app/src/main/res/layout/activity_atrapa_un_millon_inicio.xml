@@ -21,25 +21,46 @@
         android:text="@string/atrapa_un_millon_explicacion"
         android:textAlignment="center"
         android:layout_marginHorizontal="15dp"
-        app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_help_btn"
+        app:layout_constraintBottom_toTopOf="@id/help_dialogs_atrapa_un_millon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <ImageButton
-        android:id="@+id/atrapa_un_millon_help_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="end"
-        android:backgroundTint="@color/white"
-        android:onClick="setLetter"
-        android:padding="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/help_icon"
+    <LinearLayout
+        android:id="@+id/help_dialogs_atrapa_un_millon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/start_btn_atrapame_un_millon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_description_tv">
+
+        <ImageButton
+            android:id="@+id/atrapa_un_millon_help_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/white"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:layout_marginRight="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help_icon" />
+
+        <ImageButton
+            android:id="@+id/atrapa_un_millon_demo_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="end"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:src="@drawable/play_video_icon" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/start_btn_atrapame_un_millon"
@@ -51,6 +72,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_help_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/help_dialogs_atrapa_un_millon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
