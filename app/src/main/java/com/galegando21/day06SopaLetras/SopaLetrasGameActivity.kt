@@ -260,6 +260,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
 
             for (textView in selectedLetters) {
                 textView.setBackgroundColor(Color.GREEN)
+                textView.setTextColor(Color.BLACK)
                 correctTextViews.add(textView)
             }
         } else {
@@ -269,6 +270,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                     textView.setBackgroundColor(resources.getColor(R.color.primaryBlue, null))
                 } else { // Si el textView está en verde dejarlo en verde
                     textView.setBackgroundColor(Color.GREEN)
+                    textView.setTextColor(Color.BLACK)
                 }
             }
         }
@@ -341,6 +343,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
     private fun restablecerTextViews() {
         for (textView in allTextViews) {
             textView.setBackgroundColor(resources.getColor(R.color.primaryBlue, null))
+            textView.setTextColor(Color.WHITE)
             textView.text = null
         }
     }
@@ -423,6 +426,7 @@ class SopaLetrasGameActivity : AppCompatActivity() {
                                 }
                                 val textView = allTextViews[row * boardSize + col]
                                 textView.setBackgroundColor(Color.RED)
+                                textView.setTextColor(Color.BLACK)
                             }
                         }
                     }

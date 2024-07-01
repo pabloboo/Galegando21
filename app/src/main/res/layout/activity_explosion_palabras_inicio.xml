@@ -40,17 +40,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Dificultade:"/>
+            android:text="Dificultade:"
+            android:contentDescription="Dificultade do xogo"/>
         <RadioButton
             android:id="@+id/explosion_palabras_radio_btn_facil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Fácil"/>
+            android:text="Fácil"
+            android:contentDescription="Dificultade fácil"/>
         <RadioButton
             android:id="@+id/explosion_palabras_radio_btn_dificil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Difícil"/>
+            android:text="Difícil"
+            android:contentDescription="Dificultade difícil"/>
     </RadioGroup>
 
     <TextView

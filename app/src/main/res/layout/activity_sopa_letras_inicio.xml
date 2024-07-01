@@ -28,22 +28,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Nivel:"/>
+            android:text="Nivel:"
+            android:contentDescription="Nivel de dificultade"/>
         <RadioButton
             android:id="@+id/sopa_letras_facil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Fácil"/>
+            android:text="Fácil"
+            android:contentDescription="Nivel fácil"/>
         <RadioButton
             android:id="@+id/sopa_letras_medio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Medio"/>
+            android:text="Medio"
+            android:contentDescription="Nivel medio"/>
         <RadioButton
             android:id="@+id/sopa_letras_dificil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Difícil"/>
+            android:text="Difícil"
+            android:contentDescription="Nivel difícil"/>
     </RadioGroup>
 
     <ImageView

@@ -98,16 +98,23 @@
             android:id="@+id/agora_caigo_answer_et"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/inactiveBlue"
+            android:textColorHint="@color/inactiveBlue"
             android:hint="@string/resposta" />
 
         <ImageButton
             android:id="@+id/check_btn_agora_caigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:layout_marginLeft="20dp"
             android:background="@color/secondaryBlue"
             android:padding="10dp"
-            android:src="@drawable/check_icon" />
+            android:src="@drawable/check_icon"
+            android:contentDescription="Introducir resposta"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

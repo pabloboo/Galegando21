@@ -20,6 +20,8 @@
         android:id="@+id/editTextNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:hint="Nome"
         android:inputType="text"
         android:layout_marginHorizontal="50dp"

@@ -34,7 +34,8 @@
                 android:padding="16dp"
                 android:text="Para os máis cativos"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título dos xogos suxeridos para os máis cativos"/>
 
             <TextView
                 android:id="@+id/gameRecommendationsCativos"
@@ -42,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textSize="16sp"
-                android:text="Os xogos que máis poden disfrutar son 'Aforcado', 'Debuxa e Adiviña' e os recursos do día 21." />
+                android:text="Os xogos que máis poden disfrutar son 'Aforcado', 'Debuxa e Adiviña' e os recursos do día 21."
+                android:contentDescription="Descrición dos xogos suxeridos para os máis cativos"/>
 
             <TextView
                 android:id="@+id/gameRecommendationsTitleFaciles"
@@ -51,7 +53,8 @@
                 android:padding="16dp"
                 android:text="Xogos fáciles"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título dos xogos suxeridos como fáciles"/>
 
             <TextView
                 android:id="@+id/gameRecommendationsFaciles"
@@ -59,7 +62,8 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textSize="16sp"
-                android:text="Os xogos considerados máis sinxelos de xogar en canto a complexidade son 'Onde están?', 'Atrapa un millón', 'Adiviña o ano da foto', 'Sopa de Letras', 'Agora Caio', 'Ruleta da Sorte', 'Adiviña o Personaxe', 'Adiviña o escudo' e 'Wordle'." />
+                android:text="Os xogos considerados máis sinxelos de xogar en canto a complexidade son 'Onde están?', 'Atrapa un millón', 'Adiviña o ano da foto', 'Sopa de Letras', 'Agora Caio', 'Ruleta da Sorte', 'Adiviña o Personaxe', 'Adiviña o escudo' e 'Wordle'."
+                android:contentDescription="Descrición dos xogos suxeridos como fáciles"/>
 
             <TextView
                 android:id="@+id/gameRecommendationsTitleDificiles"
@@ -68,7 +72,8 @@
                 android:padding="16dp"
                 android:text="Xogos difíciles"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título dos xogos suxeridos como difíciles"/>
 
             <TextView
                 android:id="@+id/gameRecommendationsDificiles"
@@ -76,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textSize="16sp"
-                android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Palabras Encadeadas'." />
+                android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Palabras Encadeadas'."
+                android:contentDescription="Descrición dos xogos suxeridos como difíciles"/>
         </LinearLayout>
     </ScrollView>
 

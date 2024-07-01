@@ -134,7 +134,8 @@
             android:paddingHorizontal="10dp"
             android:text="A"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra a"/>
 
         <TextView
             android:id="@+id/b"
@@ -144,7 +145,8 @@
             android:paddingHorizontal="10dp"
             android:text="B"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra b"/>
 
         <TextView
             android:id="@+id/c"
@@ -154,7 +156,8 @@
             android:paddingHorizontal="10dp"
             android:text="C"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra c"/>
 
         <TextView
             android:id="@+id/d"
@@ -164,7 +167,8 @@
             android:paddingHorizontal="10dp"
             android:text="D"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra d"/>
 
         <TextView
             android:id="@+id/e"
@@ -174,7 +178,8 @@
             android:paddingHorizontal="10dp"
             android:text="E"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra e"/>
 
         <TextView
             android:id="@+id/f"
@@ -184,7 +189,8 @@
             android:paddingHorizontal="10dp"
             android:text="F"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra f"/>
 
         <TextView
             android:id="@+id/g"
@@ -194,7 +200,8 @@
             android:paddingHorizontal="10dp"
             android:text="G"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra g"/>
 
         <TextView
             android:id="@+id/h"
@@ -204,7 +211,8 @@
             android:paddingHorizontal="10dp"
             android:text="H"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra h"/>
 
         <TextView
             android:id="@+id/i"
@@ -214,7 +222,8 @@
             android:paddingHorizontal="10dp"
             android:text="I"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra i"/>
 
         <TextView
             android:id="@+id/l"
@@ -224,7 +233,8 @@
             android:paddingHorizontal="10dp"
             android:text="L"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra l"/>
 
         <TextView
             android:id="@+id/m"
@@ -234,7 +244,8 @@
             android:paddingHorizontal="10dp"
             android:text="M"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra m"/>
 
         <TextView
             android:id="@+id/n"
@@ -244,7 +255,8 @@
             android:paddingHorizontal="10dp"
             android:text="N"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra n"/>
 
         <TextView
             android:id="@+id/nh"
@@ -254,7 +266,8 @@
             android:paddingHorizontal="10dp"
             android:text="Ñ"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra ñ"/>
 
         <TextView
             android:id="@+id/o"
@@ -264,7 +277,8 @@
             android:paddingHorizontal="10dp"
             android:text="O"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra o"/>
 
         <TextView
             android:id="@+id/p"
@@ -274,7 +288,8 @@
             android:paddingHorizontal="10dp"
             android:text="P"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra p"/>
 
         <TextView
             android:id="@+id/q"
@@ -284,7 +299,8 @@
             android:paddingHorizontal="10dp"
             android:text="Q"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra q"/>
 
         <TextView
             android:id="@+id/r"
@@ -294,7 +310,8 @@
             android:paddingHorizontal="10dp"
             android:text="R"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra r"/>
 
         <TextView
             android:id="@+id/s"
@@ -304,7 +321,8 @@
             android:paddingHorizontal="10dp"
             android:text="S"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra s"/>
 
         <TextView
             android:id="@+id/t"
@@ -314,7 +332,8 @@
             android:paddingHorizontal="10dp"
             android:text="T"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra t"/>
 
         <TextView
             android:id="@+id/u"
@@ -324,7 +343,8 @@
             android:paddingHorizontal="10dp"
             android:text="U"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra u"/>
 
         <TextView
             android:id="@+id/v"
@@ -334,7 +354,8 @@
             android:paddingHorizontal="10dp"
             android:text="V"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra v"/>
 
         <TextView
             android:id="@+id/x"
@@ -344,7 +365,8 @@
             android:paddingHorizontal="10dp"
             android:text="X"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra x"/>
 
         <TextView
             android:id="@+id/z"
@@ -354,7 +376,8 @@
             android:paddingHorizontal="10dp"
             android:text="Z"
             android:textColor="@color/white"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:contentDescription="letra z"/>
 
 
 

@@ -40,7 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Modo de xogo:"/>
+            android:text="Modo de xogo:"
+            android:contentDescription="Modo de xogo do pasagalego"/>
         <RadioButton
             android:id="@+id/pasagalego_radio_btn_diccionario_facil"
             android:layout_width="match_parent"

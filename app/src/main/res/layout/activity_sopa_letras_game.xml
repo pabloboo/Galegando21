@@ -94,306 +94,383 @@
             android:id="@+id/letter1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 1"/>
 
         <TextView
             android:id="@+id/letter2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 2"/>
 
         <TextView
             android:id="@+id/letter3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 3"/>
 
         <TextView
             android:id="@+id/letter4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 4"/>
 
         <TextView
             android:id="@+id/letter5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 5"/>
 
         <TextView
             android:id="@+id/letter6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 6"/>
 
         <TextView
             android:id="@+id/letter7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 7"/>
 
         <TextView
             android:id="@+id/letter8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 8"/>
 
         <TextView
             android:id="@+id/letter9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 9"/>
 
         <TextView
             android:id="@+id/letter10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 10"/>
 
         <TextView
             android:id="@+id/letter11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 11"/>
 
         <TextView
             android:id="@+id/letter12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 12"/>
 
         <TextView
             android:id="@+id/letter13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 13"/>
 
         <TextView
             android:id="@+id/letter14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 14"/>
 
         <TextView
             android:id="@+id/letter15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 15"/>
 
         <TextView
             android:id="@+id/letter16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 16"/>
 
         <TextView
             android:id="@+id/letter17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 17"/>
 
         <TextView
             android:id="@+id/letter18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 18"/>
 
         <TextView
             android:id="@+id/letter19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 19"/>
 
         <TextView
             android:id="@+id/letter20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 20"/>
 
         <TextView
             android:id="@+id/letter21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 21"/>
 
         <TextView
             android:id="@+id/letter22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 22"/>
 
         <TextView
             android:id="@+id/letter23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 23"/>
 
         <TextView
             android:id="@+id/letter24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 24"/>
 
         <TextView
             android:id="@+id/letter25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             tools:text="A"
             android:textColor="@color/white"
             android:background="@drawable/blue_square"
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 25"/>
 
         <TextView
             android:id="@+id/letter26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -401,12 +478,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 26"/>
 
         <TextView
             android:id="@+id/letter27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -414,12 +494,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 27"/>
 
         <TextView
             android:id="@+id/letter28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -427,12 +510,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 28"/>
 
         <TextView
             android:id="@+id/letter29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -440,12 +526,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 29"/>
 
         <TextView
             android:id="@+id/letter30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -453,12 +542,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 30"/>
 
         <TextView
             android:id="@+id/letter31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -466,12 +558,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 31"/>
 
         <TextView
             android:id="@+id/letter32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -479,12 +574,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 32"/>
 
         <TextView
             android:id="@+id/letter33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -492,12 +590,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 33"/>
 
         <TextView
             android:id="@+id/letter34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -505,12 +606,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 34"/>
 
         <TextView
             android:id="@+id/letter35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -518,12 +622,15 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 35"/>
 
         <TextView
             android:id="@+id/letter36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             tools:text="A"
             android:textColor="@color/white"
@@ -531,7 +638,8 @@
             android:gravity="center"
             android:padding="15dp"
             android:layout_margin="5dp"
-            android:elevation="2dp" />
+            android:elevation="2dp"
+            android:contentDescription="letra 36"/>
 
     </GridLayout>
 

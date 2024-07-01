@@ -125,11 +125,13 @@ class OndeEstanGameActivity : AppCompatActivity() {
     private fun mostrarPalabra(textView: TextView, palabra: String) {
         textView.text = palabra
         textView.setBackgroundResource(R.drawable.ellipse_background_green)
+        textView.setTextColor(resources.getColor(R.color.black, null))
     }
 
     private fun mostrarPalabraErronea(textView: TextView, palabra: String) {
         textView.text = palabra
         textView.setBackgroundResource(R.drawable.ellipse_background_red)
+        textView.setTextColor(resources.getColor(R.color.black, null))
     }
 
     private fun ocultarPalabras() {
@@ -151,6 +153,15 @@ class OndeEstanGameActivity : AppCompatActivity() {
         palabra7TextView.setBackgroundResource(R.drawable.ellipse_background)
         palabra8TextView.setBackgroundResource(R.drawable.ellipse_background)
         palabra9TextView.setBackgroundResource(R.drawable.ellipse_background)
+        palabra1TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra2TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra3TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra4TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra5TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra6TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra7TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra8TextView.setTextColor(resources.getColor(R.color.white, null))
+        palabra9TextView.setTextColor(resources.getColor(R.color.white, null))
         palabraActualTextView.text = palabrasOrdenCorrecto[0]
         aciertos = 0
     }

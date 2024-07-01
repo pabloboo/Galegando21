@@ -33,7 +33,8 @@
         app:layout_constraintEnd_toEndOf="@+id/proba_velocidade_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/proba_velocidade_correct_answers_results_icon"
         app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_correct_answers_results_icon"
-        tools:text="230" />
+        tools:text="230"
+        android:contentDescription="Resultados do xogo proba de velocidade"/>
 
     <TextView
         android:id="@+id/proba_velocidade_result_tv"

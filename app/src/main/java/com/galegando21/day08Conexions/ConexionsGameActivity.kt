@@ -234,7 +234,7 @@ class ConexionsGameActivity : AppCompatActivity() {
     private fun saveSolution() {
         for (wordTextView : TextView in selectedTextView) {
             wordTextView.background = getDrawable(R.drawable.conexions_textview_background_correct)
-            wordTextView.setTextColor(resources.getColor(R.color.white, theme))
+            wordTextView.setTextColor(resources.getColor(R.color.black, theme))
             wordTextView.setOnClickListener{}
         }
         selectedTextView = mutableListOf() //borrar selección

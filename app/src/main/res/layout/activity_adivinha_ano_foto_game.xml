@@ -84,7 +84,8 @@
         app:layout_constraintBottom_toTopOf="@+id/check_btn_AdivinhaAnoFoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_solution_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_solution_description_tv"
+        android:contentDescription="Slider para cambiar o ano a introducir"/>
 
     <Button
         android:id="@+id/check_btn_AdivinhaAnoFoto"

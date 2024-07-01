@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:layout_marginHorizontal="15dp"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,37 +62,43 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/black_circle"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Cor negra"/>
             <ImageButton
                 android:id="@+id/imageCircleRedDebuxaEAdivinha"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/red_circle"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Cor vermella"/>
             <ImageButton
                 android:id="@+id/imageCircleBlueDebuxaEAdivinha"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/blue_circle"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Cor azul"/>
             <ImageButton
                 android:id="@+id/imageCircleGreenDebuxaEAdivinha"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/green_circle"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Cor verde"/>
             <ImageButton
                 android:id="@+id/imageCircleYellowDebuxaEAdivinha"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/yellow_circle"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Cor amarela"/>
             <ImageButton
                 android:id="@+id/imageEraserDebuxaEAdivinha"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/eraser_icon"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:contentDescription="Goma de borrar"/>
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -100,7 +106,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grosor:"/>
+            android:text="Grosor:"
+            android:contentDescription="Grosor do lápiz"/>
         <SeekBar
             android:id="@+id/grosorSliderDebuxaEAdivinha"
             android:layout_width="match_parent"

@@ -61,11 +61,13 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="A"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="letra central"/>
 
         <!-- Top letter -->
         <TextView
@@ -76,10 +78,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="B"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/center_letter"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="letra superior"/>
 
         <!-- Bottom letter -->
         <TextView
@@ -90,10 +94,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="E"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/center_letter"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="letra inferior"/>
 
         <!-- Top-left letter -->
         <TextView
@@ -104,10 +110,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="G"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/letter5"
             app:layout_constraintEnd_toStartOf="@id/center_letter"
-            app:layout_constraintTop_toTopOf="@+id/letter1" />
+            app:layout_constraintTop_toTopOf="@+id/letter1"
+            android:contentDescription="letra arriba esquerda"/>
 
         <!-- Top-right letter -->
         <TextView
@@ -118,10 +126,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="C"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/letter3"
             app:layout_constraintStart_toEndOf="@id/center_letter"
-            app:layout_constraintTop_toTopOf="@+id/letter1" />
+            app:layout_constraintTop_toTopOf="@+id/letter1"
+            android:contentDescription="letra arriba dereita"/>
 
         <!-- Bottom-left letter -->
         <TextView
@@ -132,10 +142,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="F"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/letter4"
             app:layout_constraintEnd_toStartOf="@id/center_letter"
-            app:layout_constraintTop_toBottomOf="@id/letter6" />
+            app:layout_constraintTop_toBottomOf="@id/letter6"
+            android:contentDescription="letra abaixo esquerda"/>
 
         <!-- Bottom-right letter -->
         <TextView
@@ -146,10 +158,12 @@
             android:gravity="center"
             android:padding="30dp"
             android:text="D"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/letter4"
             app:layout_constraintStart_toEndOf="@id/center_letter"
-            app:layout_constraintTop_toBottomOf="@id/letter2"/>
+            app:layout_constraintTop_toBottomOf="@id/letter2"
+            android:contentDescription="letra abaixo dereita"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -179,7 +193,8 @@
             android:scaleType="fitCenter"
             android:background="@drawable/blue_circle"
             android:src="@drawable/xogo_palabras_remove_icon"
-            android:backgroundTint="@color/secondaryBlue"/>
+            android:backgroundTint="@color/secondaryBlue"
+            android:contentDescription="Borrar texto introducido"/>
         <Button
             android:id="@+id/btn_enter_xogo_palabras"
             android:layout_width="wrap_content"

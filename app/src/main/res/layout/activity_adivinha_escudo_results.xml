@@ -34,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="@+id/adivinha_escudo_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/adivinha_escudo_correct_answers_results_icon"
         app:layout_constraintTop_toTopOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        tools:text="7" />
+        tools:text="7"
+        android:contentDescription="Resultado do xogo adiviña o escudo"/>
 
     <TextView
         android:id="@+id/adivinha_escudo_result_tv"
@@ -44,7 +45,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        tools:text="Acertaches un total de 7 preguntas" />
+        tools:text="Acertaches un total de 7 preguntas"
+        android:contentDescription="Texto completo do resultado do xogo adiviña o escudo"/>
 
     <Button
         android:id="@+id/adivinha_escudo_finish_btn"

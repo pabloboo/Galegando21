@@ -24,7 +24,8 @@
         app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_help_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        android:contentDescription="Descrición xogo adiviña o ano da foto"/>
 
     <ImageButton
         android:id="@+id/adivinhaAnoFoto_help_btn"
@@ -39,7 +40,8 @@
         app:layout_constraintBottom_toTopOf="@+id/start_btn_adivinhaAnoFoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_description_tv"
+        android:contentDescription="Información adicional sobre o xogo"/>
 
     <Button
         android:id="@+id/start_btn_adivinhaAnoFoto"

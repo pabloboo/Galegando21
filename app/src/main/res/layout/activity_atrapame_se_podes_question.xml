@@ -52,16 +52,23 @@
             android:id="@+id/atrapame_se_podes_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColorHint="@color/inactiveBlue"
+            android:textColor="@color/inactiveBlue"
             android:hint="@string/resposta" />
 
         <ImageButton
             android:id="@+id/check_btn_atrapame_se_podes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
             android:layout_marginLeft="20dp"
             android:background="@color/secondaryBlue"
             android:padding="10dp"
-            android:src="@drawable/check_icon" />
+            android:src="@drawable/check_icon"
+            android:contentDescription="Introducir resposta"/>
     </LinearLayout>
 
 

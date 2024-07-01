@@ -47,7 +47,8 @@
             android:padding="10dp"
             android:layout_marginRight="50dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/help_icon" />
+            android:src="@drawable/help_icon"
+            android:contentDescription="Información adicional sobre o xogo"/>
 
         <ImageButton
             android:id="@+id/atrapa_un_millon_demo_btn"
@@ -58,7 +59,8 @@
             android:layout_gravity="end"
             android:onClick="setLetter"
             android:padding="10dp"
-            android:src="@drawable/play_video_icon" />
+            android:src="@drawable/play_video_icon"
+            android:contentDescription="Video demo de como xogar"/>
 
     </LinearLayout>
 

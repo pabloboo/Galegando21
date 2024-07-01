@@ -54,7 +54,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 1, Pasagalego"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,7 +80,7 @@
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
                     android:textColor="@android:color/white"
-                    />
+                    android:contentDescription="Xogo do día 2, Onde están?"/>
 
                 <TextView
                     android:id="@+id/textDay2"
@@ -103,7 +104,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 3, xogo de palabras"/>
 
                 <TextView
                     android:id="@+id/textDay3"
@@ -127,7 +129,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 4, atrapa un millón"/>
 
                 <TextView
                     android:id="@+id/textDay4"
@@ -151,7 +154,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 5, Adiviña o ano da foto"/>
 
                 <TextView
                     android:id="@+id/textDay5"
@@ -175,7 +179,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 6, sopa de letras"/>
 
                 <TextView
                     android:id="@+id/textDay6"
@@ -199,7 +204,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 7, agora caio"/>
 
                 <TextView
                     android:id="@+id/textDay7"
@@ -223,7 +229,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 8, conexións"/>
 
                 <TextView
                     android:id="@+id/textDay8"
@@ -247,7 +254,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 9, ruleta da sorte"/>
 
                 <TextView
                     android:id="@+id/textDay9"
@@ -271,7 +279,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 10, explosión de palabras"/>
 
                 <TextView
                     android:id="@+id/textDay10"
@@ -295,7 +304,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 11, atrápame se podes"/>
 
                 <TextView
                     android:id="@+id/textDay11"
@@ -319,7 +329,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 12, adiviña o personaxe"/>
 
                 <TextView
                     android:id="@+id/textDay12"
@@ -343,7 +354,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 13, verdade ou mentira"/>
 
                 <TextView
                     android:id="@+id/textDay13"
@@ -367,7 +379,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 14, adiviña o escudo"/>
 
                 <TextView
                     android:id="@+id/textDay14"
@@ -391,7 +404,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 15, wordle"/>
 
                 <TextView
                     android:id="@+id/textDay15"
@@ -415,7 +429,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 16, anagramas"/>
 
                 <TextView
                     android:id="@+id/textDay16"
@@ -439,7 +454,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 17, proba de velocidade"/>
 
                 <TextView
                     android:id="@+id/textDay17"
@@ -463,7 +479,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 18, palabras encadeadas"/>
 
                 <TextView
                     android:id="@+id/textDay18"
@@ -487,7 +504,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 19, aforcado"/>
 
                 <TextView
                     android:id="@+id/textDay19"
@@ -511,7 +529,8 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
                     android:gravity="center"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:contentDescription="Xogo do día 20, Debuxa e adiviña"/>
 
                 <TextView
                     android:id="@+id/textDay20"
@@ -534,6 +553,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/main_activity_button_background_inactive"
+                    android:contentDescription="Xogo do día 21, 21 días co galego e máis"
                     android:gravity="center"
                     android:textColor="@android:color/white" />
 

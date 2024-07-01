@@ -42,6 +42,8 @@
         android:id="@+id/answerAdivinhaPersonaxeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         android:ems="10"
         android:inputType="text"
         android:textSize="24sp"
@@ -50,7 +52,10 @@
         app:layout_constraintBottom_toTopOf="@+id/checkAnswerAdivinhaPersonaxeBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cluesScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/cluesScrollView"
+        android:hint="Resposta"
+        android:textColorHint="@color/inactiveBlue"
+        android:textColor="@color/inactiveBlue" />
 
     <Button
         android:id="@+id/checkAnswerAdivinhaPersonaxeBtn"

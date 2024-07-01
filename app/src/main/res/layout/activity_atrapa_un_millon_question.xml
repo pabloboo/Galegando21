@@ -27,7 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/dinheiro_atrapa_1m"/>
+            android:src="@drawable/dinheiro_atrapa_1m"
+            android:contentDescription="Icono de diñeiro para arrastrar"/>
 
         <TextView
             android:id="@+id/atrapa_un_millon_question_text_view"

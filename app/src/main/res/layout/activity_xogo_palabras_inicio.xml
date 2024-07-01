@@ -24,7 +24,8 @@
         app:layout_constraintBottom_toTopOf="@id/help_dialogs_xogo_palabras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        android:contentDescription="Descrición do xogo xogo de palabras"/>
 
     <LinearLayout
         android:id="@+id/help_dialogs_xogo_palabras"
@@ -48,7 +49,8 @@
             android:onClick="setLetter"
             android:padding="10dp"
             android:layout_marginRight="50dp"
-            android:src="@drawable/help_icon" />
+            android:src="@drawable/help_icon"
+            android:contentDescription="Información adicional sobre o xogo"/>
 
         <ImageButton
             android:id="@+id/xogo_palabras_demo_btn"
@@ -59,7 +61,8 @@
             android:layout_gravity="end"
             android:onClick="setLetter"
             android:padding="10dp"
-            android:src="@drawable/play_video_icon" />
+            android:src="@drawable/play_video_icon"
+            android:contentDescription="Vídeo demo de como xogar"/>
     </LinearLayout>
 
     <Button

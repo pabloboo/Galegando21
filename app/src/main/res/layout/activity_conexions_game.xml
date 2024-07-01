@@ -38,7 +38,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Alboroto"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 1"/>
 
         <TextView
             android:id="@+id/conexionsTv2"
@@ -52,7 +53,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Agasallo"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 2"/>
 
         <TextView
             android:id="@+id/conexionsTv3"
@@ -66,7 +68,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Encoller"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 3"/>
 
         <TextView
             android:id="@+id/conexionsTv4"
@@ -80,7 +83,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Dardo"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 4"/>
 
         <TextView
             android:id="@+id/conexionsTv5"
@@ -94,7 +98,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Revolto"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 5"/>
 
         <TextView
             android:id="@+id/conexionsTv6"
@@ -108,7 +113,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Machado"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 6"/>
 
         <TextView
             android:id="@+id/conexionsTv7"
@@ -122,7 +128,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Prisa"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 7"/>
 
         <TextView
             android:id="@+id/conexionsTv8"
@@ -136,7 +143,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Anel"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 8"/>
 
         <TextView
             android:id="@+id/conexionsTv9"
@@ -150,7 +158,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Burbulla"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 9"/>
 
         <TextView
             android:id="@+id/conexionsTv10"
@@ -164,7 +173,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Ferradura"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 10"/>
 
         <TextView
             android:id="@+id/conexionsTv11"
@@ -178,7 +188,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Ferver"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 11"/>
 
         <TextView
             android:id="@+id/conexionsTv12"
@@ -192,7 +203,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Patada"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 12"/>
 
         <TextView
             android:id="@+id/conexionsTv13"
@@ -206,7 +218,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Corpo"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 13"/>
 
         <TextView
             android:id="@+id/conexionsTv14"
@@ -220,7 +233,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Fritir"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 14"/>
 
         <TextView
             android:id="@+id/conexionsTv15"
@@ -234,7 +248,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Emoción"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 15"/>
 
         <TextView
             android:id="@+id/conexionsTv16"
@@ -248,7 +263,8 @@
             android:paddingHorizontal="10dp"
             tools:text="Escalfar"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:contentDescription="Palabra do xogo conexións número 16"/>
 
     </GridLayout>
 

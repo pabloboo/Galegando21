@@ -27,7 +27,8 @@
                 android:layout_marginVertical="5dp"
                 android:textColor="@color/primaryBlue"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título"/>
 
             <ImageButton
                 android:id="@+id/widget_reload_button"
@@ -35,6 +36,7 @@
                 android:layout_height="30dp"
                 android:background="@null"
                 android:scaleType="fitCenter"
+                android:contentDescription="Recargar estadísticas"
                 android:src="@drawable/widget_refresh_icon" />
         </LinearLayout>
 
@@ -82,7 +84,8 @@
                         android:textColor="@color/primaryBlue"
                         android:textSize="40sp"
                         android:textStyle="bold"
-                        tools:text="6" />
+                        tools:text="6"
+                        android:contentDescription="Racha actual"/>
                 </LinearLayout>
 
                 <TextView
@@ -93,7 +96,8 @@
                     android:layout_marginTop="4dp"
                     android:text="Racha actual"
                     android:textColor="@color/primaryBlue"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:contentDescription="Texto racha actual"/>
             </LinearLayout>
 
             <!-- Total Experience -->
@@ -119,7 +123,8 @@
                         android:textColor="@color/primaryBlue"
                         android:textSize="40sp"
                         android:textStyle="bold"
-                        tools:text="20568" />
+                        tools:text="20568"
+                        android:contentDescription="Experiencia total"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -129,7 +134,8 @@
                         android:textColor="@color/primaryBlue"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        android:text="pts" />
+                        android:text="pts"
+                        android:contentDescription="Texto pts experiencia"/>
                 </LinearLayout>
 
                 <TextView
@@ -140,7 +146,8 @@
                     android:layout_marginTop="4dp"
                     android:text="Experiencia total"
                     android:textColor="@color/primaryBlue"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:contentDescription="Texto experiencia total"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

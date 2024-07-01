@@ -26,7 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.693"
+        android:contentDescription="Texto de presentación da aplicación"/>
 
     <Button
         android:id="@+id/next_btn_onboarding"

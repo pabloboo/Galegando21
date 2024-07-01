@@ -32,7 +32,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:layout_marginLeft="40dp"
-            android:text="Xogos: " />
+            android:text="Xogos: "
+            android:contentDescription="Número de xogos"/>
 
         <TextView
             android:id="@+id/wins"
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Victorias: " />
+            android:text="Victorias: "
+            android:contentDescription="Número de vicorias"/>
 
         <ImageButton
             android:id="@+id/helpButton"
@@ -51,7 +53,8 @@
             android:layout_gravity="end"
             android:onClick="setLetter"
             android:padding="10dp"
-            android:src="@drawable/help_icon" />
+            android:src="@drawable/help_icon"
+            android:contentDescription="Información sobre como xogar"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -554,7 +557,8 @@
         android:paddingHorizontal="10dp"
         android:text="A"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra a"/>
 
     <TextView
         android:id="@+id/b"
@@ -564,7 +568,8 @@
         android:paddingHorizontal="10dp"
         android:text="B"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra b"/>
 
     <TextView
         android:id="@+id/c"
@@ -574,7 +579,8 @@
         android:paddingHorizontal="10dp"
         android:text="C"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra c"/>
 
     <TextView
         android:id="@+id/d"
@@ -584,7 +590,8 @@
         android:paddingHorizontal="10dp"
         android:text="D"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra d"/>
 
     <TextView
         android:id="@+id/e"
@@ -594,7 +601,8 @@
         android:paddingHorizontal="10dp"
         android:text="E"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra e"/>
 
     <TextView
         android:id="@+id/f"
@@ -604,7 +612,8 @@
         android:paddingHorizontal="10dp"
         android:text="F"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra f"/>
 
     <TextView
         android:id="@+id/g"
@@ -614,7 +623,8 @@
         android:paddingHorizontal="10dp"
         android:text="G"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra g"/>
 
     <TextView
         android:id="@+id/h"
@@ -624,7 +634,8 @@
         android:paddingHorizontal="10dp"
         android:text="H"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra h"/>
 
     <TextView
         android:id="@+id/i"
@@ -634,7 +645,8 @@
         android:paddingHorizontal="10dp"
         android:text="I"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra i"/>
 
     <TextView
         android:id="@+id/l"
@@ -644,7 +656,8 @@
         android:paddingHorizontal="10dp"
         android:text="L"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra l"/>
 
     <TextView
         android:id="@+id/m"
@@ -654,7 +667,8 @@
         android:paddingHorizontal="10dp"
         android:text="M"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra m"/>
 
     <TextView
         android:id="@+id/n"
@@ -664,7 +678,8 @@
         android:paddingHorizontal="10dp"
         android:text="N"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra n"/>
 
     <TextView
         android:id="@+id/nh"
@@ -674,7 +689,8 @@
         android:paddingHorizontal="10dp"
         android:text="Ñ"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra ñ"/>
 
     <TextView
         android:id="@+id/o"
@@ -684,7 +700,8 @@
         android:paddingHorizontal="10dp"
         android:text="O"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra o"/>
 
     <TextView
         android:id="@+id/p"
@@ -694,7 +711,8 @@
         android:paddingHorizontal="10dp"
         android:text="P"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra p"/>
 
     <TextView
         android:id="@+id/q"
@@ -704,7 +722,8 @@
         android:paddingHorizontal="10dp"
         android:text="Q"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra q"/>
 
     <TextView
         android:id="@+id/r"
@@ -714,7 +733,8 @@
         android:paddingHorizontal="10dp"
         android:text="R"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra r"/>
 
     <TextView
         android:id="@+id/s"
@@ -724,7 +744,8 @@
         android:paddingHorizontal="10dp"
         android:text="S"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra s"/>
 
     <TextView
         android:id="@+id/t"
@@ -734,7 +755,8 @@
         android:paddingHorizontal="10dp"
         android:text="T"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra t"/>
 
     <TextView
         android:id="@+id/u"
@@ -744,7 +766,8 @@
         android:paddingHorizontal="10dp"
         android:text="U"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra u"/>
 
     <TextView
         android:id="@+id/v"
@@ -754,7 +777,8 @@
         android:paddingHorizontal="10dp"
         android:text="V"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra v"/>
 
     <TextView
         android:id="@+id/x"
@@ -764,7 +788,8 @@
         android:paddingHorizontal="10dp"
         android:text="X"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra x"/>
 
     <TextView
         android:id="@+id/z"
@@ -774,7 +799,8 @@
         android:paddingHorizontal="10dp"
         android:text="Z"
         android:textColor="@color/white"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:contentDescription="letra z"/>
 
     <LinearLayout
         android:id="@+id/linearLayoutWorldeButtons"
@@ -796,20 +822,26 @@
                 android:id="@+id/buttonBackspace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:onClick="setLetter"
                 android:padding="10dp"
                 android:layout_marginRight="20dp"
                 android:backgroundTint="@color/errorRed"
-                android:src="@drawable/backspace_icon" />
+                android:src="@drawable/backspace_icon"
+                android:contentDescription="Borrar última letra"/>
 
             <ImageButton
                 android:id="@+id/buttonEnter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:background="@color/secondaryBlue"
                 android:onClick="setLetter"
                 android:padding="10dp"
-                android:src="@drawable/check_icon" />
+                android:src="@drawable/check_icon"
+                android:contentDescription="Introducir palabra"/>
         </LinearLayout>
 
         <Button

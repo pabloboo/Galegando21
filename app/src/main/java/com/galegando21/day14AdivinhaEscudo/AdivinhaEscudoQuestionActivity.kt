@@ -211,6 +211,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
                         this,
                         R.drawable.correct_option_border_bg
                     )
+                textViewOption1.setTextColor(Color.BLACK)
             }
 
             2 -> {
@@ -219,6 +220,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
                         this,
                         R.drawable.correct_option_border_bg
                     )
+                textViewOption2.setTextColor(Color.BLACK)
             }
 
             3 -> {
@@ -227,6 +229,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
                         this,
                         R.drawable.correct_option_border_bg
                     )
+                textViewOption3.setTextColor(Color.BLACK)
             }
 
             4 -> {
@@ -235,6 +238,7 @@ class AdivinhaEscudoQuestionActivity : AppCompatActivity(), View.OnClickListener
                         this,
                         R.drawable.correct_option_border_bg
                     )
+                textViewOption4.setTextColor(Color.BLACK)
             }
         }
     }

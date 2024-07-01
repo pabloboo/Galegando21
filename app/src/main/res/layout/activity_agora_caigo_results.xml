@@ -33,7 +33,8 @@
         app:layout_constraintEnd_toEndOf="@+id/agora_caigo_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/agora_caigo_correct_answers_results_icon"
         app:layout_constraintTop_toTopOf="@+id/agora_caigo_correct_answers_results_icon"
-        tools:text="23" />
+        tools:text="23"
+        android:contentDescription="Resultado do xogo agora caio"/>
 
     <TextView
         android:id="@+id/agora_caigo_result_tv"
@@ -43,7 +44,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agora_caigo_correct_answers_results_icon"
-        tools:text="Acertaches un total de 23 preguntas" />
+        tools:text="Acertaches un total de 23 preguntas"
+        android:contentDescription="Texto completo do resultado do xogo agora caio"/>
 
     <Button
         android:id="@+id/agora_caigo_finish_btn"

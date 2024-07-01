@@ -65,7 +65,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="20"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:textColor="@color/black"/>
             </androidx.cardview.widget.CardView>
 
             <Chronometer
@@ -85,7 +86,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="3"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:textColor="@color/black"/>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
@@ -98,23 +100,33 @@
                 android:id="@+id/pasagalego_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:textColor="@color/inactiveBlue"
+                android:textColorHint="@color/inactiveBlue"
                 android:hint="@string/resposta"/>
             <ImageButton
                 android:id="@+id/check_btn_pasagalego"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/check_icon"
                 android:background="@color/secondaryBlue"
                 android:padding="10dp"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:contentDescription="Introducir resposta"/>
             <ImageButton
                 android:id="@+id/pasapalabra_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/pasapalabra_icon"
                 android:background="@color/secondaryBlue"
                 android:padding="10dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:contentDescription="Pasar palabra"/>
         </LinearLayout>
 
 

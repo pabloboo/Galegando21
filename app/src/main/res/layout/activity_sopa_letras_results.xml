@@ -60,7 +60,8 @@
         android:layout_gravity="end"
         android:onClick="setLetter"
         android:padding="10dp"
-        android:src="@drawable/help_icon" />
+        android:src="@drawable/help_icon"
+        android:contentDescription="Información adicional do xogo"/>
 
     <Button
         android:id="@+id/sopa_letras_finish_btn"

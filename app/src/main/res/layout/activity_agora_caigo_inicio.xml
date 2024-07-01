@@ -24,7 +24,8 @@
         app:layout_constraintBottom_toTopOf="@id/start_btn_agora_caigo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        android:contentDescription="Descrición do xogo agora caio"/>
 
     <Button
         android:id="@+id/start_btn_agora_caigo"

@@ -47,12 +47,15 @@
                     android:textSize="20sp"
                     android:layout_marginHorizontal="30dp"
                     android:gravity="center"
-                    android:text="Nome:" />
+                    android:text="Nome:"
+                    android:contentDescription="Nome do usuario"/>
 
                 <EditText
                     android:id="@+id/editTextName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:layout_marginRight="50dp"
                     android:hint="Nome" />
 
@@ -73,17 +76,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Palabras do nivel fácil:"/>
+                    android:text="Palabras do nivel fácil:"
+                    android:contentDescription="Fonte de palabras do nivel fácil"/>
                 <RadioButton
                     android:id="@+id/axustes_radio_btn_sources_palabras_comuns"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Palabras comúns"/>
+                    android:text="Palabras comúns"
+                    android:contentDescription="Lista de palabras comúns en español traducidas"/>
                 <RadioButton
                     android:id="@+id/axustes_radio_btn_sources_palabras_pet"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Nivel PET"/>
+                    android:text="Nivel PET"
+                    android:contentDescription="Lista de palabras comúns en inglés traducidas"/>
             </RadioGroup>
 
             <TextView
@@ -97,7 +103,8 @@
                 app:layout_constraintBottom_toTopOf="@id/sources_modo_dificil_radio_group"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sources_modo_facil_radio_group" />
+                app:layout_constraintTop_toBottomOf="@id/sources_modo_facil_radio_group"
+                android:contentDescription="Descrición da fonte de palabras seleccionada"/>
 
             <RadioGroup
                 android:id="@+id/sources_modo_dificil_radio_group"
@@ -114,17 +121,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:text="Diccionario utilizado para o resto de modos e xogos:"/>
+                    android:text="Diccionario utilizado para o resto de modos e xogos:"
+                    android:contentDescription="Fonte de palabras dos niveis difíciles"/>
                 <RadioButton
                     android:id="@+id/axustes_radio_btn_sources_dictionary_rag"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Real Academia Galega"/>
+                    android:text="Real Academia Galega"
+                    android:contentDescription="Fonte de palabras da Real Academia Galega"/>
                 <RadioButton
                     android:id="@+id/axustes_radio_btn_sources_dictionary_digalego"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Digalego"/>
+                    android:text="Digalego"
+                    android:contentDescription="Fonte de palabras do Digalego"/>
             </RadioGroup>
 
             <TextView
@@ -138,7 +148,8 @@
                 app:layout_constraintBottom_toTopOf="@id/gardarButtonAxustes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sources_modo_dificil_radio_group" />
+                app:layout_constraintTop_toBottomOf="@id/sources_modo_dificil_radio_group"
+                android:contentDescription="Descrición da fonte de palabras dos xogos difíciles"/>
 
             <Button
                 android:id="@+id/gardarButtonAxustes"

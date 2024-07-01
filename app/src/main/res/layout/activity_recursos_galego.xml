@@ -61,7 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/spotify_icon"
-                android:layout_marginVertical="15dp"/>
+                android:layout_marginVertical="15dp"
+                android:contentDescription="Enlace á playlist de spotify"/>
 
             <TextView
                 android:id="@+id/music_suxerencias_tv"
@@ -99,7 +100,8 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/agalega_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace de A Galega web"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv2"
@@ -116,7 +118,8 @@
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/agalega_mobile_icon"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace de A Galega móbil"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv3"
@@ -143,7 +146,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/land_rober_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace Land Rober"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv5"
@@ -161,7 +165,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/malicia_noticias_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace Malicia Noticias"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv6"
@@ -179,7 +184,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/era_visto_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace era visto"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv7"
@@ -197,7 +203,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/estache_bo_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace estache bo"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv8"
@@ -215,7 +222,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/atrapame_se_podes_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace Atrapame se podes"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv9"
@@ -233,7 +241,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/xabarin_club_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace Xabarín club"/>
 
             <TextView
                 android:id="@+id/entretemento_description_tv9b"
@@ -260,7 +269,8 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/luar_logo"
                 android:layout_marginVertical="15dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="40dp"
+                android:contentDescription="Enlace luar"/>
 
             <!-- Redes Sociais -->
             <TextView
