@@ -73,19 +73,23 @@ while to_visit_links and len(visited_links) < number_of_links_to_visit:
             if not all(char in ALFABETO for char in palabra) or len(palabra) < 2:
                 palabra = None
 
-        ## DEFINICION
+        ## DEFINICIONES
         if palabra is not None:
             try:
-                definicion = driver.find_element(By.CSS_SELECTOR, 'span.Definition__Definition').text
+                definiciones_elements = driver.find_elements(By.CSS_SELECTOR, 'span.Definition__Definition')
+                definiciones = [element.text for element in definiciones_elements]
             except NoSuchElementException:
-                print(f"No hay definición para: {current_link}")
-                definicion = ""
+                print(f"No hay definiciones para: {current_link}")
+                definiciones = []
 
-            # Add word and definition to the dictionary
-            word_definitions[palabra] = definicion
             # Add word and definition to the json file
             with open("rag.json", "a", encoding="utf-8") as json_file:
-                json.dump({"palabra": palabra, "definicion": definicion}, json_file, ensure_ascii=False, indent=4)
+                if definiciones == []:
+                    json.dump({"palabra": palabra, "definicion": ""}, json_file, ensure_ascii=False, indent=4)
+                else:
+                    for definicion in definiciones:
+                        if definicion != "":
+                            json.dump({"palabra": palabra, "definicion": definicion}, json_file, ensure_ascii=False, indent=4)
 
         ## ENLACES
         driver.implicitly_wait(10)
@@ -108,10 +112,6 @@ while to_visit_links and len(visited_links) < number_of_links_to_visit:
 
     except Exception as e:
         print(f"Error processing {current_link}: {e}")
-
-# Save the word_definitions dictionary to a JSON file
-with open("complete_rag.json", "w", encoding="utf-8") as json_file:
-    json.dump(word_definitions, json_file, ensure_ascii=False, indent=4)
 
 # Clean up: quit the WebDriver
 driver.quit()

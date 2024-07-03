@@ -8,7 +8,7 @@ Abrir o proxecto en unha terminal ubuntu (wsl de windows por exemplo)
 Crear o entorno virtual:
 ```
 python3 -m venv venv
-source .venv/bin/activate
+source ./venv/bin/activate
 pip3 install scrapy
 pip3 install Unidecode
 ```
@@ -47,12 +47,11 @@ sudo chmod +x /usr/bin/chromedriver
 
 Executar o scraper:
 ```
-cd rag_scraper/
+cd ragscraper/
 python3 ragscraper/spiders/rag.py
 ```
 
-En caso de completarse o scraper correctamente os resultados poden encontrarse no ficheiro 'complete_rag.json' no directorio actual.
-Por cada liña procesada tamén se van gardando os resultados no ficheiro `rag.json` no directorio actual, así en caso de querer reanudar
+Por cada url procesada os resultandos van gardandose no ficheiro `rag.json` no directorio actual. En caso de querer reanudar
 o scraper podese cambiar a url de partida pola última procesada en lugar de comezar desde o principio.
 
 <br/><br/>
@@ -67,7 +66,7 @@ de cada termo usando o traductor de Gaio.
 
 Executar o scraper:
 ```
-cd rag_scraper/
+cd ragscraper/
 python3 ragscraper/spiders/gaio.py
 ```
 
@@ -90,7 +89,7 @@ de Cambridge separadas por saltos de liña. O escraper 'gaio_en.py' obtén a tra
 
 Executar o scraper:
 ```
-cd rag_scraper/
+cd ragscraper/
 python3 ragscraper/spiders/gaio_en.py
 ```
 
