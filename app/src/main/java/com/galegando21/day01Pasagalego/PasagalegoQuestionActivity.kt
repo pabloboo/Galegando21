@@ -101,7 +101,10 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         for (letter in ALFABETO) {
             val wordsForLetter = wordsByLetter[letter]
             if (!wordsForLetter.isNullOrEmpty()) {
-                val randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                var randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                while (randomWord.definicion.split(" ").size < 2) {
+                    randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                }
                 questionMap[letter] = QuestionPasagalego(randomWord.definicion, randomWord.palabra)
             }
         }
@@ -122,7 +125,10 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         for (letter in ALFABETO) {
             val wordsForLetter = wordsByLetter[letter]
             if (!wordsForLetter.isNullOrEmpty()) {
-                val randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                var randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                while (randomWord.definicion.split(" ").size < 2) {
+                    randomWord = wordsForLetter[Random.nextInt(wordsForLetter.size)]
+                }
                 questionMap[letter] = QuestionPasagalego(randomWord.definicion, randomWord.palabra)
             }
         }
