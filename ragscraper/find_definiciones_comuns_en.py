@@ -4,9 +4,9 @@ import json
 with open('palabras_comuns_gl_pet.json', 'r', encoding='utf-8') as f:
     palabras_comuns_pet = json.load(f)
 
-# Cargar el archivo digalego.json
-with open('digalego.json', 'r', encoding='utf-8') as f:
-    digalego = json.load(f)
+# Cargar el archivo rag.json
+with open('rag.json', 'r', encoding='utf-8') as f:
+    rag = json.load(f)
 
 # Diccionario para almacenar las definiciones encontradas
 definiciones_encontradas = {}
@@ -14,10 +14,11 @@ definiciones_encontradas = {}
 # Iterar sobre las palabras comunes gallegas PET
 for entrada in palabras_comuns_pet:
     palabra = entrada['palabra']
-    # Buscar la palabra en el archivo digalego
-    for item in digalego:
+    # Buscar la palabra en el archivo rag
+    for item in rag:
         if item['palabra'].upper() == palabra.upper():
-            definiciones_encontradas[palabra] = item['definicion']
+            if item['definicion'] != '':
+                definiciones_encontradas[palabra] = item['definicion']
             break  # Si encuentra la palabra, deja de buscar
 
 # Pasar palabras y definiciones a un archivo JSON

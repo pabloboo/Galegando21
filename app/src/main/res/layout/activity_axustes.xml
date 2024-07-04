@@ -127,7 +127,7 @@
                     android:id="@+id/axustes_radio_btn_sources_dictionary_rag"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Real Academia Galega"
+                    android:text="Real Academia Galega (recomendado)"
                     android:contentDescription="Fonte de palabras da Real Academia Galega"/>
                 <RadioButton
                     android:id="@+id/axustes_radio_btn_sources_dictionary_digalego"
