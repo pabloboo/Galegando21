@@ -52,6 +52,7 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
     private var answered = false
 
     private var cash = 1000000
+    private var remainder = 0
     private val total_questions = 8
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -286,9 +287,10 @@ class AtrapaUnMillonQuestionActivity : AppCompatActivity(), View.OnClickListener
                 if (quantityOption4.text.isNotEmpty()) {
                     valueOption4 = quantityOption4.text.toString().toInt()
                 }
-                val sum = valueOption1+valueOption2+valueOption3+valueOption4
+                val remainder = cash%4 // resto de la división por 4 para que no fallen las sumas
+                val sum = valueOption1+valueOption2+valueOption3+valueOption4+remainder
                 if (!answered) {
-                    if (questionsCounter == 8 && (valueOption1 != cash && valueOption2 != cash && valueOption3 != cash && valueOption4 != cash)) {
+                    if (questionsCounter == 8 && (valueOption1+remainder != cash && valueOption2+remainder != cash && valueOption3+remainder != cash && valueOption4+remainder != cash)) {
                         Toast.makeText(this@AtrapaUnMillonQuestionActivity, "Tes que poñer todo o diñeiro en unha soa opción", Toast.LENGTH_SHORT).show()
                     } else if (sum===cash) {
                         checkAnswer()
