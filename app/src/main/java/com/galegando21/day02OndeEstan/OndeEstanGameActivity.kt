@@ -98,8 +98,21 @@ class OndeEstanGameActivity : AppCompatActivity() {
         }
     }
 
+    fun checkIfThereAreRepeatedWords(palabras: List<String>): Boolean {
+        val set = mutableSetOf<String>()
+        for (palabra in palabras) {
+            if (!set.add(palabra)) {
+                return true
+            }
+        }
+        return false
+    }
+
     private fun initializeGame() {
         palabras = DictionaryConstants.getWords(this).shuffled().take(9)
+        while (checkIfThereAreRepeatedWords(palabras)) {
+            palabras = DictionaryConstants.getWords(this).shuffled().take(9)
+        }
         palabrasOrdenCorrecto = palabras.shuffled()
         Log.d("OndeEstan", palabras.toString())
 

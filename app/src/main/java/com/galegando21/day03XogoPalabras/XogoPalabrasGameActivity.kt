@@ -178,7 +178,7 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
         while(resultados.size < 4) {
             val palabras = DictionaryConstants.getWords(this).toMutableList()
             for (palabra in palabras) {
-                if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7) {
+                if (palabra.all { it in letras } && palabra.contains(centerLetter) && palabra.length >= 4 && palabra.length <= 7 && !resultados.contains(palabra)) {
                     resultados.add(palabra)
                 }
             }

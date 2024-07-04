@@ -155,10 +155,12 @@ class WordleGameActivity : AppCompatActivity() {
                     xogarDeNovoButton.visibility = View.VISIBLE
                     changeWordleStatistics()
                 } else if (countCurrentTries == 6) {
+                    progressLoadingBar.visibility = View.VISIBLE
                     countCurrentTries = 0
                     showGameLostDialog()
                     unSetEventListeners()
                     xogarDeNovoButton.visibility = View.VISIBLE
+                    progressLoadingBar.visibility = View.GONE
                 }
             }
         }

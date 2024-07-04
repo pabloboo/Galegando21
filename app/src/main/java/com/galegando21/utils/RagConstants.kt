@@ -1,7 +1,9 @@
 package com.galegando21.utils
 
 import android.content.Context
+import android.util.Log
 import com.galegando21.model.WordDefinition
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
@@ -15,11 +17,13 @@ object RagConstants {
             return emptyList()
         }
 
-        val jsonObject = JSONObject(jsonString)
+        val jsonArray = JSONArray(jsonString)
         val ragWords = mutableListOf<String>()
 
-        for (key in jsonObject.keys()) {
-            ragWords.add(key)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObject = jsonArray.getJSONObject(i)
+            var word = jsonObject.getString("palabra")
+            ragWords.add(word)
         }
 
         return ragWords
@@ -42,13 +46,15 @@ object RagConstants {
             return emptyList()
         }
 
-        val jsonObject = JSONObject(jsonString)
+        val jsonArray = JSONArray(jsonString)
         val ragDefinitions = mutableListOf<WordDefinition>()
 
-        for (key in jsonObject.keys()) {
-            val definition = jsonObject.getString(key)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObject = jsonArray.getJSONObject(i)
+            var word = jsonObject.getString("palabra")
+            var definition = jsonObject.getString("definicion")
             if (definition.isNotBlank() && definition.length > 1) {
-                ragDefinitions.add(WordDefinition(key, definition))
+                ragDefinitions.add(WordDefinition(word, definition))
             }
         }
 

@@ -40,7 +40,7 @@
                 android:background="@color/yellow"
                 android:padding="20dp"
                 tools:visibility="visible"
-                android:text="Hora Dourada: dobre de experiencia en todos os xogos"/>
+                android:text="Hora Dourada: dobre de puntos!"/>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
