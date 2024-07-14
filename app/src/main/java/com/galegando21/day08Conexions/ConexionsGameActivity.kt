@@ -150,7 +150,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
                 solutionGroup1Tv.visibility = View.VISIBLE
                 solutionGroup1Tv.text =
-                    conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.toString()
+                    conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.joinToString(", ")
                 return
             }
 
@@ -162,7 +162,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
                 solutionGroup2Tv.visibility = View.VISIBLE
                 solutionGroup2Tv.text =
-                    conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.toString()
+                    conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.joinToString(", ")
                 return
             }
 
@@ -174,7 +174,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
                 solutionGroup3Tv.visibility = View.VISIBLE
                 solutionGroup3Tv.text =
-                    conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.toString()
+                    conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.joinToString(", ")
                 return
             }
 
@@ -186,7 +186,7 @@ class ConexionsGameActivity : AppCompatActivity() {
 
                 solutionGroup4Tv.visibility = View.VISIBLE
                 solutionGroup4Tv.text =
-                    conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.toString()
+                    conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.joinToString(", ")
                 return
             }
 
@@ -222,13 +222,13 @@ class ConexionsGameActivity : AppCompatActivity() {
 
     private fun showSolution() {
         solutionGroup1Tv.visibility = View.VISIBLE
-        solutionGroup1Tv.text = conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.toString()
+        solutionGroup1Tv.text = conexionsData.grupo1Categoria + ": " + conexionsData.grupo1.joinToString(", ")
         solutionGroup2Tv.visibility = View.VISIBLE
-        solutionGroup2Tv.text = conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.toString()
+        solutionGroup2Tv.text = conexionsData.grupo2Categoria + ": " + conexionsData.grupo2.joinToString(", ")
         solutionGroup3Tv.visibility = View.VISIBLE
-        solutionGroup3Tv.text = conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.toString()
+        solutionGroup3Tv.text = conexionsData.grupo3Categoria + ": " + conexionsData.grupo3.joinToString(", ")
         solutionGroup4Tv.visibility = View.VISIBLE
-        solutionGroup4Tv.text = conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.toString()
+        solutionGroup4Tv.text = conexionsData.grupo4Categoria + ": " + conexionsData.grupo4.joinToString(", ")
     }
 
     private fun saveSolution() {

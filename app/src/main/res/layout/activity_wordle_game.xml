@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".day15Wordle.WordleGameActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <LinearLayout
         android:id="@+id/linearLayoutEstadisticasWordle"
         android:layout_width="match_parent"
@@ -24,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment">
+        app:layout_constraintTop_toTopOf="parent">
         <TextView
             android:id="@+id/games"
             android:layout_width="wrap_content"

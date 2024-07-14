@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day09RuletaDaSorte.RuletaDaSorteInicioActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ruleta_da_sorte_image_iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/ruleta_da_sorte_icon"
-        app:layout_constraintBottom_toTopOf="@+id/ruleta_da_sorte_description_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/ruleta_da_sorte_description_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/ruleta_da_sorte_explicacion"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="15dp"
-        app:layout_constraintBottom_toTopOf="@id/start_btn_ruleta_da_sorte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ruleta_da_sorte_image_iv" />
+        <ImageView
+            android:id="@+id/ruleta_da_sorte_image_iv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ruleta_da_sorte_icon"
+            app:layout_constraintBottom_toTopOf="@+id/ruleta_da_sorte_description_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <Button
-        android:id="@+id/start_btn_ruleta_da_sorte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:backgroundTint="@color/secondaryBlue"
-        android:text="@string/comezar_a_xogar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruleta_da_sorte_description_tv" />
+        <TextView
+            android:id="@+id/ruleta_da_sorte_description_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ruleta_da_sorte_explicacion"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@id/start_btn_ruleta_da_sorte"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ruleta_da_sorte_image_iv" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/start_btn_ruleta_da_sorte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="@string/comezar_a_xogar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_da_sorte_description_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

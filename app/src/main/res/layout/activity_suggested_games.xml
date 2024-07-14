@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,25 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".SuggestedGamesActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="match_parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerFragment"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/gameRecommendationsTitleCativos"
@@ -84,6 +81,6 @@
                 android:text="A finalidade dos xogos de esta lista é satisfacer necesidades de xogadores de todos os niveis. Estos xogos son máis complexos de gañar, aínda que non sexas capaz de conseguir grandes puntuacións podes divertirte intentando superar o teu récord persoal. Estos xogos son 'Pasagalego', 'Xogo de Palabras', 'Conexións', 'Explosión de Palabras', 'Atrápame se podes', 'Verdade ou Mentira', 'Anagramas', 'Proba de Velocidade' e 'Palabras Encadeadas'."
                 android:contentDescription="Descrición dos xogos suxeridos como difíciles"/>
         </LinearLayout>
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>

@@ -57,8 +57,6 @@ class AforcadoGameActivity : AppCompatActivity() {
         newGameButton = findViewById(R.id.novoXogoAforcadoButton)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
-        setBanner(this, R.string.aforcado)
-
         modo = intent.getStringExtra("modo") ?: "facil"
 
         newGameButton.setOnClickListener {

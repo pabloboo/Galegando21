@@ -52,8 +52,6 @@ class WordleGameActivity : AppCompatActivity() {
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_wordle_btn)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
 
-        setBanner(this, R.string.wordle)
-
         gameCore = WordleGameManager(this, rowCount)
         initTexts()
 

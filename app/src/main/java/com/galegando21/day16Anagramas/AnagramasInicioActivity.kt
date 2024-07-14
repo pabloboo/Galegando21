@@ -48,7 +48,7 @@ class AnagramasInicioActivity : AppCompatActivity() {
                     explicacionModoXogoTextView.text = "En este modo de xogo as preguntas e definicións serán obtidas de unha lista de palabras comúns."
                 }
                 radioButtonDificil.id -> {
-                    explicacionModoXogoTextView.text = "En este modo de xogo as pistas e palabras serán obtidas aleatoriamente de un diccionario.."
+                    explicacionModoXogoTextView.text = "En este modo de xogo as pistas e palabras serán obtidas aleatoriamente de un diccionario."
                 }
             }
         }
