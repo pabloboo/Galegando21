@@ -1,15 +1,20 @@
 package com.galegando21.day06SopaLetras
 
+import android.app.Dialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.VideoView
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SopaLetrasConstants
@@ -21,6 +26,7 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
     private lateinit var radioButtonFacil: RadioButton
     private lateinit var radioButtonMedio: RadioButton
     private lateinit var radioButtonDificil: RadioButton
+    private lateinit var demoButton: ImageButton
     private lateinit var explicacionImageView: ImageView
     private lateinit var explicacionTextView: TextView
     private lateinit var comezarButton: Button
@@ -36,6 +42,7 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
         radioButtonFacil = findViewById(R.id.sopa_letras_facil)
         radioButtonMedio = findViewById(R.id.sopa_letras_medio)
         radioButtonDificil = findViewById(R.id.sopa_letras_dificil)
+        demoButton = findViewById(R.id.sopa_letras_demo_btn)
         explicacionImageView = findViewById(R.id.explicacion_sopa_letras_image_view)
         explicacionTextView = findViewById(R.id.explicacion_sopa_letras_text_view)
         comezarButton = findViewById(R.id.start_btn_sopa_letras)
@@ -52,6 +59,10 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
                 startActivity(it)
                 finish()
             }
+        }
+
+        demoButton.setOnClickListener {
+            showDemoDialog()
         }
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -78,5 +89,34 @@ class SopaLetrasInicioActivity : AppCompatActivity() {
         super.onStop()
 
         loadingProgressBar.visibility = View.GONE
+    }
+
+    private fun showDemoDialog() {
+        // Crear un nuevo diálogo
+        val dialog = Dialog(this)
+
+        // Establecer el layout del diálogo
+        dialog.setContentView(R.layout.dialog_video)
+
+        // Encontrar el VideoView en el layout
+        val videoView = dialog.findViewById<VideoView>(R.id.videoView)
+
+        // Encontrar el TextView en el layout y establecer el título
+        val titleView = dialog.findViewById<TextView>(R.id.dialogTitle)
+        titleView.text = "Como xogar?"
+
+        // Establecer la ruta del video
+        val videoPath = "android.resource://" + packageName + "/" + R.raw.sopa_de_letras_demo
+        val uri = Uri.parse(videoPath)
+        videoView.setVideoURI(uri)
+
+        videoView.setOnPreparedListener {
+            Log.i("VideoView", "Video is prepared and ready to start.")
+
+            // Iniciar el video
+            videoView.start()
+        }
+
+        dialog.show()
     }
 }

@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-            app:layout_constraintBottom_toTopOf="@id/explicacion_sopa_letras_image_view"
+            app:layout_constraintBottom_toTopOf="@id/sopa_letras_demo_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="100dp"
@@ -54,11 +54,27 @@
                 android:contentDescription="Nivel difícil"/>
         </RadioGroup>
 
+        <ImageButton
+            android:id="@+id/sopa_letras_demo_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="end"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:src="@drawable/play_video_icon"
+            android:contentDescription="Vídeo demo de como xogar"
+            app:layout_constraintTop_toBottomOf="@+id/sopa_letras_radio_group"
+            app:layout_constraintBottom_toTopOf="@id/explicacion_sopa_letras_image_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <ImageView
             android:id="@+id/explicacion_sopa_letras_image_view"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            app:layout_constraintTop_toBottomOf="@+id/sopa_letras_radio_group"
+            app:layout_constraintTop_toBottomOf="@+id/sopa_letras_demo_btn"
             app:layout_constraintBottom_toTopOf="@id/explicacion_sopa_letras_text_view"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

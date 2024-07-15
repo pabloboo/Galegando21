@@ -54,52 +54,56 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginVertical="5dp"/>
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageButton
-                android:id="@+id/imageCircleBlackDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/black_circle"
-                android:layout_margin="10dp"
-                android:contentDescription="Cor negra"/>
-            <ImageButton
-                android:id="@+id/imageCircleRedDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/red_circle"
-                android:layout_margin="10dp"
-                android:contentDescription="Cor vermella"/>
-            <ImageButton
-                android:id="@+id/imageCircleBlueDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/blue_circle"
-                android:layout_margin="10dp"
-                android:contentDescription="Cor azul"/>
-            <ImageButton
-                android:id="@+id/imageCircleGreenDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/green_circle"
-                android:layout_margin="10dp"
-                android:contentDescription="Cor verde"/>
-            <ImageButton
-                android:id="@+id/imageCircleYellowDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/yellow_circle"
-                android:layout_margin="10dp"
-                android:contentDescription="Cor amarela"/>
-            <ImageButton
-                android:id="@+id/imageEraserDebuxaEAdivinha"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/eraser_icon"
-                android:layout_margin="10dp"
-                android:contentDescription="Goma de borrar"/>
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/imageCircleBlackDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/black_circle"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Cor negra"/>
+                <ImageButton
+                    android:id="@+id/imageCircleRedDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/red_circle"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Cor vermella"/>
+                <ImageButton
+                    android:id="@+id/imageCircleBlueDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_circle"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Cor azul"/>
+                <ImageButton
+                    android:id="@+id/imageCircleGreenDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/green_circle"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Cor verde"/>
+                <ImageButton
+                    android:id="@+id/imageCircleYellowDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/yellow_circle"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Cor amarela"/>
+                <ImageButton
+                    android:id="@+id/imageEraserDebuxaEAdivinha"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/eraser_icon"
+                    android:layout_margin="10dp"
+                    android:contentDescription="Goma de borrar"/>
+            </LinearLayout>
+        </HorizontalScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

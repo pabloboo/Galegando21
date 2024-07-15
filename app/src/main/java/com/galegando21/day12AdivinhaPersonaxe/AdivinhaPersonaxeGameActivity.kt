@@ -66,6 +66,7 @@ class AdivinhaPersonaxeGameActivity : AppCompatActivity() {
         } else {
             // Muestra un mensaje si no hay más pistas disponibles
             Toast.makeText(this, "Non hai máis pistas dispoñibles", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "A resposta correcta era ${question.answer}", Toast.LENGTH_SHORT).show()
             finalizarXogo(false)
         }
     }
