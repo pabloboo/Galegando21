@@ -324,25 +324,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
+                <GridLayout
                     android:id="@+id/insignias_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:rowCount="2"
+                    android:orientation="vertical">
 
                     <!-- Insignias: -->
                     <LinearLayout
-                        android:id="@+id/insignia_racha_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/insignia_racha_7" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_racha_7"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/insignia_racha_7" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_racha_7"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_racha_7"
+                                app:layout_constraintTop_toTopOf="@id/insignia_racha_7"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_racha_7"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_racha_7"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -352,17 +371,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_racha_21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/insignia_racha_21" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_racha_21"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/insignia_racha_21" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_racha_21"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_racha_21"
+                                app:layout_constraintTop_toTopOf="@id/insignia_racha_21"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_racha_21"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_racha_21"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -372,17 +409,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_racha_50"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/insignia_racha_50" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_racha_50"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/insignia_racha_50" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_racha_50"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_racha_50"
+                                app:layout_constraintTop_toTopOf="@id/insignia_racha_50"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_racha_50"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_racha_50"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -392,17 +447,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_racha_100"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/insignia_racha_100" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_racha_100"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/insignia_racha_100" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_racha_100"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_racha_100"
+                                app:layout_constraintTop_toTopOf="@id/insignia_racha_100"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_racha_100"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_racha_100"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -412,17 +485,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_pasagalego_complete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/rosco_pasagalego" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_pasagalego"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_pasagalego" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_pasagalego"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_pasagalego"
+                                app:layout_constraintTop_toTopOf="@id/insignia_pasagalego"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_pasagalego"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_pasagalego"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -432,17 +523,73 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_xogo_palabras_complete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/honeycomb_icon" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_onde_estan"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_onde_estan" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_onde_estan"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_onde_estan"
+                                app:layout_constraintTop_toTopOf="@id/insignia_onde_estan"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_onde_estan"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_onde_estan"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tardaches 20 segundos no xogo Onde están?"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_xogo_palabras"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_spelling_bee" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_xogo_palabras"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_xogo_palabras"
+                                app:layout_constraintTop_toTopOf="@id/insignia_xogo_palabras"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_xogo_palabras"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_xogo_palabras"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -452,17 +599,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_atrapa_un_millon_complete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/dinheiro_atrapa_1m" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_atrapa_1m"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_atrapa_1m" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_atrapa_1m"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_atrapa_1m"
+                                app:layout_constraintTop_toTopOf="@id/insignia_atrapa_1m"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_atrapa_1m"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_atrapa_1m"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -472,17 +637,35 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_adivinha_ano_foto_complete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/badge_adivinha_ano_foto" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_adivinhar_ano_foto"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_adivinhar_ano_foto" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_adivinhar_ano_foto"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_adivinhar_ano_foto"
+                                app:layout_constraintTop_toTopOf="@id/insignia_adivinhar_ano_foto"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_adivinhar_ano_foto"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_adivinhar_ano_foto"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
@@ -492,26 +675,690 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/insignia_adivinha_escudo_complete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         android:layout_marginRight="10dp">
-                        <ImageView
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:src="@drawable/adivinha_escudo_icon" />
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_sopa_letras"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_sopa_letras" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_sopa_letras"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_sopa_letras"
+                                app:layout_constraintTop_toTopOf="@id/insignia_sopa_letras"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_sopa_letras"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_sopa_letras"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="Acertaches todos os escudos no xogo Adiviña o Escudo"
+                            android:text="Conseguiches 500 puntos na sopa de letras"
                             android:textColor="@android:color/white"
                             android:textSize="10sp" />
                     </LinearLayout>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_agora_caigo"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_agora_caigo" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_agora_caigo"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_agora_caigo"
+                                app:layout_constraintTop_toTopOf="@id/insignia_agora_caigo"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_agora_caigo"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_agora_caigo"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 50 preguntas no xogo Agora Caigo"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_conexions"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_conexions" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_conexions"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_conexions"
+                                app:layout_constraintTop_toTopOf="@id/insignia_conexions"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_conexions"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_conexions"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Quedaronche 6 vidas no xogo Conexións"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_ruleta_sorte"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_ruleta_da_sorte" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_ruleta_sorte"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_ruleta_sorte"
+                                app:layout_constraintTop_toTopOf="@id/insignia_ruleta_sorte"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_ruleta_sorte"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_ruleta_sorte"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 4000 euros na ruleta da sorte"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_explosion_palabras"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_explosion_palabras" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_explosion_palabras"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_explosion_palabras"
+                                app:layout_constraintTop_toTopOf="@id/insignia_explosion_palabras"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_explosion_palabras"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_explosion_palabras"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 100 puntos no modo difícil do xogo explosión de palabras."
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_atrapame_se_podes"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_atrapame_se_podes" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_atrapame_se_podes"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_atrapame_se_podes"
+                                app:layout_constraintTop_toTopOf="@id/insignia_atrapame_se_podes"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_atrapame_se_podes"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_atrapame_se_podes"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Non fallaches ningunha pregunta no xogo Atrapame se podes"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_adivinha_personaxe"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_adivinhar_personaxe" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_adivinha_personaxe"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_adivinha_personaxe"
+                                app:layout_constraintTop_toTopOf="@id/insignia_adivinha_personaxe"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_adivinha_personaxe"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_adivinha_personaxe"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Só necesitaches 2 pistas para adiviñar o personaxe"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_verdade_ou_mentira"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_verdade_ou_mentira" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_verdade_ou_mentira"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_verdade_ou_mentira"
+                                app:layout_constraintTop_toTopOf="@id/insignia_verdade_ou_mentira"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_verdade_ou_mentira"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_verdade_ou_mentira"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 30 preguntas no xogo Verdade ou mentira"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_adivinhar_escudo"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_adivinhar_escudo" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_adivinhar_escudo"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_adivinhar_escudo"
+                                app:layout_constraintTop_toTopOf="@id/insignia_adivinhar_escudo"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_adivinhar_escudo"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_adivinhar_escudo"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 10 preguntas no xogo Adiviña o escudo"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_wordle"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_wordle" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_wordle"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_wordle"
+                                app:layout_constraintTop_toTopOf="@id/insignia_wordle"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_wordle"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_wordle"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 10 palabras seguidas no Wordle"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_anagramas"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_anagramas" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_anagramas"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_anagramas"
+                                app:layout_constraintTop_toTopOf="@id/insignia_anagramas"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_anagramas"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_anagramas"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 20 palabras seguidas no modo difícil do xogo Anagramas"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_proba_velocidade"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_proba_velocidade" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_proba_velocidade"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_proba_velocidade"
+                                app:layout_constraintTop_toTopOf="@id/insignia_proba_velocidade"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_proba_velocidade"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_proba_velocidade"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tardaches 40 segundos no xogo Proba de velocidade"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_palabras_encadeadas"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_palabras_encadeadas" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_palabras_encadeadas"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_palabras_encadeadas"
+                                app:layout_constraintTop_toTopOf="@id/insignia_palabras_encadeadas"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_palabras_encadeadas"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_palabras_encadeadas"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Encadeaches 20 palabras no xogo Palabras encadeadas"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_aforcado"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_aforcado" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_aforcado"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_aforcado"
+                                app:layout_constraintTop_toTopOf="@id/insignia_aforcado"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_aforcado"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_aforcado"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Acertaches 10 palabras seguidas no modo difícil do xogo Aforcado"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_experiencia_10k"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_experiencia_10k" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_experiencia_10k"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_experiencia_10k"
+                                app:layout_constraintTop_toTopOf="@id/insignia_experiencia_10k"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_experiencia_10k"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_experiencia_10k"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 10,000 puntos de experiencia"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_experiencia_50k"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_experiencia_50k" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_experiencia_50k"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_experiencia_50k"
+                                app:layout_constraintTop_toTopOf="@id/insignia_experiencia_50k"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_experiencia_50k"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_experiencia_50k"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 50,000 puntos de experiencia"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_experiencia_100k"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_experiencia_100k" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_experiencia_100k"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_experiencia_100k"
+                                app:layout_constraintTop_toTopOf="@id/insignia_experiencia_100k"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_experiencia_100k"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_experiencia_100k"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 100,000 puntos de experiencia"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
+                                android:id="@+id/insignia_experiencia_1m"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_experiencia_1m" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_experiencia_1m"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_experiencia_1m"
+                                app:layout_constraintTop_toTopOf="@id/insignia_experiencia_1m"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_experiencia_1m"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_experiencia_1m"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 1,000,000 puntos de experiencia"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                </GridLayout>
 
             </HorizontalScrollView>
 
