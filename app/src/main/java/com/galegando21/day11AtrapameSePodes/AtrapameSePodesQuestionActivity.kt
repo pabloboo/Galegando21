@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.R
@@ -18,6 +19,7 @@ import com.galegando21.utils.setOnBackPressed
 
 class AtrapameSePodesQuestionActivity : AppCompatActivity() {
     private lateinit var stepsFragment: AtrapameSePodesStepsFragment
+    private lateinit var chanzoArribaImage: ImageView
 
     private lateinit var questionTV: TextView
     private lateinit var userAnswerText: EditText
@@ -31,6 +33,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_atrapame_se_podes_question)
 
+        chanzoArribaImage = findViewById(R.id.chanzo_arriba_text)
         questionTV = findViewById(R.id.tv_atrapame_se_podes_question)
         userAnswerText = findViewById(R.id.atrapame_se_podes_answer)
         userAnswerText.filters = arrayOf(InputFilter.AllCaps())
@@ -73,6 +76,7 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         questionCounter++
 
         if (removeAccents(userAnswerText.text.toString()).trim() == currentQuestionAtrapameSePodes.answer) {
+            chanzoArribaAnimation()
             correctAnswers++
             userAnswerText.text.clear()
             showNextQuestion()
@@ -89,5 +93,21 @@ class AtrapameSePodesQuestionActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().runOnCommit {
             stepsFragment.setStepsImage(level)
         }.commit()
+    }
+
+    private fun chanzoArribaAnimation() {
+        chanzoArribaImage.animate().apply {
+            duration = 2000
+            alpha(1f)
+            scaleXBy(5f)
+            scaleYBy(5f)
+        }.withEndAction {
+            chanzoArribaImage.animate().apply {
+                duration = 1000
+                alpha(0f)
+                scaleXBy(-5f)
+                scaleYBy(-5f)
+            }.start()
+        }
     }
 }

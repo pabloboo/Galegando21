@@ -24,6 +24,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
 
+    <ImageView
+        android:id="@+id/chanzo_arriba_text"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/chanzo_arriba_text"
+        android:alpha="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment"/>
+
     <TextView
         android:id="@+id/tv_atrapame_se_podes_question"
         android:layout_width="0dp"

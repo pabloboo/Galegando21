@@ -22,6 +22,7 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
     private lateinit var progressBar : ProgressBar
     private lateinit var textViewProgress : TextView
     private lateinit var imageView : ImageView
+    private lateinit var animacionPuntos : ImageView
     private lateinit var descriptionSolution : TextView
     private lateinit var yearSolution : Slider
     private lateinit var checkButton : Button
@@ -41,6 +42,7 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.adivinhaAnoFoto_progress_bar)
         textViewProgress = findViewById(R.id.adivinhaAnoFoto_text_view_progress)
         imageView = findViewById(R.id.adivinhaAnoFoto_foto_ImageView)
+        animacionPuntos = findViewById(R.id.adivinhaAnoFoto_pts_animacion_iv)
         descriptionSolution = findViewById(R.id.adivinhaAnoFoto_solution_description_tv)
         yearSolution = findViewById(R.id.adivinhaAnoFoto_slider)
         checkButton = findViewById(R.id.check_btn_AdivinhaAnoFoto)
@@ -110,7 +112,33 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         }
 
         // Mostrar score
-        Toast.makeText(this, "Puntuación obtida: $score", Toast.LENGTH_SHORT).show()
+        puntosAnimation(score)
         return score
+    }
+
+    private fun puntosAnimation(pts: Int) {
+        when (pts) {
+            10 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_10pts)
+            8 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_8pts)
+            6 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_6pts)
+            4 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_4pts)
+            2 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_2pts)
+            1 -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_1pts)
+            else -> animacionPuntos.setImageResource(R.drawable.adivinhar_ano_foto_0pts)
+        }
+
+        animacionPuntos.animate().apply {
+            duration = 2000
+            alpha(1f)
+            scaleXBy(1f)
+            scaleYBy(1f)
+        }.withEndAction {
+            animacionPuntos.animate().apply {
+                duration = 1000
+                alpha(0f)
+                scaleXBy(-1f)
+                scaleYBy(-1f)
+            }.start()
+        }
     }
 }
