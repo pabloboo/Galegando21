@@ -42,6 +42,35 @@
                 tools:visibility="visible"
                 android:text="Hora Dourada: dobre de puntos!"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <com.arezoo.fliptimerview.FlipTimerView
+                    android:id="@+id/flipTimerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:digitBottomDrawable="@drawable/shape_timer_bottom"
+                    app:digitTextColor="@color/text_color"
+                    app:digitTextSize="@dimen/title_font_size"
+                    app:digitTopDrawable="@drawable/shape_timer_top"
+                    app:digitWidth="40dp"
+                    app:halfDigitHeight="24dp"/>
+
+                <ImageButton
+                    android:id="@+id/helpButtonTimeLeft"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="fitCenter"
+                    android:backgroundTint="@color/white"
+                    android:padding="10dp"
+                    android:src="@drawable/help_icon"
+                    android:contentDescription="Información sobre tempo restante"/>
+            </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">

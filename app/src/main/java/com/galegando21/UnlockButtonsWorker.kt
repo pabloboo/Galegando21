@@ -17,6 +17,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
+import java.util.concurrent.TimeUnit
 
 class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
     Worker(appContext, workerParams) {
@@ -26,6 +27,9 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
         val sharedPreferences = applicationContext.getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
         val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
         sharedPreferences.edit().putInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, unlockedButtonCount + 1).apply()
+
+        val lastUnlockTime = sharedPreferences.getLong(SharedPreferencesKeys.NEXT_UNLOCK_TIME, 0)
+        sharedPreferences.edit().putLong(SharedPreferencesKeys.NEXT_UNLOCK_TIME, lastUnlockTime + TimeUnit.HOURS.toMillis(24)).apply()
 
         // Si aún no se han desbloqueado todos los botones, crear y enviar la notificación
         if (unlockedButtonCount < NUMBER_OF_DAYS) {

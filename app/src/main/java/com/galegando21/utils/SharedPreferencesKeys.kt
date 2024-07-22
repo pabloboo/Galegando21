@@ -10,6 +10,7 @@ object SharedPreferencesKeys {
     const val HAS_USER_DENIED_PERMISSIONS_BEFORE = "hasUserDeniedPermissionBefore"
     const val UNLOCKED_BUTTONS = "BotonesDesbloqueados"
     const val UNLOCKED_BUTTON_COUNT = "unlockedButtonCount"
+    const val NEXT_UNLOCK_TIME = "nextUnlockTime"
     const val STATISTICS = "statistics"
     const val CURRENT_STREAK = "current_streak"
     const val LONGEST_STREAK = "longest_streak"

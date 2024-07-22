@@ -5,10 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
@@ -17,11 +21,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.arezoo.fliptimerview.FlipTimerDigitView
+import com.arezoo.fliptimerview.FlipTimerView
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day11AtrapameSePodes.AtrapameSePodesInicioActivity
 import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
@@ -55,6 +63,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var goldenHourTextView: TextView
+    private lateinit var flipTimerView: FlipTimerView
+    private lateinit var helpButtonTimeLeft: ImageButton
     private lateinit var day01Button: ImageButton
     private lateinit var day02Button: ImageButton
     private lateinit var day03Button: ImageButton
@@ -102,8 +112,18 @@ class MainActivity : AppCompatActivity() {
             ExistingPeriodicWorkPolicy.KEEP, // Esta política determina qué hacer si ya existe un trabajo periódico con el mismo nombre. KEEP significa que se mantendrá el trabajo existente y se ignorará el nuevo trabajo.
             unlockButtonsWorkRequest
         )
+        // guardar la hora de la primera vez que se ejecuta el worker
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val firstUnlockTime = sharedPreferences.getLong(SharedPreferencesKeys.NEXT_UNLOCK_TIME, 0)
+        if (firstUnlockTime == 0L) {
+            editor.putLong(SharedPreferencesKeys.NEXT_UNLOCK_TIME, System.currentTimeMillis()+TimeUnit.HOURS.toMillis(24))
+            editor.apply()
+        }
 
         goldenHourTextView = findViewById(R.id.goldenHourTextView)
+        flipTimerView = findViewById(R.id.flipTimerView)
+        helpButtonTimeLeft = findViewById(R.id.helpButtonTimeLeft)
         day01Button = findViewById(R.id.btnDay1)
         day02Button = findViewById(R.id.btnDay2)
         day03Button = findViewById(R.id.btnDay3)
@@ -129,6 +149,12 @@ class MainActivity : AppCompatActivity() {
         setBanner(this, R.string.app_name)
 
         setGoldenHourTextView()
+
+        setTimeLeftTextView()
+
+        helpButtonTimeLeft.setOnClickListener {
+            showHelpTimeLeftDialog()
+        }
 
         day01Button.setOnClickListener {
             Intent(this@MainActivity, PasagalegoInicioActivity::class.java). also {
@@ -182,6 +208,40 @@ class MainActivity : AppCompatActivity() {
         if (currentHour in 19..20) {
             goldenHourTextView.visibility = View.VISIBLE
         }
+    }
+
+    private fun setTimeLeftTextView() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, MODE_PRIVATE)
+
+        // Si ya se han desbloqueado todos los botones, no se muestra el temporizador
+        val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
+        if (unlockedButtonCount == NUMBER_OF_DAYS) {
+            flipTimerView.visibility = View.GONE
+            helpButtonTimeLeft.visibility = View.GONE
+            return
+        }
+
+        val nextUnlockTime = sharedPreferences.getLong(SharedPreferencesKeys.NEXT_UNLOCK_TIME, 0)
+        val currentTime = System.currentTimeMillis()
+        val timeLeft = nextUnlockTime - currentTime
+
+        flipTimerView.findViewById<FlipTimerDigitView>(com.arezoo.fliptimerview.R.id.digitDays).visibility = View.GONE
+        flipTimerView.findViewById<AppCompatTextView>(com.arezoo.fliptimerview.R.id.colonDivider1).visibility = View.GONE
+        flipTimerView.findViewById<TextView>(com.arezoo.fliptimerview.R.id.dayTextView).visibility = View.GONE
+        flipTimerView.findViewById<TextView>(com.arezoo.fliptimerview.R.id.hourTextView).visibility = View.GONE
+        flipTimerView.findViewById<TextView>(com.arezoo.fliptimerview.R.id.minuteTextView).visibility = View.GONE
+        flipTimerView.findViewById<TextView>(com.arezoo.fliptimerview.R.id.secondTextView).visibility = View.GONE
+        flipTimerView.startCountDown(timeLeft)
+    }
+
+    private fun showHelpTimeLeftDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Tempo restante")
+            .setMessage("Horas restantes para desbloquear un novo xogo.\n\nDesbloquease novo contido cada 24 horas.")
+            .setPositiveButton("Cerrar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     private fun buttonsInitialState() {
