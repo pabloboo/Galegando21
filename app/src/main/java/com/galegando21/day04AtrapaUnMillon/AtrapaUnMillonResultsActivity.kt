@@ -11,13 +11,17 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AtrapaUnMillonConstants
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class AtrapaUnMillonResultsActivity : AppCompatActivity() {
     private lateinit var atrapaUnMillonResultsTv : TextView
+    private lateinit var atrapaUnMillonRecordTv: TextView
+    private lateinit var atrapaUnMillonShareButton: Button
     private lateinit var atrapaUnMillonFinishButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,8 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_atrapa_un_millon_results)
 
         atrapaUnMillonResultsTv = findViewById(R.id.atrapa_un_millon_results_textView)
+        atrapaUnMillonRecordTv = findViewById(R.id.atrapa_un_millon_record_textView)
+        atrapaUnMillonShareButton = findViewById(R.id.atrapa_un_millon_share_btn)
         atrapaUnMillonFinishButton = findViewById(R.id.atrapa_un_millon_finish_btn)
 
         setBanner(this, R.string.atrapa_un_millon)
@@ -36,6 +42,11 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
             atrapaUnMillonResultsTv.text = "Parabéns! gañaches unha cantidade \n total de $cash€"
         }
 
+        atrapaUnMillonShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
+
         atrapaUnMillonFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
                 startActivity(it)
@@ -44,6 +55,9 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         }
 
         changeAtrapaUnMillonStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0)
+        atrapaUnMillonRecordTv.text = "O teu récord é de $record€"
 
         setOnBackPressed(this, AtrapaUnMillonInicioActivity::class.java)
     }

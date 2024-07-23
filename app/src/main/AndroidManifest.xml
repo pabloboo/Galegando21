@@ -27,6 +27,16 @@
                 android:resource="@xml/statistics_widget_info" />
         </receiver>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.galegando21.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name=".day18PalabrasEncadeadas.PalabrasEncadeadasResultsActivity"
             android:exported="false"

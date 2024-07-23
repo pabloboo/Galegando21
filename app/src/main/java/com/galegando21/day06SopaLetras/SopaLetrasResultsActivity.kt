@@ -13,15 +13,19 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.SopaLetrasConstants
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class SopaLetrasResultsActivity : AppCompatActivity() {
     private lateinit var SopaLetrasCorrectAnswersResultTv : TextView
     private lateinit var SopaLetrasResultsTv : TextView
+    private lateinit var SopaLetrasRecordTv : TextView
     private lateinit var helpImageButton: ImageButton
+    private lateinit var SopaLetrasShareButton: Button
     private lateinit var SopaLetrasFinishButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +34,9 @@ class SopaLetrasResultsActivity : AppCompatActivity() {
 
         SopaLetrasCorrectAnswersResultTv = findViewById(R.id.sopa_letras_correct_answers_results_text_view)
         SopaLetrasResultsTv = findViewById(R.id.sopa_letras_result_tv)
+        SopaLetrasRecordTv = findViewById(R.id.sopa_letras_record_tv)
         helpImageButton = findViewById(R.id.helpButtonSopaLetrasResults)
+        SopaLetrasShareButton = findViewById(R.id.sopa_letras_share_btn)
         SopaLetrasFinishButton = findViewById(R.id.sopa_letras_finish_btn)
 
         setBanner(this, R.string.sopa_de_letras)
@@ -38,10 +44,15 @@ class SopaLetrasResultsActivity : AppCompatActivity() {
         val score = intent.getIntExtra(SopaLetrasConstants.SCORE, 0)
         val tableirosAcertados = intent.getIntExtra(SopaLetrasConstants.TABLEIROS_ACERTADOS, 0)
         SopaLetrasCorrectAnswersResultTv.text = score.toString()
-        SopaLetrasResultsTv.text = "Conseguiches un total de $score puntos, adiviñando un total de $tableirosAcertados tableiros."
+        SopaLetrasResultsTv.text = "Conseguiches un total de $score puntos, adiviñando $tableirosAcertados tableiros."
 
         helpImageButton.setOnClickListener {
             showHelpDialog()
+        }
+
+        SopaLetrasShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
         }
 
         SopaLetrasFinishButton.setOnClickListener {
@@ -52,6 +63,9 @@ class SopaLetrasResultsActivity : AppCompatActivity() {
         }
 
         changeSopaLetrasStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.SOPA_LETRAS_MAX_SCORE, 0)
+        SopaLetrasRecordTv.text = "O teu récord é de $record puntos"
 
         setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
     }

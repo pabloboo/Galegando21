@@ -101,22 +101,36 @@
         android:id="@+id/pasagalego_result2_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fai unha captura e comparteo \n na túa red social favorita"
+        tools:text="O teu record no pasagalego son 20 acertos en 1:23 minutos."
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/pasagalego_finish_btn"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <Button
-        android:id="@+id/pasagalego_finish_btn"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryBlue"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pasagalego_result2_tv"
-        android:text="Finalizar" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        <Button
+            android:id="@+id/pasagalego_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+
+        <Button
+            android:id="@+id/pasagalego_finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryBlue"
+            android:layout_marginLeft="20dp"
+            android:text="Finalizar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

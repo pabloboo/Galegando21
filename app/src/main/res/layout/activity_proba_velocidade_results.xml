@@ -40,21 +40,45 @@
         android:id="@+id/proba_velocidade_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/proba_velocidade_finish_btn"
+        app:layout_constraintBottom_toTopOf="@+id/proba_velocidade_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_correct_answers_results_text_view"
         tools:text="Tardaches un total de 230 segundos" />
 
-    <Button
-        android:id="@+id/proba_velocidade_finish_btn"
+    <TextView
+        android:id="@+id/proba_velocidade_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/proba_velocidade_results_btns_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_result_tv"
-        android:text="Finalizar" />
+        tools:text="Tardaches un total de 230 segundos" />
+
+    <LinearLayout
+        android:id="@+id/proba_velocidade_results_btns_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_record_tv">
+        <Button
+            android:id="@+id/proba_velocidade_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+        <Button
+            android:id="@+id/proba_velocidade_finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Finalizar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

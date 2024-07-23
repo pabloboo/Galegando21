@@ -4,21 +4,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class RuletaDaSorteResultsActivity : AppCompatActivity() {
     private lateinit var ruletaDaSorteCashResultTv : TextView
     private lateinit var ruletaDaSorteResultsTv : TextView
-    private lateinit var ruletaDaSorteFinishButton: TextView
+    private lateinit var ruletaDaSorteRecordTv : TextView
+    private lateinit var ruletaDaSorteShareButton : Button
+    private lateinit var ruletaDaSorteFinishButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,8 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
 
         ruletaDaSorteCashResultTv = findViewById(R.id.ruleta_sorte_cash_results_text_view)
         ruletaDaSorteResultsTv = findViewById(R.id.ruleta_sorte_result_tv)
+        ruletaDaSorteRecordTv = findViewById(R.id.ruleta_sorte_record_tv)
+        ruletaDaSorteShareButton = findViewById(R.id.ruleta_sorte_share_btn)
         ruletaDaSorteFinishButton = findViewById(R.id.ruleta_sorte_finish_btn)
 
         setBanner(this, R.string.ruleta_da_sorte)
@@ -35,6 +42,11 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
         ruletaDaSorteCashResultTv.text = cash.toString()
         ruletaDaSorteResultsTv.text = "Gañaches un total de $cash€."
 
+        ruletaDaSorteShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
+
         ruletaDaSorteFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
                 startActivity(it)
@@ -43,6 +55,9 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
         }
 
         changeRuletaDaSorteStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)
+        ruletaDaSorteRecordTv.text = "O teu récord é de $record€"
     }
 
     private fun changeRuletaDaSorteStatistics() {

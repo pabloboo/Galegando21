@@ -39,21 +39,45 @@
         android:id="@+id/adivinhaAnoFoto_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_finish_btn"
+        app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
         tools:text="Conseguiches un total de 50 puntos" />
 
-    <Button
-        android:id="@+id/adivinhaAnoFoto_finish_btn"
+    <TextView
+        android:id="@+id/adivinhaAnoFoto_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryBlue"
+        app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_results_buttons_ll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
+        tools:text="O teu récord é de 50 puntos" />
+
+    <LinearLayout
+        android:id="@+id/adivinhaAnoFoto_results_buttons_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
-        android:text="Finalizar" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/adivinhaAnoFoto_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+        <Button
+            android:id="@+id/adivinhaAnoFoto_finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryBlue"
+            android:layout_marginLeft="20dp"
+            android:text="Finalizar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,14 +10,18 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class ProbaVelocidadeResultsActivity : AppCompatActivity() {
     private lateinit var probaVelocidadeCorrectAnswersResultTv : TextView
     private lateinit var probaVelocidadeResultsTv : TextView
+    private lateinit var probaVelocidadeRecordTv: TextView
+    private lateinit var probaVelocidadeShareButton: TextView
     private lateinit var probaVelocidadeFinishButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,8 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
 
         probaVelocidadeCorrectAnswersResultTv = findViewById(R.id.proba_velocidade_correct_answers_results_text_view)
         probaVelocidadeResultsTv = findViewById(R.id.proba_velocidade_result_tv)
+        probaVelocidadeRecordTv = findViewById(R.id.proba_velocidade_record_tv)
+        probaVelocidadeShareButton = findViewById(R.id.proba_velocidade_share_btn)
         probaVelocidadeFinishButton = findViewById(R.id.proba_velocidade_finish_btn)
 
         setBanner(this, R.string.proba_velocidade)
@@ -35,6 +41,11 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
         probaVelocidadeCorrectAnswersResultTv.text = score.toString()
         probaVelocidadeResultsTv.text = "Tardaches un total de $score segundos."
 
+        probaVelocidadeShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
+
         probaVelocidadeFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
                 startActivity(it)
@@ -43,6 +54,9 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
         }
 
         changeProbaVelocidadeStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0)
+        probaVelocidadeRecordTv.text = "O teu récord é de $record segundos."
     }
 
     private fun changeProbaVelocidadeStatistics() {

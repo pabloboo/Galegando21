@@ -11,14 +11,18 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.AdivinhaPersonaxeConstants
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
     private lateinit var AdivinhaPersonaxeCorrectAnswersResultTv : TextView
     private lateinit var AdivinhaPersonaxeResultsTv : TextView
+    private lateinit var AdivinhaPersonaxeRecordTv : TextView
+    private lateinit var AdivinhaPersonaxeShareButton : Button
     private lateinit var AdivinhaPersonaxeFinishButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +31,8 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
 
         AdivinhaPersonaxeCorrectAnswersResultTv = findViewById(R.id.adivinha_personaxe_correct_answers_results_text_view)
         AdivinhaPersonaxeResultsTv = findViewById(R.id.adivinha_personaxe_result_tv)
+        AdivinhaPersonaxeRecordTv = findViewById(R.id.adivinha_personaxe_record_tv)
+        AdivinhaPersonaxeShareButton = findViewById(R.id.adivinha_personaxe_share_btn)
         AdivinhaPersonaxeFinishButton = findViewById(R.id.adivinha_personaxe_finish_btn)
 
         setBanner(this, R.string.adivinha_o_personaxe)
@@ -39,6 +45,11 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
             AdivinhaPersonaxeResultsTv.text = "Intentao de novo!"
         }
 
+        AdivinhaPersonaxeShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
+
         AdivinhaPersonaxeFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
                 startActivity(it)
@@ -48,6 +59,11 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
 
         if (score != 0) {
             changeAdivinhaPersonaxeStatistics()
+        }
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ADIVINHA_PERSONAXE_MAX_SCORE, Int.MAX_VALUE)
+        if (record != Int.MAX_VALUE) {
+            AdivinhaPersonaxeRecordTv.text = "No teu récord necesitaches $record pistas."
         }
 
         setOnBackPressed(this, AdivinhaPersonaxeInicioActivity::class.java)

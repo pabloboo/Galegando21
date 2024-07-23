@@ -10,14 +10,18 @@ import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class AnagramasResultsActivity : AppCompatActivity() {
     private lateinit var AnagramasCorrectAnswersResultTv : TextView
     private lateinit var AnagramasResultsTv : TextView
+    private lateinit var AnagramasRecordTv : TextView
+    private lateinit var AnagramasShareButton : Button
     private lateinit var AnagramasFinishButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +29,8 @@ class AnagramasResultsActivity : AppCompatActivity() {
 
         AnagramasCorrectAnswersResultTv = findViewById(R.id.anagramas_correct_answers_results_text_view)
         AnagramasResultsTv = findViewById(R.id.anagramas_result_tv)
+        AnagramasRecordTv = findViewById(R.id.anagramas_record_tv)
+        AnagramasShareButton = findViewById(R.id.anagramas_share_btn)
         AnagramasFinishButton = findViewById(R.id.anagramas_finish_btn)
 
         setBanner(this, R.string.anagramas)
@@ -32,6 +38,11 @@ class AnagramasResultsActivity : AppCompatActivity() {
         val score = intent.getIntExtra("ANAGRAMAS_SCORE", 0)
         AnagramasCorrectAnswersResultTv.text = score.toString()
         AnagramasResultsTv.text = "Acertaches un total de $score anagramas seguidos."
+
+        AnagramasShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
 
         AnagramasFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
@@ -41,6 +52,16 @@ class AnagramasResultsActivity : AppCompatActivity() {
         }
 
         changeAnagramasStatistics()
+
+        val modo = intent.getStringExtra("modo") ?: "facil"
+        val maxScoreKey =
+            when (modo) {
+                "facil" -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY
+                "dificil" -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_DIFICULT
+                else -> SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY
+            }
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(maxScoreKey, 0)
+        AnagramasRecordTv.text = "O teu récord é de $record anagramas."
 
         setOnBackPressed(this, AnagramasInicioActivity::class.java)
     }

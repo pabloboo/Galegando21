@@ -40,22 +40,47 @@
         android:id="@+id/agora_caigo_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_finish_btn"
+        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agora_caigo_correct_answers_results_icon"
         tools:text="Acertaches un total de 23 preguntas"
         android:contentDescription="Texto completo do resultado do xogo agora caio"/>
 
-    <Button
-        android:id="@+id/agora_caigo_finish_btn"
+    <TextView
+        android:id="@+id/agora_caigo_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_results_btns_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agora_caigo_result_tv"
-        android:text="Finalizar" />
+        tools:text="O teu récord é de 30 preguntas"
+        android:contentDescription="Texto completo do record do xogo agora caio"/>
+
+    <LinearLayout
+        android:id="@+id/agora_caigo_results_btns_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_record_tv">
+        <Button
+            android:id="@+id/agora_caigo_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+        <Button
+            android:id="@+id/agora_caigo_finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Finalizar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,14 +9,18 @@ import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class OndeEstanResultsActivity : AppCompatActivity() {
     private lateinit var ondeEstanCorrectAnswersResultTv : TextView
     private lateinit var ondeEstanResultsTv : TextView
+    private lateinit var ondeEstanRecordTv: TextView
+    private lateinit var ondeEstanShareButton: TextView
     private lateinit var ondeEstanFinishButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,8 @@ class OndeEstanResultsActivity : AppCompatActivity() {
 
         ondeEstanCorrectAnswersResultTv = findViewById(R.id.onde_estan_correct_answers_results_text_view)
         ondeEstanResultsTv = findViewById(R.id.onde_estan_result_tv)
+        ondeEstanRecordTv = findViewById(R.id.onde_estan_record_tv)
+        ondeEstanShareButton = findViewById(R.id.onde_estan_share_btn)
         ondeEstanFinishButton = findViewById(R.id.onde_estan_finish_btn)
 
         setBanner(this, R.string.onde_estan)
@@ -45,7 +51,15 @@ class OndeEstanResultsActivity : AppCompatActivity() {
             }
         }
 
+        ondeEstanShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
+
         changeOndeEstanStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ONDE_ESTAN_MIN_TIME, 0)
+        ondeEstanRecordTv.text = "O teu récord é de $record segundos"
     }
 
     private fun changeOndeEstanStatistics() {

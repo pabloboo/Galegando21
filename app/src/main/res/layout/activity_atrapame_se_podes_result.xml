@@ -28,21 +28,46 @@
         android:id="@+id/atrapame_se_podes_result_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/atrapame_se_podes_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_level_fragment_container_result"
         tools:text="Acertaches un total de 14 palabras" />
 
-    <Button
-        android:id="@+id/atrapame_se_podes_finish_btn"
+    <TextView
+        android:id="@+id/atrapame_se_podes_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondaryBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/atrapame_se_podes_results_btns_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_result_tv"
-        android:text="Finalizar" />
+        tools:text="No teu record necesitaches 5 preguntas para subir 5 escalóns" />
+
+    <LinearLayout
+        android:id="@+id/atrapame_se_podes_results_btns_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atrapame_se_podes_record_tv">
+        <Button
+            android:id="@+id/atrapame_se_podes_share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+        <Button
+            android:id="@+id/atrapame_se_podes_finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/secondaryBlue"
+            android:text="Finalizar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,19 @@
 package com.galegando21.utils
+
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.CountDownTimer
+import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import com.galegando21.BannerFragment
 import com.galegando21.R
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 import java.text.Normalizer
 import java.util.Calendar
 
@@ -120,4 +128,46 @@ fun removeAccents(input: String): String {
     val normalized = Normalizer.normalize(input, Normalizer.Form.NFD)
     val accentRemoved = Regex("(?![ñÑ])[\\u0300-\\u036F]").replace(normalized, "")
     return accentRemoved.replace("ñ", "ñ").replace("Ñ", "Ñ")
+}
+
+// Funciones para compartir resultados
+fun screenShot(view: View): Bitmap? {
+    view.setBackgroundColor(android.graphics.Color.WHITE)
+    val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    view.draw(canvas)
+    return bitmap
+}
+
+fun shareScreenshot(bitmap: Bitmap?, activity: AppCompatActivity) {
+    if (bitmap != null) {
+        try {
+            // Crear un archivo para escribir los datos de la imagen
+            val file = File(activity.getExternalFilesDir(null), "resultados_galegando21.jpg")
+            file.createNewFile()
+
+            // Convertir bitmap a bytes
+            val bos = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos)
+            val bitmapdata = bos.toByteArray()
+
+            // Escribir los bytes en el archivo
+            val fos = FileOutputStream(file)
+            fos.write(bitmapdata)
+            fos.flush()
+            fos.close()
+
+            // Obtener la URI del archivo
+            val fileUri = FileProvider.getUriForFile(activity, "com.galegando21.provider", file)
+
+            // Compartir la imagen
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "image/jpeg"
+            shareIntent.putExtra(Intent.EXTRA_STREAM, fileUri)
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            activity.startActivity(Intent.createChooser(shareIntent, "Compartir en..."))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }

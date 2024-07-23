@@ -10,14 +10,18 @@ import android.widget.Toast
 import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class ExplosionPalabrasResultsActivity : AppCompatActivity() {
     private lateinit var ExplosionPalabrasCorrectAnswersResultTv : TextView
     private lateinit var ExplosionPalabrasResultsTv : TextView
+    private lateinit var ExplosionPalabrasRecordTv : TextView
+    private lateinit var ExplosionPalabrasShareButton : Button
     private lateinit var ExplosionPalabrasFinishButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,8 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
 
         ExplosionPalabrasCorrectAnswersResultTv = findViewById(R.id.explosion_palabras_correct_answers_results_text_view)
         ExplosionPalabrasResultsTv = findViewById(R.id.explosion_palabras_result_tv)
+        ExplosionPalabrasRecordTv = findViewById(R.id.explosion_palabras_record_tv)
+        ExplosionPalabrasShareButton = findViewById(R.id.explosion_palabras_share_btn)
         ExplosionPalabrasFinishButton = findViewById(R.id.explosion_palabras_finish_btn)
 
         setBanner(this, R.string.explosion_de_palabras)
@@ -33,6 +39,11 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
         val score = intent.getIntExtra("PUNTOS_EXPLOSION_PALABRAS", 0)
         ExplosionPalabrasCorrectAnswersResultTv.text = score.toString()
         ExplosionPalabrasResultsTv.text = "Conseguiches $score puntos."
+
+        ExplosionPalabrasShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
 
         ExplosionPalabrasFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
@@ -42,6 +53,15 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
         }
 
         changeExplosionPalabrasStatistics()
+
+        val dificultade = intent.getStringExtra("dificultade") ?: "facil"
+        val maxScoreKey = when (dificultade) {
+            "facil" -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY
+            "dificil" -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_DIFICULT
+            else -> SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY
+        }
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(maxScoreKey, 0)
+        ExplosionPalabrasRecordTv.text = "O teu récord é de $record puntos."
 
         setOnBackPressed(this, ExplosionPalabrasInicioActivity::class.java)
     }

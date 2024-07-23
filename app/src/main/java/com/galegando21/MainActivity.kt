@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
 import com.galegando21.day21RecursosGalego.RecursosGalegoActivity
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var goldenHourTextView: TextView
+    private lateinit var flipTimerLayout: LinearLayout
     private lateinit var flipTimerView: FlipTimerView
     private lateinit var helpButtonTimeLeft: ImageButton
     private lateinit var day01Button: ImageButton
@@ -122,6 +124,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         goldenHourTextView = findViewById(R.id.goldenHourTextView)
+        flipTimerLayout = findViewById(R.id.flipTimerLayout)
         flipTimerView = findViewById(R.id.flipTimerView)
         helpButtonTimeLeft = findViewById(R.id.helpButtonTimeLeft)
         day01Button = findViewById(R.id.btnDay1)
@@ -216,6 +219,7 @@ class MainActivity : AppCompatActivity() {
         // Si ya se han desbloqueado todos los botones, no se muestra el temporizador
         val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
         if (unlockedButtonCount == NUMBER_OF_DAYS) {
+            flipTimerLayout.visibility = View.GONE
             flipTimerView.visibility = View.GONE
             helpButtonTimeLeft.visibility = View.GONE
             return

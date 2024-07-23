@@ -11,14 +11,18 @@ import com.galegando21.MainActivity
 import com.galegando21.R
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.VerdadeOuMentiraConstants
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
     private lateinit var verdadeOuMentiraCorrectAnswersResultTv : TextView
     private lateinit var verdadeOuMentiraResultsTv : TextView
+    private lateinit var verdadeOuMentiraRecordTv: TextView
+    private lateinit var verdadeOuMentiraShareButton: Button
     private lateinit var verdadeOuMentiraFinishButton: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +30,8 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
 
         verdadeOuMentiraCorrectAnswersResultTv = findViewById(R.id.verdade_ou_mentira_correct_answers_results_text_view)
         verdadeOuMentiraResultsTv = findViewById(R.id.verdade_ou_mentira_result_tv)
+        verdadeOuMentiraRecordTv = findViewById(R.id.verdade_ou_mentira_record_tv)
+        verdadeOuMentiraShareButton = findViewById(R.id.verdade_ou_mentira_share_btn)
         verdadeOuMentiraFinishButton = findViewById(R.id.verdade_ou_mentira_finish_btn)
 
         setBanner(this, R.string.verdadeOuMentira)
@@ -33,6 +39,11 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
         val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
         verdadeOuMentiraCorrectAnswersResultTv.text = score.toString()
         verdadeOuMentiraResultsTv.text = "Acertaches un total de $score preguntas seguidas."
+
+        verdadeOuMentiraShareButton.setOnClickListener {
+            val bitmap = screenShot(window.decorView.rootView)
+            shareScreenshot(bitmap, this)
+        }
 
         verdadeOuMentiraFinishButton.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
@@ -42,6 +53,9 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
         }
 
         changeVerdadeOuMentiraStatistics()
+
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0)
+        verdadeOuMentiraRecordTv.text = "O teu récord é de $record preguntas."
 
         setOnBackPressed(this, VerdadeOuMentiraInicioActivity::class.java)
     }
