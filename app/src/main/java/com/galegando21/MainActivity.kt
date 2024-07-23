@@ -93,13 +93,13 @@ class MainActivity : AppCompatActivity() {
     private var backPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        checkIsOnboardingCompleted()
+
         setTheme(R.style.Theme_Galegando21)
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        checkIsOnboardingCompleted()
 
         // Comprobar si ya se ha concedido el permiso
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
