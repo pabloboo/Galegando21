@@ -57,6 +57,9 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, 0)
         probaVelocidadeRecordTv.text = "O teu récord é de $record segundos."
+        if (record > 40) {
+            probaVelocidadeRecordTv.text = "O teu récord é de $record segundos.\n\nCompletao en menos de 40 segundos para conseguir unha insignia!"
+        }
     }
 
     private fun changeProbaVelocidadeStatistics() {

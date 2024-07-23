@@ -14,6 +14,27 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/atrapa_1m_correct_answers_results_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_atrapa_1m"
+        app:layout_constraintBottom_toTopOf="@+id/atrapa_un_millon_results_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
+
+    <TextView
+        android:id="@+id/atrapa_un_millon_short_result_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
+        app:layout_constraintEnd_toEndOf="@+id/atrapa_1m_correct_answers_results_icon"
+        app:layout_constraintStart_toStartOf="@+id/atrapa_1m_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
+        tools:text="650000€" />
+
     <TextView
         android:id="@+id/atrapa_un_millon_results_textView"
         android:layout_width="wrap_content"
@@ -23,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_record_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_short_result_text_view"
         tools:text="Parabéns! gañaches unha cantidade \n total de 650000€"
         android:contentDescription="Resultado atrapa un millón"/>
 

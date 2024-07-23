@@ -39,7 +39,7 @@ class XogoPalabrasResultsActivity : AppCompatActivity() {
         setBanner(this, R.string.xogo_de_palabras)
 
         val score = intent.getFloatExtra("PORCENTAXE_ACERTO", 0F)
-        XogoPalabrasCorrectAnswersResultTv.text = score.toString()
+        XogoPalabrasCorrectAnswersResultTv.text = score.toString()+"%"
         XogoPalabrasResultsTv.text = "Conseguiches o $score% da puntuación máxima."
 
         val palabrasRestantes = intent.getStringExtra("PALABRAS_RESTANTES")
@@ -61,6 +61,9 @@ class XogoPalabrasResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getFloat(SharedPreferencesKeys.XOGO_PALABRAS_MAX_SCORE, 0F)
         RecordTv.text = "Conseguiches o $record% da puntuación máxima no teu mellor intento."
+        if (score != 100F) {
+            RecordTv.text = "Conseguiches o $score% da puntuación máxima no teu mellor intento.\n\nObtén o 100% para conseguir unha insignia!."
+        }
 
         setOnBackPressed(this, XogoPalabrasInicioActivity::class.java)
     }

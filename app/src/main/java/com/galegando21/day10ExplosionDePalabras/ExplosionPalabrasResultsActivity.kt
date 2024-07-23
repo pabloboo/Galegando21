@@ -62,6 +62,9 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
         }
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(maxScoreKey, 0)
         ExplosionPalabrasRecordTv.text = "O teu récord é de $record puntos."
+        if (record < 100) {
+            ExplosionPalabrasRecordTv.text = "O teu récord é de $record puntos.\n\nObtén 100 puntos para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, ExplosionPalabrasInicioActivity::class.java)
     }

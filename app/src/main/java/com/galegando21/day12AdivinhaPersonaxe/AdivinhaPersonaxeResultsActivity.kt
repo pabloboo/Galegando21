@@ -64,6 +64,9 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ADIVINHA_PERSONAXE_MAX_SCORE, Int.MAX_VALUE)
         if (record != Int.MAX_VALUE) {
             AdivinhaPersonaxeRecordTv.text = "No teu récord necesitaches $record pistas."
+            if (record > 2) {
+                AdivinhaPersonaxeRecordTv.text = "No teu récord necesitaches $record pistas.\n\nUsa só 2 pistas para obter unha insignia!"
+            }
         }
 
         setOnBackPressed(this, AdivinhaPersonaxeInicioActivity::class.java)

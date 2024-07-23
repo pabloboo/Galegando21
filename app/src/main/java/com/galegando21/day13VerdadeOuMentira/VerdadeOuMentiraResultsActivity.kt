@@ -56,6 +56,9 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, 0)
         verdadeOuMentiraRecordTv.text = "O teu récord é de $record preguntas."
+        if (record < 30) {
+            verdadeOuMentiraRecordTv.text = "O teu récord é de $record preguntas.\n\nResponde 30 preguntas seguidas para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, VerdadeOuMentiraInicioActivity::class.java)
     }

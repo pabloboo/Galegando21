@@ -14,6 +14,16 @@
         android:layout_gravity="top"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/debuxa_e_adivinha_iv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_debuxa_e_adivinha"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/debuxa_e_adivinha_description_tv"/>
+
     <TextView
         android:id="@+id/debuxa_e_adivinha_description_tv"
         android:layout_width="0dp"
@@ -24,7 +34,7 @@
         app:layout_constraintBottom_toTopOf="@id/start_btn_debuxa_e_adivinha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/debuxa_e_adivinha_iv" />
 
     <Button
         android:id="@+id/start_btn_debuxa_e_adivinha"

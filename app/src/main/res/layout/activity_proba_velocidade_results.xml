@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/proba_velocidade_correct_answers_results_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/timer_icon_black"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_proba_velocidade"
         app:layout_constraintBottom_toTopOf="@id/proba_velocidade_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +50,7 @@
         android:id="@+id/proba_velocidade_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/proba_velocidade_results_btns_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

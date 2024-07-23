@@ -56,6 +56,9 @@ class PalabrasEncadeadasResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.PALABRAS_ENCADEADAS_MAX_SCORE, 0)
         PalabrasEncadeadasRecordTv.text = "O teu récord é de $record palabras."
+        if (record < 20) {
+            PalabrasEncadeadasRecordTv.text = "O teu récord é de $record palabras.\n\nEncadea 20 palabras para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, PalabrasEncadeadasInicioActivity::class.java)
     }

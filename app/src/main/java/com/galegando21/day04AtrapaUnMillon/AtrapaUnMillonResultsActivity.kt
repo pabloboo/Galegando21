@@ -19,6 +19,7 @@ import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class AtrapaUnMillonResultsActivity : AppCompatActivity() {
+    private lateinit var atrapaUnMillonShortResult: TextView
     private lateinit var atrapaUnMillonResultsTv : TextView
     private lateinit var atrapaUnMillonRecordTv: TextView
     private lateinit var atrapaUnMillonShareButton: Button
@@ -28,6 +29,7 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_atrapa_un_millon_results)
 
+        atrapaUnMillonShortResult = findViewById(R.id.atrapa_un_millon_short_result_text_view)
         atrapaUnMillonResultsTv = findViewById(R.id.atrapa_un_millon_results_textView)
         atrapaUnMillonRecordTv = findViewById(R.id.atrapa_un_millon_record_textView)
         atrapaUnMillonShareButton = findViewById(R.id.atrapa_un_millon_share_btn)
@@ -36,6 +38,7 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         setBanner(this, R.string.atrapa_un_millon)
 
         val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0).toString()
+        atrapaUnMillonShortResult.text = "$cash€"
         if (cash.toInt() == 0) {
             atrapaUnMillonResultsTv.text = "Non gañaches nada. \n Mellor sorte a próxima vez!"
         } else {
@@ -58,6 +61,9 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, 0)
         atrapaUnMillonRecordTv.text = "O teu récord é de $record€"
+        if (record != 1000000) {
+            atrapaUnMillonRecordTv.text = "O teu récord é de $record€.\n\nObtén 1.000.000€ para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AtrapaUnMillonInicioActivity::class.java)
     }

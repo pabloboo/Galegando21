@@ -62,6 +62,9 @@ class AnagramasResultsActivity : AppCompatActivity() {
             }
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(maxScoreKey, 0)
         AnagramasRecordTv.text = "O teu récord é de $record anagramas."
+        if (modo == "dificil" && record < 20) {
+            AnagramasRecordTv.text = "O teu récord é de $record anagramas.\n\nAcerta 20 anagramas para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AnagramasInicioActivity::class.java)
     }

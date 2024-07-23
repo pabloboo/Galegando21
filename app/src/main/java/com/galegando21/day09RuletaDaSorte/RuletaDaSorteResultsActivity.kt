@@ -58,6 +58,9 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, 0)
         ruletaDaSorteRecordTv.text = "O teu récord é de $record€"
+        if (record < 4000) {
+            ruletaDaSorteRecordTv.text = "O teu récord é de $record€.\n\nObtén 4000€ para conseguir unha insignia!"
+        }
     }
 
     private fun changeRuletaDaSorteStatistics() {

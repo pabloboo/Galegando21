@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/onde_estan_correct_answers_results_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/timer_icon_black"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_onde_estan"
         app:layout_constraintBottom_toTopOf="@+id/onde_estan_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="35sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/onde_estan_correct_answers_results_icon"
         app:layout_constraintEnd_toEndOf="@+id/onde_estan_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/onde_estan_correct_answers_results_icon"
@@ -49,6 +50,7 @@
         android:id="@+id/onde_estan_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/onde_estan_results_buttons_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onde_estan_result_tv">
+        app:layout_constraintTop_toBottomOf="@+id/onde_estan_record_tv">
         <Button
             android:id="@+id/onde_estan_share_btn"
             android:layout_width="wrap_content"

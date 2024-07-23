@@ -56,6 +56,9 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ADIVINHA_ESCUDO_MAX_SCORE, 0)
         AdivinhaEscudoRecordTv.text = "O teu récord é de $record preguntas."
+        if (record < 10) {
+            AdivinhaEscudoRecordTv.text = "O teu récord é de $record preguntas.\n\nAcerta todos os escudos para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AdivinhaEscudoInicioActivity::class.java)
     }

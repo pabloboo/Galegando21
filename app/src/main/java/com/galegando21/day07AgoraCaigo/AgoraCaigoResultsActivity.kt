@@ -56,6 +56,9 @@ class AgoraCaigoResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.AGORA_CAIGO_MAX_SCORE, 0)
         AgoraCaigoRecordTv.text = "O teu récord é de $record preguntas"
+        if (record < 50) {
+            AgoraCaigoRecordTv.text = "O teu récord é de $record preguntas.\n\nAcerta 50 preguntas para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AgoraCaigoInicioActivity::class.java)
     }

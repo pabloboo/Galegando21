@@ -60,6 +60,9 @@ class OndeEstanResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ONDE_ESTAN_MIN_TIME, 0)
         ondeEstanRecordTv.text = "O teu récord é de $record segundos"
+        if (record > 20) {
+            ondeEstanRecordTv.text = "O teu récord é de $record segundos.\n\nSuperao en menos de 20 segundos para conseguir unha insignia!"
+        }
     }
 
     private fun changeOndeEstanStatistics() {

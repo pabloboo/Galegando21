@@ -56,6 +56,9 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, 0)
         AdivinhaAnoFotoRecordTv.text = "O teu récord é de $record puntos."
+        if (record != 50) {
+            AdivinhaAnoFotoRecordTv.text = "O teu récord é de $record puntos.\n\nObtén 50 puntos para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AdivinhaAnoFotoInicioActivity::class.java)
     }

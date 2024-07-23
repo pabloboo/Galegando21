@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/adivinha_personaxe_correct_answers_results_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/trophy"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_adivinha_personaxe"
         app:layout_constraintBottom_toTopOf="@+id/adivinha_personaxe_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/adivinha_personaxe_correct_answers_results_icon"
         app:layout_constraintEnd_toEndOf="@+id/adivinha_personaxe_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/adivinha_personaxe_correct_answers_results_icon"
-        app:layout_constraintTop_toTopOf="@+id/adivinha_personaxe_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/adivinha_personaxe_correct_answers_results_icon"
         tools:text="4" />
 
     <TextView

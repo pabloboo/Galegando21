@@ -66,6 +66,9 @@ class SopaLetrasResultsActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.SOPA_LETRAS_MAX_SCORE, 0)
         SopaLetrasRecordTv.text = "O teu récord é de $record puntos"
+        if (record < 500) {
+            SopaLetrasRecordTv.text = "O teu récord é de $record puntos.\n\nObtén 500 puntos para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, SopaLetrasInicioActivity::class.java)
     }

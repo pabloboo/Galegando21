@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/agora_caigo_correct_answers_results_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/agora_caigo_comodin_on"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_agora_caio"
         app:layout_constraintBottom_toTopOf="@+id/agora_caigo_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/agora_caigo_correct_answers_results_icon"
         app:layout_constraintEnd_toEndOf="@+id/agora_caigo_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/agora_caigo_correct_answers_results_icon"
-        app:layout_constraintTop_toTopOf="@+id/agora_caigo_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_correct_answers_results_icon"
         tools:text="23"
         android:contentDescription="Resultado do xogo agora caio"/>
 
@@ -51,6 +51,7 @@
         android:id="@+id/agora_caigo_record_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/agora_caigo_results_btns_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

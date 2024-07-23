@@ -19,7 +19,7 @@ import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
 class AtrapameSePodesResultActivity : AppCompatActivity() {
-    private lateinit var stepsFragment: AtrapameSePodesStepsFragment
+    private lateinit var atrapameSePodesShortResultTv: TextView
     private lateinit var atrapameSePodesResultTV: TextView
     private lateinit var atrapameSePodesRecordTv: TextView
     private lateinit var atrapameSePodesShareButton: Button
@@ -30,6 +30,7 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_atrapame_se_podes_result)
 
+        atrapameSePodesShortResultTv = findViewById(R.id.atrapame_se_podes_short_results_text_view)
         atrapameSePodesResultTV = findViewById(R.id.atrapame_se_podes_result_tv)
         atrapameSePodesRecordTv = findViewById(R.id.atrapame_se_podes_record_tv)
         atrapameSePodesShareButton = findViewById(R.id.atrapame_se_podes_share_btn)
@@ -37,13 +38,8 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
 
         setBanner(this, R.string.atrapame_se_podes)
 
-        // Settear el steps fragment
-        stepsFragment = supportFragmentManager.findFragmentById(R.id.atrapame_se_podes_level_fragment_container_result) as AtrapameSePodesStepsFragment
-        supportFragmentManager.beginTransaction().runOnCommit {
-            stepsFragment.setStepsImage(5)
-        }.commit()
-
         score = intent.getIntExtra(AtrapameSePodesConstants.SCORE, 999999999)
+        atrapameSePodesShortResultTv.text = "$score"
         atrapameSePodesResultTV.text = "Necesitaches un total de $score preguntas para subir 5 escalóns."
 
         atrapameSePodesShareButton.setOnClickListener {
@@ -62,6 +58,9 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
 
         val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED, 0)
         atrapameSePodesRecordTv.text = "No teu récord necesitaches $record preguntas para subir 5 escalóns."
+        if (record < 5) {
+            atrapameSePodesRecordTv.text = "No teu récord necesitaches $record preguntas para subir 5 escalóns.\n\nNon falles ningunha pregunta para conseguir unha insignia!"
+        }
 
         setOnBackPressed(this, AtrapameSePodesInicioActivity::class.java)
     }

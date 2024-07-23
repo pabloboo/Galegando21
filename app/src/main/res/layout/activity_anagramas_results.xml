@@ -16,9 +16,9 @@
 
     <ImageView
         android:id="@+id/anagramas_correct_answers_results_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/anagramas_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_anagramas"
         app:layout_constraintBottom_toTopOf="@+id/anagramas_result_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="75sp"
-        android:textColor="@color/correctGreen"
         app:layout_constraintBottom_toBottomOf="@+id/anagramas_correct_answers_results_icon"
         app:layout_constraintEnd_toEndOf="@+id/anagramas_correct_answers_results_icon"
         app:layout_constraintStart_toStartOf="@+id/anagramas_correct_answers_results_icon"
-        app:layout_constraintTop_toTopOf="@+id/anagramas_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/anagramas_correct_answers_results_icon"
         tools:text="50" />
 
     <TextView

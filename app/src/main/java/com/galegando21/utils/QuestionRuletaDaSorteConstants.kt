@@ -265,12 +265,6 @@ object QuestionRuletaDaSorteConstants {
         )
         questions.add(
             QuestionRuletaDaSorte(
-                "",
-                ""
-            )
-        )
-        questions.add(
-            QuestionRuletaDaSorte(
                 "O TEU COMPI DI QUE O EXAME ERA FACILÍSIMO",
                 "SACAS UN SOBRESAINTE E..."
             )
