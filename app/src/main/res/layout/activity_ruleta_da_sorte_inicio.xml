@@ -22,7 +22,7 @@
             android:id="@+id/ruleta_da_sorte_image_iv"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/ruleta_da_sorte_icon"
+            android:src="@drawable/ruleta_0"
             app:layout_constraintBottom_toTopOf="@+id/ruleta_da_sorte_description_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

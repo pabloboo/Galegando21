@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -162,82 +164,93 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
     private fun playRuleta() {
         // Tirar la ruleta
         val accionesImagen = listOf<Drawable>(
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte1)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte2)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte3)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte4)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte5)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte6)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte7)!!,
-            ContextCompat.getDrawable(this, R.drawable.ruleta_da_sorte8)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_0)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_50)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_100)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_150)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_bote)!!,
+            ContextCompat.getDrawable(this, R.drawable.ruleta_quebra)!!
         )
-        val acciones = listOf<String>("0", "25", "50", "75", "100", "150", "bote", "quebra")
+        val acciones = listOf<String>("0", "50", "100", "150", "bote", "quebra")
         val random = Random.nextInt(1, 100)
         val accion = when {
-            random <= 5 -> acciones[0]
-            random <= 15 -> acciones[1]
-            random <= 40 -> acciones[2]
-            random <= 75 -> acciones[3]
-            random <= 94 -> acciones[4]
-            random <= 96 -> acciones[5]
-            random <= 100 -> acciones[6]
+            random <= 10 -> acciones[0]
+            random <= 35 -> acciones[1]
+            random <= 75 -> acciones[2]
+            random <= 94 -> acciones[3]
+            random <= 96 -> acciones[4]
+            random <= 100 -> acciones[5]
             else -> acciones[0]
         }
 
         // ANIMACIÓN DE TIRAR LA RULETA
         // Crear el ValueAnimator
-        val animator = ValueAnimator.ofInt(0, acciones.size * 3)
+        val animator = ValueAnimator.ofInt(0, acciones.size * 3 + acciones.indexOf(accion))
         animator.duration = 2000
+
+        // Crear la animación de escala
+        val scaleAnimation = ScaleAnimation(
+            1f, 3f,
+            1f, 3f,
+            Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f
+        )
+        scaleAnimation.duration = 2000
+
         // Actualizar el texto de ruletaAccionTextView en cada actualización de la animación
         animator.addUpdateListener { animation ->
             val currentIndex = animation.animatedValue as Int
             ruletaAccionImageView.setImageDrawable(accionesImagen[currentIndex % accionesImagen.size])
         }
+
         // Cuando la animación termine, establecer el texto final
         animator.addListener(object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator) {
                 playRuletaAccion(accion)
+                // Cuando la animación termine, volver a la escala original
+                val scaleDownAnimation = ScaleAnimation(
+                    3f, 1f,
+                    3f, 1f,
+                    Animation.RELATIVE_TO_SELF, 0.5f,
+                    Animation.RELATIVE_TO_SELF, 0.5f
+                )
+                scaleDownAnimation.duration = 1000
+                ruletaAccionImageView.startAnimation(scaleDownAnimation)
             }
         })
+
         // Iniciar la animación
         animator.start()
+        ruletaAccionImageView.startAnimation(scaleAnimation)
     }
 
     private fun playRuletaAccion(accion: String) {
         // Realizar la acción de la ruleta
         when (accion) {
             "0" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte1)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_0)
                 nextMultiplicadorAccion = 0
             }
-            "25" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte2)
-                nextMultiplicadorAccion = 25
-            }
             "50" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte3)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_50)
                 nextMultiplicadorAccion = 50
             }
-            "75" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte4)
-                nextMultiplicadorAccion = 75
-            }
             "100" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte5)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_100)
                 nextMultiplicadorAccion = 100
             }
             "150" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte6)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_150)
                 nextMultiplicadorAccion = 150
             }
             "bote" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte7)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_bote)
                 nextMultiplicadorAccion = 0
                 cash+=2000
 
             }
             "quebra" -> {
-                ruletaAccionImageView.setImageResource(R.drawable.ruleta_da_sorte8)
+                ruletaAccionImageView.setImageResource(R.drawable.ruleta_quebra)
                 nextMultiplicadorAccion = 0
                 cash=0
             }
