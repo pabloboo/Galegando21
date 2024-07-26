@@ -1,10 +1,12 @@
 package com.galegando21.day09RuletaDaSorte
 
 import android.animation.Animator
+import android.animation.AnimatorInflater
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +24,11 @@ import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlin.random.Random
+import kotlinx.coroutines.launch
 
 class RuletaDaSorteGameActivity : AppCompatActivity() {
     private lateinit var boardLayout: LinearLayout
@@ -38,6 +44,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
     private var specialChars = listOf(',')
     private var nextMultiplicadorAccion = 0 // Multiplicador de la acción de la ruleta
     private var cash = 0 // Dinero acumulado
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ruleta_da_sorte_game)
@@ -104,6 +111,17 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         }
     }
 
+    private suspend fun animationRevealLetter(letterView: TextView) {
+        letterView.setBackgroundColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.orange))
+        letterView.setTextColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.orange))
+        delay(1000)
+        val flipAnimation = AnimatorInflater.loadAnimator(this@RuletaDaSorteGameActivity, R.animator.flip)
+        flipAnimation.setTarget(letterView)
+        flipAnimation.start()
+        letterView.setBackgroundColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.canela))
+        letterView.setTextColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.black))
+    }
+
     private fun playLetter(letterGuessed: Char) {
         var numAciertos = 0
         // Mapa de vocales sin tilde a vocales con tilde
@@ -118,7 +136,10 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         // Revelar la letra jugada
         for (letter in letterViews) {
             if (letter.text == letterGuessed.toString()) {
-                letter.setTextColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.black))
+                coroutineScope.launch {
+                    // Animación de revelar la letra
+                    animationRevealLetter(letter)
+                }
                 numAciertos++
             }
 
@@ -126,7 +147,10 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
             if (accentMap.containsKey(letterGuessed)) {
                 for (accentedLetter in accentMap[letterGuessed]!!) {
                     if (letter.text == accentedLetter.toString()) {
-                        letter.setTextColor(ContextCompat.getColor(this@RuletaDaSorteGameActivity, R.color.black))
+                        coroutineScope.launch {
+                            // Animación de revelar la letra
+                            animationRevealLetter(letter)
+                        }
                         numAciertos++
                     }
                 }
@@ -137,6 +161,10 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         if (numAciertos == 0) {
             cash = 0
             finalizarRuletaDaSorte()
+        } else { // Acertó -> Animación de sonido
+            val mediaPlayer = MediaPlayer.create(this@RuletaDaSorteGameActivity, R.raw.flip_letter)
+            mediaPlayer.start()
+            mediaPlayer.setOnCompletionListener { it.release() }
         }
 
         // Actualizar el dinero acumulado

@@ -1,13 +1,16 @@
 package com.galegando21.day17ProbaVelocidade
 
+import android.animation.AnimatorInflater
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.RecognizerIntent
 import android.text.InputFilter
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -23,6 +26,7 @@ import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.random.Random
@@ -171,7 +175,21 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
         revealedLetterIndices.add(nextLetterIndex)
         withContext(Dispatchers.Main) {
-            letterViews[nextLetterIndex].setTextColor(ContextCompat.getColor(this@ProbaVelocidadeGameActivity, R.color.black))
+            // Sonido
+            val mediaPlayer = MediaPlayer.create(this@ProbaVelocidadeGameActivity, R.raw.flip_letter)
+            mediaPlayer.start()
+            mediaPlayer.setOnCompletionListener { it.release() }
+
+            // Animación de revelado
+            val letterView = letterViews[nextLetterIndex]
+            letterView.setBackgroundColor(ContextCompat.getColor(this@ProbaVelocidadeGameActivity, R.color.orange))
+            letterView.setTextColor(ContextCompat.getColor(this@ProbaVelocidadeGameActivity, R.color.orange))
+            delay(1000)
+            val flipAnimation = AnimatorInflater.loadAnimator(this@ProbaVelocidadeGameActivity, R.animator.flip)
+            flipAnimation.setTarget(letterView)
+            flipAnimation.start()
+            letterView.setBackgroundColor(ContextCompat.getColor(this@ProbaVelocidadeGameActivity, R.color.canela))
+            letterView.setTextColor(ContextCompat.getColor(this@ProbaVelocidadeGameActivity, R.color.black))
         }
     }
 
