@@ -304,10 +304,14 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
             val letterTextView = findViewById<TextView>(resources.getIdentifier(letter, "id", packageName))
             letterTextView.setOnClickListener {
                 playLetter((letterTextView).text[0])
-                if (isGameWon()) {
-                    finalizarRuletaDaSorte()
+                // Esperar 1 segundo antes de comprobar si ha ganado para que termine la animación
+                coroutineScope.launch {
+                    delay(1)
+                    if (isGameWon()) {
+                        finalizarRuletaDaSorte()
+                    }
+                    letterTextView.visibility = View.GONE
                 }
-                letterTextView.visibility = View.GONE
             }
         }
     }
