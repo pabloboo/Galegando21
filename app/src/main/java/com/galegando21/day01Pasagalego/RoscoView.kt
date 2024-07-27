@@ -1,5 +1,7 @@
 package com.galegando21.day01Pasagalego
 
+import android.animation.ArgbEvaluator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -22,6 +24,7 @@ class RoscoView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private val letters = ALFABETO.toCharArray()
     private var currentLetter: Char = 'A'
     private val letterStatus = mutableMapOf<Char, LetterStatus>()
+    private var colorAnimator: ValueAnimator? = null
 
     init {
         letters.forEach { letterStatus[it] = LetterStatus.NOT_ANSWERED }
@@ -29,7 +32,23 @@ class RoscoView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     fun setCurrentLetter(letter: Char) {
         currentLetter = letter
-        invalidate() // Redraw the view
+
+        colorAnimator?.cancel() // Cancelar la animación anterior
+
+        // Animación de cambio de color en la letra actual
+        colorAnimator = ValueAnimator.ofObject(
+            ArgbEvaluator(),
+            resources.getColor(R.color.secondaryBlue, null),
+            resources.getColor(R.color.primaryBlue, null)
+        ).apply {
+            duration = 500
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE
+            addUpdateListener { invalidate() }
+            start()
+        }
+
+        invalidate()
     }
 
     fun setLetterStatus(letter: Char, status: LetterStatus) {
@@ -51,15 +70,17 @@ class RoscoView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             val letterY = centerY + radius * sin(angle.toDouble())
 
             // Draw the circle
-            paint.color = when (letterStatus[letters[i]]) {
-                LetterStatus.NOT_ANSWERED -> resources.getColor(R.color.primaryBlue, null)
-                LetterStatus.CORRECT -> resources.getColor(R.color.correctGreen, null)
-                LetterStatus.INCORRECT -> resources.getColor(R.color.errorRed, null)
-                else -> resources.getColor(R.color.primaryBlue, null)
-            }
             if (letters[i] == currentLetter) {
-                paint.color = resources.getColor(R.color.secondaryBlue, null)
+                paint.color = colorAnimator?.animatedValue as? Int ?: resources.getColor(R.color.secondaryBlue, null)
+            } else {
+                paint.color = when (letterStatus[letters[i]]) {
+                    LetterStatus.NOT_ANSWERED -> resources.getColor(R.color.primaryBlue, null)
+                    LetterStatus.CORRECT -> resources.getColor(R.color.correctGreen, null)
+                    LetterStatus.INCORRECT -> resources.getColor(R.color.errorRed, null)
+                    else -> resources.getColor(R.color.primaryBlue, null)
+                }
             }
+
             canvas.drawCircle((letterX + letterRadius).toFloat(),
                 (letterY - letterRadius).toFloat(), circleRadius, paint)
 

@@ -1,6 +1,7 @@
 package com.galegando21.day01Pasagalego
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
@@ -177,10 +178,24 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         if (removeAccents(userAnswerText.text.toString()).trim() == currentQuestionPasagalego.answer) {
             correctAnswers++
             roscoView.setLetterStatus(letters[questionCounter], LetterStatus.CORRECT)
+
+            // Sonido acerto
+            val mediaPlayer = MediaPlayer.create(this, R.raw.acierto_pasagalego)
+            mediaPlayer.start()
+            mediaPlayer.setOnCompletionListener {
+                it.release()
+            }
         } else {
             errorAnswers++
             roscoView.setLetterStatus(letters[questionCounter], LetterStatus.INCORRECT)
             Toast.makeText(this@PasagalegoQuestionActivity, "Resposta incorrecta, ${currentQuestionPasagalego.answer}", Toast.LENGTH_SHORT).show()
+
+            // Sonido fallo
+            val mediaPlayer = MediaPlayer.create(this, R.raw.fallo_pasagalego)
+            mediaPlayer.start()
+            mediaPlayer.setOnCompletionListener {
+                it.release()
+            }
         }
         letters = letters.deleteCharAt(questionCounter)
         userAnswerText.text.clear()
