@@ -16,8 +16,11 @@ import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionAgoraCaigo
 import com.galegando21.utils.AgoraCaigoConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 
 class AgoraCaigoQuestionActivity : AppCompatActivity() {
     private lateinit var questionTV: TextView
@@ -70,6 +73,27 @@ class AgoraCaigoQuestionActivity : AppCompatActivity() {
 
         setBanner(this, R.string.agora_caigo)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.AGORA_CAIGO_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.agora_caigo_comodin2)
+                        .setPrimaryText("Usar comodín")
+                        .setSecondaryText("Preme en un comodín se non sabes a resposta antes de que se esgote o tempo!")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.AGORA_CAIGO_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     override fun onPause() {

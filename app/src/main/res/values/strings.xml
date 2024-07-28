@@ -10,7 +10,7 @@
     <string name="atrapame_se_podes">Atrápame se podes</string>
     <string name="comezar_a_xogar">Comezar a xogar</string>
     <string name="day03_text">Día 3 - Xogo de Palabras</string>
-    <string name="pasagalego_explicacion">Este xogo está basado no famoso programa\ntelevisivo ‘Pasapalabra’.\n\nPor cada letra do rosco terás que ler unha\ndefinición e responder unha palabra\nque comece por esa letra.</string>
+    <string name="pasagalego_explicacion">Este xogo está basado no famoso programa\ntelevisivo ‘Pasapalabra’.\n\nPor cada letra do rosco terás que ler unha\ndefinición e responder unha palabra\nque comece ou conteña esa letra.</string>
     <string name="atrapa_un_millon_explicacion">Basado no famoso programa televisivo,\nAtrapa un millón é un xogo no que o\nobxectivo é preservar a maior cantidade\nde diñeiro posible durante 8 preguntas.\n\n Mantén presionado a imaxen do diñeiro e moveo ata\n a opción na que queiras colocar o diñeiro\n (só se pode mover un cuarto do diñeiro en cada movemento).</string>
     <string name="atrapa_un_millon">Atrapa un millón</string>
     <string name="day04_text">Día 4 - Atrapa un millón</string>
@@ -22,7 +22,7 @@
     <string name="conexions_explicacion">O obxectivo de ‘Conexións’ é encontrar\ngrupos de 4 elementos que teñen algo\nen común.\n\nPor exemplo salmón, troita, dourada e \nrodaballo son os catro peixes.\n\nAs categorías sempre van ser máis\nespecíficas que ‘palabras de 5 letras’,\n‘nomes’ ou ‘verbos’.\n\nCada puzle ten unha soa solución.</string>
     <string name="conexions">Conexións</string>
     <string name="day06_text">Día 6 - Sopa de Letras</string>
-    <string name="verdade_ou_mentira_explicacion">Verdade ou Mentira é un xogo de preguntas\nbasado no concurso da TVG ‘Atrápame se Podes’.\n\nTerás que responder unha serie de preguntas\ncon 2 opcións posibles: verdadeiro ou falso.\n\nCantas respostas correctas eres capaz\nde encadear?</string>
+    <string name="verdade_ou_mentira_explicacion">Terás que responder unha serie de preguntas\ncon 2 opcións posibles: verdadeiro ou falso.\n\nCantas respostas correctas eres capaz\nde encadear?</string>
     <string name="verdadeOuMentira">Verdade ou Mentira</string>
     <string name="day07_text">Día 7 - Agora Caio</string>
     <string name="onboarding_text">Galegando 21 ten o obxectivo de que\nincorpores o galego no teu día a día.\n\nDurante os seguintes 21 días irás\ndesbloqueando novos xogos e\ncontidos en galego.\n\nEntra cada día e completa o reto\ndiario.</string>
@@ -67,7 +67,7 @@
     <string name="adivinha_personaxe_explicacion">En este xogo, basado en unha proba do concurso televisivo \'Ahora Caigo\', o obxectivo é acertar o nome de un personaxe.\n\nPara conseguilo por cada intento que fagas mostraraseche unha nova pista. Acerta o personaxe antes de que se esgoten as pistas!</string>
     <string name="xogo_de_palabras">Xogo de Palabras</string>
     <string name="day20_text">Día 20 - Debuxa e Adiviña</string>
-    <string name="xogo_palabras_explicacion">Este xogo proporcionache 7 letras, unha das cales está no centro e debe ser usada en cada palabra que formes.\n\nO obxectivo é crear tantas palabras válidas como poidas usando esas letras, cada palabra debe ter un mínimo de catro letras.\nA medida que introduces palabras o xogo validaas según o diccionario e acumula a puntuación total.\n\nSe queres rematar o xogo antes de chegar á puntuación total podes facelo mantendro premido o botón \'Comprobar\'.</string>
+    <string name="xogo_palabras_explicacion">Este xogo proporcionache 7 letras, unha das cales está no centro e debe ser usada en cada palabra que formes.\n\nO obxectivo é crear tantas palabras válidas como poidas usando esas letras, cada palabra debe ter un mínimo de catro letras.\nA medida que introduces palabras o xogo validaas según o diccionario e acumula a puntuación total.\n\nSe queres rematar o xogo antes de chegar á puntuación total podes facelo mantendo premido o botón \'Comprobar\'.</string>
     <string name="day21_text">Día 21 - 21 días co galego e +</string>
     <string name="explosion_de_palabras">Explosión de Palabras</string>
     <string name="explosion_palabras_explicacion">Este xogo consiste en formar palabras coas letras que van caendo na pantalla. Se a lista de letras chega ata a parte dereita da imaxen perderás.\n\n Recibirás un punto por cada letra da palabra formada.</string>

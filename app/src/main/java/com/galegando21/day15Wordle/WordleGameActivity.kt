@@ -24,6 +24,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
@@ -68,6 +70,27 @@ class WordleGameActivity : AppCompatActivity() {
         }
 
         setOnBackPressed(this, WordleInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.WORDLE_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.grid_letters)
+                        .setPrimaryText("Desliza o teclado")
+                        .setSecondaryText("Desliza horizontalmente o teclado se non o ves completo")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.WORDLE_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun unSetEventListeners() {

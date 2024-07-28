@@ -1,120 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day07AgoraCaigo.AgoraCaigoQuestionActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/linearLayoutComodinesAgoraCaigo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/agora_caigo_timer_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/agora_caigo_comodin1"
+        <LinearLayout
+            android:id="@+id/linearLayoutComodinesAgoraCaigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/agora_caigo_timer_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerFragment">
+
+            <ImageView
+                android:id="@+id/agora_caigo_comodin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/agora_caigo_comodin_on" />
+
+            <ImageView
+                android:id="@+id/agora_caigo_comodin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/agora_caigo_comodin_on" />
+
+            <ImageView
+                android:id="@+id/agora_caigo_comodin3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/agora_caigo_comodin_on" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/agora_caigo_timer_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/agora_caigo_comodin_on" />
+            android:textSize="24sp"
+            android:background="@drawable/agora_caigo_timer_background"
+            app:layout_constraintBottom_toTopOf="@+id/agora_caigo_question_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutComodinesAgoraCaigo"
+            tools:text="30:00" />
 
-        <ImageView
-            android:id="@+id/agora_caigo_comodin2"
+        <TextView
+            android:id="@+id/agora_caigo_question_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@id/agora_caigo_hint_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/agora_caigo_timer_tv"
+            tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
+
+        <LinearLayout
+            android:id="@+id/agora_caigo_hint_ll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/agora_caigo_comodin_on" />
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/agora_caigo_answer_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/agora_caigo_question_tv" />
 
-        <ImageView
-            android:id="@+id/agora_caigo_comodin3"
+
+        <LinearLayout
+            android:id="@+id/agora_caigo_answer_ll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/agora_caigo_comodin_on" />
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/agora_caigo_hint_ll">
 
+            <EditText
+                android:id="@+id/agora_caigo_answer_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:textColor="@color/inactiveBlue"
+                android:textColorHint="@color/inactiveBlue"
+                android:hint="@string/resposta" />
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/check_btn_agora_caigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/secondaryBlue"
+                android:padding="10dp"
+                android:src="@drawable/check_icon"
+                android:contentDescription="Introducir resposta"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/agora_caigo_timer_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:background="@drawable/agora_caigo_timer_background"
-        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_question_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutComodinesAgoraCaigo"
-        tools:text="30:00" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/agora_caigo_question_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="15dp"
-        app:layout_constraintBottom_toTopOf="@id/agora_caigo_hint_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_timer_tv"
-        tools:text="Cargo que teñen os membros de un equipo de fútbol que levan o brazalete no brazo esquerdo" />
-
-    <LinearLayout
-        android:id="@+id/agora_caigo_hint_ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/agora_caigo_answer_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_question_tv" />
-
-
-    <LinearLayout
-        android:id="@+id/agora_caigo_answer_ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/agora_caigo_hint_ll">
-
-        <EditText
-            android:id="@+id/agora_caigo_answer_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:textColor="@color/inactiveBlue"
-            android:textColorHint="@color/inactiveBlue"
-            android:hint="@string/resposta" />
-
-        <ImageButton
-            android:id="@+id/check_btn_agora_caigo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:layout_marginLeft="20dp"
-            android:background="@color/secondaryBlue"
-            android:padding="10dp"
-            android:src="@drawable/check_icon"
-            android:contentDescription="Introducir resposta"/>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

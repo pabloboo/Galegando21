@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_text_view"
         tools:text="Conseguiches un total de 50 puntos" />
 
     <TextView

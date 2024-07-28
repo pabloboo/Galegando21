@@ -10,8 +10,11 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.galegando21.R
 import com.galegando21.utils.DebuxaEAdivinhaConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import kotlin.math.roundToInt
 
 class DebuxaEAdivinhaGameActivity : AppCompatActivity() {
@@ -81,6 +84,33 @@ class DebuxaEAdivinhaGameActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.DEBUXA_E_ADIVINHA_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.btnMostrarPalabraDebuxaEAdivinha)
+                        .setPrimaryText("Ocultar palabra")
+                        .setSecondaryText("Preme este botón para ocultar ou mostrar a palabra que debes debuxar")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.horizontalScrollViewDebuxaEAdivinha)
+                        .setPrimaryText("Elementos para debuxar")
+                        .setSecondaryText("Desliza horizontalmente para ver todos os elementos que podes usar para debuxar")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.DEBUXA_E_ADIVINHA_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun showWord() {

@@ -10,7 +10,6 @@ import android.os.CountDownTimer
 import android.speech.RecognizerIntent
 import android.text.InputFilter
 import android.util.Log
-import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -22,6 +21,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -29,6 +29,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import kotlin.random.Random
 
 class ProbaVelocidadeGameActivity : AppCompatActivity() {
@@ -84,6 +86,39 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
 
         setBanner(this, R.string.proba_velocidade)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.PROBA_VELOCIDADE_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.pause_btn_proba_velocidade)
+                        .setPrimaryText("Pausa")
+                        .setSecondaryText("Preme este botón para pausar o contador e escribir con máis tranquilidade")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.check_btn_proba_velocidade)
+                        .setPrimaryText("Comprobar")
+                        .setSecondaryText("Preme este botón para comprobar se a resposta é correcta")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.mic_btn_proba_velocidade)
+                        .setPrimaryText("Grabar audio")
+                        .setSecondaryText("Preme este botón para gravar a túa resposta")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.PROBA_VELOCIDADE_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun startTimer(segundos: Int = 0) {

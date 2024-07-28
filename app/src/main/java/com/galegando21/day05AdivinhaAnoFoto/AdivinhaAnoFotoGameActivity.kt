@@ -12,9 +12,12 @@ import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.model.QuestionAdivinhaAnoFoto
 import com.galegando21.utils.AdivinhaAnoFotoConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.google.android.material.slider.Slider
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -58,6 +61,33 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
         showNextQuestion()
 
         setOnBackPressed(this, AdivinhaAnoFotoInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.adivinhaAnoFoto_slider)
+                        .setPrimaryText("Marca o ano")
+                        .setSecondaryText("Desliza o control para marcar o ano que cres que é correcto")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.check_btn_AdivinhaAnoFoto)
+                        .setPrimaryText("Comproba")
+                        .setSecondaryText("Preme este botón para comprobar a túa resposta")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean("SharedPreferencesKeys.RULETA_SORTE_FIRST_TIME", false).apply()
+                }
+                .show()
+        }
     }
 
     private fun showNextQuestion() {

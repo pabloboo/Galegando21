@@ -52,4 +52,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.core:core-splashscreen:1.2.0-alpha01")
     implementation("com.github.ArezooNazer:FlipTimerView:v1.0.0")
+    implementation("uk.co.samuelwall:material-tap-target-prompt:3.3.0")
 }

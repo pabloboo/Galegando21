@@ -17,8 +17,11 @@ import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.PalabrasBasicasConstants
 import com.galegando21.utils.PasagalegoConstants
 import com.galegando21.utils.PasagalegoConstants.getPasagalegoQuestions
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.removeAccents
 import com.galegando21.utils.setOnBackPressed
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import java.lang.StringBuilder
 import kotlin.random.Random
 
@@ -76,6 +79,27 @@ class PasagalegoQuestionActivity : AppCompatActivity() {
         showNextQuestion()
 
         setOnBackPressed(this, PasagalegoInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.PASAGALEGO_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.pasapalabra_btn)
+                        .setPrimaryText("Pasar palabra")
+                        .setSecondaryText("Preme este botón para deixar esta definición para a seguinte volta")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.PASAGALEGO_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun initQuestions() {

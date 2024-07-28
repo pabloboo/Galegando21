@@ -6,11 +6,25 @@ object SharedPreferencesKeys {
     const val NOME = "name"
     const val PALABRAS_BASICAS_SOURCE = "palabras_basicas_source"
     const val DICTIONARY_SOURCE = "dictionary_source"
+
     const val APP_PREFERENCES = "app_preferences"
     const val HAS_USER_DENIED_PERMISSIONS_BEFORE = "hasUserDeniedPermissionBefore"
+
     const val UNLOCKED_BUTTONS = "BotonesDesbloqueados"
     const val UNLOCKED_BUTTON_COUNT = "unlockedButtonCount"
     const val NEXT_UNLOCK_TIME = "nextUnlockTime"
+
+    const val GAMES_STATE = "games_state"
+    const val PASAGALEGO_FIRST_TIME = "pasagalego_first_time"
+    const val XOGO_PALABRAS_FIRST_TIME = "xogo_palabras_first_time"
+    const val ADIVINHA_ANO_FOTO_FIRST_TIME = "adivinha_ano_foto_first_time"
+    const val AGORA_CAIGO_FIRST_TIME = "agora_caigo_first_time"
+    const val RULETA_SORTE_FIRST_TIME = "ruleta_sorte_first_time"
+    const val WORDLE_FIRST_TIME = "wordle_first_time"
+    const val PROBA_VELOCIDADE_FIRST_TIME = "proba_velocidade_first_time"
+    const val AFORCADO_FIRST_TIME = "aforcado_first_time"
+    const val DEBUXA_E_ADIVINHA_FIRST_TIME = "debuxa_e_adivinha_first_time"
+
     const val STATISTICS = "statistics"
     const val CURRENT_STREAK = "current_streak"
     const val LONGEST_STREAK = "longest_streak"

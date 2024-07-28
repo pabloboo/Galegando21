@@ -15,12 +15,15 @@ import android.widget.Toast
 import com.galegando21.R
 import com.galegando21.utils.ALFABETO
 import com.galegando21.utils.DictionaryConstants
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 import kotlin.random.Random
 import kotlin.math.round
 
@@ -80,6 +83,45 @@ class XogoPalabrasGameActivity : AppCompatActivity() {
         }
 
         setOnBackPressed(this, XogoPalabrasInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.XOGO_PALABRAS_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.btn_delete_xogo_palabras)
+                        .setPrimaryText("Borrar letra")
+                        .setSecondaryText("Preme este botón para borrar a última letra introducida")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.btn_delete_word_xogo_palabras)
+                        .setPrimaryText("Borrar palabra")
+                        .setSecondaryText("Preme este botón para borrar a palabra completa")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.btn_enter_xogo_palabras)
+                        .setPrimaryText("Comprobar palabra")
+                        .setSecondaryText("Preme este botón para comprobar se a palabra é válida")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.btn_enter_xogo_palabras)
+                        .setPrimaryText("Finalizar xogo")
+                        .setSecondaryText("Mantén premido este botón para rematar o xogo")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.XOGO_PALABRAS_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun iniciarXogo() {

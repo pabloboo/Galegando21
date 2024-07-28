@@ -24,6 +24,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 
 class AforcadoGameActivity : AppCompatActivity() {
     private val gameManager = AforcadoGameManager()
@@ -66,6 +68,27 @@ class AforcadoGameActivity : AppCompatActivity() {
         startNewGame()
 
         setOnBackPressed(this, AforcadoInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.AFORCADO_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.letters_scroll_view)
+                        .setPrimaryText("Desliza o teclado")
+                        .setSecondaryText("Podes deslizar horizontalmente o teclado se non o ves completo")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.AFORCADO_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun unSetLetterEventListeners() {

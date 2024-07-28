@@ -22,6 +22,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -29,6 +30,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 import kotlinx.coroutines.launch
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetSequence
 
 class RuletaDaSorteGameActivity : AppCompatActivity() {
     private lateinit var boardLayout: LinearLayout
@@ -60,6 +63,33 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
 
         setBanner(this, R.string.ruleta_da_sorte)
         setOnBackPressed(this, RuletaDaSorteInicioActivity::class.java)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.GAMES_STATE, MODE_PRIVATE)
+        val isFirstRun = sharedPreferences.getBoolean(SharedPreferencesKeys.RULETA_SORTE_FIRST_TIME, true)
+
+        if (isFirstRun) {
+            MaterialTapTargetSequence()
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.ruleta_sorte_board_ll)
+                        .setPrimaryText("Desliza para ver")
+                        .setSecondaryText("Podes deslizar horizontalmente o panel para velo completo")
+                )
+                .addPrompt(
+                    MaterialTapTargetPrompt.Builder(this)
+                        .setTarget(R.id.letters_scroll_view)
+                        .setPrimaryText("Desliza o teclado")
+                        .setSecondaryText("Tamén podes deslizar horizontalmente o teclado se non o ves completo")
+                )
+                .setSequenceCompleteListener {
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.RULETA_SORTE_FIRST_TIME, false).apply()
+                }
+                .show()
+        }
     }
 
     private fun startGame() {
