@@ -53,4 +53,5 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.2.0-alpha01")
     implementation("com.github.ArezooNazer:FlipTimerView:v1.0.0")
     implementation("uk.co.samuelwall:material-tap-target-prompt:3.3.0")
+    implementation("io.karn:khttp-android:0.1.2")
 }

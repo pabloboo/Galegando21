@@ -5,13 +5,18 @@ import android.graphics.ColorMatrixColorFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.getChallenge
 import com.galegando21.utils.setOnBackPressed
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var bannerFragment: BannerFragment
@@ -78,6 +83,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var lockInsigniaExperiencia100k: ImageView
     private lateinit var insigniaExperiencia1m: ImageView
     private lateinit var lockInsigniaExperiencia1m: ImageView
+
+    private lateinit var obterDesafioPersonalizadoButton: Button
 
     private lateinit var correctAnswersPasagalegoDiccionarioFacil : TextView
     private lateinit var errorAnswersPasagalegoDiccionarioFacil : TextView
@@ -190,6 +197,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         insigniaExperiencia1m = findViewById(R.id.insignia_experiencia_1m)
         lockInsigniaExperiencia1m = findViewById(R.id.lock_insignia_experiencia_1m)
 
+        obterDesafioPersonalizadoButton = findViewById(R.id.obter_desafio_personalizado_button)
+
         correctAnswersPasagalegoDiccionarioFacil = findViewById(R.id.correct_answers_pasagalego_statistics_diccionario_facil)
         errorAnswersPasagalegoDiccionarioFacil = findViewById(R.id.error_answers_pasagalego_statistics_diccionario_facil)
         timePasagalegoDiccionarioFacil = findViewById(R.id.time_pasagalego_statistics_diccionario_facil)
@@ -289,6 +298,10 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"
 
         setInsignias()
+
+        obterDesafioPersonalizadoButton.setOnClickListener {
+            obterDesafioPersonalizado()
+        }
 
     }
 
@@ -442,5 +455,20 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
             lockInsigniaExperiencia1m.visibility = View.VISIBLE
         }
 
+    }
+
+    private fun obterDesafioPersonalizado() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val experience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString().toInt()
+        CoroutineScope(Dispatchers.Main).launch {
+            val challenge = getChallenge(experience)
+            AlertDialog.Builder(this@StatisticsRoadmapActivity)
+                .setTitle("Desafío personalizado")
+                .setMessage("$challenge")
+                .setPositiveButton("Cerrar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
 }

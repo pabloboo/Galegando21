@@ -103,3 +103,8 @@ python3 find_definiciones_comuns_en.py
 ```
 Este último comando crea un novo ficheiro .json chamado palabras_basicas_pet.json que contén as palabras comúns en galego e as súas definicións.
 O arquivo 'find_definiciones_comuns_en.py' busca todas as palabras traducidas no ficheiro 'rag.json' para obter as súas definicións.
+
+## API
+O código da API, implementado en Flask, encontrase na en /api/api.py e está despregado en https://www.pythonanywhere.com/.
+
+Esta API contén un endpoint para obter o desafío diario (para cambialo só é necesario modificar o arquivo /api/api.py).
