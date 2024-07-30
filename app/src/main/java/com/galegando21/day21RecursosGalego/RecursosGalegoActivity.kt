@@ -4,15 +4,23 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import com.galegando21.MainActivity
 import com.galegando21.R
+import com.galegando21.utils.Evento
+import com.galegando21.utils.getEventos
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.updateCurrentStreak
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class RecursosGalegoActivity : AppCompatActivity() {
     private lateinit var spotifyIcon : ImageView
+    private lateinit var eventosButton: Button
     private lateinit var aGalegaWebIcon: ImageView
     private lateinit var aGalegaMobileIcon: ImageView
     private lateinit var landRoberIcon: ImageView
@@ -23,11 +31,15 @@ class RecursosGalegoActivity : AppCompatActivity() {
     private lateinit var xabarinClubIcon: ImageView
     private lateinit var luarIcon: ImageView
 
+    private var currentEventIndex = 0
+    private var eventos: List<Evento> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recursos_galego)
 
         spotifyIcon = findViewById(R.id.spotify_icon)
+        eventosButton = findViewById(R.id.eventos_button)
         aGalegaWebIcon = findViewById(R.id.agalega_web_icon)
         aGalegaMobileIcon = findViewById(R.id.agalega_mobile_icon)
         landRoberIcon = findViewById(R.id.land_rober_icon)
@@ -45,6 +57,10 @@ class RecursosGalegoActivity : AppCompatActivity() {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://open.spotify.com/playlist/0ArqOLd6zTZpVqtTSXDTZC?si=4pA47GITQ8af7kJu3thHVQ")
             startActivity(openURL)
+        }
+
+        eventosButton.setOnClickListener {
+            obterEventos()
         }
 
         aGalegaWebIcon.setOnClickListener {
@@ -111,5 +127,30 @@ class RecursosGalegoActivity : AppCompatActivity() {
         }
 
         setOnBackPressed(this, MainActivity::class.java)
+    }
+
+    private fun obterEventos() {
+        CoroutineScope(Dispatchers.Main).launch {
+            val fetchedEventos = getEventos()
+            if (fetchedEventos.isNotEmpty()) {
+                eventos = fetchedEventos
+                showEventDialog(eventos[currentEventIndex])
+            }
+        }
+    }
+
+    private fun showEventDialog(evento: Evento) {
+        val builder = AlertDialog.Builder(this)
+            .setTitle(evento.nome)
+            .setMessage("Data: ${evento.data}\n\nUbicación: ${evento.ubicacion}\n\nDescrición: ${evento.descricion}")
+            .setPositiveButton("Seguinte") { _, _ ->
+                currentEventIndex = (currentEventIndex + 1) % eventos.size
+                showEventDialog(eventos[currentEventIndex])
+            }
+            .setNegativeButton("Anterior") { _, _ ->
+                currentEventIndex = (currentEventIndex - 1 + eventos.size) % eventos.size
+                showEventDialog(eventos[currentEventIndex])
+            }
+        builder.show()
     }
 }

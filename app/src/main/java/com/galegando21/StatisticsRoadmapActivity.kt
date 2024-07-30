@@ -503,7 +503,6 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private fun setChallengeButton(challenge: String, builder: AlertDialog.Builder) {
         val sharedPreferencesButtons = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
         val unlockedButtonCount = sharedPreferencesButtons.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
-        Log.d("API", "Unlocked buttons: $unlockedButtonCount")
 
         when {
             challenge.contains("Pasagalego") -> {

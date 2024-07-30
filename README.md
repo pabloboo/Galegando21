@@ -107,4 +107,8 @@ O arquivo 'find_definiciones_comuns_en.py' busca todas as palabras traducidas no
 ## API
 O código da API, implementado en Flask, encontrase na en /api/api.py e está despregado en https://www.pythonanywhere.com/.
 
-Esta API contén un endpoint para obter o desafío diario (para cambialo só é necesario modificar o arquivo /api/api.py).
+Esta API contén varios endpoints:
+
+O primeiro deles serve para obter un desafío personalizado (para cambialo só é necesario modificar o arquivo /api/api.py).
+
+O segundo endpoint serve para obter unha lista de eventos culturais en Galicia.

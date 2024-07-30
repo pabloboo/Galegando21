@@ -13,13 +13,36 @@ def generate_challenge(experience):
         "desafio": desafio
     }
 
-@app.route('/api/desafio-personalizado', methods=['POST'])
-def desafio_personalizado():
-    data = request.json
-    experience = data.get('experience')
+eventos = [
+    {
+        "nome": "Visita a MEGA",
+        "data": "01/01/2022-31/12/2030",
+        "ubicacion": "Museo MEGA, A Couruña",
+        "descricion": "Visita a MEGA - Mundo Estrella Galicia en A Coruña."
+    },
+    {
+        "nome": "Festival de la Luz",
+        "data": "23/08/2024-25/08/2024",
+        "ubicacion": "Boimorto, A Coruña",
+        "descricion": "Un festival solidario de música e arte."
+    },
+    {
+        "nome": "Caudal Fest",
+        "data": "20/09/2024",
+        "ubicacion": "Lugo",
+        "descricion": "Un dos principais festivais de Galicia."
+    },
+    {
+        "nome": "Ana Mena Tour 2024",
+        "data": "14/12/2024",
+        "ubicacion": "Colliseum, A Coruña",
+        "descricion": "A sensación do pop nacional Ana Mena regresa a A Coruña para un concerto único."
+    }
+]
 
-    challenge = generate_challenge(experience)
-    return jsonify(challenge)
+@app.route('/api/eventos', methods=['GET'])
+def get_eventos():
+    return jsonify(eventos)
 
 if __name__ == '__main__':
     app.run(debug=True)
