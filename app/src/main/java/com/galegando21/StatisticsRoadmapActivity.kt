@@ -1,9 +1,12 @@
 package com.galegando21
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -11,6 +14,27 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
+import com.galegando21.day02OndeEstan.OndeEstanInicioActivity
+import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
+import com.galegando21.day04AtrapaUnMillon.AtrapaUnMillonInicioActivity
+import com.galegando21.day05AdivinhaAnoFoto.AdivinhaAnoFotoInicioActivity
+import com.galegando21.day06SopaLetras.SopaLetrasInicioActivity
+import com.galegando21.day07AgoraCaigo.AgoraCaigoInicioActivity
+import com.galegando21.day08Conexions.ConexionsInicioActivity
+import com.galegando21.day09RuletaDaSorte.RuletaDaSorteInicioActivity
+import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
+import com.galegando21.day11AtrapameSePodes.AtrapameSePodesInicioActivity
+import com.galegando21.day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
+import com.galegando21.day13VerdadeOuMentira.VerdadeOuMentiraInicioActivity
+import com.galegando21.day14AdivinhaEscudo.AdivinhaEscudoInicioActivity
+import com.galegando21.day15Wordle.WordleInicioActivity
+import com.galegando21.day16Anagramas.AnagramasInicioActivity
+import com.galegando21.day17ProbaVelocidade.ProbaVelocidadeInicioActivity
+import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
+import com.galegando21.day19Aforcado.AforcadoInicioActivity
+import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
+import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.getChallenge
 import com.galegando21.utils.setOnBackPressed
@@ -460,15 +484,95 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private fun obterDesafioPersonalizado() {
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val experience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString().toInt()
+
         CoroutineScope(Dispatchers.Main).launch {
             val challenge = getChallenge(experience)
-            AlertDialog.Builder(this@StatisticsRoadmapActivity)
+            val builder = AlertDialog.Builder(this@StatisticsRoadmapActivity)
                 .setTitle("Desafío personalizado")
                 .setMessage("$challenge")
                 .setPositiveButton("Cerrar") { dialog, _ ->
                     dialog.dismiss()
                 }
-                .show()
+
+            setChallengeButton(challenge, builder)
+
+            builder.show()
+        }
+    }
+
+    private fun setChallengeButton(challenge: String, builder: AlertDialog.Builder) {
+        val sharedPreferencesButtons = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
+        val unlockedButtonCount = sharedPreferencesButtons.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
+        Log.d("API", "Unlocked buttons: $unlockedButtonCount")
+
+        when {
+            challenge.contains("Pasagalego") -> {
+                setButton(builder, PasagalegoInicioActivity::class.java)
+            }
+            challenge.contains("Onde están?") && unlockedButtonCount >= 2 -> {
+                setButton(builder, OndeEstanInicioActivity::class.java)
+            }
+            challenge.contains("Xogo de Palabras") && unlockedButtonCount >= 3 -> {
+                setButton(builder, XogoPalabrasInicioActivity::class.java)
+            }
+            challenge.contains("Atrapa un millón") && unlockedButtonCount >= 4 -> {
+                setButton(builder, AtrapaUnMillonInicioActivity::class.java)
+            }
+            challenge.contains("Adiviña o ano da foto") && unlockedButtonCount >= 5 -> {
+                setButton(builder, AdivinhaAnoFotoInicioActivity::class.java)
+            }
+            challenge.contains("Sopa de letras") && unlockedButtonCount >= 6 -> {
+                setButton(builder, SopaLetrasInicioActivity::class.java)
+            }
+            challenge.contains("Agora Caio") && unlockedButtonCount >= 7 -> {
+                setButton(builder, AgoraCaigoInicioActivity::class.java)
+            }
+            challenge.contains("Conexións") && unlockedButtonCount >= 8 -> {
+                setButton(builder, ConexionsInicioActivity::class.java)
+            }
+            challenge.contains("Ruleta da sorte") && unlockedButtonCount >= 9 -> {
+                setButton(builder, RuletaDaSorteInicioActivity::class.java)
+            }
+            challenge.contains("Explosión de palabras") && unlockedButtonCount >= 10 -> {
+                setButton(builder, ExplosionPalabrasInicioActivity::class.java)
+            }
+            challenge.contains("Atrápame se podes") && unlockedButtonCount >= 11 -> {
+                setButton(builder, AtrapameSePodesInicioActivity::class.java)
+            }
+            challenge.contains("Adiviña o personaxe") && unlockedButtonCount >= 12 -> {
+                setButton(builder, AdivinhaPersonaxeInicioActivity::class.java)
+            }
+            challenge.contains("Verdade ou Mentira") && unlockedButtonCount >= 13 -> {
+                setButton(builder, VerdadeOuMentiraInicioActivity::class.java)
+            }
+            challenge.contains("Adiviña o escudo") && unlockedButtonCount >= 14 -> {
+                setButton(builder, AdivinhaEscudoInicioActivity::class.java)
+            }
+            challenge.contains("Wordle") && unlockedButtonCount >= 15 -> {
+                setButton(builder, WordleInicioActivity::class.java)
+            }
+            challenge.contains("Anagramas") && unlockedButtonCount >= 16 -> {
+                setButton(builder, AnagramasInicioActivity::class.java)
+            }
+            challenge.contains("Proba de velocidade") && unlockedButtonCount >= 17 -> {
+                setButton(builder, ProbaVelocidadeInicioActivity::class.java)
+            }
+            challenge.contains("Palabras encadeadas") && unlockedButtonCount >= 18 -> {
+                setButton(builder, PalabrasEncadeadasInicioActivity::class.java)
+            }
+            challenge.contains("Aforcado") && unlockedButtonCount >= 19 -> {
+                setButton(builder, AforcadoInicioActivity::class.java)
+            }
+            challenge.contains("Debuxa e adiviña") && unlockedButtonCount >= 20 -> {
+                setButton(builder, DebuxaEAdivinhaInicioActivity::class.java)
+            }
+        }
+    }
+
+    private fun setButton(builder: AlertDialog.Builder, activityClass: Class<*>) {
+        builder.setNeutralButton("Xogar") { _, _ ->
+            val intent = Intent(this@StatisticsRoadmapActivity, activityClass)
+            startActivity(intent)
         }
     }
 }
