@@ -37,6 +37,7 @@ import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.getChallenge
+import com.galegando21.utils.getFeedback
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -108,6 +109,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var insigniaExperiencia1m: ImageView
     private lateinit var lockInsigniaExperiencia1m: ImageView
 
+    private lateinit var obterFeedbackButton: Button
     private lateinit var obterDesafioPersonalizadoButton: Button
 
     private lateinit var correctAnswersPasagalegoDiccionarioFacil : TextView
@@ -221,6 +223,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         insigniaExperiencia1m = findViewById(R.id.insignia_experiencia_1m)
         lockInsigniaExperiencia1m = findViewById(R.id.lock_insignia_experiencia_1m)
 
+        obterFeedbackButton = findViewById(R.id.obter_feedback_button)
         obterDesafioPersonalizadoButton = findViewById(R.id.obter_desafio_personalizado_button)
 
         correctAnswersPasagalegoDiccionarioFacil = findViewById(R.id.correct_answers_pasagalego_statistics_diccionario_facil)
@@ -322,6 +325,10 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"
 
         setInsignias()
+
+        obterFeedbackButton.setOnClickListener {
+            obterFeedback()
+        }
 
         obterDesafioPersonalizadoButton.setOnClickListener {
             obterDesafioPersonalizado()
@@ -573,5 +580,57 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
             val intent = Intent(this@StatisticsRoadmapActivity, activityClass)
             startActivity(intent)
         }
+    }
+
+    private fun obterFeedback() {
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val experience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString().toInt()
+        val streak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0).toString().toInt()
+        val numberOfBadges = getNumberOfBadges()
+
+        CoroutineScope(Dispatchers.Main).launch {
+            val feedback = getFeedback(streak, experience, numberOfBadges)
+            val builder = AlertDialog.Builder(this@StatisticsRoadmapActivity)
+                .setTitle("Feedback")
+                .setMessage("$feedback")
+                .setPositiveButton("Cerrar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+            builder.show()
+        }
+    }
+
+    private fun getNumberOfBadges(): Int {
+        var badgeCount = 0
+
+        if (lockInsigniaRacha7.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaRacha21.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaRacha50.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaRacha100.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaPasagalego.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaOndeEstan.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaXogoPalabras.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAtrapaUnMillon.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAdivinhaAnoFoto.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaSopaLetras.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAgoraCaigo.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaConexions.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaRuletaDaSorte.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaExplosionPalabras.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAtrapameSePodes.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAdivinhaPersonaxe.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaVerdadeOuMentira.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAdivinhaEscudo.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaWordle.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAnagramas.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaProbaVelocidade.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaPalabrasEncadeadas.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaAforcado.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaExperiencia10k.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaExperiencia50k.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaExperiencia100k.visibility != View.VISIBLE) badgeCount++
+        if (lockInsigniaExperiencia1m.visibility != View.VISIBLE) badgeCount++
+
+        return badgeCount
     }
 }

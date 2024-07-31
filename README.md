@@ -112,3 +112,5 @@ Esta API contén varios endpoints:
 O primeiro deles serve para obter un desafío personalizado (para cambialo só é necesario modificar o arquivo /api/api.py).
 
 O segundo endpoint serve para obter unha lista de eventos culturais en Galicia.
+
+O terceiro endpoint serve para obter un feedback do desempeño en base á racha, á experiencia e ao número de insignias obtidas polo usuario.

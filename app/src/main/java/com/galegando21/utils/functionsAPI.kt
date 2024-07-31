@@ -2,16 +2,15 @@ package com.galegando21.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import khttp.post
 import khttp.get
 import org.json.JSONArray
 import org.json.JSONObject
 
 suspend fun getChallenge(experience: Int): String {
     return withContext(Dispatchers.IO) {
-        val response = post(
+        val response = get(
             url = "http://pabloboo.pythonanywhere.com/api/desafio-personalizado",
-            json = mapOf("experience" to experience)
+            params = mapOf("experience" to experience.toString())
         )
 
         if (response.statusCode == 200) {
@@ -47,6 +46,22 @@ suspend fun getEventos(): List<Evento> {
             }
         } else {
             emptyList()
+        }
+    }
+}
+
+suspend fun getFeedback(streak: Int, experience: Int, badges: Int): String {
+    return withContext(Dispatchers.IO) {
+        val response = get(
+            url = "http://pabloboo.pythonanywhere.com/api/feedback",
+            params = mapOf("streak" to streak.toString(), "experience" to experience.toString(), "badges" to badges.toString())
+        )
+
+        if (response.statusCode == 200) {
+            val feedbackJson = JSONObject(response.text)
+            feedbackJson.getString("feedback")
+        } else {
+            ""
         }
     }
 }

@@ -1365,12 +1365,23 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/obter_feedback_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mostrar feedback"
+            android:backgroundTint="@color/secondaryBlue"
+            app:layout_constraintTop_toBottomOf="@id/insignias_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/obter_desafio_personalizado_button"/>
+
+        <Button
             android:id="@+id/obter_desafio_personalizado_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mostrar desafío personalizado"
             android:backgroundTint="@color/secondaryBlue"
-            app:layout_constraintTop_toBottomOf="@id/insignias_card"
+            app:layout_constraintTop_toBottomOf="@id/obter_feedback_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/day01_pasagalego_card"/>
