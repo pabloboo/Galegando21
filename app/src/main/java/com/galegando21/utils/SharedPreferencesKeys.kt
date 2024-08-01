@@ -24,6 +24,7 @@ object SharedPreferencesKeys {
     const val PROBA_VELOCIDADE_FIRST_TIME = "proba_velocidade_first_time"
     const val AFORCADO_FIRST_TIME = "aforcado_first_time"
     const val DEBUXA_E_ADIVINHA_FIRST_TIME = "debuxa_e_adivinha_first_time"
+    const val WORDLE_DIARY_LAST_DAY_PLAYED = "wordle_diary_last_day_played"
 
     const val STATISTICS = "statistics"
     const val CURRENT_STREAK = "current_streak"

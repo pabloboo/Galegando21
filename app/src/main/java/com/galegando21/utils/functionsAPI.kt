@@ -65,3 +65,18 @@ suspend fun getFeedback(streak: Int, experience: Int, badges: Int): String {
         }
     }
 }
+
+suspend fun getPalabraDiariaWordle(): String {
+    return withContext(Dispatchers.IO) {
+        val response = get(
+            url = "http://pabloboo.pythonanywhere.com/api/palabra-wordle",
+        )
+
+        if (response.statusCode == 200) {
+            val palabraJson = JSONObject(response.text)
+            palabraJson.getString("palabra")
+        } else {
+            ""
+        }
+    }
+}

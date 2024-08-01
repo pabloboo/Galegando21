@@ -1,8 +1,15 @@
 package com.galegando21.model
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
+import android.widget.Toast
+import com.galegando21.day15Wordle.WordleInicioActivity
 import com.galegando21.utils.WordleConstants
+import com.galegando21.utils.getPalabraDiariaWordle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class WordleGameManager(
@@ -132,10 +139,22 @@ class WordleGameManager(
         return curCol
     }
 
-    fun setWord(): List<String> {
+    fun setWord(modo: String = ""): List<String> {
         val words = WordleConstants.getWords(context)
-        word = words[Random.nextInt(words.size)]
-        Log.d("WordleGameManager", "Word: $word")
+        if (modo == "diario") {
+            CoroutineScope(Dispatchers.Main).launch {
+                word = getPalabraDiariaWordle()
+                if (word == "") {
+                    Toast.makeText(context, "Non se puido obter a palabra diaria", Toast.LENGTH_SHORT).show()
+                    Intent(context, WordleInicioActivity::class.java).also {
+                        context.startActivity(it)
+                    }
+                }
+            }
+        } else {
+            word = words[Random.nextInt(words.size)]
+            Log.d("WordleGameManager", "Word: $word")
+        }
         return words
     }
 }

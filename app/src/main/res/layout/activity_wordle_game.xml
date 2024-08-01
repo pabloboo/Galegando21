@@ -16,7 +16,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters"
+            app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters_and_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -53,7 +53,7 @@
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_layout_letters"
+            android:id="@+id/constraint_layout_letters_and_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/grid_letters"
@@ -61,439 +61,460 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutEstadisticasWordle">
 
-            <TextView
-                android:id="@+id/text1col1row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text1col2row"
-                app:layout_constraintStart_toStartOf="parent"
+            <ImageView
+                android:id="@+id/logo_image_view_wordle"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher_foreground"
+                android:visibility="gone"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text2col1row" />
-
-            <TextView
-                android:id="@+id/text2col1row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text2col2row"
-                app:layout_constraintStart_toEndOf="@id/text1col1row"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text3col1row" />
-
-            <TextView
-                android:id="@+id/text3col1row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text3col2row"
-                app:layout_constraintStart_toEndOf="@id/text2col1row"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text4col1row" />
-
-            <TextView
-                android:id="@+id/text4col1row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text4col2row"
-                app:layout_constraintEnd_toStartOf="@+id/text5col1row"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/text3col1row"/>
-
-            <TextView
-                android:id="@+id/text5col1row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text5col2row"
-                app:layout_constraintStart_toEndOf="@id/text4col1row"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <TextView
-                android:id="@+id/text1col2row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text1col3row"
-                app:layout_constraintEnd_toStartOf="@+id/text2col2row"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text1col1row" />
-
-            <TextView
-                android:id="@+id/text2col2row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text2col3row"
-                app:layout_constraintEnd_toStartOf="@+id/text3col2row"
-                app:layout_constraintTop_toBottomOf="@id/text2col1row"
-                app:layout_constraintStart_toEndOf="@id/text1col2row"/>
-
-            <TextView
-                android:id="@+id/text3col2row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text3col3row"
-                app:layout_constraintEnd_toStartOf="@+id/text4col2row"
-                app:layout_constraintTop_toBottomOf="@id/text3col1row"
-                app:layout_constraintStart_toEndOf="@id/text2col2row"/>
-
-            <TextView
-                android:id="@+id/text4col2row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text4col3row"
-                app:layout_constraintEnd_toStartOf="@+id/text5col2row"
-                app:layout_constraintTop_toBottomOf="@id/text4col1row"
-                app:layout_constraintStart_toEndOf="@id/text3col2row"/>
-
-            <TextView
-                android:id="@+id/text5col2row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text5col3row"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text5col1row"
-                app:layout_constraintStart_toEndOf="@id/text4col2row"/>
+                app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters"/>
 
-
-            <TextView
-                android:id="@+id/text1col3row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text1col4row"
-                app:layout_constraintEnd_toStartOf="@+id/text2col3row"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_letters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text1col2row" />
-
-            <TextView
-                android:id="@+id/text2col3row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text2col4row"
-                app:layout_constraintEnd_toStartOf="@+id/text3col3row"
-                app:layout_constraintTop_toBottomOf="@id/text2col2row"
-                app:layout_constraintStart_toEndOf="@id/text1col3row"/>
-
-            <TextView
-                android:id="@+id/text3col3row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text3col4row"
-                app:layout_constraintEnd_toStartOf="@+id/text4col3row"
-                app:layout_constraintTop_toBottomOf="@id/text3col2row"
-                app:layout_constraintStart_toEndOf="@id/text2col3row"/>
-
-            <TextView
-                android:id="@+id/text4col3row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text4col4row"
-                app:layout_constraintEnd_toStartOf="@+id/text5col3row"
-                app:layout_constraintTop_toBottomOf="@id/text4col2row"
-                app:layout_constraintStart_toEndOf="@id/text3col3row"/>
-
-            <TextView
-                android:id="@+id/text5col3row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@+id/text5col4row"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text5col2row"
-                app:layout_constraintStart_toEndOf="@id/text4col3row"/>
+                app:layout_constraintTop_toBottomOf="@id/logo_image_view_wordle"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/text1col1row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text1col2row"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col1row" />
+
+                <TextView
+                    android:id="@+id/text2col1row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text2col2row"
+                    app:layout_constraintStart_toEndOf="@id/text1col1row"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col1row" />
+
+                <TextView
+                    android:id="@+id/text3col1row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text3col2row"
+                    app:layout_constraintStart_toEndOf="@id/text2col1row"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col1row" />
+
+                <TextView
+                    android:id="@+id/text4col1row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text4col2row"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col1row"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/text3col1row"/>
+
+                <TextView
+                    android:id="@+id/text5col1row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text5col2row"
+                    app:layout_constraintStart_toEndOf="@id/text4col1row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/text1col4row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text1col5row"
-                app:layout_constraintEnd_toStartOf="@+id/text2col4row"
-                app:layout_constraintTop_toBottomOf="@+id/text1col3row"
-                app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                    android:id="@+id/text1col2row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text1col3row"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col2row"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text1col1row" />
 
-            <TextView
-                android:id="@+id/text2col4row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text2col5row"
-                app:layout_constraintEnd_toStartOf="@+id/text3col4row"
-                app:layout_constraintTop_toBottomOf="@+id/text2col3row"
-                app:layout_constraintStart_toEndOf="@id/text1col4row"/>
+                <TextView
+                    android:id="@+id/text2col2row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text2col3row"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col2row"
+                    app:layout_constraintTop_toBottomOf="@id/text2col1row"
+                    app:layout_constraintStart_toEndOf="@id/text1col2row"/>
 
-            <TextView
-                android:id="@+id/text3col4row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text3col5row"
-                app:layout_constraintEnd_toStartOf="@+id/text4col4row"
-                app:layout_constraintTop_toBottomOf="@+id/text3col3row"
-                app:layout_constraintStart_toEndOf="@id/text2col4row"/>
+                <TextView
+                    android:id="@+id/text3col2row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text3col3row"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col2row"
+                    app:layout_constraintTop_toBottomOf="@id/text3col1row"
+                    app:layout_constraintStart_toEndOf="@id/text2col2row"/>
 
-            <TextView
-                android:id="@+id/text4col4row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text4col5row"
-                app:layout_constraintEnd_toStartOf="@+id/text5col4row"
-                app:layout_constraintTop_toBottomOf="@+id/text4col3row"
-                app:layout_constraintStart_toEndOf="@id/text3col4row" />
+                <TextView
+                    android:id="@+id/text4col2row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text4col3row"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col2row"
+                    app:layout_constraintTop_toBottomOf="@id/text4col1row"
+                    app:layout_constraintStart_toEndOf="@id/text3col2row"/>
 
-            <TextView
-                android:id="@+id/text5col4row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintTop_toBottomOf="@id/text5col3row"
-                app:layout_constraintBottom_toTopOf="@id/text5col5row"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text4col4row"/>
-
-
-            <TextView
-                android:id="@+id/text1col5row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text1col6row"
-                app:layout_constraintEnd_toStartOf="@+id/text2col5row"
-                app:layout_constraintTop_toBottomOf="@id/text1col4row"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <TextView
-                android:id="@+id/text2col5row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text2col6row"
-                app:layout_constraintEnd_toStartOf="@+id/text3col5row"
-                app:layout_constraintTop_toBottomOf="@id/text2col4row"
-                app:layout_constraintStart_toEndOf="@id/text1col5row"/>
-
-            <TextView
-                android:id="@+id/text3col5row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text3col6row"
-                app:layout_constraintEnd_toStartOf="@+id/text4col5row"
-                app:layout_constraintTop_toBottomOf="@id/text3col4row"
-                app:layout_constraintStart_toEndOf="@id/text2col5row"/>
-
-            <TextView
-                android:id="@+id/text4col5row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toTopOf="@id/text4col6row"
-                app:layout_constraintEnd_toStartOf="@+id/text5col5row"
-                app:layout_constraintTop_toBottomOf="@id/text4col4row"
-                app:layout_constraintStart_toEndOf="@id/text3col5row"/>
-
-            <TextView
-                android:id="@+id/text5col5row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintTop_toBottomOf="@id/text5col4row"
-                app:layout_constraintBottom_toTopOf="@id/text5col6row"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/text4col5row"/>
+                <TextView
+                    android:id="@+id/text5col2row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text5col3row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text5col1row"
+                    app:layout_constraintStart_toEndOf="@id/text4col2row"/>
 
 
-            <TextView
-                android:id="@+id/text1col6row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text2col6row"
-                app:layout_constraintTop_toBottomOf="@id/text1col5row" />
+                <TextView
+                    android:id="@+id/text1col3row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text1col4row"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col3row"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text1col2row" />
 
-            <TextView
-                android:id="@+id/text2col6row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text3col6row"
-                app:layout_constraintTop_toBottomOf="@id/text2col5row"
-                app:layout_constraintStart_toEndOf="@id/text1col6row"/>
+                <TextView
+                    android:id="@+id/text2col3row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text2col4row"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col3row"
+                    app:layout_constraintTop_toBottomOf="@id/text2col2row"
+                    app:layout_constraintStart_toEndOf="@id/text1col3row"/>
 
-            <TextView
-                android:id="@+id/text3col6row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text4col6row"
-                app:layout_constraintTop_toBottomOf="@id/text3col5row"
-                app:layout_constraintStart_toEndOf="@id/text2col6row"/>
+                <TextView
+                    android:id="@+id/text3col3row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text3col4row"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col3row"
+                    app:layout_constraintTop_toBottomOf="@id/text3col2row"
+                    app:layout_constraintStart_toEndOf="@id/text2col3row"/>
 
-            <TextView
-                android:id="@+id/text4col6row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/text5col6row"
-                app:layout_constraintTop_toBottomOf="@id/text4col5row"
-                app:layout_constraintStart_toEndOf="@id/text3col6row"/>
+                <TextView
+                    android:id="@+id/text4col3row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text4col4row"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col3row"
+                    app:layout_constraintTop_toBottomOf="@id/text4col2row"
+                    app:layout_constraintStart_toEndOf="@id/text3col3row"/>
 
-            <TextView
-                android:id="@+id/text5col6row"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/letter_border"
-                android:gravity="center"
-                android:layout_marginVertical="1dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text5col5row"
-                app:layout_constraintStart_toEndOf="@id/text4col6row"/>
+                <TextView
+                    android:id="@+id/text5col3row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@+id/text5col4row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text5col2row"
+                    app:layout_constraintStart_toEndOf="@id/text4col3row"/>
+
+
+                <TextView
+                    android:id="@+id/text1col4row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text1col5row"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col4row"
+                    app:layout_constraintTop_toBottomOf="@+id/text1col3row"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/text2col4row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text2col5row"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col4row"
+                    app:layout_constraintTop_toBottomOf="@+id/text2col3row"
+                    app:layout_constraintStart_toEndOf="@id/text1col4row"/>
+
+                <TextView
+                    android:id="@+id/text3col4row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text3col5row"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col4row"
+                    app:layout_constraintTop_toBottomOf="@+id/text3col3row"
+                    app:layout_constraintStart_toEndOf="@id/text2col4row"/>
+
+                <TextView
+                    android:id="@+id/text4col4row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text4col5row"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col4row"
+                    app:layout_constraintTop_toBottomOf="@+id/text4col3row"
+                    app:layout_constraintStart_toEndOf="@id/text3col4row" />
+
+                <TextView
+                    android:id="@+id/text5col4row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintTop_toBottomOf="@id/text5col3row"
+                    app:layout_constraintBottom_toTopOf="@id/text5col5row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text4col4row"/>
+
+
+                <TextView
+                    android:id="@+id/text1col5row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text1col6row"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col5row"
+                    app:layout_constraintTop_toBottomOf="@id/text1col4row"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/text2col5row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text2col6row"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col5row"
+                    app:layout_constraintTop_toBottomOf="@id/text2col4row"
+                    app:layout_constraintStart_toEndOf="@id/text1col5row"/>
+
+                <TextView
+                    android:id="@+id/text3col5row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text3col6row"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col5row"
+                    app:layout_constraintTop_toBottomOf="@id/text3col4row"
+                    app:layout_constraintStart_toEndOf="@id/text2col5row"/>
+
+                <TextView
+                    android:id="@+id/text4col5row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toTopOf="@id/text4col6row"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col5row"
+                    app:layout_constraintTop_toBottomOf="@id/text4col4row"
+                    app:layout_constraintStart_toEndOf="@id/text3col5row"/>
+
+                <TextView
+                    android:id="@+id/text5col5row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintTop_toBottomOf="@id/text5col4row"
+                    app:layout_constraintBottom_toTopOf="@id/text5col6row"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text4col5row"/>
+
+
+                <TextView
+                    android:id="@+id/text1col6row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text2col6row"
+                    app:layout_constraintTop_toBottomOf="@id/text1col5row" />
+
+                <TextView
+                    android:id="@+id/text2col6row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text3col6row"
+                    app:layout_constraintTop_toBottomOf="@id/text2col5row"
+                    app:layout_constraintStart_toEndOf="@id/text1col6row"/>
+
+                <TextView
+                    android:id="@+id/text3col6row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text4col6row"
+                    app:layout_constraintTop_toBottomOf="@id/text3col5row"
+                    app:layout_constraintStart_toEndOf="@id/text2col6row"/>
+
+                <TextView
+                    android:id="@+id/text4col6row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/text5col6row"
+                    app:layout_constraintTop_toBottomOf="@id/text4col5row"
+                    app:layout_constraintStart_toEndOf="@id/text3col6row"/>
+
+                <TextView
+                    android:id="@+id/text5col6row"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/letter_border"
+                    android:gravity="center"
+                    android:layout_marginVertical="1dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text5col5row"
+                    app:layout_constraintStart_toEndOf="@id/text4col6row"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <ProgressBar
             android:id="@+id/loadingProgressBar"
             android:layout_width="wrap_content"
@@ -508,7 +529,7 @@
             android:id="@+id/grid_letters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_layout_letters"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_layout_letters_and_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/linearLayoutWorldeButtons"
@@ -841,6 +862,16 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/secondaryBlue"
                 android:text="Xogar de novo"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_marginLeft="20dp" />
+
+            <Button
+                android:id="@+id/compartir_wordle_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir"
                 android:visibility="gone"
                 tools:visibility="visible"
                 android:layout_marginLeft="20dp" />

@@ -34,10 +34,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/wordle_explicacion"
-            app:layout_constraintBottom_toTopOf="@+id/start_btn_wordle"
+            app:layout_constraintBottom_toTopOf="@+id/wordle_radio_group"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wordle_description_tv"/>
+
+        <RadioGroup
+            android:id="@+id/wordle_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/explicacion_wordle_image_view"
+            app:layout_constraintBottom_toTopOf="@id/modo_xogo_info_tv_wordle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="80dp"
+            android:checkedButton="@id/wordle_radio_btn_diario">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Modo de xogo:"
+                android:contentDescription="Modo de xogo do wordle"/>
+            <RadioButton
+                android:id="@+id/wordle_radio_btn_diario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Palabra diaria"/>
+            <RadioButton
+                android:id="@+id/wordle_radio_btn_infinito"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Infinito"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/modo_xogo_info_tv_wordle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Acerta a palabra diaria."
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@id/start_btn_wordle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wordle_radio_group" />
 
         <Button
             android:id="@+id/start_btn_wordle"
@@ -49,7 +89,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/explicacion_wordle_image_view" />
+            app:layout_constraintTop_toBottomOf="@+id/modo_xogo_info_tv_wordle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

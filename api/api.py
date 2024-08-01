@@ -97,5 +97,14 @@ def get_feedback():
     feedback = generate_feedback(streak, experience, badges)
     return jsonify(feedback)
 
+
+@app.route('/api/palabra-wordle', methods=['GET'])
+def get_palabra_wordle():
+
+    palabra = {
+        "palabra": "MAREA"
+    }
+    return jsonify(palabra)
+
 if __name__ == '__main__':
     app.run(debug=True)

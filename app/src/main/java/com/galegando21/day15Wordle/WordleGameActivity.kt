@@ -2,22 +2,31 @@ package com.galegando21.day15Wordle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.widget.GridLayout
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 import kotlinx.coroutines.CoroutineScope
@@ -31,7 +40,10 @@ import java.util.Locale
 class WordleGameActivity : AppCompatActivity() {
     private lateinit var helpImageButton: ImageButton
     private lateinit var xogarDeNovoButton: Button
+    private lateinit var compartirButton: Button
     private lateinit var progressLoadingBar: ProgressBar
+
+    private var modo = "diario"
 
     private lateinit var texts:  MutableList<MutableList<TextView>>
     private val rowCount = 6
@@ -52,12 +64,20 @@ class WordleGameActivity : AppCompatActivity() {
 
         helpImageButton = findViewById(R.id.helpButton)
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_wordle_btn)
+        compartirButton = findViewById(R.id.compartir_wordle_btn)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
+
+        modo = intent.getStringExtra("modo") ?: "diario"
 
         gameCore = WordleGameManager(this, rowCount)
         initTexts()
 
-        newRound()
+        if (modo == "infinito") {
+            newRound()
+        } else {
+            dailyWord()
+        }
+
 
         helpImageButton.setOnClickListener {
             showHelpDialog()
@@ -67,6 +87,10 @@ class WordleGameActivity : AppCompatActivity() {
             gameCore.startOver()
             newRound()
             xogarDeNovoButton.visibility = View.GONE
+        }
+
+        compartirButton.setOnClickListener {
+            compartirWordle()
         }
 
         setOnBackPressed(this, WordleInicioActivity::class.java)
@@ -168,20 +192,32 @@ class WordleGameActivity : AppCompatActivity() {
                     texts[row][col].background = ContextCompat.getDrawable(this, id)
                     updateLetterColor(result[col].first, result[col].second)
                 }
-                if (gameCore.getResult()) {
+                if (gameCore.getResult() && modo == "infinito") {
                     countWins++
                     countCurrentTries = 0
                     Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
                     unSetEventListeners()
                     xogarDeNovoButton.visibility = View.VISIBLE
                     changeWordleStatistics()
-                } else if (countCurrentTries == 6) {
+                } else if (countCurrentTries == 6 && modo == "infinito") {
                     progressLoadingBar.visibility = View.VISIBLE
                     countCurrentTries = 0
                     showGameLostDialog()
                     unSetEventListeners()
                     xogarDeNovoButton.visibility = View.VISIBLE
                     progressLoadingBar.visibility = View.GONE
+                } else if (gameCore.getResult() && modo == "diario") {
+                    unSetEventListeners()
+                    Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
+                    compartirButton.visibility = View.VISIBLE
+                    btnEnter.visibility = View.GONE
+                } else if (countCurrentTries == 6 && modo == "diario") {
+                    progressLoadingBar.visibility = View.VISIBLE
+                    showGameLostDialog()
+                    unSetEventListeners()
+                    progressLoadingBar.visibility = View.GONE
+                    compartirButton.visibility = View.VISIBLE
+                    btnEnter.visibility = View.GONE
                 }
             }
         }
@@ -230,6 +266,23 @@ class WordleGameActivity : AppCompatActivity() {
             withContext(Dispatchers.Default) {
                 words = gameCore.setWord().toMutableList()
                 Log.d("word", gameCore.getFinalWord())
+            }
+            setEventListeners()
+            progressLoadingBar.visibility = View.GONE
+        }
+    }
+
+    private fun dailyWord() {
+        findViewById<TextView>(R.id.games).visibility = View.GONE
+        findViewById<TextView>(R.id.wins).visibility = View.GONE
+        // Mover helpImageButton a la derecha
+        findViewById<LinearLayout>(R.id.linearLayoutEstadisticasWordle).gravity = Gravity.END
+
+        coroutineScope.launch {
+            progressLoadingBar.visibility = View.VISIBLE
+            unSetEventListeners()
+            withContext(Dispatchers.Default) {
+                words = gameCore.setWord(modo).toMutableList()
             }
             setEventListeners()
             progressLoadingBar.visibility = View.GONE
@@ -286,6 +339,43 @@ class WordleGameActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun compartirWordle() {
+        // Obtener una referencia al GridLayout del wordle y al logo
+        val constraintLayout = findViewById<ConstraintLayout>(R.id.constraint_layout_letters_and_logo)
+        val constraintLayoutLetters = findViewById<ConstraintLayout>(R.id.constraint_layout_letters)
+        val logoImageView = findViewById<ImageView>(R.id.logo_image_view_wordle)
+
+        // Iterar sobre todos los hijos del GridLayout
+        val originalTexts = mutableListOf<String>()
+        for (i in 0 until constraintLayoutLetters.childCount) {
+            val child = constraintLayoutLetters.getChildAt(i)
+            if (child is TextView) {
+                // Guarda el texto original y oculta la letra
+                originalTexts.add(child.text.toString())
+                child.text = ""
+            }
+        }
+
+        logoImageView.visibility = View.VISIBLE
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Hacer una captura de pantalla del GridLayout
+            val bitmap = screenShot(constraintLayout)
+            logoImageView.visibility = View.GONE
+
+            // Restaurar el texto de cada TextView
+            for (i in 0 until constraintLayoutLetters.childCount) {
+                val child = constraintLayoutLetters.getChildAt(i)
+                if (child is TextView) {
+                    child.text = originalTexts[i]
+                }
+            }
+
+            // Compartir la captura de pantalla
+            shareScreenshot(bitmap, this)
+        }, 100) // Esperar 100ms para que se muestre el logo antes de hacer la captura de pantalla
     }
 
     private fun changeWordleStatistics() {
