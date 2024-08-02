@@ -21,6 +21,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
+import com.galegando21.utils.RefransConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
@@ -79,7 +80,11 @@ class ProbaVelocidadeGameActivity : AppCompatActivity() {
             promptSpeechInput()
         }
 
-        questionList = QuestionRuletaDaSorteConstants.getQuestions()
+        if (intent.getStringExtra("modo") == "refrans") {
+            questionList = RefransConstants.getRefransProbaVelocidade(this)
+        } else {
+            questionList = QuestionRuletaDaSorteConstants.getQuestions()
+        }
 
         showNextQuestion()
         startTimer()

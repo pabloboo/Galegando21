@@ -21,10 +21,50 @@
         android:text="@string/proba_velocidade_explicacion"
         android:textAlignment="center"
         android:layout_marginHorizontal="15dp"
-        app:layout_constraintBottom_toTopOf="@id/start_btn_proba_velocidade"
+        app:layout_constraintBottom_toTopOf="@id/proba_velocidade_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+
+    <RadioGroup
+        android:id="@+id/proba_velocidade_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_description_tv"
+        app:layout_constraintBottom_toTopOf="@id/modo_xogo_info_tv_proba_velocidade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="80dp"
+        android:checkedButton="@id/proba_velocidade_radio_btn_normal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Modo de xogo:"
+            android:contentDescription="Modo de xogo do proba_velocidade"/>
+        <RadioButton
+            android:id="@+id/proba_velocidade_radio_btn_normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Normal"/>
+        <RadioButton
+            android:id="@+id/proba_velocidade_radio_btn_refrans"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Refráns"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/modo_xogo_info_tv_proba_velocidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="En este modo de xogo os tableiros serán obtidos do programa orixinal."
+        android:textAlignment="center"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toTopOf="@id/start_btn_proba_velocidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/proba_velocidade_radio_group" />
 
     <Button
         android:id="@+id/start_btn_proba_velocidade"
@@ -36,6 +76,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/proba_velocidade_description_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/modo_xogo_info_tv_proba_velocidade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

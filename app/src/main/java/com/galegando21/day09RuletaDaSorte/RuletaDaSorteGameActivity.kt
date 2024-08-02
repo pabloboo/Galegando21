@@ -22,6 +22,7 @@ import com.galegando21.R
 import com.galegando21.model.QuestionRuletaDaSorte
 import com.galegando21.utils.QuestionRuletaDaSorteConstants
 import com.galegando21.utils.QuestionRuletaDaSorteConstants.MAX_CHARS_PER_LINE
+import com.galegando21.utils.RefransConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
@@ -44,7 +45,7 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
     private lateinit var questionList: List<QuestionRuletaDaSorte>
     private lateinit var question: QuestionRuletaDaSorte
     private var letterViews: List<TextView> = listOf()
-    private var specialChars = listOf(',')
+    private var specialChars = listOf(',', ':', '"', '.', ';', '«', '»', '(', ')', '¿', '?')
     private var nextMultiplicadorAccion = 0 // Multiplicador de la acción de la ruleta
     private var cash = 0 // Dinero acumulado
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
@@ -58,7 +59,11 @@ class RuletaDaSorteGameActivity : AppCompatActivity() {
         ruletaAccionImageView = findViewById(R.id.ruleta_sorte_accion_ruleta_image_view)
         cashTv = findViewById(R.id.ruleta_sorte_cash_tv)
 
-        questionList = QuestionRuletaDaSorteConstants.getQuestions()
+        if (intent.getStringExtra("modo") == "refrans") {
+            questionList = RefransConstants.getRefranRuletaSorte(this)
+        } else {
+            questionList = QuestionRuletaDaSorteConstants.getQuestions()
+        }
         startGame()
 
         setBanner(this, R.string.ruleta_da_sorte)

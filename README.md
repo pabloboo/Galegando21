@@ -104,6 +104,17 @@ python3 find_definiciones_comuns_en.py
 Este último comando crea un novo ficheiro .json chamado palabras_basicas_pet.json que contén as palabras comúns en galego e as súas definicións.
 O arquivo 'find_definiciones_comuns_en.py' busca todas as palabras traducidas no ficheiro 'rag.json' para obter as súas definicións.
 
+<br/><br/>
+### Executar o Scraper dos refráns:
+Executar o scraper:
+```
+cd ragscraper/
+python3 ragscraper/spiders/refrans.py
+```
+
+Unha vez finalizado o scraper os resultados gardanse no ficheiro 'refrans-complete.json'. A este arquivo engadese a lista de refrans do arquivo 'refrans_cervantesVirtual.txt'
+obtidos de forma manual. O resultado de este proceso pode encontrarse no arquivo 'app/src/main/assets/refrans.json'.
+
 ## API
 O código da API, implementado en Flask, encontrase na en /api/api.py e está despregado en https://www.pythonanywhere.com/.
 
