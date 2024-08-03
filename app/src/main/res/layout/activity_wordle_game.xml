@@ -72,6 +72,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters"/>
 
+            <TextView
+                android:id="@+id/wordle_timer_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:background="@drawable/agora_caigo_timer_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo_image_view_wordle"
+                app:layout_constraintBottom_toTopOf="@id/constraint_layout_letters"
+                tools:text="30:00" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraint_layout_letters"
                 android:layout_width="match_parent"

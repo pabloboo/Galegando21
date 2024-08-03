@@ -2,6 +2,7 @@ package com.galegando21.day15Wordle
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -18,13 +19,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import com.galegando21.R
 import com.galegando21.model.WordleGameManager
 import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.screenShot
-import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
 import com.galegando21.utils.updateCurrentStreak
@@ -39,6 +38,7 @@ import java.util.Locale
 
 class WordleGameActivity : AppCompatActivity() {
     private lateinit var helpImageButton: ImageButton
+    private lateinit var wordleTimerTv: TextView
     private lateinit var xogarDeNovoButton: Button
     private lateinit var compartirButton: Button
     private lateinit var progressLoadingBar: ProgressBar
@@ -58,14 +58,20 @@ class WordleGameActivity : AppCompatActivity() {
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
+    private var seconds = 0
+    private var countDownTimer: CountDownTimer? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wordle_game)
 
         helpImageButton = findViewById(R.id.helpButton)
+        wordleTimerTv = findViewById(R.id.wordle_timer_tv)
         xogarDeNovoButton = findViewById(R.id.xogar_de_novo_wordle_btn)
         compartirButton = findViewById(R.id.compartir_wordle_btn)
         progressLoadingBar = findViewById(R.id.loadingProgressBar)
+
+        setOnBackPressed(this, WordleInicioActivity::class.java)
 
         modo = intent.getStringExtra("modo") ?: "diario"
 
@@ -92,8 +98,6 @@ class WordleGameActivity : AppCompatActivity() {
         compartirButton.setOnClickListener {
             compartirWordle()
         }
-
-        setOnBackPressed(this, WordleInicioActivity::class.java)
     }
 
     override fun onResume() {
@@ -207,11 +211,13 @@ class WordleGameActivity : AppCompatActivity() {
                     xogarDeNovoButton.visibility = View.VISIBLE
                     progressLoadingBar.visibility = View.GONE
                 } else if (gameCore.getResult() && modo == "diario") {
+                    stopTimer()
                     unSetEventListeners()
                     Toast.makeText(this, "Acertaches!", Toast.LENGTH_SHORT).show()
                     compartirButton.visibility = View.VISIBLE
                     btnEnter.visibility = View.GONE
                 } else if (countCurrentTries == 6 && modo == "diario") {
+                    stopTimer()
                     progressLoadingBar.visibility = View.VISIBLE
                     showGameLostDialog()
                     unSetEventListeners()
@@ -286,6 +292,7 @@ class WordleGameActivity : AppCompatActivity() {
             }
             setEventListeners()
             progressLoadingBar.visibility = View.GONE
+            startTimer()
         }
     }
 
@@ -339,6 +346,24 @@ class WordleGameActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun startTimer() {
+        countDownTimer?.cancel() // Cancela el timer anterior si existe
+
+        countDownTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                seconds++
+                wordleTimerTv.text = "$seconds:00"
+            }
+
+            override fun onFinish() {}
+        }.start()
+        setOnBackPressed(this, WordleInicioActivity::class.java, countDownTimer)
+    }
+
+    private fun stopTimer() {
+        countDownTimer?.cancel()
     }
 
     private fun compartirWordle() {

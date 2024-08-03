@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@id/sopa_letras_record_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sopa_letras_correct_answers_results_icon"
+        app:layout_constraintTop_toBottomOf="@+id/sopa_letras_correct_answers_results_text_view"
         android:textAlignment="center"
         android:layout_marginHorizontal="15dp"
         tools:text="Conseguiches un total de 50 puntos, adiviñando un total de 10 tableiros" />
