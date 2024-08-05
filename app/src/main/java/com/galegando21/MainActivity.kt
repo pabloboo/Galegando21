@@ -51,6 +51,7 @@ import com.galegando21.day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
 import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
 import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
+import com.galegando21.day22Brisca.BriscaGameActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.ENVIRONMENT
 import com.galegando21.utils.NUMBER_OF_DAYS
@@ -88,6 +89,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var day19Button: ImageButton
     private lateinit var day20Button: ImageButton
     private lateinit var day21Button: ImageButton
+    private lateinit var briscaButton: ImageButton
 
     private val PERMISSION_REQUEST_CODE = 1
     private var backPressedOnce = false
@@ -148,6 +150,7 @@ class MainActivity : AppCompatActivity() {
         day19Button = findViewById(R.id.btnDay19)
         day20Button = findViewById(R.id.btnDay20)
         day21Button = findViewById(R.id.btnDay21)
+        briscaButton = findViewById(R.id.btnBrisca)
 
         setBanner(this, R.string.app_name)
 
@@ -161,6 +164,13 @@ class MainActivity : AppCompatActivity() {
 
         day01Button.setOnClickListener {
             Intent(this@MainActivity, PasagalegoInicioActivity::class.java). also {
+                startActivity(it)
+                finish()
+            }
+        }
+
+        briscaButton.setOnClickListener {
+            Intent(this@MainActivity, BriscaGameActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

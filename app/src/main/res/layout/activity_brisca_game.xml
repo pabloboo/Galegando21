@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_brisca_game_relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Machine's cards -->
+    <LinearLayout
+        android:id="@+id/machine_hand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Deck and trump card -->
+    <RelativeLayout
+        android:id="@+id/deck_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_marginVertical="16dp">
+
+        <ImageView
+            android:id="@+id/trump_card"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:rotation="90"
+            android:layout_toRightOf="@id/deck"
+            android:layout_marginStart="-40dp"
+            android:layout_marginEnd="40dp"
+            tools:src="@drawable/card_oros_1"/>
+
+        <ImageView
+            android:id="@+id/deck"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/card_back" />
+    </RelativeLayout>
+
+    <!-- Player's cards -->
+    <LinearLayout
+        android:id="@+id/player_hand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Played cards -->
+    <LinearLayout
+        android:id="@+id/played_cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/deck_area"
+        android:gravity="center" />
+
+</RelativeLayout>
