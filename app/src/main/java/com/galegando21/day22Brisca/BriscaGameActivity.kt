@@ -15,6 +15,7 @@ import com.galegando21.MainActivity
 import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.view.ViewGroup
@@ -240,10 +241,12 @@ class BriscaGameActivity : AppCompatActivity() {
 
     private fun checkGameEnd(): Boolean {
         if (playerCards.isEmpty() && machineCards.isEmpty() && deckCards.isEmpty()) {
-            if (playerPoints > machinePoints) {
-                Toast.makeText(this, "Gañaches $playerPoints a $machinePoints", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Perdiches $playerPoints a $machinePoints", Toast.LENGTH_SHORT).show()
+            Intent(this, BriscaResultsActivity::class.java).also {
+                it.putExtra("player_points_brisca", playerPoints)
+                it.putExtra("computer_points_brisca", machinePoints)
+                startActivity(it)
+                finish()
+                return true
             }
             return true
         }

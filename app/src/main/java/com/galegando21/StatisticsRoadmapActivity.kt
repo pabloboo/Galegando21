@@ -100,6 +100,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var lockInsigniaPalabrasEncadeadas: ImageView
     private lateinit var insigniaAforcado: ImageView
     private lateinit var lockInsigniaAforcado: ImageView
+    private lateinit var insigniaBrisca: ImageView
+    private lateinit var lockInsigniaBrisca: ImageView
     private lateinit var insigniaExperiencia10k: ImageView
     private lateinit var lockInsigniaExperiencia10k: ImageView
     private lateinit var insigniaExperiencia50k: ImageView
@@ -143,6 +145,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var palabrasEncadeadasScore: TextView
     private lateinit var aforcadoScoreEasy: TextView
     private lateinit var aforcadoScoreDificult: TextView
+    private lateinit var briscaScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -214,6 +217,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         lockInsigniaPalabrasEncadeadas = findViewById(R.id.lock_insignia_palabras_encadeadas)
         insigniaAforcado = findViewById(R.id.insignia_aforcado)
         lockInsigniaAforcado = findViewById(R.id.lock_insignia_aforcado)
+        insigniaBrisca = findViewById(R.id.insignia_brisca)
+        lockInsigniaBrisca = findViewById(R.id.lock_insignia_brisca)
         insigniaExperiencia10k = findViewById(R.id.insignia_experiencia_10k)
         lockInsigniaExperiencia10k = findViewById(R.id.lock_insignia_experiencia_10k)
         insigniaExperiencia50k = findViewById(R.id.insignia_experiencia_50k)
@@ -257,6 +262,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         palabrasEncadeadasScore = findViewById(R.id.palabras_encadeadas_statistics)
         aforcadoScoreEasy = findViewById(R.id.aforcado_statistics_easy)
         aforcadoScoreDificult = findViewById(R.id.aforcado_statistics_dificult)
+        briscaScore = findViewById(R.id.brisca_statistics)
 
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
@@ -323,6 +329,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         aforcadoScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY, 0).toString() + " acertos seguidos"
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"
+
+        briscaScore.text = sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0).toString() + " puntos"
 
         setInsignias()
 
@@ -464,6 +472,11 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         if (sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString().toInt() < 10) {
             insigniaAforcado.colorFilter = filter
             lockInsigniaAforcado.visibility = View.VISIBLE
+        }
+
+        if (sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0).toString().toInt() < 120) {
+            insigniaBrisca.colorFilter = filter
+            lockInsigniaBrisca.visibility = View.VISIBLE
         }
 
         if (sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString().toInt() < 10000) {

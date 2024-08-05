@@ -66,4 +66,5 @@ object SharedPreferencesKeys {
     const val WORDLE_MAX_STREAK = "wordle_max_streak"
     const val CONEXIONS_MAX_SCORE = "conexions_max_score"
     const val PALABRAS_ENCADEADAS_MAX_SCORE = "palabras_encadeadas_max_score"
+    const val BRISCA_MAX_SCORE = "brisca_max_score"
 }

@@ -1216,6 +1216,44 @@
                             android:layout_height="100dp">
 
                             <ImageView
+                                android:id="@+id/insignia_brisca"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:src="@drawable/badge_brisca" />
+
+                            <ImageView
+                                android:id="@+id/lock_insignia_brisca"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                app:layout_constraintStart_toStartOf="@id/insignia_brisca"
+                                app:layout_constraintTop_toTopOf="@id/insignia_brisca"
+                                app:layout_constraintEnd_toEndOf="@id/insignia_brisca"
+                                app:layout_constraintBottom_toBottomOf="@id/insignia_brisca"
+                                android:src="@drawable/lock_icon"
+                                android:visibility="gone" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Conseguiches 120 puntos na Brisca"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp">
+
+                            <ImageView
                                 android:id="@+id/insignia_experiencia_10k"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
@@ -2230,6 +2268,39 @@
                 android:textSize="14sp"
                 android:layout_marginVertical="15dp"
                 android:contentDescription="Record xogo debuxa e adiviña"/>
+        </LinearLayout>
+
+        <!-- Brisca Card -->
+        <LinearLayout
+            android:id="@+id/day22_brisca_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background_statistics"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/day20_debuxa_adivinha_card"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/brisca_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/brisca"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/brisca_statistics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text=""
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginVertical="15dp"
+                android:contentDescription="Record xogo brisca"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
