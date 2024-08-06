@@ -126,6 +126,14 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
         }
 
+        //Notificaciones especiales
+        val specialNotificationsWorkRequest = PeriodicWorkRequestBuilder<SpecialNotificationsWorker>(24, TimeUnit.HOURS).build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "SpecialNotificationsWork",
+            ExistingPeriodicWorkPolicy.KEEP,
+            specialNotificationsWorkRequest
+        )
+
         goldenHourTextView = findViewById(R.id.goldenHourTextView)
         letrasGalegasLayout = findViewById(R.id.letrasGalegasLayout)
         flipTimerLayout = findViewById(R.id.flipTimerLayout)
