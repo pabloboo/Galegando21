@@ -89,6 +89,12 @@ fun updateUserExperience(activity: AppCompatActivity, experience: Int): Int {
         experienceWithBonus *= 2
     }
 
+    val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
+    val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+    if (currentMonth == 4 && currentDay == 17) { // Día das Letras Galegas -> cuadruple de experiencia
+        experienceWithBonus *= 4
+    }
+
     val currentExperience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0)
     val newExperience = currentExperience + experienceWithBonus
 

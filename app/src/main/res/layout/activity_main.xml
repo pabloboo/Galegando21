@@ -43,6 +43,29 @@
                 android:text="Hora Dourada: dobre de puntos!"/>
 
             <LinearLayout
+                android:id="@+id/letrasGalegasLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:id="@+id/letrasGalegasImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo_letras_galegas"/>
+
+                <TextView
+                    android:id="@+id/letrasGalegasTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#d5f3f5"
+                    android:padding="20dp"
+                    android:text="Día das letras galegas: cuadruple de puntos!"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/flipTimerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var goldenHourTextView: TextView
+    private lateinit var letrasGalegasLayout: LinearLayout
     private lateinit var flipTimerLayout: LinearLayout
     private lateinit var flipTimerView: FlipTimerView
     private lateinit var helpButtonTimeLeft: ImageButton
@@ -126,6 +127,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         goldenHourTextView = findViewById(R.id.goldenHourTextView)
+        letrasGalegasLayout = findViewById(R.id.letrasGalegasLayout)
         flipTimerLayout = findViewById(R.id.flipTimerLayout)
         flipTimerView = findViewById(R.id.flipTimerView)
         helpButtonTimeLeft = findViewById(R.id.helpButtonTimeLeft)
@@ -155,6 +157,7 @@ class MainActivity : AppCompatActivity() {
         setBanner(this, R.string.app_name)
 
         setGoldenHourTextView()
+        setLetrasGalegasLayout()
 
         setTimeLeftTextView()
 
@@ -229,6 +232,15 @@ class MainActivity : AppCompatActivity() {
 
         if (currentHour in 19..20) {
             goldenHourTextView.visibility = View.VISIBLE
+        }
+    }
+
+    private fun setLetrasGalegasLayout() {
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
+        val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+
+        if (currentMonth == 4 && currentDay == 17) {
+            letrasGalegasLayout.visibility = View.VISIBLE
         }
     }
 
