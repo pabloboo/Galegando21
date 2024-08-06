@@ -54,7 +54,46 @@
             app:layout_constraintTop_toBottomOf="@+id/brisca_description_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/start_btn_brisca" />
+            app:layout_constraintBottom_toTopOf="@id/brisca_radio_group" />
+
+        <RadioGroup
+            android:id="@+id/brisca_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/brisca_help_btn"
+            app:layout_constraintBottom_toTopOf="@id/modo_xogo_info_tv_brisca"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="80dp"
+            android:checkedButton="@id/brisca_radio_btn_facil">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Dificultade:"/>
+            <RadioButton
+                android:id="@+id/brisca_radio_btn_facil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Fácil"/>
+            <RadioButton
+                android:id="@+id/brisca_radio_btn_dificil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Difícil"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/modo_xogo_info_tv_brisca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="En este modo de xogo a máquina seleccionará unha carta aleatoria da súa man."
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@id/start_btn_brisca"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/modo_xogo_info_tv_brisca" />
 
         <Button
             android:id="@+id/start_btn_brisca"
@@ -66,7 +105,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/brisca_help_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/modo_xogo_info_tv_brisca" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

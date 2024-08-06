@@ -36,6 +36,7 @@ class BriscaGameActivity : AppCompatActivity() {
     private var playerPoints = 0
     private var nextTurn = "player"
     private var allCardsDealed = false
+    private var modo = "facil"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brisca_game)
@@ -45,6 +46,8 @@ class BriscaGameActivity : AppCompatActivity() {
         playedCards = findViewById(R.id.played_cards)
         deck = findViewById(R.id.deck)
         trumpCard = findViewById(R.id.trump_card)
+
+        modo = intent.getStringExtra("modo") ?: "facil"
 
         initGame()
 
@@ -126,9 +129,51 @@ class BriscaGameActivity : AppCompatActivity() {
 
     private fun machineTurn() {
         if (machineCards.isNotEmpty()) {
-            val randomIndex = Random.nextInt(machineCards.size)
-            val selectedCard = machineCards.removeAt(randomIndex)
-            playCard(selectedCard, isPlayer = false)
+            if (modo == "facil") {
+                machineTurnEasy()
+            } else {
+                machineTurnDifficult()
+            }
+        }
+    }
+
+    private fun machineTurnEasy() {
+        val randomIndex = Random.nextInt(machineCards.size)
+        val selectedCard = machineCards.removeAt(randomIndex)
+        playCard(selectedCard, isPlayer = false)
+    }
+
+    private fun machineTurnDifficult() {
+        if (machineCards.isNotEmpty()) {
+            val selectedCard = when {
+                // Si la máquina tiene el primer turno, juega la carta de menor valor posible
+                playedTrick.isEmpty() -> machineCards.minByOrNull { it.points }
+
+                // Si la máquina tiene el segundo turno
+                else -> {
+                    val playerCard = playedTrick[0]
+
+                    when {
+                        // Si la máquina tiene una carta de mayor valor del mismo palo (que no sea triunfo))
+                        machineCards.any { it.suit == playerCard.suit && it.points > playerCard.points && playerCard.suit != trump!!.suit} -> {
+                            machineCards.first { it.suit == playerCard.suit && it.points > playerCard.points && playerCard.suit != trump!!.suit}
+                        }
+
+                        // Si la carta jugada es un as o un tres (sin ser triunfo) y la máquina tiene un triunfo
+                        (playerCard.value in listOf(1, 3) && playerCard.suit != trump?.suit && machineCards.any { it.suit == trump?.suit }) -> {
+                            machineCards.first { it.suit == trump?.suit }
+                        }
+
+                        // En cualquier otro caso, juega la carta de menor puntuación
+                        else -> machineCards.minByOrNull { it.points }
+                    }
+                }
+            }
+
+            selectedCard?.let {
+                machineCards.remove(it)
+                playCard(it, isPlayer = false)
+            }
         }
     }
 
@@ -240,6 +285,7 @@ class BriscaGameActivity : AppCompatActivity() {
     private fun checkGameEnd(): Boolean {
         if (playerCards.isEmpty() && machineCards.isEmpty() && deckCards.isEmpty()) {
             Intent(this, BriscaResultsActivity::class.java).also {
+                it.putExtra("modo", modo)
                 it.putExtra("player_points_brisca", playerPoints)
                 it.putExtra("computer_points_brisca", machinePoints)
                 startActivity(it)

@@ -145,7 +145,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var palabrasEncadeadasScore: TextView
     private lateinit var aforcadoScoreEasy: TextView
     private lateinit var aforcadoScoreDificult: TextView
-    private lateinit var briscaScore: TextView
+    private lateinit var briscaScoreEasy: TextView
+    private lateinit var briscaScoreDifficult: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -262,7 +263,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         palabrasEncadeadasScore = findViewById(R.id.palabras_encadeadas_statistics)
         aforcadoScoreEasy = findViewById(R.id.aforcado_statistics_easy)
         aforcadoScoreDificult = findViewById(R.id.aforcado_statistics_dificult)
-        briscaScore = findViewById(R.id.brisca_statistics)
+        briscaScoreEasy = findViewById(R.id.brisca_statistics_easy)
+        briscaScoreDifficult = findViewById(R.id.brisca_statistics_difficult)
 
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
@@ -330,7 +332,8 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         aforcadoScoreEasy.text = "Nivel fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY, 0).toString() + " acertos seguidos"
         aforcadoScoreDificult.text = "Nivel difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, 0).toString() + " acertos seguidos"
 
-        briscaScore.text = sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0).toString() + " puntos"
+        briscaScoreEasy.text = "Modo fácil: " + sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_EASY, 0).toString() + " puntos"
+        briscaScoreDifficult.text = "Modo difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT, 0).toString() + " puntos"
 
         setInsignias()
 
@@ -474,7 +477,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
             lockInsigniaAforcado.visibility = View.VISIBLE
         }
 
-        if (sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0).toString().toInt() < 120) {
+        if (sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT, 0).toString().toInt() < 120) {
             insigniaBrisca.colorFilter = filter
             lockInsigniaBrisca.visibility = View.VISIBLE
         }

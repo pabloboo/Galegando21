@@ -32,15 +32,17 @@ class BriscaResultsActivity : AppCompatActivity() {
 
         setBanner(this, R.string.brisca)
 
+        val modo = intent.getStringExtra("modo").toString()
+        val modoString = if (modo == "facil") "fácil" else "difícil"
         val playerScore = intent.getIntExtra("player_points_brisca", 0)
         val computerScore = intent.getIntExtra("computer_points_brisca", 0)
         BriscaCorrectAnswersResultTv.text = playerScore.toString()
         if (playerScore > computerScore) {
-            BriscaResultsTv.text = "Gañaches $playerScore a $computerScore."
+            BriscaResultsTv.text = "Gañaches $playerScore a $computerScore no modo $modoString."
         } else if (playerScore < computerScore) {
-            BriscaResultsTv.text = "Perdiches $playerScore a $computerScore."
+            BriscaResultsTv.text = "Perdiches $playerScore a $computerScore no modo $modoString."
         } else {
-            BriscaResultsTv.text = "Empataches $playerScore a $computerScore."
+            BriscaResultsTv.text = "Empataches $playerScore a $computerScore no modo $modoString."
         }
 
         BriscaShareButton.setOnClickListener {
@@ -57,20 +59,23 @@ class BriscaResultsActivity : AppCompatActivity() {
 
         changeBriscaStatistics()
 
-        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0)
-        BriscaRecordTv.text = "O teu récord é de $record puntos."
-        if (record < 10) {
-            BriscaRecordTv.text = "O teu récord é de $record puntos.\n\nObtén 120 puntos para conseguir unha insignia!"
+        val recordKey = if (modo == "facil") SharedPreferencesKeys.BRISCA_MAX_SCORE_EASY else SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(recordKey, 0)
+        BriscaRecordTv.text = "O teu récord é de $record puntos no modo $modoString."
+        if (record < 120) {
+            BriscaRecordTv.text = "O teu récord é de $record puntos no modo $modoString.\n\nObtén 120 puntos  no modo difícil para conseguir unha insignia!"
         }
 
         setOnBackPressed(this, BriscaInicioActivity::class.java)
     }
 
     private fun changeBriscaStatistics() {
-        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, 0)
+        val modo = intent.getStringExtra("modo").toString()
+        val recordKey = if (modo == "facil") SharedPreferencesKeys.BRISCA_MAX_SCORE_EASY else SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT
+        val record = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).getInt(recordKey, 0)
         val playerScore = intent.getIntExtra("player_points_brisca", 0)
         if (playerScore > record) {
-            getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).edit().putInt(SharedPreferencesKeys.BRISCA_MAX_SCORE, playerScore).apply()
+            getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE).edit().putInt(recordKey, playerScore).apply()
         }
     }
 }
