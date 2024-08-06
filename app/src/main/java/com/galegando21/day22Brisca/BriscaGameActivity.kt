@@ -10,8 +10,6 @@ import com.galegando21.R
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.widget.Toast
-import com.galegando21.MainActivity
 import com.galegando21.utils.setOnBackPressed
 import kotlin.random.Random
 import android.animation.ObjectAnimator
@@ -50,7 +48,7 @@ class BriscaGameActivity : AppCompatActivity() {
 
         initGame()
 
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, BriscaInicioActivity::class.java)
     }
 
     private fun initGame() {

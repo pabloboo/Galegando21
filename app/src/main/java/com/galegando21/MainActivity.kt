@@ -51,7 +51,7 @@ import com.galegando21.day12AdivinhaPersonaxe.AdivinhaPersonaxeInicioActivity
 import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
 import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
-import com.galegando21.day22Brisca.BriscaGameActivity
+import com.galegando21.day22Brisca.BriscaInicioActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.ENVIRONMENT
 import com.galegando21.utils.NUMBER_OF_DAYS
@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         briscaButton.setOnClickListener {
-            Intent(this@MainActivity, BriscaGameActivity::class.java). also {
+            Intent(this@MainActivity, BriscaInicioActivity::class.java). also {
                 startActivity(it)
                 finish()
             }

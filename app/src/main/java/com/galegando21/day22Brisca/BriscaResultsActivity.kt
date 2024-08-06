@@ -63,7 +63,7 @@ class BriscaResultsActivity : AppCompatActivity() {
             BriscaRecordTv.text = "O teu récord é de $record puntos.\n\nObtén 120 puntos para conseguir unha insignia!"
         }
 
-        setOnBackPressed(this, MainActivity::class.java)
+        setOnBackPressed(this, BriscaInicioActivity::class.java)
     }
 
     private fun changeBriscaStatistics() {

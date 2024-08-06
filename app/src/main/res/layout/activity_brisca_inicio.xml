@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".day22Brisca.BriscaInicioActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/brisca_iv"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_brisca"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/brisca_description_tv"/>
+
+        <TextView
+            android:id="@+id/brisca_description_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/brisca_explicacion"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@id/brisca_help_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/brisca_iv" />
+
+        <ImageButton
+            android:id="@+id/brisca_help_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Información adicional sobre o xogo"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help_icon"
+            app:layout_constraintTop_toBottomOf="@+id/brisca_description_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/start_btn_brisca" />
+
+        <Button
+            android:id="@+id/start_btn_brisca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryBlue"
+            android:gravity="center"
+            android:text="@string/comezar_a_xogar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/brisca_help_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
