@@ -1,4 +1,4 @@
-package com.galegando21
+package com.galegando21.menu
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.galegando21.MainActivity
+import com.galegando21.R
 import com.galegando21.utils.DictionaryConstants
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner

@@ -1,4 +1,4 @@
-package com.galegando21
+package com.galegando21.menu
 
 import android.content.Context
 import android.content.Intent
@@ -6,14 +6,15 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.galegando21.BannerFragment
+import com.galegando21.MainActivity
+import com.galegando21.R
 import com.galegando21.day01Pasagalego.PasagalegoInicioActivity
 import com.galegando21.day02OndeEstan.OndeEstanInicioActivity
 import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
@@ -34,7 +35,6 @@ import com.galegando21.day17ProbaVelocidade.ProbaVelocidadeInicioActivity
 import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
 import com.galegando21.day19Aforcado.AforcadoInicioActivity
 import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
-import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.getChallenge
 import com.galegando21.utils.getFeedback

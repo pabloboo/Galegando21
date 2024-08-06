@@ -1,7 +1,9 @@
-package com.galegando21
+package com.galegando21.menu
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.galegando21.MainActivity
+import com.galegando21.R
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
