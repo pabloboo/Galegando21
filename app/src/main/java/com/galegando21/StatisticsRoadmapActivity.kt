@@ -345,6 +345,9 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
             obterDesafioPersonalizado()
         }
 
+        // Actualizar el número de insignias.
+        getNumberOfBadges()
+
     }
 
     private fun showHelpDialogExperience() {
@@ -646,6 +649,12 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         if (lockInsigniaExperiencia50k.visibility != View.VISIBLE) badgeCount++
         if (lockInsigniaExperiencia100k.visibility != View.VISIBLE) badgeCount++
         if (lockInsigniaExperiencia1m.visibility != View.VISIBLE) badgeCount++
+
+        // Actualizar número de insignias en SharedPreferences
+        val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putInt(SharedPreferencesKeys.NUMBER_OF_BADGES, badgeCount)
+        editor.apply()
 
         return badgeCount
     }

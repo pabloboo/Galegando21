@@ -36,6 +36,7 @@ object SharedPreferencesKeys {
     const val LAST_DAY_EXPERIENCE_POINTS_UPDATED = "last_day_experience_points_updated"
     const val MAX_DAY_EXPERIENCE_POINTS = "max_day_experience_points"
     const val MAX_DAY_EXPERIENCE_POINTS_DATE = "max_day_experience_points_date"
+    const val NUMBER_OF_BADGES = "number_of_badges"
     const val PASAGALEGO_CORRECT_ANSWERS_DICTIONARY_EASY = "pasagalego_correct_answers_dictionary_easy"
     const val PASAGALEGO_ERROR_ANSWERS_DICTIONARY_EASY = "pasagalego_error_answers_dictionary_easy"
     const val PASAGALEGO_TIME_DICTIONARY_EASY = "pasagalego_time_dictionary_easy"

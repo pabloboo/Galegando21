@@ -169,10 +169,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        briscaButton.setOnClickListener {
-            Intent(this@MainActivity, BriscaInicioActivity::class.java). also {
-                startActivity(it)
-                finish()
+        val sharedPreferencesStatistics = getSharedPreferences(SharedPreferencesKeys.STATISTICS, Context.MODE_PRIVATE)
+        val numberOfBadges = sharedPreferencesStatistics.getInt(SharedPreferencesKeys.NUMBER_OF_BADGES, 0)
+        if (numberOfBadges >= 4) {
+            briscaButton.setOnClickListener {
+                Intent(this@MainActivity, BriscaInicioActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
+            briscaButton.background = getDrawable(R.drawable.main_activity_button_background)
+        } else {
+            briscaButton.setOnClickListener {
+                Toast.makeText(this, "Necesitas 4 insignias para desbloquear este xogo, tes $numberOfBadges.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -296,6 +305,15 @@ class MainActivity : AppCompatActivity() {
             }
             button.background = getDrawable(R.drawable.main_activity_button_background)
         }
+
+        // Desbloquear botón Brisca
+        briscaButton.setOnClickListener {
+            Intent(this@MainActivity, BriscaInicioActivity::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
+        briscaButton.background = getDrawable(R.drawable.main_activity_button_background)
     }
 
     private fun setOnClickListenerMain(id: Int) {
