@@ -282,6 +282,21 @@ class BriscaGameActivity : AppCompatActivity() {
         }
     }
 
+    private fun exchangeTrumpCard(sevenTrump: Card) {
+        // Encuentra el índice de la carta del siete del triunfo en la mano del jugador
+        val index = playerCards.indexOf(sevenTrump)
+
+        // Intercambia la carta del siete del triunfo con la carta del triunfo
+        playerCards[index] = trump!!
+        trump = sevenTrump
+
+        // Actualiza la vista de la carta del triunfo
+        trumpCard.setImageResource(trump!!.imageRes)
+
+        // Actualiza la mano del jugador
+        updatePlayerHand()
+    }
+
     private fun checkGameEnd(): Boolean {
         if (playerCards.isEmpty() && machineCards.isEmpty() && deckCards.isEmpty()) {
             Intent(this, BriscaResultsActivity::class.java).also {
@@ -310,6 +325,15 @@ class BriscaGameActivity : AppCompatActivity() {
 
         if (isPlayer) {
             cardView.setOnClickListener { playCard(card, isPlayer = true) }
+            cardView.setOnLongClickListener {
+                if ((card.suit == trump?.suit && card.value == 7) || // El siete del triunfo se puede intercambiar por la carta del triunfo
+                    (card.suit == trump?.suit && card.value == 2 && trump?.value in 4..7)) { // El dos del triunfo se puede intercambiar por la carta del triunfo si el triunfo es 7,6,5 o 4
+                    exchangeTrumpCard(card)
+                    true
+                } else {
+                    false
+                }
+            }
         }
         if (unSetListenerPlayer) { // Mientras se muestra la baza, no se puede jugar
             cardView.setOnClickListener(null)
