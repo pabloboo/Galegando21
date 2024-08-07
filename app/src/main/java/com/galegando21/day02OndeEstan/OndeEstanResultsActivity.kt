@@ -85,7 +85,7 @@ class OndeEstanResultsActivity : AppCompatActivity() {
 
         updateCurrentStreak(this)
 
-        val experience = updateUserExperience(this, score)
+        val experience = updateUserExperience(this, 90-score)
         Toast.makeText(this, "Gañaches $experience puntos de experiencia.", Toast.LENGTH_SHORT).show()
     }
 }

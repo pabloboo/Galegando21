@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -99,6 +100,17 @@ fun updateUserExperience(activity: AppCompatActivity, experience: Int): Int {
     val newExperience = currentExperience + experienceWithBonus
 
     sharedPreferences.edit().putInt(SharedPreferencesKeys.EXPERIENCE_POINTS, newExperience).apply()
+
+    // Actualizar el número de monedas virtuales
+    val sharedPreferencesVirtualCoins = activity.getSharedPreferences(SharedPreferencesKeys.VIRTUAL_COINS, AppCompatActivity.MODE_PRIVATE)
+    var coinsExperienceAccumulated = sharedPreferencesVirtualCoins.getInt(SharedPreferencesKeys.COINS_EXPERIENCE_ACCUMULATED, 0)
+    coinsExperienceAccumulated += experienceWithBonus
+    sharedPreferencesVirtualCoins.edit().putInt(SharedPreferencesKeys.COINS_EXPERIENCE_ACCUMULATED, coinsExperienceAccumulated).apply()
+    if (coinsExperienceAccumulated >= 1000) { // Cada 1000 puntos de experiencia se obtiene una moneda virtual
+        val coins = sharedPreferencesVirtualCoins.getInt(SharedPreferencesKeys.COINS, 0)
+        sharedPreferencesVirtualCoins.edit().putInt(SharedPreferencesKeys.COINS, coins+1).apply()
+        sharedPreferencesVirtualCoins.edit().putInt(SharedPreferencesKeys.COINS_EXPERIENCE_ACCUMULATED, coinsExperienceAccumulated-1000).apply()
+    }
 
     updateTodayExperience(activity, experienceWithBonus)
 

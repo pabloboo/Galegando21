@@ -23,6 +23,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var maxStreakTv: TextView
     private lateinit var experienceTv: TextView
     private lateinit var numberOfBadgesTv: TextView
+    private lateinit var virtualCoinsTv: TextView
     private lateinit var helpBtn: ImageButton
     private lateinit var shareBtn: Button
 
@@ -39,6 +40,7 @@ class ProfileActivity : AppCompatActivity() {
         maxStreakTv = findViewById(R.id.profile_max_streak_tv)
         experienceTv = findViewById(R.id.profile_experience_tv)
         numberOfBadgesTv = findViewById(R.id.profile_badges_number_tv)
+        virtualCoinsTv = findViewById(R.id.profile_virtual_coins_tv)
         helpBtn = findViewById(R.id.profile_help_btn)
         shareBtn = findViewById(R.id.share_btn_profile)
 
@@ -58,6 +60,10 @@ class ProfileActivity : AppCompatActivity() {
 
         val numberOfBadges = sharedPreferencesStatistics.getInt(SharedPreferencesKeys.NUMBER_OF_BADGES, 0)
         numberOfBadgesTv.text = "Nº de insignias: $numberOfBadges."
+
+        val sharedPreferencesVirtualCoins = getSharedPreferences(SharedPreferencesKeys.VIRTUAL_COINS, MODE_PRIVATE)
+        val virtualCoins = sharedPreferencesVirtualCoins.getInt(SharedPreferencesKeys.COINS, 0)
+        virtualCoinsTv.text = "Moedas virtuais: $virtualCoins."
 
         helpBtn.setOnClickListener {
             showHelpDialog()

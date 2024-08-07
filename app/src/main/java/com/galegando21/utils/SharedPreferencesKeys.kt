@@ -69,4 +69,8 @@ object SharedPreferencesKeys {
     const val PALABRAS_ENCADEADAS_MAX_SCORE = "palabras_encadeadas_max_score"
     const val BRISCA_MAX_SCORE_EASY = "brisca_max_score_easy"
     const val BRISCA_MAX_SCORE_DIFICULT = "brisca_max_score_dificult"
+
+    const val VIRTUAL_COINS = "virtual_coins"
+    const val COINS_EXPERIENCE_ACCUMULATED = "coins_experience_accumulated"
+    const val COINS = "coins"
 }

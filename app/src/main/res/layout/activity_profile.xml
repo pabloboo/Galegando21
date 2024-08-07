@@ -69,6 +69,14 @@
                 app:layout_constraintTop_toBottomOf="@id/profile_experience_tv"
                 tools:text="Nº de insignias: 3" />
 
+            <TextView
+                android:id="@+id/profile_virtual_coins_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/profile_image"
+                app:layout_constraintTop_toBottomOf="@id/profile_badges_number_tv"
+                tools:text="Moedas virtuais: 3" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

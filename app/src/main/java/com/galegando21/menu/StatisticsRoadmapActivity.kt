@@ -353,7 +353,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private fun showHelpDialogExperience() {
         AlertDialog.Builder(this)
             .setTitle("Como se obteñen os puntos de experiencia?")
-            .setMessage("En cada xogo, dependendo do teu desempeño, recibirás puntos de experiencia. \n\nAdemáis, recibirás 1 punto de experiencia adicional por cada día de racha actual ao finalizar cada xogo. \n\nDurante a Hora Dourada (de 19:00 a 20:00) recibirás o dobre de puntos de experiencia.")
+            .setMessage("En cada xogo, dependendo do teu desempeño, recibirás puntos de experiencia. \n\nAdemáis, recibirás 1 punto de experiencia adicional por cada día de racha actual ao finalizar cada xogo. \n\nDurante a Hora Dourada (de 19:00 a 21:00) recibirás o dobre de puntos de experiencia.")
             .setPositiveButton("Cerrar") { dialog, _ ->
                 dialog.dismiss()
             }
