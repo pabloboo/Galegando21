@@ -13,6 +13,11 @@
         android:title="@string/estadisticas"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_tenda"
+        android:orderInCategory="100"
+        android:title="@string/tenda"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_suggested_games"
         android:orderInCategory="100"
         android:title="@string/xogos_suxeridos"

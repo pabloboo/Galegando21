@@ -14,6 +14,7 @@ import com.galegando21.menu.AxustesActivity
 import com.galegando21.menu.ProfileActivity
 import com.galegando21.menu.StatisticsRoadmapActivity
 import com.galegando21.menu.SuggestedGamesActivity
+import com.galegando21.menu.TendaActivity
 
 class BannerFragment : Fragment() {
 
@@ -48,6 +49,11 @@ class BannerFragment : Fragment() {
                 }
                 R.id.action_statistics -> {
                     val intent = Intent(requireContext(), StatisticsRoadmapActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.action_tenda -> {
+                    val intent = Intent(requireContext(), TendaActivity::class.java)
                     startActivity(intent)
                     true
                 }

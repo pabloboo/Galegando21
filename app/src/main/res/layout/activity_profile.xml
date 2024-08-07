@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/profile_help_btn">
+        app:layout_constraintBottom_toTopOf="@id/linear_layout_profile_btns">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -77,36 +77,70 @@
                 app:layout_constraintTop_toBottomOf="@id/profile_badges_number_tv"
                 tools:text="Moedas virtuais: 3" />
 
+            <TextView
+                android:id="@+id/profile_coleccionables_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/profile_image"
+                app:layout_constraintTop_toBottomOf="@id/profile_virtual_coins_tv"
+                tools:text="Nº de coleccionables: 3" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/profile_help_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="end"
-        android:backgroundTint="@color/white"
-        android:onClick="setLetter"
-        android:padding="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/help_icon"
-        app:layout_constraintBottom_toTopOf="@+id/share_btn_profile"
+    <LinearLayout
+        android:id="@+id/linear_layout_profile_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/coleccionables_title_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_card"
-        android:contentDescription="Información adicional sobre o nivel."/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_card">
 
-    <Button
-        android:id="@+id/share_btn_profile"
+        <Button
+            android:id="@+id/share_btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Compartir" />
+
+        <ImageButton
+            android:id="@+id/profile_help_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/white"
+            android:onClick="setLetter"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/help_icon"
+            android:contentDescription="Información adicional sobre o nivel."/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/coleccionables_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/primaryBlue"
-        android:text="Compartir"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Coleccionables"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout_profile_btns"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profile_help_btn" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_coleccionable"
+        app:layout_constraintTop_toBottomOf="@id/coleccionables_title_tv"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,7 +84,7 @@ class AdivinhaAnoFotoGameActivity : AppCompatActivity() {
                         .setSecondaryText("Preme este botón para comprobar a túa resposta")
                 )
                 .setSequenceCompleteListener {
-                    sharedPreferences.edit().putBoolean("SharedPreferencesKeys.RULETA_SORTE_FIRST_TIME", false).apply()
+                    sharedPreferences.edit().putBoolean(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_FIRST_TIME, false).apply()
                 }
                 .show()
         }

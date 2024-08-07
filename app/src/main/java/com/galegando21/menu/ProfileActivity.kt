@@ -1,16 +1,23 @@
 package com.galegando21.menu
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.galegando21.MainActivity
 import com.galegando21.R
+import com.galegando21.utils.PurchasedItem
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.TendaConstants
 import com.galegando21.utils.screenShot
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
@@ -24,6 +31,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var experienceTv: TextView
     private lateinit var numberOfBadgesTv: TextView
     private lateinit var virtualCoinsTv: TextView
+    private lateinit var numberOfColeccionables: TextView
     private lateinit var helpBtn: ImageButton
     private lateinit var shareBtn: Button
 
@@ -41,6 +49,7 @@ class ProfileActivity : AppCompatActivity() {
         experienceTv = findViewById(R.id.profile_experience_tv)
         numberOfBadgesTv = findViewById(R.id.profile_badges_number_tv)
         virtualCoinsTv = findViewById(R.id.profile_virtual_coins_tv)
+        numberOfColeccionables = findViewById(R.id.profile_coleccionables_number_tv)
         helpBtn = findViewById(R.id.profile_help_btn)
         shareBtn = findViewById(R.id.share_btn_profile)
 
@@ -64,6 +73,13 @@ class ProfileActivity : AppCompatActivity() {
         val sharedPreferencesVirtualCoins = getSharedPreferences(SharedPreferencesKeys.VIRTUAL_COINS, MODE_PRIVATE)
         val virtualCoins = sharedPreferencesVirtualCoins.getInt(SharedPreferencesKeys.COINS, 0)
         virtualCoinsTv.text = "Moedas virtuais: $virtualCoins."
+
+        // Elementos coleccionables
+        val items = TendaConstants.getPurchasedItems(this)
+        numberOfColeccionables.text = "Nº de coleccionables: ${items.size}."
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.adapter = ColeccionablesAdapter(items)
 
         helpBtn.setOnClickListener {
             showHelpDialog()
@@ -113,4 +129,25 @@ class ProfileActivity : AppCompatActivity() {
             }
             .show()
     }
+}
+
+class ColeccionablesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    val imageView: ImageView = itemView.findViewById(R.id.item_image)
+    val descriptionView: TextView = itemView.findViewById(R.id.item_description)
+}
+
+class ColeccionablesAdapter(private val items: List<PurchasedItem>) : RecyclerView.Adapter<ColeccionablesViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColeccionablesViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_coleccionable, parent, false)
+        return ColeccionablesViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ColeccionablesViewHolder, position: Int) {
+        val item = items[position]
+        holder.imageView.setImageResource(item.image)
+        holder.descriptionView.text = item.description
+    }
+
+    override fun getItemCount() = items.size
 }

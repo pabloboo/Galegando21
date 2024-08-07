@@ -18,6 +18,10 @@
         android:theme="@style/Theme.Galegando21"
         tools:targetApi="31">
         <activity
+            android:name=".menu.TendaActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".menu.ProfileActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
