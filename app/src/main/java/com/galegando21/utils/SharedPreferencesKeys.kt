@@ -10,6 +10,9 @@ object SharedPreferencesKeys {
     const val APP_PREFERENCES = "app_preferences"
     const val HAS_USER_DENIED_PERMISSIONS_BEFORE = "hasUserDeniedPermissionBefore"
 
+    const val SUPABASE = "supabase"
+    const val ACCESS_TOKEN = "access_token"
+
     const val UNLOCKED_BUTTONS = "BotonesDesbloqueados"
     const val UNLOCKED_BUTTON_COUNT = "unlockedButtonCount"
     const val NEXT_UNLOCK_TIME = "nextUnlockTime"

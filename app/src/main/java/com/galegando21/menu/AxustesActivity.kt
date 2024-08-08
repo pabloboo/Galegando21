@@ -17,6 +17,8 @@ import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 
 class AxustesActivity : AppCompatActivity() {
+    private lateinit var sincronizarDatosButton: Button
+
     private lateinit var nomeEditText: EditText
 
     private lateinit var radioGroupNivelFacil: RadioGroup
@@ -35,6 +37,7 @@ class AxustesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_axustes)
 
+        sincronizarDatosButton = findViewById(R.id.sincronizarDatosButton)
         nomeEditText = findViewById(R.id.editTextName)
         radioGroupNivelFacil = findViewById(R.id.sources_modo_facil_radio_group)
         radioButtonPalabrasComuns = findViewById(R.id.axustes_radio_btn_sources_palabras_comuns)
@@ -47,6 +50,13 @@ class AxustesActivity : AppCompatActivity() {
         gardarButton = findViewById(R.id.gardarButtonAxustes)
 
         setBanner(this, R.string.axustes)
+
+        sincronizarDatosButton.setOnClickListener {
+            Intent(this, SincronizarDatosActivity::class.java).also {
+                startActivity(it)
+                finish()
+            }
+        }
 
         val sharedPreferencesOnboarding = getSharedPreferences(SharedPreferencesKeys.ONBOARDING, MODE_PRIVATE)
         val nome = sharedPreferencesOnboarding.getString(SharedPreferencesKeys.NOME, "")
