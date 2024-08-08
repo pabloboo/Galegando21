@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -37,6 +38,7 @@ class AtrapameSePodesResultActivity : AppCompatActivity() {
         atrapameSePodesFinishButton = findViewById(R.id.atrapame_se_podes_finish_btn)
 
         setBanner(this, R.string.atrapame_se_podes)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ATRAPAME_SE_PODES, findViewById(R.id.enquisaTextView))
 
         score = intent.getIntExtra(AtrapameSePodesConstants.SCORE, 999999999)
         atrapameSePodesShortResultTv.text = "$score"

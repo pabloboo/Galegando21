@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class AdivinhaAnoFotoResultsActivity : AppCompatActivity() {
         AdivinhaAnoFotoFinishButton = findViewById(R.id.adivinhaAnoFoto_finish_btn)
 
         setBanner(this, R.string.adivinha_ano_foto)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ADIVINHA_ANO_FOTO, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(AdivinhaAnoFotoConstants.SCORE, 0)
         AdivinhaAnoFotoCorrectAnswersResultTv.text = score.toString()

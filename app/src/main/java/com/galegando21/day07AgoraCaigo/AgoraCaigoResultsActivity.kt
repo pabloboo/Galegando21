@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class AgoraCaigoResultsActivity : AppCompatActivity() {
         AgoraCaigoFinishButton = findViewById(R.id.agora_caigo_finish_btn)
 
         setBanner(this, R.string.agora_caigo)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_AGORA_CAIGO, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(AgoraCaigoConstants.SCORE, 0)
         AgoraCaigoCorrectAnswersResultTv.text = score.toString()

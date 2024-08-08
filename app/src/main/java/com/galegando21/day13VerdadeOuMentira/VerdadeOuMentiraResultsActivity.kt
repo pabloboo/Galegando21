@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class VerdadeOuMentiraResultsActivity : AppCompatActivity() {
         verdadeOuMentiraFinishButton = findViewById(R.id.verdade_ou_mentira_finish_btn)
 
         setBanner(this, R.string.verdadeOuMentira)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_VERDADE_OU_MENTIRA, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(VerdadeOuMentiraConstants.SCORE, 0)
         verdadeOuMentiraCorrectAnswersResultTv.text = score.toString()

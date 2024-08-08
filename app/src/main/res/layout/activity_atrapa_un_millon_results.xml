@@ -1,88 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day04AtrapaUnMillon.AtrapaUnMillonResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/atrapa_1m_correct_answers_results_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo_atrapa_1m"
-        app:layout_constraintBottom_toTopOf="@+id/atrapa_un_millon_results_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/atrapa_un_millon_short_result_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
-        app:layout_constraintEnd_toEndOf="@+id/atrapa_1m_correct_answers_results_icon"
-        app:layout_constraintStart_toStartOf="@+id/atrapa_1m_correct_answers_results_icon"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
-        tools:text="650000€" />
+        <ImageView
+            android:id="@+id/atrapa_1m_correct_answers_results_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_atrapa_1m"
+            app:layout_constraintBottom_toTopOf="@+id/atrapa_un_millon_results_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerFragment" />
 
-    <TextView
-        android:id="@+id/atrapa_un_millon_results_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_record_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_short_result_text_view"
-        tools:text="Parabéns! gañaches unha cantidade \n total de 650000€"
-        android:contentDescription="Resultado atrapa un millón"/>
-
-    <TextView
-        android:id="@+id/atrapa_un_millon_record_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_results_linearLayout_btns"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_results_textView"
-        tools:text="No teu mellor intento conseguiches 700000€"
-        android:contentDescription="Record atrapa un millon"/>
-
-    <LinearLayout
-        android:id="@+id/atrapa_un_millon_results_linearLayout_btns"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_record_textView">
-        <Button
-            android:id="@+id/atrapa_un_millon_share_btn"
+        <TextView
+            android:id="@+id/atrapa_un_millon_short_result_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryBlue"
-            android:text="Compartir" />
-        <Button
-            android:id="@+id/atrapa_un_millon_finish_btn"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
+            app:layout_constraintEnd_toEndOf="@+id/atrapa_1m_correct_answers_results_icon"
+            app:layout_constraintStart_toStartOf="@+id/atrapa_1m_correct_answers_results_icon"
+            app:layout_constraintTop_toBottomOf="@+id/atrapa_1m_correct_answers_results_icon"
+            tools:text="650000€" />
+
+        <TextView
+            android:id="@+id/atrapa_un_millon_results_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/secondaryBlue"
-            android:text="Finalizar" />
-    </LinearLayout>
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_record_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_short_result_text_view"
+            tools:text="Parabéns! gañaches unha cantidade \n total de 650000€"
+            android:contentDescription="Resultado atrapa un millón"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/atrapa_un_millon_record_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/atrapa_un_millon_results_linearLayout_btns"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_results_textView"
+            tools:text="No teu mellor intento conseguiches 700000€"
+            android:contentDescription="Record atrapa un millon"/>
+
+        <LinearLayout
+            android:id="@+id/atrapa_un_millon_results_linearLayout_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_record_textView">
+            <Button
+                android:id="@+id/atrapa_un_millon_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir" />
+            <Button
+                android:id="@+id/atrapa_un_millon_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/secondaryBlue"
+                android:text="Finalizar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enquisaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atrapa_un_millon_results_linearLayout_btns"
+            tools:text="Danos feedback! completa a seguinte enquisa: https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

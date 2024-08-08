@@ -17,6 +17,7 @@ import com.galegando21.utils.ConexionsGameConstants.getConexions
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 import kotlin.random.Random
@@ -51,6 +52,7 @@ class ConexionsGameActivity : AppCompatActivity() {
         solutionGroup4Tv = findViewById(R.id.solution_grupo4)
 
         setBanner(this, R.string.conexions)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_CONEXIONS, findViewById(R.id.enquisaTextView))
 
         initializeGame()
 

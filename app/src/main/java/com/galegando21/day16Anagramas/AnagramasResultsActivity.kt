@@ -14,6 +14,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -34,6 +35,7 @@ class AnagramasResultsActivity : AppCompatActivity() {
         AnagramasFinishButton = findViewById(R.id.anagramas_finish_btn)
 
         setBanner(this, R.string.anagramas)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ANAGRAMAS, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra("ANAGRAMAS_SCORE", 0)
         AnagramasCorrectAnswersResultTv.text = score.toString()

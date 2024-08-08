@@ -1,87 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day14AdivinhaEscudo.AdivinhaEscudoResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/adivinha_escudo_correct_answers_results_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo_adivinha_escudo"
-        app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_result_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/adivinha_escudo_correct_answers_results_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="75sp"
-        app:layout_constraintBottom_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        app:layout_constraintEnd_toEndOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        app:layout_constraintStart_toStartOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        tools:text="7"
-        android:contentDescription="Resultado do xogo adiviña o escudo"/>
+        <ImageView
+            android:id="@+id/adivinha_escudo_correct_answers_results_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_adivinha_escudo"
+            app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_result_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <TextView
-        android:id="@+id/adivinha_escudo_result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_record_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
-        tools:text="Acertaches un total de 7 preguntas"
-        android:contentDescription="Texto completo do resultado do xogo adiviña o escudo"/>
-
-    <TextView
-        android:id="@+id/adivinha_escudo_record_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_results_btns_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_result_tv"
-        tools:text="No teu record acertaches un total de 7 preguntas"
-        android:contentDescription="Texto completo do resultado do xogo adiviña o escudo"/>
-
-    <LinearLayout
-        android:id="@+id/adivinha_escudo_results_btns_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_record_tv">
-        <Button
-            android:id="@+id/adivinha_escudo_share_btn"
+        <TextView
+            android:id="@+id/adivinha_escudo_correct_answers_results_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryBlue"
-            android:text="Compartir" />
-        <Button
-            android:id="@+id/adivinha_escudo_finish_btn"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
+            app:layout_constraintEnd_toEndOf="@+id/adivinha_escudo_correct_answers_results_icon"
+            app:layout_constraintStart_toStartOf="@+id/adivinha_escudo_correct_answers_results_icon"
+            app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_correct_answers_results_icon"
+            tools:text="7"
+            android:contentDescription="Resultado do xogo adiviña o escudo"/>
+
+        <TextView
+            android:id="@+id/adivinha_escudo_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/secondaryBlue"
-            android:text="Finalizar" />
-    </LinearLayout>
+            app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_record_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_correct_answers_results_text_view"
+            tools:text="Acertaches un total de 7 preguntas"
+            android:contentDescription="Texto completo do resultado do xogo adiviña o escudo"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/adivinha_escudo_record_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/adivinha_escudo_results_btns_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_result_tv"
+            tools:text="No teu record acertaches un total de 7 preguntas"
+            android:contentDescription="Texto completo do resultado do xogo adiviña o escudo"/>
+
+        <LinearLayout
+            android:id="@+id/adivinha_escudo_results_btns_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_record_tv">
+            <Button
+                android:id="@+id/adivinha_escudo_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir" />
+            <Button
+                android:id="@+id/adivinha_escudo_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/secondaryBlue"
+                android:text="Finalizar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enquisaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinha_escudo_results_btns_ll"
+            tools:text="Danos feedback! completa a seguinte enquisa: https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

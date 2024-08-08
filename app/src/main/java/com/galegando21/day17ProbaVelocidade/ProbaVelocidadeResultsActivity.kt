@@ -14,6 +14,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class ProbaVelocidadeResultsActivity : AppCompatActivity() {
         probaVelocidadeFinishButton = findViewById(R.id.proba_velocidade_finish_btn)
 
         setBanner(this, R.string.proba_velocidade)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_PROBA_VELOCIDADE, findViewById(R.id.enquisaTextView))
         setOnBackPressed(this, ProbaVelocidadeInicioActivity::class.java)
 
         val score = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_PROBA_VELOCIDADE, 0)

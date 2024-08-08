@@ -13,6 +13,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -34,6 +35,7 @@ class OndeEstanResultsActivity : AppCompatActivity() {
         ondeEstanFinishButton = findViewById(R.id.onde_estan_finish_btn)
 
         setBanner(this, R.string.onde_estan)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ONDE_ESTAN, findViewById(R.id.enquisaTextView))
         setOnBackPressed(this, OndeEstanInicioActivity::class.java)
 
         val score = intent.getIntExtra("SCORE_ONDE_ESTAN", 0)

@@ -1,87 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day10ExplosionDePalabras.ExplosionPalabrasResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/explosion_palabras_correct_answers_results_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo_explosion_palabras"
-        app:layout_constraintBottom_toTopOf="@+id/explosion_palabras_result_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/explosion_palabras_correct_answers_results_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="75sp"
-        app:layout_constraintBottom_toBottomOf="@+id/explosion_palabras_correct_answers_results_icon"
-        app:layout_constraintEnd_toEndOf="@+id/explosion_palabras_correct_answers_results_icon"
-        app:layout_constraintStart_toStartOf="@+id/explosion_palabras_correct_answers_results_icon"
-        app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_correct_answers_results_icon"
-        tools:text="65" />
+        <ImageView
+            android:id="@+id/explosion_palabras_correct_answers_results_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_explosion_palabras"
+            app:layout_constraintBottom_toTopOf="@+id/explosion_palabras_result_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <TextView
-        android:id="@+id/explosion_palabras_result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/explosion_palabras_record_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_correct_answers_results_icon"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="15dp"
-        tools:text="Conseguiches o 65 puntos." />
-
-    <TextView
-        android:id="@+id/explosion_palabras_record_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/explosion_palabras_results_btns_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_result_tv"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="15dp"
-        tools:text="O teu record é de 65 puntos." />
-
-    <LinearLayout
-        android:id="@+id/explosion_palabras_results_btns_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_record_tv">
-        <Button
-            android:id="@+id/explosion_palabras_share_btn"
+        <TextView
+            android:id="@+id/explosion_palabras_correct_answers_results_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryBlue"
-            android:text="Compartir" />
-        <Button
-            android:id="@+id/explosion_palabras_finish_btn"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toBottomOf="@+id/explosion_palabras_correct_answers_results_icon"
+            app:layout_constraintEnd_toEndOf="@+id/explosion_palabras_correct_answers_results_icon"
+            app:layout_constraintStart_toStartOf="@+id/explosion_palabras_correct_answers_results_icon"
+            app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_correct_answers_results_icon"
+            tools:text="65" />
+
+        <TextView
+            android:id="@+id/explosion_palabras_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/secondaryBlue"
-            android:text="Finalizar" />
-    </LinearLayout>
+            app:layout_constraintBottom_toTopOf="@id/explosion_palabras_record_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_correct_answers_results_text_view"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            tools:text="Conseguiches o 65 puntos." />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/explosion_palabras_record_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/explosion_palabras_results_btns_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_result_tv"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="15dp"
+            tools:text="O teu record é de 65 puntos." />
+
+        <LinearLayout
+            android:id="@+id/explosion_palabras_results_btns_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_record_tv">
+            <Button
+                android:id="@+id/explosion_palabras_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir" />
+            <Button
+                android:id="@+id/explosion_palabras_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/secondaryBlue"
+                android:text="Finalizar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enquisaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/explosion_palabras_results_btns_ll"
+            tools:text="Danos feedback! completa a seguinte enquisa: https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

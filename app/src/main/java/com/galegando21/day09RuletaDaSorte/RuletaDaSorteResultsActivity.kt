@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -36,6 +37,7 @@ class RuletaDaSorteResultsActivity : AppCompatActivity() {
         ruletaDaSorteFinishButton = findViewById(R.id.ruleta_sorte_finish_btn)
 
         setBanner(this, R.string.ruleta_da_sorte)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_RULETA_DA_SORTE, findViewById(R.id.enquisaTextView))
         setOnBackPressed(this, RuletaDaSorteInicioActivity::class.java)
 
         val cash = intent.getIntExtra(QuestionRuletaDaSorteConstants.SCORE_RULETA_DA_SORTE, 0)

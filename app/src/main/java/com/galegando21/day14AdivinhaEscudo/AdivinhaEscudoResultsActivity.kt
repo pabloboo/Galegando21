@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class AdivinhaEscudoResultsActivity : AppCompatActivity() {
         AdivinhaEscudoFinishButton = findViewById(R.id.adivinha_escudo_finish_btn)
 
         setBanner(this, R.string.adivinha_escudo)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ADIVINHA_ESCUDO, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(AdivinhaEscudoConstants.SCORE, 0)
         AdivinhaEscudoCorrectAnswersResultTv.text = score.toString()

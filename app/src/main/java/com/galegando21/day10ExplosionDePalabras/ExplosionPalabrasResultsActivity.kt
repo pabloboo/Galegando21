@@ -14,6 +14,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class ExplosionPalabrasResultsActivity : AppCompatActivity() {
         ExplosionPalabrasFinishButton = findViewById(R.id.explosion_palabras_finish_btn)
 
         setBanner(this, R.string.explosion_de_palabras)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_EXPLOSION_PALABRAS, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra("PUNTOS_EXPLOSION_PALABRAS", 0)
         ExplosionPalabrasCorrectAnswersResultTv.text = score.toString()

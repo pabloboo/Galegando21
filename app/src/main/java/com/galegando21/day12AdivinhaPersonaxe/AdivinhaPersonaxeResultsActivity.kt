@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -36,6 +37,7 @@ class AdivinhaPersonaxeResultsActivity : AppCompatActivity() {
         AdivinhaPersonaxeFinishButton = findViewById(R.id.adivinha_personaxe_finish_btn)
 
         setBanner(this, R.string.adivinha_o_personaxe)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ADIVINHA_PERSONAXE, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(AdivinhaPersonaxeConstants.ADIVINHA_PERSONAXE_SCORE, 0)
         if (score != 0) {

@@ -1,84 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day05AdivinhaAnoFoto.AdivinhaAnoFotoResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/adivinhaAnoFoto_correct_answers_results_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo_adivinha_ano_foto"
-        app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_result_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/adivinhaAnoFoto_correct_answers_results_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="75sp"
-        app:layout_constraintBottom_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
-        app:layout_constraintEnd_toEndOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
-        app:layout_constraintStart_toStartOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
-        tools:text="50" />
+        <ImageView
+            android:id="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_adivinha_ano_foto"
+            app:layout_constraintBottom_toTopOf="@+id/adivinhaAnoFoto_result_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <TextView
-        android:id="@+id/adivinhaAnoFoto_result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_record_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_text_view"
-        tools:text="Conseguiches un total de 50 puntos" />
-
-    <TextView
-        android:id="@+id/adivinhaAnoFoto_record_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_results_buttons_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
-        tools:text="O teu récord é de 50 puntos" />
-
-    <LinearLayout
-        android:id="@+id/adivinhaAnoFoto_results_buttons_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/adivinhaAnoFoto_share_btn"
+        <TextView
+            android:id="@+id/adivinhaAnoFoto_correct_answers_results_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryBlue"
-            android:text="Compartir" />
-        <Button
-            android:id="@+id/adivinhaAnoFoto_finish_btn"
+            android:textSize="75sp"
+            app:layout_constraintBottom_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+            app:layout_constraintEnd_toEndOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+            app:layout_constraintStart_toStartOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+            app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_icon"
+            tools:text="50" />
+
+        <TextView
+            android:id="@+id/adivinhaAnoFoto_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondaryBlue"
-            android:layout_marginLeft="20dp"
-            android:text="Finalizar" />
-    </LinearLayout>
+            app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_record_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_correct_answers_results_text_view"
+            tools:text="Conseguiches un total de 50 puntos" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/adivinhaAnoFoto_record_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/adivinhaAnoFoto_results_buttons_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
+            tools:text="O teu récord é de 50 puntos" />
+
+        <LinearLayout
+            android:id="@+id/adivinhaAnoFoto_results_buttons_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_result_tv"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/adivinhaAnoFoto_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir" />
+            <Button
+                android:id="@+id/adivinhaAnoFoto_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/secondaryBlue"
+                android:layout_marginLeft="20dp"
+                android:text="Finalizar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enquisaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adivinhaAnoFoto_results_buttons_ll"
+            tools:text="Danos feedback! completa a seguinte enquisa: https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

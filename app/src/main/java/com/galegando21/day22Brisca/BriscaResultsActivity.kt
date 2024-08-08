@@ -12,6 +12,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 
 class BriscaResultsActivity : AppCompatActivity() {
     private lateinit var BriscaCorrectAnswersResultTv : TextView
@@ -31,6 +32,7 @@ class BriscaResultsActivity : AppCompatActivity() {
         BriscaFinishButton = findViewById(R.id.brisca_finish_btn)
 
         setBanner(this, R.string.brisca)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_BRISCA, findViewById(R.id.enquisaTextView))
 
         val modo = intent.getStringExtra("modo").toString()
         val modoString = if (modo == "facil") "fácil" else "difícil"

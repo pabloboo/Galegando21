@@ -4,8 +4,12 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.CountDownTimer
-import android.util.Log
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.URLSpan
 import android.view.View
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -187,5 +191,29 @@ fun shareScreenshot(bitmap: Bitmap?, activity: AppCompatActivity) {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+}
+
+// Función de mostrar encuestas la primera vez que se completa un juego
+fun showSurvey(activity: AppCompatActivity, key: String, enquisaTextView: TextView) {
+    val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.SURVEYS, AppCompatActivity.MODE_PRIVATE)
+    val isFirstTime = sharedPreferences.getBoolean(key, false)
+
+    if (!isFirstTime) {
+        val text = "Danos feedback! completa a seguinte enquisa: "
+        val link = "https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"
+        val spannableString = SpannableString("$text$link")
+
+        val startLinkIndex = text.length
+        val endLinkIndex = startLinkIndex + link.length
+        spannableString.setSpan(URLSpan(link), startLinkIndex, endLinkIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        enquisaTextView.text = spannableString
+        enquisaTextView.movementMethod = LinkMovementMethod.getInstance()
+
+        enquisaTextView.visibility = View.VISIBLE
+        sharedPreferences.edit().putBoolean(key, true).apply()
+    } else {
+        enquisaTextView.visibility = View.GONE
     }
 }

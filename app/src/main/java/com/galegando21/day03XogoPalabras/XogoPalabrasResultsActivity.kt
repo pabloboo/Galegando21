@@ -14,6 +14,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -37,6 +38,7 @@ class XogoPalabrasResultsActivity : AppCompatActivity() {
         XogoPalabrasFinishButton = findViewById(R.id.xogo_palabras_finish_btn)
 
         setBanner(this, R.string.xogo_de_palabras)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_XOGO_PALABRAS, findViewById(R.id.enquisaTextView))
 
         val score = intent.getFloatExtra("PORCENTAXE_ACERTO", 0F)
         XogoPalabrasCorrectAnswersResultTv.text = score.toString()+"%"

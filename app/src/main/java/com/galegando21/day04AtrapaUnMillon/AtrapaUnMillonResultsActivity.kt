@@ -15,6 +15,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -36,6 +37,7 @@ class AtrapaUnMillonResultsActivity : AppCompatActivity() {
         atrapaUnMillonFinishButton = findViewById(R.id.atrapa_un_millon_finish_btn)
 
         setBanner(this, R.string.atrapa_un_millon)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_ATRAPA_UN_MILLON, findViewById(R.id.enquisaTextView))
 
         val cash = intent.getIntExtra(AtrapaUnMillonConstants.SCORE, 0).toString()
         atrapaUnMillonShortResult.text = "$cash€"

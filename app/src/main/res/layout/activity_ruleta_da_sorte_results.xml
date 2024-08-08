@@ -1,84 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".day09RuletaDaSorte.RuletaDaSorteResultsActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bannerFragment"
-        android:name="com.galegando21.BannerFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ruleta_sorte_cash_results_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo_ruleta_da_sorte"
-        app:layout_constraintBottom_toTopOf="@+id/ruleta_sorte_result_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/bannerFragment"
+            android:name="com.galegando21.BannerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/ruleta_sorte_cash_results_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
-        app:layout_constraintEnd_toEndOf="@+id/ruleta_sorte_cash_results_icon"
-        app:layout_constraintStart_toStartOf="@+id/ruleta_sorte_cash_results_icon"
-        app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
-        tools:text="3000€" />
+        <ImageView
+            android:id="@+id/ruleta_sorte_cash_results_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo_ruleta_da_sorte"
+            app:layout_constraintBottom_toTopOf="@+id/ruleta_sorte_result_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerFragment" />
 
-    <TextView
-        android:id="@+id/ruleta_sorte_result_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_record_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
-        tools:text="Gañaches un total de 3000€" />
-
-    <TextView
-        android:id="@+id/ruleta_sorte_record_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_results_btns_ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_result_tv"
-        tools:text="O teu record é de 3500€" />
-
-    <LinearLayout
-        android:id="@+id/ruleta_sorte_results_btns_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_record_tv">
-        <Button
-            android:id="@+id/ruleta_sorte_share_btn"
+        <TextView
+            android:id="@+id/ruleta_sorte_cash_results_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryBlue"
-            android:text="Compartir" />
-        <Button
-            android:id="@+id/ruleta_sorte_finish_btn"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
+            app:layout_constraintEnd_toEndOf="@+id/ruleta_sorte_cash_results_icon"
+            app:layout_constraintStart_toStartOf="@+id/ruleta_sorte_cash_results_icon"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_cash_results_icon"
+            tools:text="3000€" />
+
+        <TextView
+            android:id="@+id/ruleta_sorte_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/secondaryBlue"
-            android:text="Finalizar" />
-    </LinearLayout>
+            app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_record_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_cash_results_text_view"
+            tools:text="Gañaches un total de 3000€" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/ruleta_sorte_record_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/ruleta_sorte_results_btns_ll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_result_tv"
+            tools:text="O teu record é de 3500€" />
+
+        <LinearLayout
+            android:id="@+id/ruleta_sorte_results_btns_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_record_tv">
+            <Button
+                android:id="@+id/ruleta_sorte_share_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryBlue"
+                android:text="Compartir" />
+            <Button
+                android:id="@+id/ruleta_sorte_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/secondaryBlue"
+                android:text="Finalizar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enquisaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ruleta_sorte_results_btns_ll"
+            tools:text="Danos feedback! completa a seguinte enquisa: https://docs.google.com/forms/d/e/1FAIpQLSc_yJAt18SDFg-towSOjIjpFAUjKgWvBgzbsxlF8wXcDNOLRQ/viewform"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

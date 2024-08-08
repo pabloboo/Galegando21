@@ -14,6 +14,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -35,6 +36,7 @@ class PalabrasEncadeadasResultsActivity : AppCompatActivity() {
         PalabrasEncadeadasFinishButton = findViewById(R.id.palabras_encadeadas_finish_btn)
 
         setBanner(this, R.string.palabras_encadeadas)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_PALABRAS_ENCADEADAS, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra("PALABRAS_ENCADEADAS_SCORE", 0)
         PalabrasEncadeadasCorrectAnswersResultTv.text = score.toString()

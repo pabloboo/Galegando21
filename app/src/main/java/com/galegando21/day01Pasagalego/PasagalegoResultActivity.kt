@@ -17,6 +17,7 @@ import com.galegando21.utils.screenShot
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.shareScreenshot
+import com.galegando21.utils.showSurvey
 import com.galegando21.utils.updateCurrentStreak
 import com.galegando21.utils.updateUserExperience
 
@@ -39,6 +40,7 @@ class PasagalegoResultActivity : AppCompatActivity() {
         pasagalegoFinishButton = findViewById(R.id.pasagalego_finish_btn)
 
         setBanner(this, R.string.pasagalego)
+        showSurvey(this, SharedPreferencesKeys.ENQUISA_PASAGALEGO, findViewById(R.id.enquisaTextView))
 
         val score = intent.getIntExtra(PasagalegoConstants.SCORE, 0)
         val time = intent.getStringExtra(PasagalegoConstants.TIME)
