@@ -1,18 +1,22 @@
 package com.galegando21.menu
 
-import android.opengl.Visibility
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.lifecycle.lifecycleScope
 import com.galegando21.R
 import com.galegando21.utils.isLoggedIn
 import com.galegando21.utils.login
 import com.galegando21.utils.setBanner
+import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.signOut
 import com.galegando21.utils.signUp
+import com.galegando21.utils.storeSharedPreferencesInSupabase
 import kotlinx.coroutines.launch
 
 class SincronizarDatosActivity : AppCompatActivity() {
@@ -23,6 +27,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
     private lateinit var signOutButton: Button
     private lateinit var gardarDatosButton: Button
     private lateinit var obterDatosButton: Button
+    private lateinit var loadingProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +40,10 @@ class SincronizarDatosActivity : AppCompatActivity() {
         signOutButton = findViewById(R.id.signOutButton)
         gardarDatosButton = findViewById(R.id.gardarDatosButton)
         obterDatosButton = findViewById(R.id.obterDatosButton)
+        loadingProgressBar = findViewById(R.id.loadingProgressBar)
 
         setBanner(this, R.string.sincronizar_datos)
+        setOnBackPressed(this, AxustesActivity::class.java)
 
         checkIfLoggedIn()
 
@@ -47,6 +54,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 signUp(this@SincronizarDatosActivity, email, password)
                 checkIfLoggedIn()
             }
+            hideKeyboard(this@SincronizarDatosActivity)
         }
 
         loginButton.setOnClickListener {
@@ -56,6 +64,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 login(this@SincronizarDatosActivity, email, password)
                 checkIfLoggedIn()
             }
+            hideKeyboard(this@SincronizarDatosActivity)
         }
 
         signOutButton.setOnClickListener {
@@ -64,9 +73,17 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 checkIfLoggedIn()
             }
         }
+
+        gardarDatosButton.setOnClickListener {
+            // Gardar datos en Supabase
+            lifecycleScope.launch {
+                storeSharedPreferencesInSupabase(this@SincronizarDatosActivity)
+            }
+        }
     }
 
     private fun checkIfLoggedIn() {
+        loadingProgressBar.visibility = View.VISIBLE
         lifecycleScope.launch {
             val isLoggedIn = isLoggedIn(this@SincronizarDatosActivity)
             if (isLoggedIn) {
@@ -86,6 +103,17 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 gardarDatosButton.visibility = View.GONE
                 obterDatosButton.visibility = View.GONE
             }
+            loadingProgressBar.visibility = View.GONE
         }
+    }
+
+    fun hideKeyboard(activity: Activity) {
+        val inputMethodManager = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        // Verifica si no hay vista enfocada, ya que en ese caso el teclado se ocultará
+        var view = activity.currentFocus
+        if (view == null) {
+            view = View(activity)
+        }
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
