@@ -258,7 +258,7 @@ class MainActivity : AppCompatActivity() {
 
         // Si ya se han desbloqueado todos los botones, no se muestra el temporizador
         val unlockedButtonCount = sharedPreferences.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
-        if (unlockedButtonCount == NUMBER_OF_DAYS) {
+        if (unlockedButtonCount >= NUMBER_OF_DAYS) {
             flipTimerLayout.visibility = View.GONE
             flipTimerView.visibility = View.GONE
             helpButtonTimeLeft.visibility = View.GONE
