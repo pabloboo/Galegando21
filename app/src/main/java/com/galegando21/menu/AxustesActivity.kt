@@ -90,10 +90,10 @@ class AxustesActivity : AppCompatActivity() {
         radioGroupNivelFacil.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 radioButtonPalabrasComuns.id -> {
-                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1000 palabras comúns en español traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1000 palabras comúns en español traducidas ao galego coas súas correspondentes definicións no diccionario da Real Academia Galega."
                 }
                 radioButtonPalabrasPet.id -> {
-                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1600 palabras do nivel PET de Cambridge traducidas ao galego coas súas correspondentes definicións no diccionario 'DiGalego'."
+                    explicacionPalabrasNivelFacilTextView.text = "As palabras serán seleccionadas de unha lista de unhas 1600 palabras do nivel PET de Cambridge traducidas ao galego coas súas correspondentes definicións no diccionario da Real Academia Galega."
                 }
             }
         }

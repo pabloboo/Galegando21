@@ -1,11 +1,14 @@
 package com.galegando21.utils
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import com.galegando21.menu.SincronizarDatosActivity
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.exceptions.BadRequestRestException
 import io.github.jan.supabase.gotrue.Auth
+import io.github.jan.supabase.gotrue.OtpType
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.gotrue.exception.AuthRestException
 import io.github.jan.supabase.gotrue.providers.builtin.Email
@@ -18,7 +21,10 @@ val supabase = createSupabaseClient(
     supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkZG5tYWFlcnBwbmZpaWFkaWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjMxMDgyODcsImV4cCI6MjAzODY4NDI4N30.NjVcMV4Z1nMDYzfLVdGE8ElUeMOstz1QHw_3OBGebNs"
 ) {
     install(Postgrest)
-    install(Auth)
+    install(Auth) {
+        host = "galegando21.com"
+        scheme = "https"
+    }
 }
 
 suspend fun signUp(context: Context, email: String, password: String) {
@@ -34,6 +40,8 @@ suspend fun signUp(context: Context, email: String, password: String) {
             Toast.makeText(context,"Error rexistrandote, límite de correos enviados superado", Toast.LENGTH_SHORT).show()
         } else if (e.message == "User already registered") {
             Toast.makeText(context,"Error rexistrandote, usuario xa rexistrado", Toast.LENGTH_SHORT).show()
+        } else if (e.message == "Signup requires a valid password") {
+            Toast.makeText(context,"Error rexistrandote, contrasinal inválido", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(context,"Error rexistrandote, intentao máis tarde", Toast.LENGTH_SHORT).show()
         }
@@ -89,8 +97,8 @@ suspend fun isLoggedIn(context: Context): Boolean {
             Log.d("SupabaseFunctions", "Not logged in")
             return false
         } else {
-            supabase.auth.refreshCurrentSession()
-            saveToken(context)
+            //supabase.auth.refreshCurrentSession()
+            //saveToken(context)
             Log.d("SupabaseFunctions", "Already logged in")
             return true
         }
@@ -99,6 +107,58 @@ suspend fun isLoggedIn(context: Context): Boolean {
         e.printStackTrace()
     }
     return false
+}
+
+suspend fun sendResetPasswordEmail(context: Context, email: String) {
+    try {
+        supabase.auth.resetPasswordForEmail(email)
+        Toast.makeText(context,"Correo enviado", Toast.LENGTH_SHORT).show()
+    } catch (e: AuthRestException) {
+        if (e.message == "Email rate limit exceeded") {
+            Toast.makeText(context,"Error enviando correo, límite de correos enviados superado", Toast.LENGTH_SHORT).show()
+        } else if (e.message == "User not found") {
+            Toast.makeText(context,"Error enviando correo, usuario non atopado", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context,"Error enviando correo, intentao máis tarde", Toast.LENGTH_SHORT).show()
+        }
+        Log.d("SupabaseFunctions", "Error sending password reset link: ${e.message}")
+        e.printStackTrace()
+    } catch (e: Exception) {
+        Log.d("SupabaseFunctions", "Error sending password reset link: ${e.message}")
+        e.printStackTrace()
+    }
+}
+
+suspend fun updatePassword(context: Context, email: String, newPassword: String) {
+    try {
+        supabase.auth.updateUser {
+            this.email = email
+            this.password = newPassword
+        }
+        Toast.makeText(context,"Contrasinal actualizado correctamente", Toast.LENGTH_SHORT).show()
+        Intent(context, SincronizarDatosActivity::class.java).also {
+            context.startActivity(it)
+        }
+    } catch (e: Exception) {
+        if (e.message == "Password should be at least 6 characters") {
+            Toast.makeText(context,"O contrasinal debe ter polo menos 6 caracteres", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context,"Erro actualizando contrasinal, intentao máis tarde", Toast.LENGTH_SHORT).show()
+        }
+        Log.d("SupabaseFunctions", "Error updating password: ${e.message}")
+        e.printStackTrace()
+    }
+}
+
+suspend fun resetPassword(context: Context, email: String, token: String, newPassword: String) {
+    try {
+        supabase.auth.verifyEmailOtp(OtpType.Email.EMAIL, email, token)
+        updatePassword(context, email, newPassword)
+    } catch (e: Exception) {
+        Toast.makeText(context,"Erro restablecendo contrasinal, intentao máis tarde", Toast.LENGTH_SHORT).show()
+        Log.d("SupabaseFunctions", "Error resetting password: ${e.message}")
+        e.printStackTrace()
+    }
 }
 
 private fun saveToken(context: Context) {

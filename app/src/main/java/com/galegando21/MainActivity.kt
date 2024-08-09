@@ -4,15 +4,12 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.view.animation.LinearInterpolator
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.databinding.ActivityMainBinding
@@ -52,6 +49,7 @@ import com.galegando21.day03XogoPalabras.XogoPalabrasInicioActivity
 import com.galegando21.day10ExplosionDePalabras.ExplosionPalabrasInicioActivity
 import com.galegando21.day18PalabrasEncadeadas.PalabrasEncadeadasInicioActivity
 import com.galegando21.day22Brisca.BriscaInicioActivity
+import com.galegando21.menu.RestablecerContrasinalActivity
 import com.galegando21.onboarding.OnboardingActivity
 import com.galegando21.utils.ENVIRONMENT
 import com.galegando21.utils.NUMBER_OF_DAYS
@@ -100,6 +98,9 @@ class MainActivity : AppCompatActivity() {
 
         setTheme(R.style.Theme_Galegando21)
         super.onCreate(savedInstanceState)
+
+        // Verificar si el intent contiene un deep link
+        handleIntent(intent)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -491,6 +492,40 @@ class MainActivity : AppCompatActivity() {
             Intent(this@MainActivity, OnboardingActivity::class.java).also {
                 startActivity(it)
             }
+        }
+    }
+
+    // Funciones para manejar el intent que contiene un deep link
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleIntent(intent)
+    }
+
+    private fun handleIntent(intent: Intent?) {
+        // Obtener la URI del intent
+        val uri: Uri? = intent?.data
+
+        // Verificar si la URI es correcta
+        if (uri != null && uri.isHierarchical) {
+            val path = uri.path
+            val token = uri.getQueryParameter("access_token")
+            val email = uri.getQueryParameter("email")
+
+            // Comprobar si la URI coincide con el pathPrefix configurado
+            if (path?.startsWith("/restablecer-contrasinal") == true && token != null && email != null) {
+                handlePasswordResetToken(email, token)
+            } else {
+                Toast.makeText(this, "Enlace non válido", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun handlePasswordResetToken(email: String, token: String) {
+        Intent(this@MainActivity, RestablecerContrasinalActivity::class.java).also {
+            it.putExtra("email", email)
+            it.putExtra("token", token)
+            startActivity(it)
         }
     }
 

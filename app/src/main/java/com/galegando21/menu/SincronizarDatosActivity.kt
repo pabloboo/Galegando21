@@ -16,6 +16,7 @@ import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.isLoggedIn
 import com.galegando21.utils.login
 import com.galegando21.utils.replaceSharedPreferencesWithSupabase
+import com.galegando21.utils.sendResetPasswordEmail
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.signOut
@@ -28,6 +29,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
     private lateinit var passwordEditText: EditText
     private lateinit var signUpButton: Button
     private lateinit var loginButton: Button
+    private lateinit var resetPasswordButton: Button
     private lateinit var signOutButton: Button
     private lateinit var gardarDatosButton: Button
     private lateinit var obterDatosButton: Button
@@ -41,6 +43,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.passwordEditText)
         signUpButton = findViewById(R.id.signUpButton)
         loginButton = findViewById(R.id.logInButton)
+        resetPasswordButton = findViewById(R.id.resetPasswordButton)
         signOutButton = findViewById(R.id.signOutButton)
         gardarDatosButton = findViewById(R.id.gardarDatosButton)
         obterDatosButton = findViewById(R.id.obterDatosButton)
@@ -69,6 +72,19 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 checkIfLoggedIn()
             }
             hideKeyboard(this@SincronizarDatosActivity)
+        }
+
+        resetPasswordButton.setOnClickListener {
+            if (emailEditText.text.isEmpty()) {
+                Toast.makeText(this, "Debes introducir un correo electrónico.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            } else {
+                val email = emailEditText.text.toString()
+                lifecycleScope.launch {
+                    sendResetPasswordEmail(this@SincronizarDatosActivity, email)
+                }
+                hideKeyboard(this@SincronizarDatosActivity)
+            }
         }
 
         signOutButton.setOnClickListener {
@@ -125,6 +141,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 passwordEditText.visibility = View.GONE
                 signUpButton.visibility = View.GONE
                 loginButton.visibility = View.GONE
+                resetPasswordButton.visibility = View.GONE
                 signOutButton.visibility = View.VISIBLE
                 gardarDatosButton.visibility = View.VISIBLE
                 obterDatosButton.visibility = View.VISIBLE
@@ -133,6 +150,7 @@ class SincronizarDatosActivity : AppCompatActivity() {
                 passwordEditText.visibility = View.VISIBLE
                 signUpButton.visibility = View.VISIBLE
                 loginButton.visibility = View.VISIBLE
+                resetPasswordButton.visibility = View.VISIBLE
                 signOutButton.visibility = View.GONE
                 gardarDatosButton.visibility = View.GONE
                 obterDatosButton.visibility = View.GONE

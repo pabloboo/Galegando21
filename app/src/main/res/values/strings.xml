@@ -84,4 +84,5 @@
     <string name="perfil">Perfil</string>
     <string name="tenda">Tenda</string>
     <string name="sincronizar_datos">Sincronizar datos</string>
+    <string name="restablecer_contrasinal">Actualizar contrasinal</string>
 </resources>
