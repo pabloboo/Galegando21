@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
@@ -85,10 +84,10 @@
         android:text="Gardar datos"
         android:visibility="gone"
         tools:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/obterDatosButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
-        app:layout_constraintBottom_toTopOf="@+id/obterDatosButton"/>
+        app:layout_constraintBottom_toTopOf="@+id/signOutButton"/>
 
     <Button
         android:id="@+id/obterDatosButton"
@@ -99,8 +98,8 @@
         android:visibility="gone"
         tools:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gardarDatosButton"
+        app:layout_constraintStart_toEndOf="@+id/gardarDatosButton"
+        app:layout_constraintTop_toBottomOf="@+id/bannerFragment"
         app:layout_constraintBottom_toTopOf="@+id/signOutButton"/>
 
     <Button

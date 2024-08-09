@@ -1,7 +1,6 @@
 package com.galegando21.utils
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
 import io.github.jan.supabase.createSupabaseClient
@@ -12,11 +11,7 @@ import io.github.jan.supabase.gotrue.exception.AuthRestException
 import io.github.jan.supabase.gotrue.providers.builtin.Email
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.from
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
-import kotlinx.datetime.toLocalDateTime
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.builtins.serializer
 
 val supabase = createSupabaseClient(
     supabaseUrl = "https://hddnmaaerppnfiiadiiw.supabase.co",
@@ -54,8 +49,8 @@ suspend fun login(context: Context, email: String, password: String) {
     try {
         val user = supabase.auth.currentUserOrNull()
         if (user != null) {
-            Toast.makeText(context,"Xa iniciaches sesión", Toast.LENGTH_SHORT).show()
-            return
+            Log.d("SupabaseFunctions", "login: Already logged in")
+            supabase.auth.signOut()
         }
         supabase.auth.signInWith(Email) {
             this.email = email
@@ -94,7 +89,6 @@ suspend fun isLoggedIn(context: Context): Boolean {
             Log.d("SupabaseFunctions", "Not logged in")
             return false
         } else {
-            supabase.auth.retrieveUser(token)
             supabase.auth.refreshCurrentSession()
             saveToken(context)
             Log.d("SupabaseFunctions", "Already logged in")
@@ -275,6 +269,110 @@ suspend fun storeSharedPreferencesInSupabase(context: Context) {
         Log.d("SupabaseFunctions", "Error storing in Supabase: ${e.message}")
         e.printStackTrace()
     }
+}
+
+suspend fun replaceSharedPreferencesWithSupabase(context: Context) {
+    val userId = supabase.auth.currentUserOrNull()?.id ?: return
+
+    val sharedPreferencesSupabase = supabase
+        .from("Datos")
+        .select {
+            filter {
+                eq("userId", userId)
+            }
+        }
+        .decodeSingle<SharedPreferencesData>()
+
+    if (sharedPreferencesSupabase == null) {
+        Toast.makeText(context,"Erro obtendo datos, intentao máis tarde", Toast.LENGTH_SHORT).show()
+        return
+    }
+
+    val sharedPreferencesUnlockedButtons = context.getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, Context.MODE_PRIVATE)
+    val editorUnlockedButtons = sharedPreferencesUnlockedButtons.edit()
+    editorUnlockedButtons.putInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 21)
+    editorUnlockedButtons.apply()
+
+    val sharedPreferencesStatistics = context.getSharedPreferences(SharedPreferencesKeys.STATISTICS, Context.MODE_PRIVATE)
+    val editorStatistics = sharedPreferencesStatistics.edit()
+
+    editorStatistics.putInt(SharedPreferencesKeys.LONGEST_STREAK, sharedPreferencesSupabase.longestStreak)
+    editorStatistics.putInt(SharedPreferencesKeys.EXPERIENCE_POINTS, sharedPreferencesSupabase.experiencePoints)
+    editorStatistics.putInt(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS, sharedPreferencesSupabase.maxDayExperiencePoints)
+    editorStatistics.putString(SharedPreferencesKeys.MAX_DAY_EXPERIENCE_POINTS_DATE, sharedPreferencesSupabase.maxDayExperiencePointsDate)
+    editorStatistics.putInt(SharedPreferencesKeys.NUMBER_OF_BADGES, sharedPreferencesSupabase.numberOfBadges)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY_EASY, sharedPreferencesSupabase.pasagalegoCorrectAnswersDictionaryEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY_EASY, sharedPreferencesSupabase.pasagalegoErrorAnswersDictionaryEasy)
+    editorStatistics.putString(SharedPreferencesKeys.PASAGALEGO_TIME_DICTIONARY_EASY, sharedPreferencesSupabase.pasagalegoTimeDictionaryEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_DICTIONARY, sharedPreferencesSupabase.pasagalegoCorrectAnswersDictionary)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_DICTIONARY, sharedPreferencesSupabase.pasagalegoErrorAnswersDictionary)
+    editorStatistics.putString(SharedPreferencesKeys.PASAGALEGO_TIME_DICTIONARY, sharedPreferencesSupabase.pasagalegoTimeDictionary)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_CORRECT_ANSWERS_ORIXINAL, sharedPreferencesSupabase.pasagalegoCorrectAnswersOrixinal)
+    editorStatistics.putInt(SharedPreferencesKeys.PASAGALEGO_ERROR_ANSWERS_ORIXINAL, sharedPreferencesSupabase.pasagalegoErrorAnswersOrixinal)
+    editorStatistics.putString(SharedPreferencesKeys.PASAGALEGO_TIME_ORIXINAL, sharedPreferencesSupabase.pasagalegoTimeOrixinal)
+    editorStatistics.putInt(SharedPreferencesKeys.ATRAPAME_SE_PODES_QUESTIONS_NEEDED, sharedPreferencesSupabase.atrapameSePodesQuestionsNeeded)
+    editorStatistics.putInt(SharedPreferencesKeys.ATRAPA_UN_MILLON_MAX_CASH, sharedPreferencesSupabase.atrapaUnMillonMaxCash)
+    editorStatistics.putInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_EASY, sharedPreferencesSupabase.aforcadoMaxStreakEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.AFORCADO_MAX_STREAK_DIFICULT, sharedPreferencesSupabase.aforcadoMaxStreakDificult)
+    editorStatistics.putInt(SharedPreferencesKeys.VERDADE_OU_MENTIRA_MAX_SCORE, sharedPreferencesSupabase.verdadeOuMentiraMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.ADIVINHA_ESCUDO_MAX_SCORE, sharedPreferencesSupabase.adivinhaEscudoMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.ADIVINHA_ANO_FOTO_MAX_SCORE, sharedPreferencesSupabase.adivinhaAnoFotoMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.AGORA_CAIGO_MAX_SCORE, sharedPreferencesSupabase.agoraCaigoMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.PROBA_VELOCIDADE_MIN_TIME, sharedPreferencesSupabase.probaVelocidadeMinTime)
+    editorStatistics.putInt(SharedPreferencesKeys.RULETA_DA_SORTE_MAX_CASH, sharedPreferencesSupabase.ruletaDaSorteMaxCash)
+    editorStatistics.putInt(SharedPreferencesKeys.ONDE_ESTAN_MIN_TIME, sharedPreferencesSupabase.ondeEstanMinTime)
+    editorStatistics.putInt(SharedPreferencesKeys.SOPA_LETRAS_MAX_SCORE, sharedPreferencesSupabase.sopaLetrasMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_EASY, sharedPreferencesSupabase.anagramasMaxScoreEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.ANAGRAMAS_MAX_SCORE_DIFICULT, sharedPreferencesSupabase.anagramasMaxScoreDificult)
+    editorStatistics.putInt(SharedPreferencesKeys.ADIVINHA_PERSONAXE_MAX_SCORE, sharedPreferencesSupabase.adivinhaPersonaxeMaxScore)
+    editorStatistics.putFloat(SharedPreferencesKeys.XOGO_PALABRAS_MAX_SCORE, sharedPreferencesSupabase.xogoPalabrasMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_EASY, sharedPreferencesSupabase.explosionPalabrasMaxScoreEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.EXPLOSION_PALABRAS_MAX_SCORE_DIFICULT, sharedPreferencesSupabase.explosionPalabrasMaxScoreDificult)
+    editorStatistics.putInt(SharedPreferencesKeys.WORDLE_MAX_STREAK, sharedPreferencesSupabase.wordleMaxStreak)
+    editorStatistics.putInt(SharedPreferencesKeys.CONEXIONS_MAX_SCORE, sharedPreferencesSupabase.conexionsMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.PALABRAS_ENCADEADAS_MAX_SCORE, sharedPreferencesSupabase.palabrasEncadeadasMaxScore)
+    editorStatistics.putInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_EASY, sharedPreferencesSupabase.briscaMaxScoreEasy)
+    editorStatistics.putInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT, sharedPreferencesSupabase.briscaMaxScoreDificult)
+
+    editorStatistics.apply()
+
+    val sharedPreferencesVirtualCoins = context.getSharedPreferences(SharedPreferencesKeys.VIRTUAL_COINS, Context.MODE_PRIVATE)
+    val editorVirtualCoins = sharedPreferencesVirtualCoins.edit()
+
+    editorVirtualCoins.putInt(SharedPreferencesKeys.COINS, sharedPreferencesSupabase.coins)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_1, sharedPreferencesSupabase.item1)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_2, sharedPreferencesSupabase.item2)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_3, sharedPreferencesSupabase.item3)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_4, sharedPreferencesSupabase.item4)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_5, sharedPreferencesSupabase.item5)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_6, sharedPreferencesSupabase.item6)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_7, sharedPreferencesSupabase.item7)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_8, sharedPreferencesSupabase.item8)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_9, sharedPreferencesSupabase.item9)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_10, sharedPreferencesSupabase.item10)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_11, sharedPreferencesSupabase.item11)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_12, sharedPreferencesSupabase.item12)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_13, sharedPreferencesSupabase.item13)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_14, sharedPreferencesSupabase.item14)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_15, sharedPreferencesSupabase.item15)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_16, sharedPreferencesSupabase.item16)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_17, sharedPreferencesSupabase.item17)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_18, sharedPreferencesSupabase.item18)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_19, sharedPreferencesSupabase.item19)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_20, sharedPreferencesSupabase.item20)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_21, sharedPreferencesSupabase.item21)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_22, sharedPreferencesSupabase.item22)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_23, sharedPreferencesSupabase.item23)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_24, sharedPreferencesSupabase.item24)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_25, sharedPreferencesSupabase.item25)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_26, sharedPreferencesSupabase.item26)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_27, sharedPreferencesSupabase.item27)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_28, sharedPreferencesSupabase.item28)
+    editorVirtualCoins.putBoolean(SharedPreferencesKeys.ITEM_29, sharedPreferencesSupabase.item29)
+
+    editorVirtualCoins.apply()
+
+    Toast.makeText(context,"Datos obtidos correctamente", Toast.LENGTH_SHORT).show()
 }
 
 @Serializable

@@ -8,10 +8,14 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.galegando21.R
+import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.isLoggedIn
 import com.galegando21.utils.login
+import com.galegando21.utils.replaceSharedPreferencesWithSupabase
 import com.galegando21.utils.setBanner
 import com.galegando21.utils.setOnBackPressed
 import com.galegando21.utils.signOut
@@ -74,11 +78,41 @@ class SincronizarDatosActivity : AppCompatActivity() {
             }
         }
 
-        gardarDatosButton.setOnClickListener {
-            // Gardar datos en Supabase
-            lifecycleScope.launch {
-                storeSharedPreferencesInSupabase(this@SincronizarDatosActivity)
+        val sharedPreferencesUnlockedButtons = getSharedPreferences(SharedPreferencesKeys.UNLOCKED_BUTTONS, MODE_PRIVATE)
+        val unlockedButtons = sharedPreferencesUnlockedButtons.getInt(SharedPreferencesKeys.UNLOCKED_BUTTON_COUNT, 0)
+        if (unlockedButtons < 21) {
+            gardarDatosButton.setBackgroundColor(getColor(R.color.inactiveBlue))
+            gardarDatosButton.setOnClickListener {
+                Toast.makeText(this, "Debes desbloquear todos os xogos para poder gardar os datos.", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            gardarDatosButton.setOnClickListener {
+                AlertDialog.Builder(this@SincronizarDatosActivity)
+                    .setTitle("Confirmación")
+                    .setMessage("Estás seguro de que queres gardar os datos? Ten en conta que vas sobrescribir os datos existentes na túa conta en liña.")
+                    .setPositiveButton("Sí") { _, _ ->
+                        // Gardar datos en Supabase
+                        lifecycleScope.launch {
+                            storeSharedPreferencesInSupabase(this@SincronizarDatosActivity)
+                        }
+                    }
+                    .setNegativeButton("Non", null)
+                    .show()
+            }
+        }
+
+        obterDatosButton.setOnClickListener {
+            AlertDialog.Builder(this@SincronizarDatosActivity)
+                .setTitle("Confirmación")
+                .setMessage("Estás seguro de que queres obter os datos? Ten en conta que vas sobrescribir os datos existentes no teu dispositivo.")
+                .setPositiveButton("Sí") { _, _ ->
+                    // Obter datos de Supabase
+                    lifecycleScope.launch {
+                        replaceSharedPreferencesWithSupabase(this@SincronizarDatosActivity)
+                    }
+                }
+                .setNegativeButton("Non", null)
+                .show()
         }
     }
 

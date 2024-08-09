@@ -8,7 +8,7 @@
         android:id="@+id/nomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cómo é o teu nome?"
+        android:text="Como te chamas?"
         android:textStyle="bold"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
