@@ -1,6 +1,8 @@
 package com.galegando21.utils
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.CountDownTimer
@@ -16,10 +18,13 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import com.galegando21.BannerFragment
 import com.galegando21.R
+import com.galegando21.utils.SharedPreferencesKeys.CURRENT_DAY_PLAYED
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.text.Normalizer
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
 const val ENVIRONMENT = "production"
@@ -53,39 +58,66 @@ fun setOnBackPressed(activity: AppCompatActivity, destinationActivityClass: Clas
     })
 }
 
+fun getCurrentDay(): String {
+    val format = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    return format.format(LocalDate.now())
+}
+
+fun getCurrentDayEmotionIdKey(): String {
+    return CURRENT_DAY_PLAYED + "-" + getCurrentDay()
+}
+
+fun getDayBefore(date: String): String {
+    val format = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+    return format.format(LocalDate.parse(date).minusDays(1))
+}
+
+fun getEmotionIdKey(date: String): String {
+    return "$CURRENT_DAY_PLAYED-$date"
+}
+
+fun getCurrentStreak(context: Context): Int {
+    val sharedPreferences = context.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
+    return getCurrentStreakInternal(sharedPreferences)
+}
+
+fun getCurrentStreak(activity: AppCompatActivity): Int {
+    val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
+    return getCurrentStreakInternal(sharedPreferences)
+}
+
+private fun getCurrentStreakInternal(sharedPreferences: SharedPreferences): Int {
+    var currentStreak = 0
+    var currentDate = getCurrentDay()
+
+    if (sharedPreferences.getBoolean(getCurrentDayEmotionIdKey(), false)) {
+        currentStreak++
+    }
+    currentDate = getDayBefore(currentDate)
+    while (sharedPreferences.getBoolean(getEmotionIdKey(currentDate), false)) {
+        currentStreak++
+        currentDate = getDayBefore(currentDate)
+    }
+
+    return currentStreak
+}
+
 fun updateCurrentStreak(activity: AppCompatActivity) {
     val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
-    val lastDayCurrentStreakUpdated = sharedPreferences.getInt(SharedPreferencesKeys.LAST_DAY_CURRENT_STREAK_UPDATED, -1)
-    val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
-    val currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
-    val lastYear = sharedPreferences.getInt(SharedPreferencesKeys.LAST_YEAR_CURRENT_STREAK_UPDATED, -1)
-    val currentYear = Calendar.getInstance().get(Calendar.YEAR)
-
-    if ((currentDay == lastDayCurrentStreakUpdated + 1 && currentYear == lastYear) ||
-        (currentDay == 1 && lastDayCurrentStreakUpdated >= 365 && currentYear == lastYear + 1)) {
-        // Incrementar el valor de la racha actual
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.CURRENT_STREAK, currentStreak + 1).apply()
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_DAY_CURRENT_STREAK_UPDATED, currentDay).apply()
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_YEAR_CURRENT_STREAK_UPDATED, currentYear).apply()
-    } else if (currentDay > lastDayCurrentStreakUpdated + 1 || currentYear > lastYear) {
-        // Restablecer el valor de la racha actual a 0
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.CURRENT_STREAK, 0).apply()
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_DAY_CURRENT_STREAK_UPDATED, currentDay).apply()
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LAST_YEAR_CURRENT_STREAK_UPDATED, currentYear).apply()
-    }
+    sharedPreferences.edit().putBoolean(getCurrentDayEmotionIdKey(), true).apply()
 
     // Actualizar el valor de la racha más larga
     val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
-    val currentStreakUpdated = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
-    if (currentStreakUpdated > longestStreak) {
-        sharedPreferences.edit().putInt(SharedPreferencesKeys.LONGEST_STREAK, currentStreakUpdated).apply()
+    val currentStreak = getCurrentStreak(activity)
+    if (currentStreak > longestStreak) {
+        sharedPreferences.edit().putInt(SharedPreferencesKeys.LONGEST_STREAK, currentStreak).apply()
     }
 }
 
 fun updateUserExperience(activity: AppCompatActivity, experience: Int): Int {
     val sharedPreferences = activity.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
 
-    val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+    val currentStreak = getCurrentStreak(activity)
     val experienceWithCurrentStreak = experience + currentStreak
 
     var experienceWithBonus = experienceWithCurrentStreak

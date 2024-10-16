@@ -37,6 +37,7 @@ import com.galegando21.day19Aforcado.AforcadoInicioActivity
 import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.getChallenge
+import com.galegando21.utils.getCurrentStreak
 import com.galegando21.utils.getFeedback
 import com.galegando21.utils.setOnBackPressed
 import kotlinx.coroutines.CoroutineScope
@@ -268,7 +269,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
 
-        val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+        val currentStreak = getCurrentStreak(this)
         currentStreakStatistics.text = "$currentStreak"
         val longestStreak = sharedPreferences.getInt(SharedPreferencesKeys.LONGEST_STREAK, 0)
         longestStreakStatistics.text = "$longestStreak"
@@ -604,7 +605,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private fun obterFeedback() {
         val sharedPreferences = getSharedPreferences(SharedPreferencesKeys.STATISTICS, MODE_PRIVATE)
         val experience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString().toInt()
-        val streak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0).toString().toInt()
+        val streak = getCurrentStreak(this)
         val numberOfBadges = getNumberOfBadges()
 
         CoroutineScope(Dispatchers.Main).launch {

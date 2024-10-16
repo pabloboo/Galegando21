@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.getCurrentStreak
 
 class StatisticsWidget : AppWidgetProvider() {
     private var sharedPreferencesChangeListener: SharedPreferences.OnSharedPreferenceChangeListener? = null
@@ -71,7 +72,7 @@ internal fun updateAppWidget(
         SharedPreferencesKeys.STATISTICS,
         AppCompatActivity.MODE_PRIVATE
     )
-    val currentStreak = sharedPreferences.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+    val currentStreak = getCurrentStreak(context)
     val totalExperience = sharedPreferences.getInt(SharedPreferencesKeys.EXPERIENCE_POINTS, 0).toString()
 
     // Log the values

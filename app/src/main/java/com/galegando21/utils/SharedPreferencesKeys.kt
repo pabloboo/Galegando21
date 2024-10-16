@@ -30,10 +30,8 @@ object SharedPreferencesKeys {
     const val WORDLE_DIARY_LAST_DAY_PLAYED = "wordle_diary_last_day_played"
 
     const val STATISTICS = "statistics"
-    const val CURRENT_STREAK = "current_streak"
     const val LONGEST_STREAK = "longest_streak"
-    const val LAST_DAY_CURRENT_STREAK_UPDATED = "last_day_current_streak_updated"
-    const val LAST_YEAR_CURRENT_STREAK_UPDATED = "last_year_current_streak_updated"
+    const val CURRENT_DAY_PLAYED = "current_day_played"
     const val EXPERIENCE_POINTS = "experience_points"
     const val TODAY_EXPERIENCE_POINTS = "today_experience_points"
     const val LAST_DAY_EXPERIENCE_POINTS_UPDATED = "last_day_experience_points_updated"

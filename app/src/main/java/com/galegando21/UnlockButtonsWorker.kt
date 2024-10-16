@@ -17,6 +17,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.galegando21.utils.NUMBER_OF_DAYS
 import com.galegando21.utils.SharedPreferencesKeys
+import com.galegando21.utils.getCurrentStreak
 import java.util.concurrent.TimeUnit
 
 class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
@@ -62,11 +63,9 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
             .build()
 
         // Crear el canal de notificación (necesario para Android 8.0 y versiones posteriores)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
-            val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+        val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
 
         if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return
@@ -84,8 +83,7 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
         val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent,
             PendingIntent.FLAG_IMMUTABLE)
 
-        val sharedPreferencesStatistics = applicationContext.getSharedPreferences(SharedPreferencesKeys.STATISTICS, AppCompatActivity.MODE_PRIVATE)
-        val currentStreak = sharedPreferencesStatistics.getInt(SharedPreferencesKeys.CURRENT_STREAK, 0)
+        val currentStreak = getCurrentStreak(applicationContext)
 
         // Crear la notificación
         val notification = NotificationCompat.Builder(applicationContext, channelId)
@@ -97,11 +95,9 @@ class UnlockButtonsWorker(appContext: Context, workerParams: WorkerParameters):
             .build()
 
         // Crear el canal de notificación (necesario para Android 8.0 y versiones posteriores)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
-            val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+        val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
 
         if (ActivityCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             return
