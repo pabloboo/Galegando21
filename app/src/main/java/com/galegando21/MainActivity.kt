@@ -496,7 +496,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Funciones para manejar el intent que contiene un deep link
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
         handleIntent(intent)

@@ -37,6 +37,7 @@ import com.galegando21.day19Aforcado.AforcadoInicioActivity
 import com.galegando21.day20DebuxaEAdivinha.DebuxaEAdivinhaInicioActivity
 import com.galegando21.utils.SharedPreferencesKeys
 import com.galegando21.utils.getChallenge
+import com.galegando21.utils.getCurrentDayEmotionIdKey
 import com.galegando21.utils.getCurrentStreak
 import com.galegando21.utils.getFeedback
 import com.galegando21.utils.setOnBackPressed
@@ -112,6 +113,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
     private lateinit var insigniaExperiencia1m: ImageView
     private lateinit var lockInsigniaExperiencia1m: ImageView
 
+    private lateinit var mostrarCalendarioButton: Button
     private lateinit var obterFeedbackButton: Button
     private lateinit var obterDesafioPersonalizadoButton: Button
 
@@ -230,6 +232,7 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         insigniaExperiencia1m = findViewById(R.id.insignia_experiencia_1m)
         lockInsigniaExperiencia1m = findViewById(R.id.lock_insignia_experiencia_1m)
 
+        mostrarCalendarioButton = findViewById(R.id.mostrar_calendario_button)
         obterFeedbackButton = findViewById(R.id.obter_feedback_button)
         obterDesafioPersonalizadoButton = findViewById(R.id.obter_desafio_personalizado_button)
 
@@ -337,6 +340,11 @@ class StatisticsRoadmapActivity : AppCompatActivity() {
         briscaScoreDifficult.text = "Modo difícil: " + sharedPreferences.getInt(SharedPreferencesKeys.BRISCA_MAX_SCORE_DIFICULT, 0).toString() + " puntos"
 
         setInsignias()
+
+        mostrarCalendarioButton.setOnClickListener {
+            val intent = Intent(this, CalendarioActivity::class.java)
+            startActivity(intent)
+        }
 
         obterFeedbackButton.setOnClickListener {
             obterFeedback()

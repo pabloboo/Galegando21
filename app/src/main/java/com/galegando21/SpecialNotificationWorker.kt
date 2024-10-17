@@ -7,8 +7,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -20,7 +18,6 @@ import java.time.Month
 class SpecialNotificationsWorker(appContext: Context, workerParams: WorkerParameters):
     Worker(appContext, workerParams) {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun doWork(): Result {
         val currentDateTime = LocalDateTime.now()
 
@@ -65,11 +62,9 @@ class SpecialNotificationsWorker(appContext: Context, workerParams: WorkerParame
             .build()
 
         // Crear el canal de notificación (necesario para Android 8.0 y versiones posteriores)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
-            val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
+        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+        val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
 
         if (ActivityCompat.checkSelfPermission(
                 applicationContext,

@@ -305,7 +305,7 @@
             android:background="@drawable/card_background_statistics"
             android:padding="16dp"
             app:layout_constraintTop_toBottomOf="@id/experience_card"
-            app:layout_constraintBottom_toTopOf="@+id/obter_desafio_personalizado_button"
+            app:layout_constraintBottom_toTopOf="@+id/mostrar_calendario_button"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_margin="16dp">
@@ -1403,12 +1403,23 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/mostrar_calendario_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mostrar calendario"
+            android:backgroundTint="@color/secondaryBlue"
+            app:layout_constraintTop_toBottomOf="@id/insignias_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/obter_feedback_button"/>
+
+        <Button
             android:id="@+id/obter_feedback_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mostrar feedback"
             android:backgroundTint="@color/secondaryBlue"
-            app:layout_constraintTop_toBottomOf="@id/insignias_card"
+            app:layout_constraintTop_toBottomOf="@id/mostrar_calendario_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/obter_desafio_personalizado_button"/>
