@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Reportar Erros ou Problemas
+    url: https://github.com/pabloboo/Galegando21/issues/new?template=bug_report.md
+    about: Informa de erros ou problemas que atopes no proxecto.
+
+  - name: Propoñer Nova Funcionalidade
+    url: https://github.com/pabloboo/Galegando21/issues/new?template=feature_request.md
+    about: Propoñe novas ideas ou funcionalidades para mellorar o proxecto.
+
+  - name: Seguridade e Vulnerabilidades
+    url: mailto:pabloboocastrofeito@gmail.com
+    about: Informa de problemas de seguridade ou vulnerabilidades que detectes. Contacta directamente a través deste correo electrónico.
+
+  - name: Preguntas Frecuentes (FAQ)
+    url: https://github.com/pabloboo/Galegando21/wiki/FAQ
+    about: Consulta as preguntas máis frecuentes antes de abrir un issue.
