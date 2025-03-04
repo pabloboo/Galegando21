@@ -7,31 +7,32 @@ Grazas por interesarte en contribuir a **Galegando21**! Este documento proporcio
 ### Antes de Comezar
 
 - Asegúrate de ter unha conta en [GitHub](https://github.com).
-- Crea unha rama (`branch`) para as túas contribucións.
+- No apartado de `issues` engade a descrición da funcionalidade que queres engadir.
+- Crea unha rama (`branch`) para as túas contribucións a partir da issue creada anteriormente.
 - Asegúrate de seguir as [boas prácticas](#boas-prácticas) mencionadas máis abaixo.
 
 ### Contribucións para Principiantes
 
-Se estás empezando, unha boa forma de contribuír é **engadir datos aos xogos**. Aquí tes unha guía básica:
+Se estás comenzando como enxeñeiro informático, unha boa forma de contribuír é **engadir datos aos xogos**. Aquí tes unha guía básica:
 
 1. **Localiza o fichero de datos**: Os datos dos xogos atópanse en `app/src/main/java/com/galegando21/model/`.
-2. **Engade novos datos**: Segue o formato existente para engadir novos datos.
+2. **Engade novos datos**: Segue o formato existente para engadir novos datos. Ao crear a Pull Request especifica de onde vas obter os datos e para que xogo os vas obter.
 3. **Envía un Pull Request**: Cando teñas listos os cambios, envía un PR para que os revisemos.
 
 ### Contribucións de Nivel Medio
 
-Se tes algo de experiencia, podes **engadir un novo xogo**. Sigue estes pasos:
+Se tes algo de experiencia desenvolvendo en Kotlin, podes **engadir un novo xogo**. Sigue estes pasos:
 
 1. **Crea un novo ficheiro**: Dentro do directorio `app/src/main/java/com/galegando21/`, crea un novo directorio co formato `dayXXnomeXogo` igual que no resto de exemplos.
 2. **Implementa a lóxica**: Engade o código necesario para o teu xogo.
 3. **Proba o teu xogo**: Asegúrate de que funciona correctamente.
-4. **Envía un Pull Request**: Cando esteas listo, envía un PR para a revisión.
+4. **Envía unha Pull Request**: Cando esteas listo, envía un PR para a revisión.
 
 ### Contribucións Avanzadas
 
-Se tes experiencia en programación, podes **refactorizar código**, **propoñer ideas** ou **desenvolver funcionalidades complexas**. Aquí tes algunhas ideas:
+Se tes un nivel medio-alto de experiencia en programación usando Kotlin, podes **refactorizar código**, **propoñer ideas** ou **desenvolver funcionalidades complexas**. Aquí tes algunhas ideas:
 
-- **Refactorización**: Mellora a estrutura do código existente.
+- **Refactorización**: Mellora a estrutura do código existente, por exemplo, creando compoñentes reutilizables.
 - **Novas Funcionalidades**: Propón e desenvolve novas funcionalidades.
 - **Optimización**: Mellora o rendemento do código.
 
@@ -46,13 +47,9 @@ Grazas por interesarte en **Galegando21**! Se tes habilidades de deseño, a túa
 
 Toda contribución é benvida, desde suxestións simples ata propostas máis elaboradas. Xuntos podemos facer que **Galegando21** sexa unha aplicación visualmente atractiva e fácil de usar.
 
-Aquí tes un apartado redactado coa idea que propuxeches, engadindo un ton motivador e destacando a importancia de cada contribución:
-
----
-
 ### Non encaixas nas categorías anteriores?
 
-Non hai problema! **Toda axuda é benvida** e seguro que tes algo valioso que aportar a **Galegando21**. Cada contribución, por pequena que pareza, é un grano de area que suma para que o galego siga vivo e presente no mundo tecnolóxico.
+Non hai problema! **Toda axuda é benvida** e seguro que tes algo valioso que aportar a **Galegando21**. Cada contribución, por pequena que pareza, é un gran de area que suma para que o galego siga vivo e presente no mundo tecnolóxico.
 
 #### Como Podes Axudar?
 - **Propón novas ideas**: Tes unha idea que podería mellorar o proxecto? Compartea!
