@@ -1,129 +1,74 @@
 # Galegando21
-Aplicación móvil para fomentar o uso do galego
 
-## Execución dos Scrapers
+**Aplicación móbil para fomentar o uso do galego a través de minixogos lúdicos**
 
-Abrir o proxecto en unha terminal ubuntu (wsl de windows por exemplo)
+![Logo de Galegando21](https://github.com/pabloboo/Galegando21/blob/main/app/src/main/res/drawable/g21_logo.png)
 
-Crear o entorno virtual:
-```
-python3 -m venv venv
-source ./venv/bin/activate
-pip3 install scrapy
-pip3 install Unidecode
-```
+## Descrición do Proxecto
 
-<br/><br/>
-### Executar o Scraper de Digalego:
-```
-cd ragscraper/
-scrapy crawl digalego -O output.json
-```
+**Galegando21** é unha aplicación móbil deseñada para promover o uso da lingua galega de forma lúdica e interactiva. A aplicación inclúe 21 minixogos educativos que axudan aos usuarios a aprender vocabulario, cultura e expresións en galego, mentres se divirten. A aplicación está pensada para usuarios de todas as idades, especialmente para os máis novos, co obxectivo de crear un hábito de uso do galego no seu día a día.
 
-<br/><br/>
-### Executar o Scraper do diccionario da Real Academia Galega:
+A aplicación está desenvolvida en **Kotlin** e utiliza técnicas de recuperación de información para obter datos para os xogos.
 
-Instalar as novas dependencias no mesmo entorno virtual:
-```
-pip install selenium
-```
+## Tecnoloxías Utilizadas
 
-Instalar o chromedriver: https://skolo.online/documents/webscrapping/#pre-requisites
+- **Linguaxe de programación**: Kotlin
+- **Ferramentas de desenvolvemento**: Android Studio, Figma (para o deseño de mockups)
+- **Tecnoloxías de backend**: Flask (para a API), Supabase (para o almacenamento en nube)
+- **Técnicas de recuperación de información**: Scrapy, Selenium (para o scraping de datos)
+- **Xestión de datos**: SharedPreferences (para o almacenamento local)
 
-Comprobar versión de google chrome e descargar o chromedriver correspondente no link https://developer.chrome.com/docs/chromedriver/downloads:
-```
-google-chrome --version
-```
+## Estrutura do Proxecto
 
-Descargar e instalar o chromedriver:
-```
-wget https://storage.googleapis.com/chrome-for-testing-public/125.0.6422.141/linux64/chromedriver-linux64.zip
-sudo apt install unzip
-unzip chromedriver-linux64.zip
-sudo mv chromedriver-linux64 /usr/bin/chromedriver
-sudo chown root:root /usr/bin/chromedriver
-sudo chmod +x /usr/bin/chromedriver
-```
+O proxecto está organizado en varios módulos e paquetes principais:
 
-Executar o scraper:
-```
-cd ragscraper/
-python3 ragscraper/spiders/rag.py
-```
+- **Minixogos**: Cada minixogo ten o seu propio paquete (`dayXX`) coa lóxica e interface de usuario correspondente.
+- **Menú**: Contén as pantallas e lóxica do menú principal, incluíndo estadísticas, tenda e axustes.
+- **Modelo**: Define as estruturas de datos e entidades utilizadas na aplicación.
+- **Onboarding**: Xestiona o proceso de introdución para novos usuarios.
+- **Utils**: Inclúe utilidades e compoñentes reutilizables.
 
-Por cada url procesada os resultandos van gardandose no ficheiro `rag.json` no directorio actual. En caso de querer reanudar
-o scraper podese cambiar a url de partida pola última procesada en lugar de comezar desde o principio. En este arquivo é importante engadir, 
-facendo uso de un IDE ou un editor de código, unha coma ao final de cada termo traducido e englobar os términos en corchetes ([]) para que o arquivo sexa unha lista de termos en formato JSON.
+Ademais, o proxecto inclúe unha **API** implementada en Flask e despregada en PythonAnywhere, que proporciona funcionalidades adicionais como a obtención de desafíos personalizados, eventos culturais e feedback para os usuarios e unha base de datos en **Supabase** para permitir ao usuario gardar ou obter os seus datos de xogo.
 
-<br/><br/>
-### Executar o Scraper do traductor de Gaio:
+## Instalación e Uso
 
-Para executar este scraper é necesario ter instaladas as dependencias dos scrapers anteriores.
+### Requisitos previos
 
-Obter as palabras comúns:
-Partese de un ficheiro, en este caso 'palabras_comunes_es', que contén unha lista de palabras comúns
-no idioma español separadas por saltos de liña e por comas. O escraper 'gaio.py' obtén a traducción ao galego
-de cada termo usando o traductor de Gaio.
+- Android Studio (recoméndase a última versión).
+- Dispositivo Android ou emulador.
+- Python 3.x (para a execución dos scrapers).
 
-Executar o scraper:
-```
-cd ragscraper/
-python3 ragscraper/spiders/gaio.py
-```
+### Instalación
 
-Unha vez finalizado o scraper os resultados gardanse no ficheiro 'palabras_comuns_gl.json'.
-Por último executase o seguinte comando (tendo, no mesmo directorio os arquivos 'rag.json', 'palabras_comuns_gl.json' e 'find_definicions_comuns.py'):
-```
-python3 find_definicions_comuns.py
-```
-Este último comando crea un novo ficheiro .json chamado palabras_basicas.json que contén as palabras comúns en galego e as súas definicións.
-O arquivo 'find_definicions_comuns.py' busca todas as palabras traducidas no ficheiro 'rag.json' para obter as súas definicións.
+1. Clona o repositorio:
+   ```bash
+   git clone https://github.com/pabloboo/Galegando21.git
+   ```
+2. Abre o proxecto en Android Studio.
+3. Configura o teu dispositivo ou emulador Android.
+4. Compila e executa a aplicación.
 
-<br/><br/>
-### Executar o Scraper do traductor de Gaio de inglés a galego:
+### Execución dos Scrapers
 
-Para executar este scraper é necesario ter instaladas as dependencias dos scrapers anteriores. Este scraper ten un proceso similar ao scraper anterior.
+Para obter os datos necesarios para os minixogos, podes executar os scrapers incluídos no proxecto. Segue as instrucións detalladas no ficheiro [Execución dos Scrapers](https://github.com/pabloboo/Galegando21/blob/main/ragscraper/README.md). Este paso non é necesario para a execución da aplicación xa que os datos están persistidos no directorio `app/src/main/assets`.
 
-Obter as palabras comúns:
-Partese de un ficheiro, en este caso 'english_cambridge_pet.txt', que contén unha lista de palabras pertencentes ao nivel PET
-de Cambridge separadas por saltos de liña. O escraper 'gaio_en.py' obtén a traducción ao galego de cada termo usando o traductor de Gaio.
+## Como Contribuír
 
-Executar o scraper:
-```
-cd ragscraper/
-python3 ragscraper/spiders/gaio_en.py
-```
+Se queres contribuír a este proxecto, por favor, consulta o ficheiro [CONTRIBUTING.md](CONTRIBUTING.md) para obter instrucións detalladas sobre como facelo. Agradezco calquera contribución, desde correccións de erros ata novas funcionalidades.
 
-Unha vez finalizado o scraper os resultados gardanse no ficheiro 'palabras_comuns_gl_pet.json'. En este arquivo é importante engadir, facendo uso de un IDE ou un
-editor de código, unha coma ao final de cada termo traducido e englobar os términos en corchetes ([]) para que o arquivo sexa unha lista de termos en formato JSON.
+## Estado do Proxecto
 
-Por último executase o seguinte comando (tendo, no mesmo directorio os arquivos 'rag.json', 'palabras_comuns_gl_pet.json' e 'find_definiciones_comuns_en.py'):
-```
-python3 find_definiciones_comuns_en.py
-```
-Este último comando crea un novo ficheiro .json chamado palabras_basicas_pet.json que contén as palabras comúns en galego e as súas definicións.
-O arquivo 'find_definiciones_comuns_en.py' busca todas as palabras traducidas no ficheiro 'rag.json' para obter as súas definicións.
+**Galegando21** está actualmente en **produción** e dispoñible na Play Store. A aplicación é estable e recibe actualizacións regulares para mellorar a experiencia do usuario e engadir novas funcionalidades.
 
-<br/><br/>
-### Executar o Scraper dos refráns:
-Executar o scraper:
-```
-cd ragscraper/
-python3 ragscraper/spiders/refrans.py
-```
+## Documentación Adicional
 
-Unha vez finalizado o scraper os resultados gardanse no ficheiro 'refrans-complete.json'. A este arquivo engadese a lista de refrans do arquivo 'refrans_cervantesVirtual.txt'
-obtidos de forma manual. O resultado de este proceso pode encontrarse no arquivo 'app/src/main/assets/refrans.json'.
+- [Documentación da API](https://github.com/pabloboo/Galegando21/blob/main/api/README.md)
+- [Guía de usuario](#)
 
-## API
-O código da API, implementado en Flask, encontrase na en /api/api.py e está despregado en https://www.pythonanywhere.com/.
+## Licenza
 
-Esta API contén varios endpoints:
+Este proxecto está baixo a licenza [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Podes consultar o arquivo [LICENSE](LICENSE) para máis detalles.
 
-- [GET] /api/desafio-personalizado: Obtén un desafío personalizado.
+---
 
-- [GET] /api/eventos: Obtén unha lista de eventos culturais en Galicia.
-
-- [GET] /api/feedback: obtén un feedback do desempeño en base á racha, á experiencia e ao número de insignias obtidas polo usuario.
-
-- [GET] /api/palabra-wordle: obtén a palabra diaria para modo de xogo diario do Wordle.
+**Galegando21** é un proxecto aberto e colaborativo. Se tes calquera pregunta ou suxestión, non dubides en contactar comigo (booiglesiaspablo@gmail.com) ou abrir unha incidencia no repositorio.
